@@ -1,0 +1,3 @@
+platex note.tex
+
+pause

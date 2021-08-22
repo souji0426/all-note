@@ -1,0 +1,124 @@
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\newtheoremstyle{mystyle}%   % スタイル名
+    {5pt}%                      % 上部スペース
+    {12pt}%                      % 下部スペース
+    {\normalfont}%           % 本文フォント
+    {}%                      % インデント量
+    {\bf}%                   % 見出しフォント
+    {.}%                      % 見出し後の句読点, '.'
+    {\newline}%                     % 見出し後のスペース, ' ' or \newline
+    {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{（#3）}}%
+                             % 見出しの書式 (can be left empty, meaning `normal')
+
+%定理番号・定理名部分だけ赤色になるやつ
+\newtheoremstyle{redthm}%
+  {5pt}%
+  {12pt}%
+  {\normalfont}
+  {}%
+  {\color{red}\bf}%
+  {\color{red}.}%
+  {\newline}
+  {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{（#3）}}
+
+\theoremstyle{mystyle} % スタイルの適用
+
+%\newtheorem{theorem}{定理}[section]
+\newtheorem{my-theorem}{Theorem}[section]
+\newtheorem{my-lemma}[my-theorem]{Lemma}
+\newtheorem{my-proposition}[my-theorem]{Proposition}
+\newtheorem{my-corollary}[my-theorem]{Corollary}
+
+\newtheorem{my-definition}[my-theorem]{Definition}
+\newtheorem{my-example}[my-theorem]{Example}
+\newtheorem{my-fact}[my-theorem]{Fact}
+\newtheorem{my-result}[my-theorem]{Result}
+%resultは何かのパッケージの予約語なので別名に変えておく.
+\newtheorem{my-notation}[my-theorem]{Notation}
+\newtheorem{my-exercise}[my-theorem]{Exercise}
+
+%ここから全ての定理環境を上書きする。
+%気に入らなければ上のmy-を無くせばOK（ただしresultは除く）
+%これで主張終わりに黒四角が出力され,\qedhereも使えるようになる.
+\newcommand{\thmsymbol}{$\blacksquare$}
+
+\newenvironment{theorem}[1][]{
+  \begin{my-theorem}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-theorem}
+}
+
+\newenvironment{lemma}[1][]{
+  \begin{my-lemma}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-lemma}
+}
+
+\newenvironment{proposition}[1][]{
+  \begin{my-proposition}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-proposition}
+}
+
+\newenvironment{corollary}[1][]{
+  \begin{my-corollary}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-corollary}
+}
+
+\newenvironment{definition}[1][]{
+  \begin{my-definition}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-definition}
+}
+
+\newenvironment{example}[1][]{
+  \begin{my-example}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-example}
+}
+
+\newenvironment{fact}[1][]{
+  \begin{my-fact}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-fact}
+}
+
+\newenvironment{result}[1][]{
+  \begin{my-result}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-result}
+}
+
+\newenvironment{notation}[1][]{
+  \begin{my-notation}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-notation}
+}
+
+\newenvironment{exercise}[1][]{
+  \begin{my-exercise}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-exercise}
+}
+
+%ここから証明環境の構築
+\renewcommand{\proofname}{Proof}
+
+\makeatletter % use at mark
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    {\bf\underline{#1}\@addpunct{\ }}]\ignorespaces
+    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ピリオドあり
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother % end at mark
+
+\newenvironment{answer}{\begin{proof}[Answer]}{\end{proof}}

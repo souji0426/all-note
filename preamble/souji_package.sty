@@ -1,0 +1,45 @@
+\usepackage{amsmath,amssymb}
+
+\usepackage{mathrsfs}
+%筆記体や花文字を出力するために必要
+
+%図表関係
+\usepackage{tabularx}
+\usepackage{longtable}
+%ページをまたぐ表を出力するために必要
+\usepackage{multirow}
+%表のセルを結合するために必要
+\usepackage{here}
+%図表を指定した位置に出力するのに必要
+\renewcommand{\tablename}{Table}
+%表下に表示される「表：（番号）」が「table:（番号）」になる
+
+\usepackage{ascmac}
+%囲み付き文章を出力するために必要
+
+\usepackage{comment}
+%複数行をコメントアウトするために必要
+
+\usepackage{url}
+%urlを出力するために必要
+
+\usepackage{makeidx}
+%索引を作るために必要
+
+
+\usepackage{subfiles}
+%ファイルを小分けにして編集するために必要
+
+%becouse-in-proof環境の背景に色を付けるために必要なもの
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable, skins, theorems}
+
+%TikZ使うためのもの。documentclassを\documentclass[a4j,dvipdfmx,10pt]{jbook}にしておくこと。
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc, arrows}
+\usepackage{tikz-qtree}
+
+%ノート内の参照やURLにハイパーリンクが埋め込めるようになる
+\usepackage[dvipdfmx,bookmarkstype=toc,colorlinks=true,urlcolor=black,%
+      linkcolor=blue,citecolor=blue,linktocpage=true,bookmarks=true]{hyperref}
+      \AtBeginDvi{\special{pdf:tounicode 90ms-RKSJ-UCS2}}

@@ -1,0 +1,78 @@
+%その他
+%%太字命令の簡略化
+\newcommand{\textgtbf}[2]{\textgt{#1}（\textbf{#2}）}
+\newcommand{\textbfgt}[2]{\textbf{#1}（\textgt{#2}）}
+
+%%各種参照
+\newcommand{\ChapRef}[1]{第\ref{#1}章（\pageref{#1}ページ）}
+\newcommand{\SecRef}[1]{\ref{#1}節（\pageref{#1}ページ）}
+\newcommand{\DefRef}[1]{Definition \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\ExRef}[1]{Example \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\LemRef}[1]{Lemma \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\ThRef}[1]{Theorem \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\FactRef}[1]{Fact \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\PropRef}[1]{Proposition \ref{#1}（\pageref{#1}ページ）}
+
+%%証明中の部分証明環境
+\definecolor{BIP-back}{gray}{0.9}
+\newenvironment{because-in-proof}
+  {
+    \vspace{-5pt}
+    \begin{tcolorbox}[
+    colback = BIP-back,
+    colframe = white,
+    boxrule = 10pt,
+    fonttitle = \bfseries,
+    breakable = true]
+    \begin{itemize} \item[{\boldmath $\because$}\ ]
+  }
+  {
+    \end{itemize}
+    \end{tcolorbox}
+    \vspace{-5pt}
+  }
+
+%基本記号
+%ギリシャ数字
+\newcommand{\glOne}{I}
+\newcommand{\glTwo}{I\hspace{-.1em}I}
+\newcommand{\glThree}{I\hspace{-.1em}I\hspace{-.1em}I}
+
+%%定義する両矢印
+\newcommand{\defarr}{\ \mbox{$\stackrel{\text{def}}{\Longleftrightarrow}$}}
+%%定義する等号
+\newcommand{\defeq}{\ \mbox{$\stackrel{\text{def}}{=}$}}
+
+%%未整理
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\len}{length}
+
+%基礎数学
+%%順序対
+\newcommand{\op}[2]{\langle #1,#2 \rangle}
+\newcommand{\triple}[3]{\langle #1,#2,#3 \rangle}
+\newcommand{\ntuple}[2]{\langle #1,\dots,#2 \rangle}
+\newcommand{\singleseq}[1]{\langle #1 \rangle}
+%%関数関連
+\newcommand{\restric}{\mbox{$\upharpoonright$}}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\fld}{fld}
+\DeclareMathOperator{\id}{id}
+
+%公理的集合論
+%%有限部分関数関連
+\DeclareMathOperator{\Fn}{Fn}
+\newcommand{\compatible}{\not\perp}
+
+
+%%カントール空間
+\newcommand{\CantorSp}{\mbox{}^{\omega}2}
+%%ベール空間
+\newcommand{\BaireSp}{\mbox{}^{\omega}\omega}
+
+
+%帽子パズル関係
+\newcommand{\CanSee}{\raisebox{-0.4ex}{\mbox{$\overrightarrow{V}$}}}
+
+%決定性公理関係
