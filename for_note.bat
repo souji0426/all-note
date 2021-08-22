@@ -36,6 +36,8 @@ dvipdfmx note.dvi
 
 copy /Y "./note.pdf" "./soujiノート.pdf"
 
+copy /Y "./note.pdf" "C:/souji\soujiノート公開用リポジトリ/soujiノート公開用.pdf"
+
 del "./note.aux"
 
 del "./note.dvi"
@@ -48,12 +50,14 @@ del "./note.out"
 
 del "./note.toc"
 
-rem del "./note.idx"
+del "./note.idx"
 
 del "./note.bbl"
 
-rem del "./note.ind"
+del "./note.ind"
 
 del "./note.blg"
 
-"./note.pdf"
+del "./note.pdf"
+
+"./soujiノート.pdf"
