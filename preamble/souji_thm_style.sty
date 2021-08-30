@@ -1,18 +1,18 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 
-\newtheoremstyle{mystyle}%   % ã‚¹ã‚¿ã‚¤ãƒ«å
-    {5pt}%                      % ä¸Šéƒ¨ã‚¹ãƒšãƒ¼ã‚¹
-    {12pt}%                      % ä¸‹éƒ¨ã‚¹ãƒšãƒ¼ã‚¹
-    {\normalfont}%           % æœ¬æ–‡ãƒ•ã‚©ãƒ³ãƒˆ
-    {}%                      % ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆé‡
-    {\bf}%                   % è¦‹å‡ºã—ãƒ•ã‚©ãƒ³ãƒˆ
-    {.}%                      % è¦‹å‡ºã—å¾Œã®å¥èª­ç‚¹, '.'
-    {\newline}%                     % è¦‹å‡ºã—å¾Œã®ã‚¹ãƒšãƒ¼ã‚¹, ' ' or \newline
-    {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{ï¼ˆ#3ï¼‰}}%
-                             % è¦‹å‡ºã—ã®æ›¸å¼ (can be left empty, meaning `normal')
+\newtheoremstyle{mystyle}%   % ƒXƒ^ƒCƒ‹–¼
+    {5pt}%                      % ã•”ƒXƒy[ƒX
+    {12pt}%                      % ‰º•”ƒXƒy[ƒX
+    {\normalfont}%           % –{•¶ƒtƒHƒ“ƒg
+    {}%                      % ƒCƒ“ƒfƒ“ƒg—Ê
+    {\bf}%                   % Œ©o‚µƒtƒHƒ“ƒg
+    {.}%                      % Œ©o‚µŒã‚Ì‹å“Ç“_, '.'
+    {\newline}%                     % Œ©o‚µŒã‚ÌƒXƒy[ƒX, ' ' or \newline
+    {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{i#3j}}%
+                             % Œ©o‚µ‚Ì‘® (can be left empty, meaning `normal')
 
-%å®šç†ç•ªå·ãƒ»å®šç†åéƒ¨åˆ†ã ã‘èµ¤è‰²ã«ãªã‚‹ã‚„ã¤
+%’è—”Ô†E’è—–¼•”•ª‚¾‚¯ÔF‚É‚È‚é‚â‚Â
 \newtheoremstyle{redthm}%
   {5pt}%
   {12pt}%
@@ -21,11 +21,11 @@
   {\color{red}\bf}%
   {\color{red}.}%
   {\newline}
-  {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{ï¼ˆ#3ï¼‰}}
+  {\underline{\thmname{#1}}{\ }\thmnumber{#2}\thmnote{i#3j}}
 
-\theoremstyle{mystyle} % ã‚¹ã‚¿ã‚¤ãƒ«ã®é©ç”¨
+\theoremstyle{mystyle} % ƒXƒ^ƒCƒ‹‚Ì“K—p
 
-%\newtheorem{theorem}{å®šç†}[section]
+%\newtheorem{theorem}{’è—}[section]
 \newtheorem{my-theorem}{Theorem}[section]
 \newtheorem{my-lemma}[my-theorem]{Lemma}
 \newtheorem{my-proposition}[my-theorem]{Proposition}
@@ -35,13 +35,13 @@
 \newtheorem{my-example}[my-theorem]{Example}
 \newtheorem{my-fact}[my-theorem]{Fact}
 \newtheorem{my-result}[my-theorem]{Result}
-%resultã¯ä½•ã‹ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®äºˆç´„èªãªã®ã§åˆ¥åã«å¤‰ãˆã¦ãŠã.
+%result‚Í‰½‚©‚ÌƒpƒbƒP[ƒW‚Ì—\–ñŒê‚È‚Ì‚Å•Ê–¼‚É•Ï‚¦‚Ä‚¨‚­.
 \newtheorem{my-notation}[my-theorem]{Notation}
 \newtheorem{my-exercise}[my-theorem]{Exercise}
 
-%ã“ã“ã‹ã‚‰å…¨ã¦ã®å®šç†ç’°å¢ƒã‚’ä¸Šæ›¸ãã™ã‚‹ã€‚
-%æ°—ã«å…¥ã‚‰ãªã‘ã‚Œã°ä¸Šã®my-ã‚’ç„¡ãã›ã°OKï¼ˆãŸã ã—resultã¯é™¤ãï¼‰
-%ã“ã‚Œã§ä¸»å¼µçµ‚ã‚ã‚Šã«é»’å››è§’ãŒå‡ºåŠ›ã•ã‚Œ,\qedhereã‚‚ä½¿ãˆã‚‹ã‚ˆã†ã«ãªã‚‹.
+%‚±‚±‚©‚ç‘S‚Ä‚Ì’è—ŠÂ‹«‚ğã‘‚«‚·‚éB
+%‹C‚É“ü‚ç‚È‚¯‚ê‚Îã‚Ìmy-‚ğ–³‚­‚¹‚ÎOKi‚½‚¾‚µresult‚Íœ‚­j
+%‚±‚ê‚Åå’£I‚í‚è‚É•lŠp‚ªo—Í‚³‚ê,\qedhere‚àg‚¦‚é‚æ‚¤‚É‚È‚é.
 \newcommand{\thmsymbol}{$\blacksquare$}
 
 \newenvironment{theorem}[1][]{
@@ -104,7 +104,7 @@
   {\popQED\end{my-exercise}
 }
 
-%ã“ã“ã‹ã‚‰è¨¼æ˜ç’°å¢ƒã®æ§‹ç¯‰
+%‚±‚±‚©‚çØ–¾ŠÂ‹«‚Ì\’z
 \renewcommand{\proofname}{Proof}
 
 \makeatletter % use at mark
@@ -115,7 +115,7 @@
   \item[\hskip\labelsep
         \itshape
     {\bf\underline{#1}\@addpunct{\ }}]\ignorespaces
-    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ãƒ”ãƒªã‚ªãƒ‰ã‚ã‚Š
+    % {\bf\underline{#1}\@addpunct{.}}]\ignorespaces % ƒsƒŠƒIƒh‚ ‚è
 }{%
   \popQED\endtrivlist\@endpefalse
 }

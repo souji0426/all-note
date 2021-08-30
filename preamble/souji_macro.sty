@@ -1,19 +1,20 @@
-%ãã®ä»–
-%%å¤ªå­—å‘½ä»¤ã®ç°¡ç•¥åŒ–
-\newcommand{\textgtbf}[2]{\textgt{#1}ï¼ˆ\textbf{#2}ï¼‰}
-\newcommand{\textbfgt}[2]{\textbf{#1}ï¼ˆ\textgt{#2}ï¼‰}
+%‚»‚Ì‘¼
+%%‘¾š–½—ß‚ÌŠÈ—ª‰»
+\newcommand{\textgtbf}[2]{\textgt{#1}i\textbf{#2}j}
+\newcommand{\textbfgt}[2]{\textbf{#1}i\textgt{#2}j}
 
-%%å„ç¨®å‚ç…§
-\newcommand{\ChapRef}[1]{ç¬¬\ref{#1}ç« ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\SecRef}[1]{\ref{#1}ç¯€ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\DefRef}[1]{Definition \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\ExRef}[1]{Example \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\LemRef}[1]{Lemma \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\ThRef}[1]{Theorem \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\FactRef}[1]{Fact \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
-\newcommand{\PropRef}[1]{Proposition \ref{#1}ï¼ˆ\pageref{#1}ãƒšãƒ¼ã‚¸ï¼‰}
+%%ŠeíQÆ
+\newcommand{\PartRef}[1]{‘æ\ref{#1}•”i\pageref{#1}ƒy[ƒWj}
+\newcommand{\ChapRef}[1]{‘æ\ref{#1}Íi\pageref{#1}ƒy[ƒWj}
+\newcommand{\SecRef}[1]{\ref{#1}ßi\pageref{#1}ƒy[ƒWj}
+\newcommand{\DefRef}[1]{Definition \ref{#1}i\pageref{#1}ƒy[ƒWj}
+\newcommand{\ExRef}[1]{Example \ref{#1}i\pageref{#1}ƒy[ƒWj}
+\newcommand{\LemRef}[1]{Lemma \ref{#1}i\pageref{#1}ƒy[ƒWj}
+\newcommand{\ThRef}[1]{Theorem \ref{#1}i\pageref{#1}ƒy[ƒWj}
+\newcommand{\FactRef}[1]{Fact \ref{#1}i\pageref{#1}ƒy[ƒWj}
+\newcommand{\PropRef}[1]{Proposition \ref{#1}i\pageref{#1}ƒy[ƒWj}
 
-%%è¨¼æ˜ä¸­ã®éƒ¨åˆ†è¨¼æ˜ç’°å¢ƒ
+%%Ø–¾’†‚Ì•”•ªØ–¾ŠÂ‹«
 \definecolor{BIP-back}{gray}{0.9}
 \newenvironment{because-in-proof}
   {
@@ -32,47 +33,47 @@
     \vspace{-5pt}
   }
 
-%åŸºæœ¬è¨˜å·
-%ã‚®ãƒªã‚·ãƒ£æ•°å­—
+%Šî–{‹L†
+%ƒMƒŠƒVƒƒ”š
 \newcommand{\glOne}{I}
 \newcommand{\glTwo}{I\hspace{-.1em}I}
 \newcommand{\glThree}{I\hspace{-.1em}I\hspace{-.1em}I}
 
-%%å®šç¾©ã™ã‚‹ä¸¡çŸ¢å°
+%%’è‹`‚·‚é—¼–îˆó
 \newcommand{\defarr}{\ \mbox{$\stackrel{\text{def}}{\Longleftrightarrow}$}}
-%%å®šç¾©ã™ã‚‹ç­‰å·
+%%’è‹`‚·‚é“™†
 \newcommand{\defeq}{\ \mbox{$\stackrel{\text{def}}{=}$}}
 
-%%æœªæ•´ç†
+%%–¢®—
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\len}{length}
 
-%åŸºç¤æ•°å­¦
-%%é †åºå¯¾
+%Šî‘b”Šw
+%%‡˜‘Î
 \newcommand{\op}[2]{\langle #1,#2 \rangle}
 \newcommand{\triple}[3]{\langle #1,#2,#3 \rangle}
 \newcommand{\ntuple}[2]{\langle #1,\dots,#2 \rangle}
 \newcommand{\singleseq}[1]{\langle #1 \rangle}
-%%é–¢æ•°é–¢é€£
+%%ŠÖ”ŠÖ˜A
 \newcommand{\restric}{\mbox{$\upharpoonright$}}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\fld}{fld}
 \DeclareMathOperator{\id}{id}
 
-%å…¬ç†çš„é›†åˆè«–
-%%æœ‰é™éƒ¨åˆ†é–¢æ•°é–¢é€£
+%Œö—“IW‡˜_
+%%—LŒÀ•”•ªŠÖ”ŠÖ˜A
 \DeclareMathOperator{\Fn}{Fn}
 \newcommand{\compatible}{\not\perp}
 
 
-%%ã‚«ãƒ³ãƒˆãƒ¼ãƒ«ç©ºé–“
+%%ƒJƒ“ƒg[ƒ‹‹óŠÔ
 \newcommand{\CantorSp}{\mbox{}^{\omega}2}
-%%ãƒ™ãƒ¼ãƒ«ç©ºé–“
+%%ƒx[ƒ‹‹óŠÔ
 \newcommand{\BaireSp}{\mbox{}^{\omega}\omega}
 
 
-%å¸½å­ãƒ‘ã‚ºãƒ«é–¢ä¿‚
+%–XqƒpƒYƒ‹ŠÖŒW
 \newcommand{\CanSee}{\raisebox{-0.4ex}{\mbox{$\overrightarrow{V}$}}}
 
-%æ±ºå®šæ€§å…¬ç†é–¢ä¿‚
+%Œˆ’è«Œö—ŠÖŒW
