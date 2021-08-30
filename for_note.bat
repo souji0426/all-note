@@ -2,13 +2,7 @@ taskkill /f /im AcroRd32.exe
 
 del "./note.pdf"
 
-del "./note.aux"
-
-del "./note.bbl"
-
 del "./note.dvi"
-
-del "./note.idx"
 
 del "./note.log"
 
@@ -36,9 +30,7 @@ dvipdfmx note.dvi
 
 copy /Y "./note.pdf" "./soujiノート.pdf"
 
-copy /Y "./note.pdf" "C:/souji\soujiノート公開用リポジトリ/soujiノート公開用.pdf"
-
-del "./note.aux"
+copy /Y "./note.pdf" "C:\souji\soujiノート公開用リポジトリ\soujiノート公開用.pdf"
 
 del "./note.dvi"
 
@@ -49,14 +41,6 @@ del "./note.ilg"
 del "./note.out"
 
 del "./note.toc"
-
-del "./note.idx"
-
-del "./note.bbl"
-
-del "./note.ind"
-
-del "./note.blg"
 
 del "./note.pdf"
 

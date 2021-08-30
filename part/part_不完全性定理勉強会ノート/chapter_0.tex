@@ -1,0 +1,760 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+\begin{notation}[ジャーゴン(E:p1~2,\ K:p1~2)]\label{note:jargon}
+  数学用語になかで,
+  このノートを通じて用いるものを4つ挙げる.
+  \begin{itemize}
+    \item[1.]
+      定義や定理の主張の終わりを表す記号として$\blacksquare$を,
+      証明の終わりを表す記号として$\square$を用いる.
+      \footnote{
+        原書でも和訳でも$\dashv$となっているが,
+        私が普段使わないので$\square$にさせてもらった.
+      }
+    \item[2.]
+      「○○ならば××である」という含意を表す文章を「○○$\Rightarrow$××」と略記する.
+      \footnote{
+        「○○$\Rightarrow$××」のような形の命題があったとき,
+        ○○の部分をこの命題の前件,
+        ××の部分をこの命題の後件と読んだりします.
+        原著でも和訳でも「...ならば...である」と前件も貢献も「...」で表現されていますが,
+        細かいことをいうとこれだと前件も後件も同じ主張が入るのかなと誘導しないかなと思い,
+        自分では○○と××を使ってみました.
+      }
+      逆向きの含意を表すのに$\Leftarrow$を使うこともあります. \\
+      「○○であるのは, ××であるとき, かつそのときに限る」を「○○は××と同値である」と述べたり,
+      記号$\Leftrightarrow$を, 「○○$\Leftrightarrow$××」のように使ったりする.
+    \item[3.]
+      「したがって」という言葉の代わりに省略記号$\therefore$を, 「なぜなら」という言葉の代わりに省略記号$\because$を用いる.
+      とくに証明中に$\because$を用いる場合はぶら下げを使って,
+      その理由部分を書く.
+      \footnote{
+        $\therefore$は普段から使わないのでこのノートでも使わないと思う.
+        それとは別に$\because$は普段から積極的に使っているので,
+        ここに載せた.
+        また$\because$を使ったときにどこからどこまでがその理由であるか,
+        理由が長ければ長いほど分かりにくくなるので,
+        ぶら下げを使うことにしています.
+        これの利点は証明を読む場合にその理由を読む必要がなければ,
+        ぶら下げ部分全体を目で飛ばしてしまえばいいからです.
+        これと同じで証明中の場合分けや,
+        同値証明の含意別に見やすくするため,
+        つまり必要条件確認と十分条件確認を分けて見やすくするために,
+        その各部分にぶら下げを使っています.
+      }
+    \item[4.]
+      関係を表す記号に斜線を重ねることでその関係の否定を表すことがある.
+      例えば「$x=y$」の否定として「$x\neq y$」や「$x\in y$」の否定として「$x \notin y$」と書く.
+      このテキストで新たに導入する記号,
+      例えば$\models$に対しても同様に$\not\models$のようにして,
+      このルールを適用する.
+  \end{itemize}
+\end{notation}
+
+\begin{definition}[集合(E:p1~2,\ K:p2)]\label{def:set}
+  ものの集まりのことを\textbfgt{set}{集合}という. \\
+  ここでいう「もの」のことを\textbfgt{member}{要素}または\textbfgt{element}{元}と呼ぶ.
+  この「もの」のことをオブジェクトとも呼んだりする.
+  \footnote{
+    個人的には「元」というと,
+    その集合に演算が入っているようなイメージがあるので,
+    単なる集合の属するものに対しては「要素」を使っていきます.
+  }
+  オブジェクト$x,y$が同一のものであるとき,
+  $x=y$と表す. \\
+  もの$t$が集合$A$の要素であることを$t\in A$で表す. \\
+  集合$A,B$に対して
+  \begin{center}
+    どのオブジェクト$t$についても,
+    $t\in A$であれば$t\in B$であり,
+    かつ$t\in B$であれば$t\in A$である
+  \end{center}
+  （論理式で書けばたとえば$\forall t( \  t\in A \to t\in B\ \land \  t\in B \to t\in A \ )$や,
+  $\forall t( \  t\in A \Leftrightarrow t\in B\ )$となる）をみたすとき,
+  集合$A,B$は等しいと言い,
+  $A=B$で表す.
+\end{definition}
+
+\begin{definition}[E:p2,\ K:p2]\label{def:;演算}
+  オブジェクト$t$と集合$A$に対して,
+  その要素が$t$か$A$に属する要素のみであるような集合を$A;t$で表す. \\
+  のちに定義する和集合記号$\cup$を用いて定義しなおせば,
+  $A;t\defeq A\cup \{ t \}$となる.
+  「$\defeq$」という表記に関してはすぐ下のNotationを参照のこと.
+  \footnote{
+    この$A;t$という記法はここで初めて見た.
+    どこまでメジャーなんだろうか.
+  }
+\end{definition}
+
+\begin{notation}[定義するための記号]
+  もの（数学的対象）を定義するさいに「$\defeq$」,
+  \footnote{
+    この記号はテキストでは導入されていないが,
+    ほかの数学書でもよく使うし表現を簡略化するためにも積極的に使っていく.
+    また「$\defeq$」の代わりに「$:=$」はよく使われている印象がある.
+    ただこれは証明内での一時的な定義にも使用している人もいるような気がする.
+  }
+  （数学的な）述語を定義するさいに「$\defarr$」を用いる.
+  使い方としてはこれらに記号の左側に変数などを利用した新たなものや述語を記述し,
+  右側に日常言語で書かれたそれらの定義を書く.
+  ここまでの定義を使用例を出すと
+  \begin{itemize}
+    \item $A;t\ \defeq\ $その要素が$t$か$A$に属する要素のみであるような集合（Definition \ref{def:;演算}）
+    \item
+      $A=B\ \defarr\ $どのオブジェクト$t$についても,
+      $t\in A$であれば$t\in B$であり,
+      かつ$t\in B$であれば$t\in A$である（Definition \ref{def:set}）
+  \end{itemize}
+\end{notation}
+
+\begin{proposition}
+  オブジェクト$t$と集合$A$に対して,
+  $t\in A\ \Leftrightarrow\ A;t=A$.
+\end{proposition}
+
+\begin{proof}
+  同値であることを示すので,
+  $t\in A\ \Rightarrow\ A;t=A$と$A;t=A\ \Rightarrow\ t\in A$の2つを示す必要がある.
+  \begin{itemize}
+    \item[] $t\in A\ \Rightarrow\ A;t=A$の証明 \\
+      $t\in A$とすると,
+      $t$はすでに$A$の要素であるため,
+      $A;t$のどの要素も$A$の要素であり$t$も含めてそれ以外の要素が含まれることがない.
+      つまり$A;t=A$.
+    \item[] $A;t=A\ \Rightarrow\ t\in A$の証明 \\
+      $A;t=A$とすると,
+      集合$A;t$のどの要素も$A$の要素であるから,
+      $A;t$に属する$t$もまた$A$の要素でなくてはならない.
+      つまり$t\in A$. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{definition}[空集合(E:p2,\ K:p2~3)]\label{def:empty set}
+  要素を全く持たない集合を\textbfgt{empty set}{空集合}といい,
+  $\emptyset$で表す.
+  集合$A$が空であることは$A=\emptyset$で表せ,
+  （論理式で書けば例えば$\forall x(\ x\notin A\ )$となる）
+  空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
+\end{definition}
+
+\begin{definition}[外延的記法(E:p2,\ K:p3)]
+  オブジェクト$x,x_1,\dots,x_n$に対して,
+  \begin{itemize}
+    \item[1.] $x$のみを要素にもつ集合を$\{ x \}$で表す.
+    \item[2.] $x_1,\dots,x_n$のみを要素にもつ集合を$\{ x_1,\dots,x_n \}$で表す.
+    \item[3.]
+      $\{ 0,1,2,\dots \}$は自然数全体の集合$\mathbb{N}$を表し,
+      $\{ \dots,-2,-1,0,1,2,\dots \}$は整数全体の集合$\mathbb{Z}$を表す.
+  \end{itemize}
+\end{definition}
+
+集合は要素の表現の順番を変えても同じ集合である.
+
+\begin{proposition}[E:p2,\ K:p3]
+  オブジェクト$x,y$に対して,
+  $\{ x,y \} = \{ y,x \}$である.
+\end{proposition}
+
+\begin{proof}
+  証明略.
+\end{proof}
+
+\begin{definition}[内包的記法(E:p2,\ K:p3)]
+  $\{ x | \text{\_}x\text{\_}\}$と書いて$\text{\_}x\text{\_}$をみたす全てのオブジェクトの集合を表す.
+  \footnote{
+    ここはテキストにならったのだが,
+    $\text{\_}x\text{\_}$はかなり曖昧だと思う.
+    $x$に関する命題とか文と言ってしまえば,
+    これから命題や文という単語を対象につけることがあるような当分野においては避けたい表現である（そして表現という単語も今後使う………）.
+    $\text{\_}x\text{\_}$の代わりに$P(x)$や$\varphi(x)$などを使って$x$を変数とする命題かのように表現することもありますが,
+    それもこの場合は意図的に避けたのだろうと思います.
+    なぜならこうすると今度は主張における変数とは何ぞかを説明しなくてはならないからでしょうか.
+  }
+  \footnote{
+    テキストでは「この書き方はめいっぱい柔軟に用いることにする」とあり,
+    その使用例として$\{\op{m}{n}|m,n\text{は}\mathbb{N}\text{の要素で}m<n\}$が挙げられています.
+    論理記号を使って書けば$\{\op{m}{n}|m,n\in\mathbb{N}\land m<n\}$となります.
+    ここにおいて「柔軟」という言い方も曖昧だと思います.
+    定義にある書き方になぞるならこの集合は$\{ x | \exists m,n\in\mathbb{N}(\ x=\op{m}{n}\land m<n\ )\}$と書くべきでしょうか.
+    ちなみに\cite{Basic003:kada-kiso}では内包的記法における$|$の左に変数一文字ではなく,
+    いくつかの変数を用いた表現が使われている記法を内包的記法と区別して置換型記法と呼んでいたりする.
+    たしかにこの2つの記法は同じではないので区別する必要があると思われる（普通の数学書でのそう区別はしないことは多いと思うが）.
+    なのでここの柔軟さはかなり曖昧に思えた.
+  }
+\end{definition}
+
+\begin{definition}[部分集合(E:p2,\ K:p3)]
+  集合$A,B$に対して集合$A$の要素がすべて$B$の要素でもあるとき,
+  $A$は$B$の\textbfgt{subset}{部分集合}であるといい,
+  $A\subseteq B$で表す.
+  （論理式で書けば$\forall x(x\in A\to x\in B)$となる）
+\end{definition}
+
+\begin{proposition}[(E:p2,\ K:p3)]
+  $\emptyset$はどんな集合に対しても部分集合となる.
+\end{proposition}
+
+\begin{proof}
+  証明略.
+\end{proof}
+
+\begin{definition}[べき集合(E:p2,\ K:p3)]
+  集合$A$に対して$A$のすべての部分集合からなる集合を$A$の\textbfgt{power set}{べき集合}とよぶ,
+  $\mathcal{P}(A)$で表す.
+  より正確には$\mathcal{P}(A)\defeq \{ X | X\subseteq A \}$.
+  \footnote{
+    テキストでは$\mathcal{P}A$だが個人的には$\mathcal{P}(A)$が好きなのでこちらを使っていくことにした.
+  }
+\end{definition}
+
+\begin{example}[E:p3,\ K:p4]
+  $\mathcal{P}(\emptyset)\ =\ \{\emptyset\}$ \\
+  $\mathcal{P}(\{\emptyset\})\ =\ \{\emptyset, \{\emptyset\}\}$
+\end{example}
+
+\begin{definition}[和集合と共通部分(E:p3,\ K:p4~5)]
+  $A,B$を集合,
+  $\mathcal{A}$を全ての要素が集合であるような集合とする.
+  \footnote{
+    テキストではいきなりこんな集合が登場したけど,
+    なんで「集合族」のような語を用意しなかったのだろうか.
+  }
+  \footnote{
+    テキストでは集合でも集合族でも単なる$A$で表現していた.
+    個人的には集合族には記号の衝突が起こらない（つまり理論を展開するさいに必須な記号と被らない）かぎり,
+    集合族には筆記体（カリグラフィーとどう違うのか分からないけれども………）を使うのが好み.
+  }
+  さらに各自然数$n$に対して集合$A_n$が定まっているとする.
+  \begin{itemize}
+    \item[1.]
+      $A\cup B\defeq \{ x| x\in A\text{または}x\in B\}$（$=\{ x| x\in A\lor x\in B\}$）とし,
+      これを$A$と$B$の\textbfgt{union}{和集合}という.
+    \item[2.]
+      $A\cap B\defeq \{ x| x\in A\text{かつ}x\in B\}$（$=\{ x| x\in A\land x\in B\}$）とし,
+      これを$A$と$B$の\textbfgt{intersection}{共通部分}という.
+    \item[3.]
+      $A\cap B=\emptyset$であるとき,
+      $A$と$B$は\textbfgt{disjoint}{交わらない}という.
+      $\mathcal{A}$のどの2個の要素も交わらないとき,
+      $\mathcal{A}$は\textbfgt{pairwise disjoint}{互いに交わらない}という.
+    \item[4.]
+      $\bigcup\mathcal{A}\defeq \{ x | x\text{は}A\text{のいずれかの要素に属する}\}$（$=\{ x | \exists A( x\in A \land A\in \mathcal{A})$）とし,
+      これを$\mathcal{A}$の\textbfgt{union}{和集合}という.
+    \item[5.]
+      $\bigcap\mathcal{A}\defeq \{ x | x\text{は}A\text{のすべての要素に属する}\}$（$=\{ x | \forall A( x\in A \land A\in \mathcal{A}) \}$）とし,
+      これを$\mathcal{A}$の\textbfgt{intersection}{共通部分}という.
+    \item[6.]
+      $\bigcup_{n\in\mathbb{N}}A_n\defeq \bigcup\{ A_n | n\in \mathbb{N} \}$とする.
+      これを単に$\bigcup_{n}A_n$と表すこともある.
+      \footnote{
+        これは添え字付き集合族の和集合ともいえるものだけど,
+        なぜ添え字付き集合族の共通部分は定義しなかったのだろう（たんに今後使わないだけ？）.
+      }
+  \end{itemize}
+\end{definition}
+
+\begin{example}[E:p3,\ K:p4~5]
+  $t$をオブジェクト,
+  $A,B$を集合,
+  $\mathcal{A}=\{ \{ 0,1,5 \}, \{ 1,6 \}, \{ 1,5 \} \}$という集合族とする.
+  \begin{itemize}
+    \item[1.] $A;t=A\cup \{ t \}$
+    \item[2.]
+      $\bigcup\mathcal{A}=\{ 0,1,5,6 \}$ \\
+      $\bigcap\mathcal{A}=\{ 1 \}$
+    \item[3.] $A\cup B=\bigcup\{ A,B \}$
+    \item[4.] $\bigcup\mathcal{P}(A)=A$
+  \end{itemize}
+\end{example}
+
+\begin{definition}[順序対(E:p3~4,\ K:p5)]
+  オブジェクト$x,y,z,x_1,\dots,x_n,x_{n+1}$に対して
+  \begin{itemize}
+    \item[1.]
+      $\op{x}{y}\defeq \{ \{ x \}, \{ x,y \} \}$とし,
+      これを$x$と$y$の\textbfgt{ordered pair}{順序対}という.
+      \footnote{
+        これは順序対のKuratowski流の定義と言われている.
+        詳しくは順序対のWikipedia（\url{https://ja.wikipedia.org/wiki/\%E9\%A0\%86\%E5\%BA\%8F\%E5\%AF\%BE}）を参考に.
+      }
+      順序対$\op{x}{y}$における$x,y$をこの順序対の成分といい,
+      とくに$x$を第一成分,
+      $y$を第二成分と呼んだりする.
+      \footnote{
+        定義されていなかい言葉遣いだったのでなんとなく定義しておいた.
+      }
+    \item[2.]
+      $\triple{x}{y}{z}\defeq \op{\op{x}{y}}{z}$とし,
+      より一般的に$n>1$に対して$\ntuple{x_1}{x_{n+1}}\defeq \op{\ntuple{x_1}{x_n}}{x_{n+1}}$と帰納的に定義する.
+    \item[3.]
+      とくに$\singleseq{x}=x$と定義する.
+      \footnote{
+        これの妥当性として,
+        すぐ後ろで$\op{x}{y}$とは$x,y$とオブジェクトが並んだ列と見なすので,
+        $\singleseq{x}$とは$x$1つが並んでいる初項のみの列と思えば$\singleseq{x}=x$であるほうが自然に見える.
+        またKuratowski流の定義によれば$\op{x}{x}=\{ \{ x \} \}$となりこれと単なる$x$とを区別しやすくなる.
+      }
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[有限列(E:p4,\ K:p5)]\label{def:finite sequence}
+  集合$A$に対して
+  \begin{itemize}
+    \item[1.]
+      $S$が$A$の要素からなる\textbfgt{finite sequence}{有限列}（あるいは\textbfgt{string}{列}）であるとは,
+      ある正の整数$n$について$S=\ntuple{x_1}{x_n}$で各$x_i$が$A$の要素であるときとする.
+      （論理式で書くと$\exists n\in \mathbb{Z}(\ n>0\ \land \ x_1,\dots ,x_n\in A\ \land\ S=\ntuple{x_1}{x_n}\ )$） \\
+      またこのときの$n$を有限列$A$の\textgt{長さ}とよぶ.
+      \footnote{
+        テキストにおいて写像における有限列の定義について言及しているが,
+        これは例えば長さ$n$の$A$の有限列$S$は$\{ 1,\dots,n\}$から$A$への写像として定義できる.
+      }
+    \item[2.]
+      $A$の要素からなる有限列$S=\ntuple{x_1}{x_n}$に対し,
+      $1\leq k\leq m\leq n$な$k,m$でもって$\ntuple{x_k,x_{k+1}}{x_{m-1},x_m}$な形の有限列を$S$の\textbfgt{segment}{区間}という.
+      とくに$k=1$な区間を$S$の\textbfgt{initial segment}{始切片}といい,
+      $m\neq n$な始切片を$S$の\textbfgt{proper initial segment}{真の始切片}という.
+  \end{itemize}
+\end{definition}
+
+\begin{proposition}[E:p4,\ K:p6]
+  オブジェクト$x_1,\dots,x_n,y_1,\dots,y_n$に対して$\ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}$ならば,
+  $1\leq i\leq n$な各$i$について$x_i=y_i$.
+\end{proposition}
+
+\begin{proof}
+  示すべきことを論理式で書くと
+  \begin{equation*}
+    \forall n\in \mathbb{N}\left(\ \forall x_1,\dots,x_n,y_1,\dots,y_n \left(\ \ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}\ \to\ \forall i(\ 1\leq i\leq n\to x_i=y_i\ )\ \right)\ \right)
+  \end{equation*}
+  よって$n\in \mathbb{N}$について数学的帰納法を用いて証明する.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}（Basis） \\
+      その定義より$\singleseq{x}=x$だから,
+      $\singleseq{x_1}=\singleseq{y_1}$ならば$x_1=y_1$である.
+    \item[]\hspace{-0.5cm}（Induction step） \\
+      $n$のときに成立しているとする.
+      任意に取った$x_1,\dots,x_n,x_{n+1},y_1,\dots,y_n,y_{n+1}$に対して
+      $\ntuple{x_1}{x_{n},x_{n+1}}=\ntuple{y_1}{y_{n},y_{n+1}}$だったとする.
+      一般的な順序$n$個組の定義から
+      \begin{gather*}
+        \ntuple{x_1}{x_{n},x_{n+1}}\ =\ \op{\ntuple{x_1}{x_n}}{x_{n+1}} \\
+        \ntuple{y_1}{y_{n},y_{n+1}}\ =\ \op{\ntuple{y_1}{y_n}}{y_{n+1}}
+      \end{gather*}
+      であり,
+      今順序対の定義から第一成分・第二成分同士が等しいので,
+      \begin{gather*}
+        \ntuple{x_1}{x_n}\ =\ \ntuple{y_1}{y_n} \\
+        x_{n+1}\ =\ y_{n+1}
+      \end{gather*}
+      今に任意に取られた$n$個の要素たちについては
+      \begin{equation*}
+        \ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}\ \to\ \forall i(\ 1\leq i\leq n\to x_i=y_i\ )
+      \end{equation*}
+      が成立しているので,
+      $x_{n+1}=y_{n+1}$とまとめると,
+      $\forall i(\ 1\leq i\leq n+1\to x_i=y_i\ )$となるので,
+      $n+1$の場合もOK. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{lemma}[E:p4 LEMMA 0A,\ K:p6 補題0A]\label{lemma:長さの違う有限列が一致するとき始切片で帳尻が合う}
+  $\ntuple{x_1}{x_m}=\ntuple{y_1,\dots,y_m}{y_{m+k}}$ならば$x_1=\ntuple{y_1}{y_{k+1}}$.
+\end{lemma}
+
+\begin{proof}
+  示すべきことを論理式で書けば
+  \begin{equation*}
+    \forall k\in \mathbb{N}\left(\ \forall m\in \mathbb{N}\forall x_1,\dots,x_m,y_1,\dots,y_{m+k}
+    \big(\ \ntuple{x_1}{x_m}=\ntuple{y_1,\dots,y_m}{y_{m+k}}\ \to\ x_1=\ntuple{y_1}{y_{k+1}}\ \big)\ \right)
+  \end{equation*}
+  となる.
+  任意に$k\in \mathbb{N}$をとる.
+  このあとの主張に対して$m\in \mathbb{N}$についての数学的帰納法を用いる.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}（Basis） \\
+      $m=1$を仮定に代入すると$\singleseq{x_1}=\ntuple{y_1,y_2}{y_{1+k}}$となり,
+      定義より$\singleseq{x_1}=x_1$から成立.
+    \item[]\hspace{-0.5cm}（Induction step） \\
+      $m$のときに成立しているとする.
+      $\ntuple{x_1}{x_{m+1}}=\ntuple{y_1,\dots,y_m}{y_{m+1+k}}$を仮定する.
+      一般順序組の定義から
+      \begin{gather*}
+        \ntuple{x_1}{x_{m+1}}\ =\ \op{\ntuple{x_1}{x_m}}{x_{m+1}} \\
+        \ntuple{y_1,\dots,y_m}{y_{m+1+k}}\ =\ \op{\ntuple{y_1}{y_{m+k}}}{x_{m+k+1}}
+      \end{gather*}
+      つまり各第一成分が等しいということなので
+      \begin{equation*}
+        \ntuple{x_1}{x_m}\ =\ \ntuple{y_1}{y_{m+k}}
+      \end{equation*}
+      が分かり,
+      $m$のときに成立していたことから$x_1=\ntuple{y_1}{y_{k+1}}$であることが分かる. \qedhere
+  \end{itemize}
+\end{proof}
+
+テキストでは例えとして「たとえば,
+$A$は集合で,
+$A$のどの要素も他の要素からなる有限列とは一致しないと仮定します.
+そのとき,
+$\ntuple{x_1}{x_m}=\ntuple{y_1}{y_n}$であって,
+$x_i$や$y_i$それぞれが$A$に属する場合,
+上の補題によって$m=n$です.
+さらに,
+結果的に,
+それぞれの$i$について$x_i=y_i$となります.」
+とありますが個人的に分かりづらかったので具体例を挙げる.
+
+\begin{example}\label{example:集合として一致するが長さが異なる有限列}
+  集合$A$を$A=\{ 0,1,\op{2}{3} \}$とすると,
+  この$A$の要素で（集合として）等しくなるようなどんな2つの$n$個組を作っても,
+  それが等しい限りはその長さも構成成分の順番も等しくなる. \\
+  逆に$A=\{ 0,1,\op{0}{1},\op{0,1}{0} \}$として,
+  $A$の有限列$S_1,S_2$を
+  \begin{gather*}
+    S_1\ =\ \op{\op{0,1}{0}}{1} \\
+    S_2\ =\ \op{\op{0}{1},0}{1}
+  \end{gather*}
+  とすると,
+  この2つは（集合として）$S_1=S_2$ではあるが,
+  $S_1$の長さは$2$で$S_2$の長さは$3$,
+  よって長さは一致せず,
+  ゆえに構成成分も一致しない.
+\end{example}
+
+ここで有限列の長さの定義の曖昧さが少し影響てくる.
+たとえばExample \ref{example:集合として一致するが長さが異なる有限列}の$S_1$は$\op{\op{0,1}{0}}{1}=\op{\op{0}{1},0}{1}$でもあるから,
+これの長さとして$2$か$3$のどちらを採用すればよいか混乱する.
+テキストに書いてある注意事項のように写像で定義すれば問題は解決できる.
+関数の定義の先取りにはなってしまうが,
+たとえば$S_1$を$S_1\colon \{ 1,2 \}\to A$として$S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
+すると$S_1$と$S_2$はそもそも定義域が違う別の関数となるので混乱がなくなる.
+しかしながら1章以降は$\{ 0,1,\op{0}{1},\op{0,1}{0} \}$のような集合から有限列を構成したりはしない.
+つまり$\{ 0,1,\op{2}{3} \}$のような「どの要素も他の要素からなる有限列とは一致しない」集合を扱うときには,
+長さの定義に曖昧さがでることはないので特に長さの定義を意識する必要はないということである.
+最初にこれの注意に該当することは\DefRef{def:symbol}下の注意事項\ \ref{remark:symbolの定義の「これらの記号のどれもが他の記号の有限な長さの列とは一致しない」部分}があてはまる.
+
+\begin{definition}[直積集合(E:p4,\ K:p6)]
+  集合$A,B$と$n>1$な$n\in \mathbb{N}$に対し
+  \begin{itemize}
+    \item[1.]
+      $A\times B\defeq \{\op{a}{b}|a\in A\text{かつ}b\in B\}$とし,
+      これを$A$と$B$の\textbfgt{Cartesian product}{直積集合}という.
+    \item[2.]
+      $A^n\defeq A^{n-1}\times A$と帰納的に定義する.
+      たとえば$A^3=(A\times A)\times A$である.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[関係(E:p4~5,\ K:p6~7)]
+  集合$A,B,R$と$n>0$な$n\in \mathbb{N}$に対し
+  \begin{itemize}
+    \item[1.]
+      $R$のすべての要素が順序対であるとき,
+      $R$を\textbfgt{relation}{関係}という.
+    \item[2.]
+      関係$R$に対して
+      $\dom(R)\defeq\{ x|\text{ある}y\text{について}\op{x}{y}\in R \}$とし,
+      これを関係$R$の\textbfgt{domain}{定義域}という. \\
+      さらに$\ran(R)\defeq\{ y|\text{ある}x\text{について}\op{x}{y}\in R \}$とし,
+      これを関係$R$の\textbfgt{range}{値域}という. \\
+      さらに$\fld(R)\defeq \dom(R)\cup \ran(R)$とし,
+      これを関係$R$の\textbfgt{field}{領域}という.
+      \footnote{
+        テキストでは$\dom(R),\ran(R),\fld(R)$ではなく$\dom R,\ran R,\fld R$と「$()$」が付いていないが,
+        個人的な好みから「$()$」をつけることにします.
+      }
+      \footnote{
+        $\fld(R)$というものはここで初めて見た.
+      }
+    \item[3.]
+      $R\subseteq A^n$であるとき,
+      そんな$R$を$A$上の$n$項関係という.
+    \item[4.]
+      $B\subseteq A$かつ$R$が$A$上の$n$項関係であるとき,
+      $R\cap B^n$を$R$の$B$への\textbfgt{restriction}{制限}という.
+  \end{itemize}
+\end{definition}
+
+\begin{example}[E:p4~5,\ K:p6~7]
+  集合$R_1,R_2\subseteq \mathbb{N}^2$に対し
+  \begin{itemize}
+    \item[1.]
+      $R_1=\{\op{0}{1},\op{0}{2},\op{0}{3},\op{1}{2},\op{1}{3},\op{2}{3}\}$とおくと,
+      $R_1$は$0$から$3$までの数の間の大小関係となる.
+      さらに$\dom(R)=\{ 0,1,2 \},\ \ran(R)=\{ 1,2,3 \},\ \fld(R)=\{ 0,1,2,3 \}$となる.
+    \item[2.]
+      $R_2=\{ \op{m}{n} | m<n \}$とおくと,
+      $R_2$は$\mathbb{N}$上の大小関係となり,
+      $B=\{ 0,1,2,3 \}$とすれば$R_1=R_2 \cap B^2$となるから$R_1$は$R_2$の$B$への制限である.
+  \end{itemize}
+\end{example}
+
+\begin{definition}[写像(E:p5,\ K:p7~8)]
+  集合$A,B$と関係$F$に対して
+  \begin{itemize}
+    \item[1.]
+      $F$が「$\dom(F)$のそれぞれの要素$x$について,
+      $\op{x}{y}\in F$なる$y$がただひとつ存在する」（論理式で書くと$\forall x\in \dom(F)\exists !y(\op{x}{y}\in F)$）をみたすとき,
+      $F$は\textbfgt{function}{写像}であるという.
+      \footnote{
+        個人的にはmapは写像,
+        functionは関数と訳すのが好みであるが,
+        ここはテキストとその和訳に合わせてfunctionを写像と訳すことにする.
+      }
+      このとき$x\in \dom(F)$に対して一意的に存在している$y$のことを$F(x)$で表し,
+      $F$の$x$における\textbfgt{value}{値}という.
+    \item[2.]
+      写像$F$が$\dom(F)=A$かつ$\ran(F)\subseteq B$をみたすとき,
+      $F$は$A$を$B$に\textgt{写す}といい,
+      $F\colon A\to B$で表す.
+      \footnote{
+        これを見たときもしかしたら$\ran(R)$の部分集合関係に合わせて$\dom(F)\subseteq A$としなくてはいいのかと疑問に思う人もいるかもしれない.
+        もしそうすると定義域に対応要素のない要素が存在することを許してしまう.
+        それを許したうえで$\dom(F)=A$なる写像に\textgt{全域写像}と名付ける流儀もある.
+        たとえば\cite{Basic003:kada-kiso}では$\dom(F)\subseteq A$かつ$\ran(F)\subseteq B$なるものを「$A$から$B$への部分写像」,
+        $F$による$x$の値が存在しないとき「$F(x)$は未定義」といい,
+        部分写像が$\dom(F)=A$を満たした場合にそれを全域写像もしくは単に写像と呼んでいる.
+      }
+    \item[3.]
+      $F\colon A\to B$であるとき,
+      $\ran(F)=B$をみたすとき,
+      $F$は$A$から$B$への\textbfgt{surjection}{全射}
+      \footnote{
+        このテキストでは「$B$全体へ写す」と表現している.
+        それならまだしも「上への写像」という言い方もありますが,
+        これは何が「上」なのか個人的にイメージしづらく使わないようにしています.
+      }
+      であるという. \\
+      「$\ran(F)$のそれぞれの要素$y$について,
+      $\op{x}{y}\in F$をみたす$x$がただひとつ存在する」（論旨式で書くと$\forall y\in \ran(F)\exists !x(\op{x}{y}\in F)$）
+      \footnote{
+        ここでの単射の定義は初見では違和感がありました.
+        なぜなら普段私は$F\subseteq A\times B$かつ$\forall a\in A\exists !b\in B(\op{a}{b}\in F)$をみたすものを,
+        $A$から$B$への写像とよび$F\colon A\to B$と表し,
+        $\ran(F)=B$としていたためである.
+        ここでの定義ならこれでよいが,
+        個人的にはやはり「$\forall x_1,x_2,y(\ \op{x_1}{y}\in F\land\op{x_2}{y}\in F\ \to\ x_1=x_2\ )$」
+        もっと分かりやすくして「$\forall x_1,x_2(\ F(x_1)=F(x_2)\ \to\ x_1=x_2\ )$」か,
+        「$\to$」部分で対偶をとった「$\forall x_1,x_2(\ x_1\neq x_2\ \to\ F(x_1)\neq F(x_2)\ )$」の方が好みです.
+      }
+      をみたすとき,
+      $F$は$A$から$B$への\textbfgt{injection}{単射}
+      \footnote{
+        このテキストでは「$F$が1対1である」と表現している.
+        しかし全単射に対してこの言い方を使うテキストもあるし,
+        個人的には全単射の方が1対1なるイメージを持っているためここでは「単射」を使うことにしました.
+      }
+      であるという. \\
+      全射かつ単射な写像を\textbfgt{bijection}{全単射}という.
+      \footnote{
+        テキストでは定義されていなかったので用意しておいた.
+      }
+    \item[4.]
+      オブジェクト$x,y$とその順序対$\op{x}{y}$と写像$F$に対して,
+      $\op{x}{y}\in \dom(F)$であるとき$F(\op{x}{y})$を単に$F(x,y)$で表す.
+      より一般的に$F(\ntuple{x_1}{x_n})$を$F(x_1,\dots,x_n)$で表す.
+      \footnote{
+        つまり普段2変数関数で使う記法を導入したことになるのだろう.
+      }
+    \item[5.]
+      $F=\{\op{x}{x}|x\in A\}$であるとき,
+      $F$を$A$上の\textbfgt{identity function}{恒等写像}といい,
+      この$F$を$\id_A$で表す.
+      \footnote{
+        テキストでは$\mathrm{Id}$と書いているが「$A$上の」というからにはせめて$\mathrm{Id}_{A}$と書く方が好き.
+        そして$\mathrm{Id}$より$\mathrm{id}$が好きなのでこのように定義した.
+      }
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[演算(E:p5,\ K:p8)]
+  集合$A,B$と関係$f,g$に対して
+  \begin{itemize}
+    \item[1.]
+      $f\colon A^n\to A$であるとき$f$を$A$上の{\boldmath $n$}\textbf{-ary operation}（{\boldmath $n$}\textgt{項演算}）であるという.
+    \item[2.]
+      $A$上の$n$項演算$f$と$B\subseteq A$な集合$B$に対して,
+      $g=f\cap(B^n\times A)$をみたす$g$を$f$の$B$への\textbfgt{restriction}{制限}という.
+      \footnote{
+        この$g$のことを$f\restric B$や$f|_B$で表すことがあります.
+        個人的には$f\restric B$が好き（初めて見た記法がこれだったからという理由で）.
+      }
+    \item[3.]
+      $A$上の$n$項演算$f$に対して,
+      集合$B\subseteq A$が$f$について閉じているとは,
+      どの$b_1,\dots,b_n\in B$についても$f(b_1,\dots,b_n)\in B$をみたす（論理式で書くと$\forall b_1,\dots,b_n\in B\big(\ f(b_1,\dots,b_n)\in B\ \big)$）ときをいう.
+  \end{itemize}
+\end{definition}
+
+\begin{example}[E:p5,\ K:p8]
+  $S_1\colon \mathbb{N}^2\to \mathbb{N}$と$S_2\colon \mathbb{N}\to \mathbb{N}$に対して
+  \begin{itemize}
+    \item[1.]
+      $S_1$が任意の$m,n\in \mathbb{N}$に対し$S_1(m,n)=m+n$をみたすとすると,
+      $S_1$は$\mathbb{N}$上の加法という$\mathbb{N}$上の2項演算となる.
+    \item[2.]
+      $S_2$が任意の$n\in \mathbb{N}$に対し$S_2(n)=n+1$をみたすとすると,
+      $S_2$は$\mathbb{N}$上の直後の自然数を与えるという$\mathbb{N}$上の1項（単項）演算となる.
+      \footnote{
+        これはよく\textgt{後者関数}と呼ばれている.
+      }
+    \item[3.]
+      $P\colon \mathbb{R}^2\to \mathbb{R}$が任意の$r_1,r_2\in \mathbb{R}$に対し$p(r_1+r_2)=r_1+r_2$をみたすとすると,
+      $P$は$\mathbb{R}$上の加法という$\mathbb{R}$上の2項演算となり,
+      1.の$S_1$は$P$の$\mathbb{N}$への制限,
+      つまり$S_1=P\cap \mathbb{N}^3$となっている.
+  \end{itemize}
+\end{example}
+
+\begin{example}[E:p5,\ K:p8]
+  集合$A,B$に対して
+  \begin{itemize}
+    \item[1.]
+      $f$を$A$上の$n$項演算,
+      $B\subseteq A$とし,
+      $g$を$f$の$B$への制限とする.
+      $g$が$B$上の$n$項演算となることと,
+      $B$が$f$について閉じていることは同値である.
+    \item[2.]
+      $A$上の恒等写像$\id_A$は（何もしない・作用しないという）$A$上の単項演算である.
+  \end{itemize}
+\end{example}
+
+\begin{proof}
+  1.のみ示す.
+  主張「$g$が$B$上の$n$項演算となること」を$(1)$,
+  「$B$が$f$について閉じている」を$(2)$とおいて,
+  $(1)\Rightarrow(2)$と$(2)\Rightarrow(1)$の2つを示す.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}$(1)\Rightarrow(2)$ \\
+      $f$の$B$への制限$g$が今$B$上の$n$項演算であることから,
+      $\dom(g)=B^n$かつ$\ran(g)\subseteq B$をみたしている,
+      もっというと$g=f\cap B^{n+1}=f\cap(B^n\times B)$をみたしている,
+      これはつまり$(2)$をみたしていることになる.
+    \item[]\hspace{-0.5cm}$(2)\Rightarrow(1)$ \\
+      $B$が$f$について閉じている,
+      つまり$g=f\cap B^{n+1}=f\cap(B^n\times B)$となっているので,
+      $\dom(g)=B^n$かつ$\ran(g)\subseteq B$をみたしている,
+      これはつまり$(1)$をみたしていることになる. \qedhere
+  \end{itemize}
+\end{proof}
+
+普段閉じている演算ばかりを見ているので,
+逆に閉じてない演算とはどんな例があるかという議論があったのでここにまとめる. \\
+$\mathbb{R}$上の2項演算$+,-,\times$にて$\mathbb{R}$は閉じている.
+有理数全体の集合を$\mathbb{Q}$とすると,
+$\mathbb{Q}$上のこれらの演算は$\mathbb{R}$の演算の$\mathbb{Q}$への制限となる.
+そして$\mathbb{Q}$についても,
+そして$\mathbb{Z}$についても閉じている.
+しかし演算$-$は$\mathbb{N}$については閉じていない. \\
+$\div$についてはそもそもどう定義するか（0で割ることをどう避けるか）によって議論が変わりそうであるが,
+どのように定義したとしても$\mathbb{R}$と$\mathbb{Q}$については閉じているが,
+$\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
+
+\begin{definition}[同値関係と順序関係(E:p5~6,\ K:p8~9)]
+  集合$A$と関係$R$に対して
+  \begin{itemize}
+    \item[1.]
+      $R$が$A$上で\textbfgt{reflexive}{反射的}とは,
+      任意の$x\in A$について$\op{x}{x}\in R$であるこという.
+    \item[2.]
+      $R$が\textbfgt{symmetric}{対称的}とは,
+      任意の$x,y$に対して$\op{x}{y}\in R$ならば$\op{y}{x}\in R$であるこという.
+    \item[3.]
+      $R$が\textbfgt{transitive}{推移的}とは,
+      任意の$x,y,z$に対して$\op{x}{y}\in R$かつ$\op{y}{z}\in R$ならば$\op{x}{z}\in R$であるこという.
+    \item[4.]
+      $R$が$A$上で\textbfgt{trichotomy}{三分律}をみたすとは,
+      任意の$x,y$に対して$\op{x}{y}\in R,\ x=y,\ \op{y}{x}\in R$のいずれか1つをみたすこという.
+    \item[5.]
+      $R$が$A$上の\textbfgt{equivalence relation}{同値関係}であるとは,
+      $R$が$A$上の2項演算でかつ$A$上で反射的・対称的・推移的であるときをいう.
+    \item[6.]
+      $R$が$A$上の\textbfgt{ordering relation}{順序関係}であるとは,
+      $R$が$A$上の2項演算でかつ推移的であり$A$上で三分律をみたすときをいう.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[同値類(E:p6,\ K:p9)]
+  集合$A$上の同値関係$R$と$x\in A$に対して$[x]\defeq\{ y | \op{x}{y}\in R \}$とし,
+  これを$x$の\textbfgt{equivalence class}{同値類}という. \\
+  さらに集合$\{ [x] | x\in A \}$を$A\backslash{R}$で表し,集合$A$の同値関係$R$による\textbfgt{quotient set}{商集合}という.
+  \footnote{
+    テキストでは定義してなかったがすぐ下の補題を示すときに記法として欲しかったので定義しておいた.
+  }
+\end{definition}
+
+\begin{proposition}[E:p6,\ K:p9]
+  集合$A$上の同値関係$R$に対して,
+  $A$の各要素の同値類全体は$A$の分割となる.
+\end{proposition}
+
+\begin{proof}
+  $\mathcal{A}\subseteq \mathcal{P}(A)$が$A$の分割であるとは,
+  $\mathcal{A}$が互いに素でかつ$\bigcup \mathcal{A}=A$をみたすこととし,
+  これを$\{ [x] | x\in A \}\subseteq \mathcal{P}(A)$,
+  つまり先に定義した$A\backslash{R}$に対してこれを示す.
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}$\mathcal{A}$が互いに素であること \\
+      任意に$X\neq Y$な$X,Y\in A\backslash{R}$をとると,
+      それぞれに対し$x,y\in A$が存在して$X=[x],\ Y=[y]$となっている. \\
+      $[x]\cap [y]=\emptyset$であることを示すため,
+      $z\in [x]\cap [y]$なる$z$が存在したとする.
+      $z\in [x]$より$\op{x}{z}\in R$,
+      同様に$\op{y}{z}\in R$.
+      $\op{y}{z}\in R$と$R$が$A$上の同値関係より対称的であることから$\op{z}{y}\in R$.
+      さらに$\op{x}{z}\in R$と$R$が推移的であることから$\op{x}{y}\in R$. \\
+      ここで$\forall a,b\in A(\ \op{a}{b}\in R\ \to \ [a]=[b]\ )$である.
+      （この証明には必要ないが$\forall a,b\in A(\ [a]=[b]\ \to \ \op{a}{b}\in R\ )$,
+      つまり$\forall a,b\in A(\ \op{a}{b}\in R\ \Leftrightarrow \ [a]=[b]\ )$も示せる）
+      \begin{because-in-proof}
+        任意に$a,b\in A$をとり$\op{a}{b}\in $とする.
+        $[a]\subseteq [b]$を示すためさらに任意に$c\in [a]$をとる.
+        $\op{a}{b}\in R,\ \op{a}{c}\in R$より$R$が対称的かつ推移的なので$\op{b}{c}\in R$,
+        つまり$c\in [b]$.
+        同様にして$[b]\subseteq [a]$であることもわかる.
+        つまり$[a]=[b]$.
+      \end{because-in-proof}
+      よって$\op{x}{y}\in R$から$[x]=[y]$であるが,
+      これは仮定の$[x]\neq [y]$に矛盾.
+    \item[]\hspace{-0.5cm}$\bigcup A\backslash{R}=A$であること \\
+      $\bigcup A\backslash{R}\subseteq A$であることは明らか.
+      $A\subseteq \bigcup A\backslash{R}$を示すため任意に$x\in A$をとる.
+      $R$が$A$上反射的であることから$x\in [x]$,
+      つまり$[x]\neq \emptyset$で,
+      そして$[x]\subseteq A\backslash{R}$より$x\in \bigcup A\backslash{R}$. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{theorem}[E:p6 THEOREM 0B,\ K:p10 定理0B]\label{theorem:可算集合の要素の有限列全体も可算}
+  あああ
+\end{theorem}
+
+\begin{lemma}[E:p7 ZORN'S LEMMA,\ K:p12 ツォルンの補題]\label{lemma:ツォルンの補題}
+  あああ
+\end{lemma}
+
+\section{基数}\label{section:基数}
+
+\begin{theorem}[E:p9 SCH\"{O}DER-BERNSTEIN THEOREM,{\ \\}
+  \hspace{2.6cm}\ K:p14 シュレーダー・ベルンシュタイン（Schr\"{o}der-Bernstein）の定理]\label{theorem:シュレーダー・ベルンシュタインの定理}
+  あああ
+\end{theorem}
+
+\begin{theorem}[E:p9 THEOREM 0C,\ K:p14 定理0C]\label{theorem:比較可能定理}
+  あああ
+\end{theorem}
+
+\begin{theorem}[E:p9 CARDINAL ARITHMETIC THEOREM,\ K:p15 基数算術の定理]\label{theorem:基数算術の定理}
+  あああ
+\end{theorem}
+
+\begin{theorem}[E:p10 THEOREM 0D,\ K:p15 定理0D]\label{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}
+  あああ
+\end{theorem}
+
+
+\end{document}

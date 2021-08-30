@@ -1,0 +1,12 @@
+#いらないフォルダ
+
+#いらないファイル
+for_platex_only.bat
+note.aux
+note.bbl
+note.blg
+note.dvi
+note.idx
+note.log
+note.out
+note.toc
