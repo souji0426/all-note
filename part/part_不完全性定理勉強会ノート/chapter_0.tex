@@ -10,8 +10,8 @@
       定義や定理の主張の終わりを表す記号として$\blacksquare$を,
       証明の終わりを表す記号として$\square$を用いる.
       \footnote{
-        原書でも和訳でも$\dashv$となっているが,
-        私が普段使わないので$\square$にさせてもらった.
+        原書でも和訳でも$\dashv$となっていますが,
+        私が普段使わないので$\square$にさせてもらうことにしました.
       }
     \item[2.]
       「○○ならば××である」という含意を表す文章を「○○$\Rightarrow$××」と略記する.
@@ -20,29 +20,34 @@
         ○○の部分をこの命題の前件,
         ××の部分をこの命題の後件と読んだりします.
         原著でも和訳でも「...ならば...である」と前件も貢献も「...」で表現されていますが,
-        細かいことをいうとこれだと前件も後件も同じ主張が入るのかなと誘導しないかなと思い,
+        細かいことをいうと,
+        これだと前件も後件も同じ主張が入るのかなと誘導しそうだと思い,
         自分では○○と××を使ってみました.
       }
       逆向きの含意を表すのに$\Leftarrow$を使うこともあります. \\
-      「○○であるのは, ××であるとき, かつそのときに限る」を「○○は××と同値である」と述べたり,
-      記号$\Leftrightarrow$を, 「○○$\Leftrightarrow$××」のように使ったりする.
+      「○○であるのは,
+      ××であるとき,
+      かつそのときに限る」を「○○は××と同値である」と述べたり,
+      記号$\Leftrightarrow$を,
+      「○○$\Leftrightarrow$××」のように使ったりする.
     \item[3.]
-      「したがって」という言葉の代わりに省略記号$\therefore$を, 「なぜなら」という言葉の代わりに省略記号$\because$を用いる.
+      「したがって」という言葉の代わりに省略記号$\therefore$を,
+      「なぜなら」という言葉の代わりに省略記号$\because$を用いる.
       とくに証明中に$\because$を用いる場合はぶら下げを使って,
       その理由部分を書く.
       \footnote{
-        $\therefore$は普段から使わないのでこのノートでも使わないと思う.
+        $\therefore$は普段から使わないのでこのノートでも使わないと思います.
         それとは別に$\because$は普段から積極的に使っているので,
-        ここに載せた.
+        ここに載せました.
         また$\because$を使ったときにどこからどこまでがその理由であるか,
         理由が長ければ長いほど分かりにくくなるので,
         ぶら下げを使うことにしています.
         これの利点は証明を読む場合にその理由を読む必要がなければ,
         ぶら下げ部分全体を目で飛ばしてしまえばいいからです.
         これと同じで証明中の場合分けや,
-        同値証明の含意別に見やすくするため,
+        同値証明を含意方向別に見やすくするため,
         つまり必要条件確認と十分条件確認を分けて見やすくするために,
-        その各部分にぶら下げを使っています.
+        その各部分にぶら下げを使ったりしています.
       }
     \item[4.]
       関係を表す記号に斜線を重ねることでその関係の否定を表すことがある.
@@ -163,26 +168,35 @@
 \end{proof}
 
 \begin{definition}[内包的記法(E:p2,\ K:p3)]
-  $\{ x | \text{\_}x\text{\_}\}$と書いて$\text{\_}x\text{\_}$をみたす全てのオブジェクトの集合を表す.
+  $\SetBar{x}{ \text{\_}x\text{\_} }$と書いて$\text{\_}x\text{\_}$をみたす全てのオブジェクトの集合を表す.
   \footnote{
     ここはテキストにならったのだが,
-    $\text{\_}x\text{\_}$はかなり曖昧だと思う.
+    $\text{\_}x\text{\_}$はかなり曖昧だと思いました.
     $x$に関する命題とか文と言ってしまえば,
-    これから命題や文という単語を対象につけることがあるような当分野においては避けたい表現である（そして表現という単語も今後使う………）.
-    $\text{\_}x\text{\_}$の代わりに$P(x)$や$\varphi(x)$などを使って$x$を変数とする命題かのように表現することもありますが,
+    これから命題や文という単語を対象につけることがあるような当分野においては避けたい表現ではある（そして表現という単語も今後登場する………）.
+    $\text{\_}x\text{\_}$の代わりに$P(x)$や$\varphi(x)$などを使って,
+    $x$を変数とする命題かのように表現することもありますが,
     それもこの場合は意図的に避けたのだろうと思います.
-    なぜならこうすると今度は主張における変数とは何ぞかを説明しなくてはならないからでしょうか.
+    避けた理由としては,
+    今度は主張における変数とは何かを説明しなくてはならないからでしょうか.
   }
   \footnote{
     テキストでは「この書き方はめいっぱい柔軟に用いることにする」とあり,
-    その使用例として$\{\op{m}{n}|m,n\text{は}\mathbb{N}\text{の要素で}m<n\}$が挙げられています.
-    論理記号を使って書けば$\{\op{m}{n}|m,n\in\mathbb{N}\land m<n\}$となります.
+    その使用例として
+    $\SetBar{ \op{m}{n} }{ \text{$m,n$は$\mathbb{N}$の要素で$m<n$} }$
+    が挙げられています.
+    論理記号を使って書けば
+    $\SetBar{ \op{m}{n} }{ m,n\in\mathbb{N}\land m<n }$
+    となります.
     ここにおいて「柔軟」という言い方も曖昧だと思います.
-    定義にある書き方になぞるならこの集合は$\{ x | \exists m,n\in\mathbb{N}(\ x=\op{m}{n}\land m<n\ )\}$と書くべきでしょうか.
-    ちなみに\cite{Basic003:kada-kiso}では内包的記法における$|$の左に変数一文字ではなく,
-    いくつかの変数を用いた表現が使われている記法を内包的記法と区別して置換型記法と呼んでいたりする.
-    たしかにこの2つの記法は同じではないので区別する必要があると思われる（普通の数学書でのそう区別はしないことは多いと思うが）.
-    なのでここの柔軟さはかなり曖昧に思えた.
+    定義にある書き方になぞるならこの集合は
+    $\SetBar{x}{ \exists m,n\in\mathbb{N}(\ x=\op{m}{n}\land m<n }$と書くべきでしょうか.
+    ちなみに\cite{Basic001}では内包的記法における$|$の左に変数一文字ではなく,
+    いくつかの変数を用いた表現が使われている記法を,
+    内包的記法と区別して置換型記法と呼んでいたりします.
+    たしかにこの2つの記法は同じではないので,
+    区別する必要があると思われます（普通の数学書でそう区別はしないことは多いと思うが）.
+    なのでここの柔軟さはかなり曖昧に思えました.
   }
 \end{definition}
 
@@ -204,7 +218,7 @@
 \begin{definition}[べき集合(E:p2,\ K:p3)]
   集合$A$に対して$A$のすべての部分集合からなる集合を$A$の\textbfgt{power set}{べき集合}とよぶ,
   $\mathcal{P}(A)$で表す.
-  より正確には$\mathcal{P}(A)\defeq \{ X | X\subseteq A \}$.
+  より正確には$\mathcal{P}(A)\defeq \SetBar{X}{ X\subseteq A }$.
   \footnote{
     テキストでは$\mathcal{P}A$だが個人的には$\mathcal{P}(A)$が好きなのでこちらを使っていくことにした.
   }
@@ -230,10 +244,12 @@
   さらに各自然数$n$に対して集合$A_n$が定まっているとする.
   \begin{itemize}
     \item[1.]
-      $A\cup B\defeq \{ x| x\in A\text{または}x\in B\}$（$=\{ x| x\in A\lor x\in B\}$）とし,
+      $A\cup B\defeq
+      \SetBar{x}{ x\in A\text{または}x\in B }$（$=\SetBar{x}{ x\in A\lor x\in B }$）とし,
       これを$A$と$B$の\textbfgt{union}{和集合}という.
     \item[2.]
-      $A\cap B\defeq \{ x| x\in A\text{かつ}x\in B\}$（$=\{ x| x\in A\land x\in B\}$）とし,
+      $A\cap B\defeq
+      \SetBar{x}{ x\in A\text{かつ}x\in B }$（$=\SetBar{x}{ x\in A\land x\in B }$）とし,
       これを$A$と$B$の\textbfgt{intersection}{共通部分}という.
     \item[3.]
       $A\cap B=\emptyset$であるとき,
@@ -241,17 +257,18 @@
       $\mathcal{A}$のどの2個の要素も交わらないとき,
       $\mathcal{A}$は\textbfgt{pairwise disjoint}{互いに交わらない}という.
     \item[4.]
-      $\bigcup\mathcal{A}\defeq \{ x | x\text{は}A\text{のいずれかの要素に属する}\}$（$=\{ x | \exists A( x\in A \land A\in \mathcal{A})$）とし,
+      $\bigcup\mathcal{A}\defeq
+      \SetBar{x}{\text{$x$は$A$のいずれかの要素に属する}}$（$=\SetBar{x}{ \exists A( x\in A \land A\in \mathcal{A}) }$）とし,
       これを$\mathcal{A}$の\textbfgt{union}{和集合}という.
     \item[5.]
-      $\bigcap\mathcal{A}\defeq \{ x | x\text{は}A\text{のすべての要素に属する}\}$（$=\{ x | \forall A( x\in A \land A\in \mathcal{A}) \}$）とし,
+      $\bigcap\mathcal{A}\defeq \SetBar{x}{ \text{$x$は$A$のすべての要素に属する} }$（$=\SetBar{x}{ \forall A( x\in A \land A\in \mathcal{A}) }$）とし,
       これを$\mathcal{A}$の\textbfgt{intersection}{共通部分}という.
     \item[6.]
-      $\bigcup_{n\in\mathbb{N}}A_n\defeq \bigcup\{ A_n | n\in \mathbb{N} \}$とする.
+      $\bigcup_{n\in\mathbb{N}}A_n\defeq \bigcup \SetBar{A_n}{ n\in \mathbb{N} }$とする.
       これを単に$\bigcup_{n}A_n$と表すこともある.
       \footnote{
         これは添え字付き集合族の和集合ともいえるものだけど,
-        なぜ添え字付き集合族の共通部分は定義しなかったのだろう（たんに今後使わないだけ？）.
+        なぜ添え字付き集合族の共通部分は定義しなかったのだろう（単に今後使わないだけ？）.
       }
   \end{itemize}
 \end{definition}
@@ -284,7 +301,7 @@
       とくに$x$を第一成分,
       $y$を第二成分と呼んだりする.
       \footnote{
-        定義されていなかい言葉遣いだったのでなんとなく定義しておいた.
+        定義されていなかった言葉遣いだったのでなんとなく定義しておいた.
       }
     \item[2.]
       $\triple{x}{y}{z}\defeq \op{\op{x}{y}}{z}$とし,
@@ -337,7 +354,7 @@
       $\singleseq{x_1}=\singleseq{y_1}$ならば$x_1=y_1$である.
     \item[]\hspace{-0.5cm}（Induction step） \\
       $n$のときに成立しているとする.
-      任意に取った$x_1,\dots,x_n,x_{n+1},y_1,\dots,y_n,y_{n+1}$に対して
+      任意に取った$x_1,\dots,x_n,x_{n+1},y_1,\dots,y_n,y_{n+1}$に対して,
       $\ntuple{x_1}{x_{n},x_{n+1}}=\ntuple{y_1}{y_{n},y_{n+1}}$だったとする.
       一般的な順序$n$個組の定義から
       \begin{gather*}
@@ -429,7 +446,8 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
 これの長さとして$2$か$3$のどちらを採用すればよいか混乱する.
 テキストに書いてある注意事項のように写像で定義すれば問題は解決できる.
 関数の定義の先取りにはなってしまうが,
-たとえば$S_1$を$S_1\colon \{ 1,2 \}\to A$として$S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
+たとえば$S_1$を$\map{ S_1 }{ \{ 1,2 \} }{A}$として,
+$S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 すると$S_1$と$S_2$はそもそも定義域が違う別の関数となるので混乱がなくなる.
 しかしながら1章以降は$\{ 0,1,\op{0}{1},\op{0,1}{0} \}$のような集合から有限列を構成したりはしない.
 つまり$\{ 0,1,\op{2}{3} \}$のような「どの要素も他の要素からなる有限列とは一致しない」集合を扱うときには,
@@ -440,7 +458,7 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
   集合$A,B$と$n>1$な$n\in \mathbb{N}$に対し
   \begin{itemize}
     \item[1.]
-      $A\times B\defeq \{\op{a}{b}|a\in A\text{かつ}b\in B\}$とし,
+      $A\times B\defeq \SetBar{ \op{a}{b} }{ a\in A\text{かつ}b\in B }$とし,
       これを$A$と$B$の\textbfgt{Cartesian product}{直積集合}という.
     \item[2.]
       $A^n\defeq A^{n-1}\times A$と帰納的に定義する.
@@ -456,14 +474,14 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
       $R$を\textbfgt{relation}{関係}という.
     \item[2.]
       関係$R$に対して
-      $\dom(R)\defeq\{ x|\text{ある}y\text{について}\op{x}{y}\in R \}$とし,
+      $\dom(R)\defeq \SetBar{x}{ \text{ある$y$について$\op{x}{y}\in R$} }$とし,
       これを関係$R$の\textbfgt{domain}{定義域}という. \\
-      さらに$\ran(R)\defeq\{ y|\text{ある}x\text{について}\op{x}{y}\in R \}$とし,
+      さらに$\ran(R)\defeq \SetBar{y}{ \text{ある$x$について$\op{x}{y}\in R$} }$とし,
       これを関係$R$の\textbfgt{range}{値域}という. \\
       さらに$\fld(R)\defeq \dom(R)\cup \ran(R)$とし,
       これを関係$R$の\textbfgt{field}{領域}という.
       \footnote{
-        テキストでは$\dom(R),\ran(R),\fld(R)$ではなく$\dom R,\ran R,\fld R$と「$()$」が付いていないが,
+        テキストでは$\dom(R),\ran(R),\fld(R)$ではなく$\dom R,\ran R,\fld R$と「$()$」が付いていないですが,
         個人的な好みから「$()$」をつけることにします.
       }
       \footnote{
@@ -486,7 +504,7 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
       $R_1$は$0$から$3$までの数の間の大小関係となる.
       さらに$\dom(R)=\{ 0,1,2 \},\ \ran(R)=\{ 1,2,3 \},\ \fld(R)=\{ 0,1,2,3 \}$となる.
     \item[2.]
-      $R_2=\{ \op{m}{n} | m<n \}$とおくと,
+      $R_2 = \SetBar{ \op{m}{n} }{ m<n }$とおくと,
       $R_2$は$\mathbb{N}$上の大小関係となり,
       $B=\{ 0,1,2,3 \}$とすれば$R_1=R_2 \cap B^2$となるから$R_1$は$R_2$の$B$への制限である.
   \end{itemize}
@@ -501,41 +519,48 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
       $F$は\textbfgt{function}{写像}であるという.
       \footnote{
         個人的にはmapは写像,
-        functionは関数と訳すのが好みであるが,
-        ここはテキストとその和訳に合わせてfunctionを写像と訳すことにする.
+        functionは関数と訳すのが好みですが,
+        ここはテキストとその和訳に合わせてfunctionを写像と訳すことにします.
       }
       このとき$x\in \dom(F)$に対して一意的に存在している$y$のことを$F(x)$で表し,
       $F$の$x$における\textbfgt{value}{値}という.
     \item[2.]
       写像$F$が$\dom(F)=A$かつ$\ran(F)\subseteq B$をみたすとき,
       $F$は$A$を$B$に\textgt{写す}といい,
-      $F\colon A\to B$で表す.
+      $\map{F}{A}{B}$で表す.
       \footnote{
-        これを見たときもしかしたら$\ran(R)$の部分集合関係に合わせて$\dom(F)\subseteq A$としなくてはいいのかと疑問に思う人もいるかもしれない.
+        これを見たときもしかしたら$\ran(R)$の部分集合関係に合わせて$\dom(F)\subseteq A$としなくてはいいのかと,
+        疑問に思う人もいるかもしれません.
         もしそうすると定義域に対応要素のない要素が存在することを許してしまう.
-        それを許したうえで$\dom(F)=A$なる写像に\textgt{全域写像}と名付ける流儀もある.
-        たとえば\cite{Basic003:kada-kiso}では$\dom(F)\subseteq A$かつ$\ran(F)\subseteq B$なるものを「$A$から$B$への部分写像」,
+        それを許したうえで$\dom(F)=A$なる写像に\textgt{全域写像}と名付ける流儀もあります.
+        たとえば\cite{Basic001}では$\dom(F)\subseteq A$かつ$\ran(F)\subseteq B$なるものを「$A$から$B$への部分写像」,
         $F$による$x$の値が存在しないとき「$F(x)$は未定義」といい,
-        部分写像が$\dom(F)=A$を満たした場合にそれを全域写像もしくは単に写像と呼んでいる.
+        部分写像が$\dom(F)=A$を満たした場合にそれを全域写像もしくは単に写像と呼んでいます.
       }
     \item[3.]
-      $F\colon A\to B$であるとき,
+      $\map{F}{A}{B}$であるとき,
       $\ran(F)=B$をみたすとき,
       $F$は$A$から$B$への\textbfgt{surjection}{全射}
       \footnote{
-        このテキストでは「$B$全体へ写す」と表現している.
+        このテキストでは「$B$全体へ写す」と表現しています.
         それならまだしも「上への写像」という言い方もありますが,
         これは何が「上」なのか個人的にイメージしづらく使わないようにしています.
       }
-      であるという. \\
+      であるといい,
+      $\SurjectionMap{F}{A}{B}$で表す.
+      \footnote{
+        これはテキストでは導入されていなかったけれど,
+        あると便利なので導入しました.
+      }
+       \\
       「$\ran(F)$のそれぞれの要素$y$について,
       $\op{x}{y}\in F$をみたす$x$がただひとつ存在する」（論旨式で書くと$\forall y\in \ran(F)\exists !x(\op{x}{y}\in F)$）
       \footnote{
         ここでの単射の定義は初見では違和感がありました.
         なぜなら普段私は$F\subseteq A\times B$かつ$\forall a\in A\exists !b\in B(\op{a}{b}\in F)$をみたすものを,
-        $A$から$B$への写像とよび$F\colon A\to B$と表し,
-        $\ran(F)=B$としていたためである.
-        ここでの定義ならこれでよいが,
+        $A$から$B$への写像とよび$\map{F}{A}{B}$と表し,
+        $\ran(F)=B$としていたためです.
+        ここでの定義ならこれでよいと思われるが,
         個人的にはやはり「$\forall x_1,x_2,y(\ \op{x_1}{y}\in F\land\op{x_2}{y}\in F\ \to\ x_1=x_2\ )$」
         もっと分かりやすくして「$\forall x_1,x_2(\ F(x_1)=F(x_2)\ \to\ x_1=x_2\ )$」か,
         「$\to$」部分で対偶をとった「$\forall x_1,x_2(\ x_1\neq x_2\ \to\ F(x_1)\neq F(x_2)\ )$」の方が好みです.
@@ -547,10 +572,19 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
         しかし全単射に対してこの言い方を使うテキストもあるし,
         個人的には全単射の方が1対1なるイメージを持っているためここでは「単射」を使うことにしました.
       }
-      であるという. \\
-      全射かつ単射な写像を\textbfgt{bijection}{全単射}という.
+      であるといい,
+      $\InjectionMap{F}{A}{B}$で表す.
+      \footnote{
+        これも上に同様.
+      }
+       \\
+      全射かつ単射な写像を\textbfgt{bijection}{全単射}といい,
       \footnote{
         テキストでは定義されていなかったので用意しておいた.
+      }
+      $\BijectionMap{F}{A}{B}$で表す.
+      \footnote{
+        同上.
       }
     \item[4.]
       オブジェクト$x,y$とその順序対$\op{x}{y}$と写像$F$に対して,
@@ -560,12 +594,12 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
         つまり普段2変数関数で使う記法を導入したことになるのだろう.
       }
     \item[5.]
-      $F=\{\op{x}{x}|x\in A\}$であるとき,
+      $F=\SetBar{ \op{x}{x} }{ x\in A }$であるとき,
       $F$を$A$上の\textbfgt{identity function}{恒等写像}といい,
       この$F$を$\id_A$で表す.
       \footnote{
         テキストでは$\mathrm{Id}$と書いているが「$A$上の」というからにはせめて$\mathrm{Id}_{A}$と書く方が好き.
-        そして$\mathrm{Id}$より$\mathrm{id}$が好きなのでこのように定義した.
+        そして$\mathrm{Id}$より$\mathrm{id}$が好きなのでこのように定義しました.
       }
   \end{itemize}
 \end{definition}
@@ -574,10 +608,10 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
   集合$A,B$と関係$f,g$に対して
   \begin{itemize}
     \item[1.]
-      $f\colon A^n\to A$であるとき$f$を$A$上の{\boldmath $n$}\textbf{-ary operation}（{\boldmath $n$}\textgt{項演算}）であるという.
+      $\map{f}{A^n}{A}$であるとき$f$を$A$上の{\boldmath $n$}\textbf{-ary operation}（{\boldmath $n$}\textgt{項演算}）であるという.
     \item[2.]
       $A$上の$n$項演算$f$と$B\subseteq A$な集合$B$に対して,
-      $g=f\cap(B^n\times A)$をみたす$g$を$f$の$B$への\textbfgt{restriction}{制限}という.
+      $g = f \cap(B^n\times A)$をみたす$g$を$f$の$B$への\textbfgt{restriction}{制限}という.
       \footnote{
         この$g$のことを$f\restric B$や$f|_B$で表すことがあります.
         個人的には$f\restric B$が好き（初めて見た記法がこれだったからという理由で）.
@@ -590,7 +624,7 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
 \end{definition}
 
 \begin{example}[E:p5,\ K:p8]
-  $S_1\colon \mathbb{N}^2\to \mathbb{N}$と$S_2\colon \mathbb{N}\to \mathbb{N}$に対して
+  $\map{S_1}{ \mathbb{N}^2 }{ \mathbb{N} }$と$\map{S_2}{ \mathbb{N} }{ \mathbb{N} }$に対して
   \begin{itemize}
     \item[1.]
       $S_1$が任意の$m,n\in \mathbb{N}$に対し$S_1(m,n)=m+n$をみたすとすると,
@@ -599,10 +633,10 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
       $S_2$が任意の$n\in \mathbb{N}$に対し$S_2(n)=n+1$をみたすとすると,
       $S_2$は$\mathbb{N}$上の直後の自然数を与えるという$\mathbb{N}$上の1項（単項）演算となる.
       \footnote{
-        これはよく\textgt{後者関数}と呼ばれている.
+        これはよく\textgt{後者関数}と呼ばれています.
       }
     \item[3.]
-      $P\colon \mathbb{R}^2\to \mathbb{R}$が任意の$r_1,r_2\in \mathbb{R}$に対し$p(r_1+r_2)=r_1+r_2$をみたすとすると,
+      $\map{P}{ \mathbb{R}^2 }{ \mathbb{R} }$が任意の$r_1,r_2\in \mathbb{R}$に対し$p(r_1+r_2)=r_1+r_2$をみたすとすると,
       $P$は$\mathbb{R}$上の加法という$\mathbb{R}$上の2項演算となり,
       1.の$S_1$は$P$の$\mathbb{N}$への制限,
       つまり$S_1=P\cap \mathbb{N}^3$となっている.
@@ -679,11 +713,13 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
 \end{definition}
 
 \begin{definition}[同値類(E:p6,\ K:p9)]
-  集合$A$上の同値関係$R$と$x\in A$に対して$[x]\defeq\{ y | \op{x}{y}\in R \}$とし,
+  集合$A$上の同値関係$R$と$x\in A$に対して$[x]\defeq \SetBar{y}{ \op{x}{y}\in R }$とし,
   これを$x$の\textbfgt{equivalence class}{同値類}という. \\
-  さらに集合$\{ [x] | x\in A \}$を$A\backslash{R}$で表し,集合$A$の同値関係$R$による\textbfgt{quotient set}{商集合}という.
+  さらに集合$\SetBar{ [x] }{ x\in A }$を$A\backslash{R}$で表し,
+  集合$A$の同値関係$R$による\textbfgt{quotient set}{商集合}という.
   \footnote{
-    テキストでは定義してなかったがすぐ下の補題を示すときに記法として欲しかったので定義しておいた.
+    テキストでは定義してなかったが,
+    すぐ下の補題を示すときに記法として欲しかったので定義しておきました.
   }
 \end{definition}
 
@@ -695,7 +731,7 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
 \begin{proof}
   $\mathcal{A}\subseteq \mathcal{P}(A)$が$A$の分割であるとは,
   $\mathcal{A}$が互いに素でかつ$\bigcup \mathcal{A}=A$をみたすこととし,
-  これを$\{ [x] | x\in A \}\subseteq \mathcal{P}(A)$,
+  これを$\SetBar{ [x] }{ x\in A } \subseteq \mathcal{P}(A)$,
   つまり先に定義した$A\backslash{R}$に対してこれを示す.
   \begin{itemize}
     \item[]\hspace{-0.5cm}$\mathcal{A}$が互いに素であること \\
@@ -710,16 +746,19 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
       ここで$\forall a,b\in A(\ \op{a}{b}\in R\ \to \ [a]=[b]\ )$である.
       （この証明には必要ないが$\forall a,b\in A(\ [a]=[b]\ \to \ \op{a}{b}\in R\ )$,
       つまり$\forall a,b\in A(\ \op{a}{b}\in R\ \Leftrightarrow \ [a]=[b]\ )$も示せる）
-      \begin{because-in-proof}
+
+      \begin{sub-block}{{\boldmath $\because$}\,}
         任意に$a,b\in A$をとり$\op{a}{b}\in $とする.
         $[a]\subseteq [b]$を示すためさらに任意に$c\in [a]$をとる.
         $\op{a}{b}\in R,\ \op{a}{c}\in R$より$R$が対称的かつ推移的なので$\op{b}{c}\in R$,
         つまり$c\in [b]$.
         同様にして$[b]\subseteq [a]$であることもわかる.
         つまり$[a]=[b]$.
-      \end{because-in-proof}
+      \end{sub-block}
+
       よって$\op{x}{y}\in R$から$[x]=[y]$であるが,
       これは仮定の$[x]\neq [y]$に矛盾.
+
     \item[]\hspace{-0.5cm}$\bigcup A\backslash{R}=A$であること \\
       $\bigcup A\backslash{R}\subseteq A$であることは明らか.
       $A\subseteq \bigcup A\backslash{R}$を示すため任意に$x\in A$をとる.
@@ -727,6 +766,82 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
       つまり$[x]\neq \emptyset$で,
       そして$[x]\subseteq A\backslash{R}$より$x\in \bigcup A\backslash{R}$. \qedhere
   \end{itemize}
+\end{proof}
+
+ここからはテキスト通り,
+集合の濃度の話に移る（可算までしかでてこないが）.
+
+\begin{notation}[E:p6,\ K:p9]
+  自然数全体の集合$\{ 0,1,2,\dots \}$を$\mathbb{N}$で表す.
+\end{notation}
+
+ここに「個々の自然数そのものを集合を使って定義する方法もあります」とあって,
+テキストにある通り,
+それに触れている○○節を見ると,
+$ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
+\index{あとでかく@後で書く}
+
+\begin{definition}[E:p6,\ K:p9]
+  集合$A$に対して
+  \begin{itemize}
+    \item[1.] 集合$A$が\textbfgt{finite}{有限}であるとは,
+      ある自然数$n\in \mathbb{N}$と$A$から$\{ 0,1,\dots, n-1 \}$写像$f$があって,
+      $f$が全単射になっていることをいう
+      （論理式で書くと$\exists n\in \mathbb{N}\exists f( \ \BijectionMap{f}{A}{ \{ 0,1,\dots, n-1 \} } \ )$）.
+    \item[2.] 集合$A$が\textbfgt{at most countable}{高々可算}であるとは,
+      $A$から$\mathbb{N}$への単射写像が存在するこという.
+    \item[3.] 集合$A$が\textbfgt{countable}{可算}であるとは,
+      $A$から$\mathbb{N}$への全単射写像が存在するこという
+      \footnote{
+        テキストではここでいう「高々可算」を「可算」と呼んでいます.
+        つまり「高々可算」と「可算」を区別してません.
+        個人的には高々可算は便利な言葉だと思っているのと,
+        他のノートとの整合性をとるためにも高々可算と可算は区別しておこうと思います.
+        ちなみに高々可算の「高々」は数学特有の言葉として説明しているものもあります.
+        もし「高々有限」をこれと同じように定義すると,
+        $\exists n\in \mathbb{N}\exists f( \ \InjectionMap{f}{A}{ \{ 0,1,\dots, n-1 \} } \ )$となるでしょう.
+        なので個別に「高々○○」を定義することも可能でしょうし,
+        「高々」は特有の言葉遣いとして説明する方法もありそうです.
+        「高々」を説明しているものとしては,
+        例えば\cite{Wiki001}や\cite{Basic002}の37ページなどです.
+      }. \qedhere
+  \end{itemize}
+\end{definition}
+
+\begin{proposition}[E:p6,\ K:p9]
+  \begin{enumerate}
+    \item 有限集合は高々可算.
+    \item 高々可算な無限集合$A$に対して$A$から$\mathbb{N}$への全単射写像が存在する. \qedhere
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  \begin{enumerate}
+    \item
+      $A$を有限集合とすると,
+      その定義より$A$に対し存在する$n\in \mathbb{N}$と$\map{f}{A}{ \{ 0,1,\dots, n-1 \} }$をそれぞれ固定します.
+      $\map{f_{\mathbb{N}}}{A}{ \mathbb{N} }$を$f_{\mathbb{N}}(a)=f(a)$で定義すれば,
+      $f_{\mathbb{N}}$は確かに$A$から$\mathbb{N}$への写像であり,
+      $f$が単射であることから$f_{\mathbb{N}}$が単射であることも明らかである.
+
+    \item
+      高々可算な無限集合$A$に対して,
+      その定義から存在する単射写像$\map{f}{A}{ \mathbb{N} }$を1つ固定する.
+      $f$は全射でない,
+      つまり$\ran(f)\neq \mathbb{N}$とする.
+      $n_i\in \mathbb{N}$を$\ran(f)$の中での$i$番目に小さい数,
+      つまり$n_0= \min \ran(f)$,
+      $n_{i+1}= \min(\ \ran(f)\setminus \{ n_0,\dots,n_i \}\ )$と帰納的に定義する.
+      すると$\ran(f)=\SetBar{n_i}{i\in \mathbb{N}}$である.
+      $\map{g}{\mathbb{N}}{A}$を$g(i)=f^{-1}(n_i)$で定めると,
+      $g$はその作り方から全単射であり,
+      $\map{f^{\prime}}{A}{\mathbb{N}}$を$f^{\prime}(a)=g^{-1}(a)$で定めると,
+      これもその作り方から$A$から$\mathbb{N}$への全単射である
+      \footnote{
+        テキストの口語的な説明の方が分かりやすいとは思ったけれど,
+        あえて厳密に書くとこんな感じなのかなと.
+      }. \qedhere
+  \end{enumerate}
 \end{proof}
 
 \begin{theorem}[E:p6 THEOREM 0B,\ K:p10 定理0B]\label{theorem:可算集合の要素の有限列全体も可算}

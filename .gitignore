@@ -10,3 +10,7 @@ note.idx
 note.log
 note.out
 note.toc
+note.ind
+
+test.pl
+*.tex.backup

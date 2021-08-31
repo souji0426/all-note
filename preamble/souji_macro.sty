@@ -16,7 +16,7 @@
 
 %%証明中の部分証明環境
 \definecolor{BIP-back}{gray}{0.9}
-\newenvironment{because-in-proof}
+\newenvironment{sub-block}[1]
   {
     \vspace{-5pt}
     \begin{tcolorbox}[
@@ -25,13 +25,15 @@
     boxrule = 10pt,
     fonttitle = \bfseries,
     breakable = true]
-    \begin{itemize} \item[{\boldmath $\because$}\ ]
+    \begin{itemize} \item[#1]
   }
   {
     \end{itemize}
     \end{tcolorbox}
     \vspace{-5pt}
   }
+
+
 
 %基本記号
 %ギリシャ数字
@@ -45,21 +47,42 @@
 \newcommand{\defeq}{\ \mbox{$\stackrel{\text{def}}{=}$}}
 
 %%未整理
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\len}{length}
+%\DeclareMathOperator{\rank}{rank}
+%\DeclareMathOperator{\len}{length}
 
 %基礎数学
-%%順序対
-\newcommand{\op}[2]{\langle #1,#2 \rangle}
-\newcommand{\triple}[3]{\langle #1,#2,#3 \rangle}
-\newcommand{\ntuple}[2]{\langle #1,\dots,#2 \rangle}
-\newcommand{\singleseq}[1]{\langle #1 \rangle}
-%%関数関連
+%%外延的記法の集合
+\newcommand{\SetBar}[2]{
+  \{\,#1\,\mid\,#2\,\}
+}
+\newcommand{\SetColon}[2]{
+  \{\,#1\,:\,#2\,\}
+}
+
+%%写像
+\newcommand{\map}[3]{
+  #1\colon #2 \to #3
+}
+\newcommand{\InjectionMap}[3]{
+  #1\colon #2 \xrightarrow{\text{1-1}} #3
+}
+\newcommand{\SurjectionMap}[3]{
+  #1\colon #2 \xrightarrow{\text{onto}} #3
+}
+\newcommand{\BijectionMap}[3]{
+  #1\colon #2 \xrightarrow[\text{onto}]{1-1} #3
+}
 \newcommand{\restric}{\mbox{$\upharpoonright$}}
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\fld}{fld}
 \DeclareMathOperator{\id}{id}
+
+%%順序対
+\newcommand{\op}[2]{\langle #1,#2 \rangle}
+\newcommand{\triple}[3]{\langle #1,#2,#3 \rangle}
+\newcommand{\ntuple}[2]{\langle #1,\dots,#2 \rangle}
+\newcommand{\singleseq}[1]{\langle #1 \rangle}
 
 %公理的集合論
 %%有限部分関数関連
