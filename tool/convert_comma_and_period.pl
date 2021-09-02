@@ -18,14 +18,16 @@ sub main {
   my $all_note_dir = $setting->{"common"}->{"all_note_dir"};
 
   my $all_sub_tex_file_paths = catch_all_subfile_tex_file( $all_note_dir );
-  print Dumper $all_sub_tex_file_paths;
 
   my $target_file_paths = get_target_file( $all_sub_tex_file_paths );
-  print Dumper $target_file_paths;
 
   backup_file( $target_file_paths );
 
   convert_comma_and_period( $target_file_paths );
+
+  my $data = check_remaining( $all_sub_tex_file_paths );
+
+  output_ramaining_data( $data );
 }
 
 #subfileで呼び出されている全てのtexファイルを探す
@@ -100,6 +102,39 @@ sub convert_comma_and_period {
     close( $output_fh);
     unlink $file_path;
     move( $new_file_path, $file_path );
+  }
+}
+
+sub check_remaining {
+  my ( $file_paths ) = @_;
+  my $data = {};
+  foreach my $file_path ( @$file_paths ) {
+    open( my $fh, "<", $file_path );
+    my $line_counter = 0;
+    while( my $line = <$fh> ) {
+      $line_counter++;
+      $line = decode( "cp932", $line );
+      if ( $line =~ /、/ or  $line =~ /。/ ) {
+        $data->{$file_path}->{$line_counter} = encode( "cp932", $line );
+      }
+    }
+    close( $fh );
+  }
+  return $data;
+}
+
+sub output_ramaining_data {
+  my ( $data ) = @_;
+  foreach my $file_path ( keys %$data ) {
+    print "\n";
+    print $file_path . encode( "cp932", "にて発見ーーーーーーー\n" );
+    foreach my $line_counter ( keys %{$data->{$file_path}} ) {
+      my $line = $data->{$file_path}->{$line_counter};
+      print "\n";
+      print encode( "cp932", "\t${line_counter}行目：：" );
+      print $line;
+    }
+    print "\n";
   }
 }
 

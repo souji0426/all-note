@@ -10,6 +10,14 @@ del "./note.out"
 
 del "./note.toc"
 
+cd ./tool
+
+perl -w convert_comma_and_period.pl
+
+pause
+
+cd ../
+
 platex note.tex
 
 pbibtex note -kanji=utf8
