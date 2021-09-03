@@ -10,6 +10,10 @@ use File::Copy;
 use File::Copy::Recursive qw(rcopy);
 #ファイルをコピーするために使っている
 
+use lib "./";
+use common_subroutines;
+#共通関数の呼び出し
+
 main();
 
 sub main {
@@ -17,47 +21,26 @@ sub main {
   my $setting = Config::Tiny->read( $setting_ini_path );
   my $all_note_dir = $setting->{"common"}->{"all_note_dir"};
 
+  #common_subroutines::catch_all_subfile_tex_file
+  #souji_noteでsubfileで呼び出されているtexファイル、そのtexファイルから呼び出されているtex、
+  #という風に再帰的に呼びだしているtexファイル全てを絶対パスで入手
+  #どのtexファイルでも絶対パスで書くよう習慣づけておくこと
   my $all_sub_tex_file_paths = catch_all_subfile_tex_file( $all_note_dir );
 
+  #上記のtexファイルたちから「、（改行）」「。（改行）」が含まているものを配列で返す
   my $target_file_paths = get_target_file( $all_sub_tex_file_paths );
 
+  #上記ファイル全てをこれから書き換えるのでバックアップをとる
   backup_file( $target_file_paths );
 
+  #上記ファイルに含まれる全ての「、（改行）」「。（改行）」を「,（改行）」「.（改行）」に変換する
   convert_comma_and_period( $target_file_paths );
 
+  #全てのTexファイルを見て改行のない「、」「。」を探す
   my $data = check_remaining( $all_sub_tex_file_paths );
 
+  #見つけた情報をコンソールへ出力
   output_ramaining_data( $data );
-}
-
-#subfileで呼び出されている全てのtexファイルを探す
-sub catch_all_subfile_tex_file {
-  my ( $all_note_dir )  = @_;
-  my @all_sub_tex_file_path;
-
-  open( my $all_fh, "<", "${all_note_dir}note.tex" );
-  while( my $line = <$all_fh> ) {
-    chomp $line;
-    if ( $line =~ /.subfile\{(.+)\}/ ) {
-      push( @all_sub_tex_file_path, $1 );
-    }
-  }
-  close( $all_fh );
-
-  foreach my $file_path ( @all_sub_tex_file_path ) {
-    open( my $sub_fh, "<", $file_path );
-    while( my $line = <$sub_fh> ) {
-      chomp $line;
-      if ( $line =~ /.subfile\{(.+)\}/ ) {
-        if ( !grep { $_ eq $1 } @all_sub_tex_file_path ) {
-          push( @all_sub_tex_file_path, $1 );
-        }
-      }
-    }
-    close( $sub_fh );
-  }
-
-  return \@all_sub_tex_file_path
 }
 
 sub get_target_file {
