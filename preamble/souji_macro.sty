@@ -18,7 +18,7 @@
 \definecolor{BIP-back}{gray}{0.9}
 \newenvironment{sub-block}[1]
   {
-    \vspace{-5pt}
+    %\vspace{-5pt}
     \begin{tcolorbox}[
     colback = BIP-back,
     colframe = white,
@@ -83,6 +83,9 @@
 \newcommand{\triple}[3]{\langle #1,#2,#3 \rangle}
 \newcommand{\ntuple}[2]{\langle #1,\dots,#2 \rangle}
 \newcommand{\singleseq}[1]{\langle #1 \rangle}
+
+%濃度
+\DeclareMathOperator{\card}{card}
 
 %公理的集合論
 %%有限部分関数関連

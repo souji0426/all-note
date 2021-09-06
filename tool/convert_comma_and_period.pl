@@ -37,7 +37,7 @@ sub main {
   convert_comma_and_period( $target_file_paths );
 
   #全てのTexファイルを見て改行のない「、」「。」を探す
-  my $data = check_remaining( $all_sub_tex_file_paths );
+  my $data = check_remaining( $setting, $all_sub_tex_file_paths );
 
   #見つけた情報をコンソールへ出力
   output_ramaining_data( $data );
@@ -50,7 +50,7 @@ sub get_target_file {
     open( my $fh, "<", $file_path );
     while( my $line = <$fh> ) {
       $line = decode( "cp932", $line );
-      if ( $line =~ /、\n/ or $line =~ /。\n/  ) {
+      if ( $line =~ /、\n/ or $line =~ /。\n/ or $line =~ /。 \\\\\n/  ) {
         push( @target_file_paths, $file_path );
         last;
       }
@@ -76,6 +76,8 @@ sub convert_comma_and_period {
       $line = decode( "cp932", $line );
       if ( $line =~ /、\n/  ) {
         $line =~ s/、\n/,\n/g;
+      } elsif ( $line =~ /。 \\\\\n/ ) {
+        $line =~ s/。 \\\\\n/. \\\\\n/g;
       } elsif ( $line =~ /。\n/ ) {
         $line =~ s/。\n/.\n/g
       }
@@ -89,9 +91,13 @@ sub convert_comma_and_period {
 }
 
 sub check_remaining {
-  my ( $file_paths ) = @_;
+  my ( $setting, $file_paths ) = @_;
   my $data = {};
+  my $ignore_file =  encode( "cp932", decode( "utf8", $setting->{"convert_comma_and_period"}->{"ignore_file"}) );
   foreach my $file_path ( @$file_paths ) {
+    if ( $file_path eq  $ignore_file ) {
+      next;
+    }
     open( my $fh, "<", $file_path );
     my $line_counter = 0;
     while( my $line = <$fh> ) {
@@ -108,16 +114,20 @@ sub check_remaining {
 
 sub output_ramaining_data {
   my ( $data ) = @_;
-  foreach my $file_path ( keys %$data ) {
-    print "\n";
-    print $file_path . encode( "cp932", "にて発見ーーーーーーー\n" );
-    foreach my $line_counter ( keys %{$data->{$file_path}} ) {
-      my $line = $data->{$file_path}->{$line_counter};
+  if ( keys %$data == 0 ) {
+    print encode( "cp932", "「、」や「。」が含まれるファイルはなし。\n" );
+  } else {
+    foreach my $file_path ( keys %$data ) {
       print "\n";
-      print encode( "cp932", "\t${line_counter}行目：：" );
-      print $line;
+      print $file_path . encode( "cp932", "にて発見ーーーーーーー\n" );
+      foreach my $line_counter ( keys %{$data->{$file_path}} ) {
+        my $line = $data->{$file_path}->{$line_counter};
+        print "\n";
+        print encode( "cp932", "\t${line_counter}行目：：" );
+        print $line;
+      }
+      print "\n";
     }
-    print "\n";
   }
 }
 

@@ -28,15 +28,19 @@ sub main {
   my $all_sub_tex_file_paths = catch_all_subfile_tex_file( $all_note_dir );
 
   #上記のtexファイルたちから「あとで書く」とメモしたものを集める
-  my $data = get_data_of_atodekaku( $all_sub_tex_file_paths );
+  my $data = get_data_of_atodekaku( $setting, $all_sub_tex_file_paths );
 
   output_data( $all_note_dir, $data );
 }
 
 sub get_data_of_atodekaku {
-  my ( $all_sub_tex_file_paths ) = @_;
+  my ( $setting, $all_sub_tex_file_paths ) = @_;
   my $data = {};
+  my $ignore_file =  encode( "cp932", decode( "utf8", $setting->{"check_atode_list"}->{"ignore_file"}) );
   foreach my $file_path ( @$all_sub_tex_file_paths ) {
+    if ( $file_path eq  $ignore_file  ) {
+      next;
+    }
     my $line_counter = 0;
     my $memo = "";
     my $start_line_counter;
@@ -46,7 +50,7 @@ sub get_data_of_atodekaku {
       $line_counter++;
       $line = decode( "cp932", $line );
       if ( $line eq "%あとで書く\n"  ) {
-        $start_line_counter = $line_counter;
+        $start_line_counter = sprintf( "%04d", $line_counter );
       }
       if ( $is_target_line and $line ne "\\end\{comment\}\n" ) {
         $memo = $memo . $line;
@@ -69,8 +73,8 @@ sub output_data {
   open( my $fh, ">", encode( "cp932", "${target_dir}あとで書くリスト.txt" ) );
   foreach my $file_path ( keys %$data ) {
     print $fh $file_path . encode( "cp932", "で見つけたメモ". "-" x 10 . "\n\n" );
-    foreach my $line_counter ( keys %{$data->{$file_path}} ) {
-      print  $fh encode( "cp932", "${line_counter}行で発見。↓その内容\n" );
+    foreach my $line_counter ( sort keys %{$data->{$file_path}} ) {
+      print  $fh sprintf( "%d", $line_counter ) . encode( "cp932", "行で発見。↓その内容\n" );
       print $fh $data->{$file_path}->{$line_counter};
       print $fh "\n";
     }

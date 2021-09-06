@@ -52,4 +52,10 @@ del "./note.toc"
 
 del "./note.pdf"
 
+cd ./tool
+
+perl -w check_atode_list.pl
+
+cd ../
+
 "./soujiÉmÅ[Ég.pdf"
