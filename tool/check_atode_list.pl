@@ -6,10 +6,6 @@ use Data::Dumper;
 use Config::Tiny;
 #iniファイルを処理するのに使っている
 
-use File::Copy;
-use File::Copy::Recursive qw(rcopy);
-#ファイルをコピーするために使っている
-
 use lib "./";
 use common_subroutines;
 #共通関数の呼び出し

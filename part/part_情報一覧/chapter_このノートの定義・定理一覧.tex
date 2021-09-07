@@ -1,0 +1,757 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+\section{0部　不完全性定理勉強会ノート}
+\label{section:0部　不完全性定理勉強会ノート}
+
+\begin{itembox}[l]{Notation \ref{notation:ジャーゴン}\ \ ジャーゴン(E:p1~2,\ K:p1~2)\ \ \pageref{notation:ジャーゴン}ページ}
+  数学用語になかで,
+  このノートを通じて用いるものを4つ挙げる.
+  \begin{itemize}
+    \item[1.]
+      定義や定理の主張の終わりを表す記号として$\blacksquare$を,
+      証明の終わりを表す記号として$\square$を用いる.
+    \item[2.]
+      「○○ならば××である」という含意を表す文章を「○○$\Rightarrow$××」と略記する.
+      逆向きの含意を表すのに$\Leftarrow$を使うこともあります. \\
+      「○○であるのは,
+      ××であるとき,
+      かつそのときに限る」を「○○は××と同値である」と述べたり,
+      記号$\Leftrightarrow$を,
+      「○○$\Leftrightarrow$××」のように使ったりする.
+    \item[3.]
+      「したがって」という言葉の代わりに省略記号$\therefore$を,
+      「なぜなら」という言葉の代わりに省略記号$\because$を用いる.
+      とくに証明中に$\because$を用いる場合はぶら下げを使って,
+      その理由部分を書く.
+    \item[4.]
+      関係を表す記号に斜線を重ねることでその関係の否定を表すことがある.
+      例えば「$x=y$」の否定として「$x\neq y$」や「$x\in y$」の否定として「$x \notin y$」と書く.
+      このテキストで新たに導入する記号,
+      例えば$\models$に対しても同様に$\not\models$のようにして,
+      このルールを適用する. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）5		（ラベル）notation:ジャーゴン
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition \ref{definition:集合}\ \ 集合(E:p1~2,\ K:p2)\ \ \pageref{definition:集合}ページ}
+  ものの集まりのことを\textbfgt{set}{集合}という. \\
+  ここでいう「もの」のことを\textbfgt{member}{要素}または\textbfgt{element}{元}と呼ぶ.
+  この「もの」のことをオブジェクトとも呼んだりする.
+  オブジェクト$x,y$が同一のものであるとき,
+  $x=y$と表す. \\
+  もの$t$が集合$A$の要素であることを$t\in A$で表す. \\
+  集合$A,B$に対して
+  \begin{center}
+    どのオブジェクト$t$についても,
+    $t\in A$であれば$t\in B$であり,
+    かつ$t\in B$であれば$t\in A$である
+  \end{center}
+  （論理式で書けばたとえば$\forall t( \  t\in A \to t\in B\ \land \  t\in B \to t\in A \ )$や,
+  $\forall t( \  t\in A \Leftrightarrow t\in B\ )$となる）をみたすとき,
+  集合$A,B$は等しいと言い,
+  $A=B$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）62		（ラベル）definition:集合
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition \ref{definition:演算}\ \ E:p2,\ K:p2\ \ \pageref{definition:演算}ページ}
+  オブジェクト$t$と集合$A$に対して,
+  その要素が$t$か$A$に属する要素のみであるような集合を$A;t$で表す. \\
+  のちに定義する和集合記号$\cup$を用いて定義しなおせば,
+  $A;t\defeq A\cup \{ t \}$となる.
+  「$\defeq$」という表記に関してはすぐ下のNotationを参照のこと.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）87		（ラベル）definition:演算
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Notation 定義するための記号}
+  もの（数学的対象）を定義するさいに「$\defeq$」,
+  （数学的な）述語を定義するさいに「$\defarr$」を用いる.
+  使い方としてはこれらに記号の左側に変数などを利用した新たなものや述語を記述し,
+  右側に日常言語で書かれたそれらの定義を書く.
+  ここまでの定義を使用例を出すと
+  \begin{itemize}
+    \item $A;t\ \defeq\ $その要素が$t$か$A$に属する要素のみであるような集合（Definition \ref{definition:;演算}）
+    \item
+      $A=B\ \defarr\ $どのオブジェクト$t$についても,
+      $t\in A$であれば$t\in B$であり,
+      かつ$t\in B$であれば$t\in A$である（Definition \ref{definition:集合}） \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）100		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition \ref{definition:empty set}\ \ 空集合(E:p2,\ K:p2~3)\ \ \pageref{definition:empty set}ページ}
+  要素を全く持たない集合を\textbfgt{empty set}{空集合}といい,
+  $\emptyset$で表す.
+  集合$A$が空であることは$A=\emptyset$で表せ,
+  （論理式で書けば例えば$\forall x(\ x\notin A\ )$となる）
+  空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）143		（ラベル）definition:empty set
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 外延的記法(E:p2,\ K:p3)}
+  オブジェクト$x,x_1,\dots,x_n$に対して,
+  \begin{itemize}
+    \item[1.] $x$のみを要素にもつ集合を$\{ x \}$で表す.
+    \item[2.] $x_1,\dots,x_n$のみを要素にもつ集合を$\{ x_1,\dots,x_n \}$で表す.
+    \item[3.]
+      $\{ 0,1,2,\dots \}$は自然数全体の集合$\mathbb{N}$を表し,
+      $\{ \dots,-2,-1,0,1,2,\dots \}$は整数全体の集合$\mathbb{Z}$を表す. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）152		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p2,\ K:p3}
+  オブジェクト$x,y$に対して,
+  $\{ x,y \} = \{ y,x \}$である.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）165		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 内包的記法(E:p2,\ K:p3)}
+  $\SetBar{x}{ \text{\_}x\text{\_} }$と書いて$\text{\_}x\text{\_}$をみたす全てのオブジェクトの集合を表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）174		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 部分集合(E:p2,\ K:p3)}
+  集合$A,B$に対して集合$A$の要素がすべて$B$の要素でもあるとき,
+  $A$は$B$の\textbfgt{subset}{部分集合}であるといい,
+  $A\subseteq B$で表す.
+  （論理式で書けば$\forall x(x\in A\to x\in B)$となる）
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）207		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition (E:p2,\ K:p3)}
+  $\emptyset$はどんな集合に対しても部分集合となる.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）214		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition べき集合(E:p2,\ K:p3)}
+  集合$A$に対して$A$のすべての部分集合からなる集合を$A$の\textbfgt{power set}{べき集合}とよぶ,
+  $\mathcal{P}(A)$で表す.
+  より正確には$\mathcal{P}(A)\defeq \SetBar{X}{ X\subseteq A }$.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）222		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p3,\ K:p4}
+  $\mathcal{P}(\emptyset)\ =\ \{\emptyset\}$ \\
+  $\mathcal{P}(\{\emptyset\})\ =\ \{\emptyset, \{\emptyset\}\}$
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）231		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 和集合と共通部分(E:p3,\ K:p4~5)}
+  $A,B$を集合,
+  $\mathcal{A}$を全ての要素が集合であるような集合とする.
+  さらに各自然数$n$に対して集合$A_n$が定まっているとする.
+  \begin{itemize}
+    \item[1.]
+      $A\cup B\defeq
+      \SetBar{x}{ x\in A\text{または}x\in B }$（$=\SetBar{x}{ x\in A\lor x\in B }$）とし,
+      これを$A$と$B$の\textbfgt{union}{和集合}という.
+    \item[2.]
+      $A\cap B\defeq
+      \SetBar{x}{ x\in A\text{かつ}x\in B }$（$=\SetBar{x}{ x\in A\land x\in B }$）とし,
+      これを$A$と$B$の\textbfgt{intersection}{共通部分}という.
+    \item[3.]
+      $A\cap B=\emptyset$であるとき,
+      $A$と$B$は\textbfgt{disjoint}{交わらない}という.
+      $\mathcal{A}$のどの2個の要素も交わらないとき,
+      $\mathcal{A}$は\textbfgt{pairwise disjoint}{互いに交わらない}という.
+    \item[4.]
+      $\bigcup\mathcal{A}\defeq
+      \SetBar{x}{\text{$x$は$A$のいずれかの要素に属する}}$（$=\SetBar{x}{ \exists A( x\in A \land A\in \mathcal{A}) }$）とし,
+      これを$\mathcal{A}$の\textbfgt{union}{和集合}という.
+    \item[5.]
+      $\bigcap\mathcal{A}\defeq \SetBar{x}{ \text{$x$は$A$のすべての要素に属する} }$（$=\SetBar{x}{ \forall A( x\in A \land A\in \mathcal{A}) }$）とし,
+      これを$\mathcal{A}$の\textbfgt{intersection}{共通部分}という.
+    \item[6.]
+      $\bigcup_{n\in\mathbb{N}}A_n\defeq \bigcup \SetBar{A_n}{ n\in \mathbb{N} }$とする.
+      これを単に$\bigcup_{n}A_n$と表すこともある.
+      \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）236		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p3,\ K:p4~5}
+  $t$をオブジェクト,
+  $A,B$を集合,
+  $\mathcal{A}=\{ \{ 0,1,5 \}, \{ 1,6 \}, \{ 1,5 \} \}$という集合族とする.
+  \begin{itemize}
+    \item[1.] $A;t=A\cup \{ t \}$.
+    \item[2.]
+      $\bigcup\mathcal{A}=\{ 0,1,5,6 \}$. \\
+      $\bigcap\mathcal{A}=\{ 1 \}$.
+    \item[3.] $A\cup B=\bigcup\{ A,B \}$.
+    \item[4.] $\bigcup\mathcal{P}(A)=A$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）281		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 順序対(E:p3~4,\ K:p5)}
+  オブジェクト$x,y,z,x_1,\dots,x_n,x_{n+1}$に対して
+  \begin{itemize}
+    \item[1.]
+      $\op{x}{y}\defeq \{ \{ x \}, \{ x,y \} \}$とし,
+      これを$x$と$y$の\textbfgt{ordered pair}{順序対}という.
+      順序対$\op{x}{y}$における$x,y$をこの順序対の成分といい,
+      とくに$x$を第一成分,
+      $y$を第二成分と呼んだりする.
+    \item[2.]
+      $\triple{x}{y}{z}\defeq \op{\op{x}{y}}{z}$とし,
+      より一般的に$n>1$に対して$\ntuple{x_1}{x_{n+1}}\defeq \op{\ntuple{x_1}{x_n}}{x_{n+1}}$と帰納的に定義する.
+    \item[3.]
+      とくに$\singleseq{x}=x$と定義する.
+      \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）295		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition \ref{definition:有限列}\ \ 有限列(E:p4,\ K:p5)\ \ \pageref{definition:有限列}ページ}
+  集合$A$に対して
+  \begin{itemize}
+    \item[1.]
+      $S$が$A$の要素からなる\textbfgt{finite sequence}{有限列}（あるいは\textbfgt{string}{列}）であるとは,
+      ある正の整数$n$について$S=\ntuple{x_1}{x_n}$で各$x_i$が$A$の要素であるときとする.
+      （論理式で書くと$\exists n\in \mathbb{Z}(\ n>0\ \land \ x_1,\dots ,x_n\in A\ \land\ S=\ntuple{x_1}{x_n}\ )$） \\
+      またこのときの$n$を有限列$A$の\textgt{長さ}とよぶ.
+    \item[2.]
+      $A$の要素からなる有限列$S=\ntuple{x_1}{x_n}$に対し,
+      $1\leq k\leq m\leq n$な$k,m$でもって$\ntuple{x_k,x_{k+1}}{x_{m-1},x_m}$な形の有限列を$S$の\textbfgt{segment}{区間}という.
+      とくに$k=1$な区間を$S$の\textbfgt{initial segment}{始切片}といい,
+      $m\neq n$な始切片を$S$の\textbfgt{proper initial segment}{真の始切片}という. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）326		（ラベル）definition:有限列
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p4,\ K:p6}
+  オブジェクト$x_1,\dots,x_n,y_1,\dots,y_n$に対して$\ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}$ならば,
+  $1\leq i\leq n$な各$i$について$x_i=y_i$.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）347		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Lemma \ref{lemma:長さの違う有限列が一致するとき始切片で帳尻が合う}\ \ E:p4 LEMMA 0A,\ K:p6 補題0A\ \ \pageref{lemma:長さの違う有限列が一致するとき始切片で帳尻が合う}ページ}
+  $\ntuple{x_1}{x_m}=\ntuple{y_1,\dots,y_m}{y_{m+k}}$ならば$x_1=\ntuple{y_1}{y_{k+1}}$.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）388		（ラベル）lemma:長さの違う有限列が一致するとき始切片で帳尻が合う
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 直積集合(E:p4,\ K:p6)}
+  集合$A,B$と$n>1$な$n\in \mathbb{N}$に対し
+  \begin{itemize}
+    \item[1.]
+      $A\times B\defeq \SetBar{ \op{a}{b} }{ a\in A\text{かつ}b\in B }$とし,
+      これを$A$と$B$の\textbfgt{Cartesian product}{直積集合}という.
+    \item[2.]
+      $A^n\defeq A^{n-1}\times A$と帰納的に定義する.
+      たとえば$A^3=(A\times A)\times A$である. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）467		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 関係(E:p4~5,\ K:p6~7)}
+  集合$A,B,R$と$n>0$な$n\in \mathbb{N}$に対し
+  \begin{itemize}
+    \item[1.]
+      $R$のすべての要素が順序対であるとき,
+      $R$を\textbfgt{relation}{関係}という.
+    \item[2.]
+      関係$R$に対して
+      $\dom(R)\defeq \SetBar{x}{ \text{ある$y$について$\op{x}{y}\in R$} }$とし,
+      これを関係$R$の\textbfgt{domain}{定義域}という. \\
+      さらに$\ran(R)\defeq \SetBar{y}{ \text{ある$x$について$\op{x}{y}\in R$} }$とし,
+      これを関係$R$の\textbfgt{range}{値域}という. \\
+      さらに$\fld(R)\defeq \dom(R)\cup \ran(R)$とし,
+      これを関係$R$の\textbfgt{field}{領域}という.
+    \item[3.]
+      $R\subseteq A^n$であるとき,
+      そんな$R$を$A$上の$n$項関係という.
+    \item[4.]
+      $B\subseteq A$かつ$R$が$A$上の$n$項関係であるとき,
+      $R\cap B^n$を$R$の$B$への\textbfgt{restriction}{制限}という. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）479		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p4~5,\ K:p6~7}
+  集合$R_1,R_2\subseteq \mathbb{N}^2$に対し
+  \begin{itemize}
+    \item[1.]
+      $R_1=\{\op{0}{1},\op{0}{2},\op{0}{3},\op{1}{2},\op{1}{3},\op{2}{3}\}$とおくと,
+      $R_1$は$0$から$3$までの数の間の大小関係となる.
+      さらに$\dom(R)=\{ 0,1,2 \},\ \ran(R)=\{ 1,2,3 \},\ \fld(R)=\{ 0,1,2,3 \}$となる.
+    \item[2.]
+      $R_2 = \SetBar{ \op{m}{n} }{ m<n }$とおくと,
+      $R_2$は$\mathbb{N}$上の大小関係となり,
+      $B=\{ 0,1,2,3 \}$とすれば$R_1=R_2 \cap B^2$となるから$R_1$は$R_2$の$B$への制限である. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）509		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 写像(E:p5,\ K:p7~8)}
+  集合$A,B$と関係$F$に対して
+  \begin{itemize}
+    \item[1.]
+      $F$が「$\dom(F)$のそれぞれの要素$x$について,
+      $\op{x}{y}\in F$なる$y$がただひとつ存在する」（論理式で書くと$\forall x\in \dom(F)\exists !y(\op{x}{y}\in F)$）をみたすとき,
+      $F$は\textbfgt{function}{写像}であるという.
+      このとき$x\in \dom(F)$に対して一意的に存在している$y$のことを$F(x)$で表し,
+      $F$の$x$における\textbfgt{value}{値}という.
+    \item[2.]
+      写像$F$が$\dom(F)=A$かつ$\ran(F)\subseteq B$をみたすとき,
+      $F$は$A$を$B$に\textgt{写す}といい,
+      $\map{F}{A}{B}$で表す.
+    \item[3.]
+      $\map{F}{A}{B}$であるとき,
+      $\ran(F)=B$をみたすとき,
+      $F$は$A$から$B$への\textbfgt{surjection}{全射}
+      であるといい,
+      $\SurjectionMap{F}{A}{B}$で表す.
+      \ \\
+      「$\ran(F)$のそれぞれの要素$y$について,
+      $\op{x}{y}\in F$をみたす$x$がただひとつ存在する」（論旨式で書くと$\forall y\in \ran(F)\exists !x(\op{x}{y}\in F)$）
+      をみたすとき,
+      $F$は$A$から$B$への\textbfgt{injection}{単射}
+      であるといい,
+      $\InjectionMap{F}{A}{B}$で表す.
+      \ \\
+      全射かつ単射な写像を\textbfgt{bijection}{全単射}といい,
+      $\BijectionMap{F}{A}{B}$で表す.
+    \item[4.]
+      オブジェクト$x,y$とその順序対$\op{x}{y}$と写像$F$に対して,
+      $\op{x}{y}\in \dom(F)$であるとき$F(\op{x}{y})$を単に$F(x,y)$で表す.
+      より一般的に$F(\ntuple{x_1}{x_n})$を$F(x_1,\dots,x_n)$で表す.
+    \item[5.]
+      $F=\SetBar{ \op{x}{x} }{ x\in A }$であるとき,
+      $F$を$A$上の\textbfgt{identity function}{恒等写像}といい,
+      この$F$を$\id_A$で表す.
+      \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）523		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 演算(E:p5,\ K:p8)}
+  集合$A,B$と関係$f,g$に対して
+  \begin{itemize}
+    \item[1.]
+      $\map{f}{A^n}{A}$であるとき$f$を$A$上の{\boldmath $n$}\textbf{-ary operation}（{\boldmath $n$}\textgt{項演算}）であるという.
+    \item[2.]
+      $A$上の$n$項演算$f$と$B\subseteq A$な集合$B$に対して,
+      $g = f \cap(B^n\times A)$をみたす$g$を$f$の$B$への\textbfgt{restriction}{制限}という.
+    \item[3.]
+      $A$上の$n$項演算$f$に対して,
+      集合$B\subseteq A$が$f$について閉じているとは,
+      どの$b_1,\dots,b_n\in B$についても$f(b_1,\dots,b_n)\in B$をみたす（論理式で書くと$\forall b_1,\dots,b_n\in B\big(\ f(b_1,\dots,b_n)\in B\ \big)$）ときをいう. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）618		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p5,\ K:p8}
+  $\map{S_1}{ \mathbb{N}^2 }{ \mathbb{N} }$と$\map{S_2}{ \mathbb{N} }{ \mathbb{N} }$に対して
+  \begin{itemize}
+    \item[1.]
+      $S_1$が任意の$m,n\in \mathbb{N}$に対し$S_1(m,n)=m+n$をみたすとすると,
+      $S_1$は$\mathbb{N}$上の加法という$\mathbb{N}$上の2項演算となる.
+    \item[2.]
+      $S_2$が任意の$n\in \mathbb{N}$に対し$S_2(n)=n+1$をみたすとすると,
+      $S_2$は$\mathbb{N}$上の直後の自然数を与えるという$\mathbb{N}$上の1項（単項）演算となる.
+    \item[3.]
+      $\map{P}{ \mathbb{R}^2 }{ \mathbb{R} }$が任意の$r_1,r_2\in \mathbb{R}$に対し$p(r_1+r_2)=r_1+r_2$をみたすとすると,
+      $P$は$\mathbb{R}$上の加法という$\mathbb{R}$上の2項演算となり,
+      1.の$S_1$は$P$の$\mathbb{N}$への制限,
+      つまり$S_1=P\cap \mathbb{N}^3$となっている. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）637		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p5,\ K:p8}
+  集合$A,B$に対して
+  \begin{itemize}
+    \item[1.]
+      $f$を$A$上の$n$項演算,
+      $B\subseteq A$とし,
+      $g$を$f$の$B$への制限とする.
+      $g$が$B$上の$n$項演算となることと,
+      $B$が$f$について閉じていることは同値である.
+    \item[2.]
+      $A$上の恒等写像$\id_A$は（何もしない・作用しないという）$A$上の単項演算である. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）657		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 同値関係と順序関係(E:p5~6,\ K:p8~9)}
+  集合$A$と関係$R$に対して
+  \begin{itemize}
+    \item[1.]
+      $R$が$A$上で\textbfgt{reflexive}{反射的}とは,
+      任意の$x\in A$について$\op{x}{x}\in R$であるこという.
+    \item[2.]
+      $R$が\textbfgt{symmetric}{対称的}とは,
+      任意の$x,y$に対して$\op{x}{y}\in R$ならば$\op{y}{x}\in R$であるこという.
+    \item[3.]
+      $R$が\textbfgt{transitive}{推移的}とは,
+      任意の$x,y,z$に対して$\op{x}{y}\in R$かつ$\op{y}{z}\in R$ならば$\op{x}{z}\in R$であるこという.
+    \item[4.]
+      $R$が$A$上で\textbfgt{trichotomy}{三分律}をみたすとは,
+      任意の$x,y$に対して$\op{x}{y}\in R,\ x=y,\ \op{y}{x}\in R$のいずれか1つをみたすこという.
+    \item[5.]
+      $R$が$A$上の\textbfgt{equivalence relation}{同値関係}であるとは,
+      $R$が$A$上の2項演算でかつ$A$上で反射的・対称的・推移的であるときをいう.
+    \item[6.]
+      $R$が$A$上の\textbfgt{ordering relation}{順序関係}であるとは,
+      $R$が$A$上の2項演算でかつ推移的であり$A$上で三分律をみたすときをいう. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）702		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition 同値類(E:p6,\ K:p9)}
+  集合$A$上の同値関係$R$と$x\in A$に対して$[x]\defeq \SetBar{y}{ \op{x}{y}\in R }$とし,
+  これを$x$の\textbfgt{equivalence class}{同値類}という. \\
+  さらに集合$\SetBar{ [x] }{ x\in A }$を$A\backslash{R}$で表し,
+  集合$A$の同値関係$R$による\textbfgt{quotient set}{商集合}という.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）726		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p6,\ K:p9}
+  集合$A$上の同値関係$R$に対して,
+  $A$の各要素の同値類全体は$A$の分割となる.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）737		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Notation E:p6,\ K:p9}
+  自然数全体の集合$\{ 0,1,2,\dots \}$を$\mathbb{N}$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）785		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p6,\ K:p9}
+  集合$A$に対して
+  \begin{itemize}
+    \item[1.] 集合$A$が\textbfgt{finite}{有限}であるとは,
+      ある自然数$n\in \mathbb{N}$と$A$から$\{ 0,1,\dots, n-1 \}$写像$f$があって,
+      $f$が全単射になっていることをいう
+      （論理式で書くと$\exists n\in \mathbb{N}\exists f( \ \BijectionMap{f}{A}{ \{ 0,1,\dots, n-1 \} } \ )$）.
+    \item[2.] 集合$A$が\textbfgt{infinite}{無限}であるとは,
+      有限でないときをいう.
+      つまり任意の$n\in \mathbb{N}$に対して$A$から$\{ 0,1,\dots, n-1 \}$への全単射写像が存在しないことをいう.
+      言い換えればどんな$A$から$\{ 0,1,\dots, n-1 \}$の写像も全単射にならないともいえる.
+    \item[3.] 集合$A$が\textbfgt{at most countable}{高々可算}であるとは,
+      $A$から$\mathbb{N}$への単射写像が存在するこという.
+    \item[4.] 集合$A$が\textbfgt{countable}{可算}であるとは,
+      $A$から$\mathbb{N}$への全単射写像が存在するこという.
+      \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）801		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p6,\ K:p9}
+  有限集合は高々可算.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）838		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition \ref{proposition:高々可算な無限集合はNへの全単射が存在する}\ \ E:p6,\ K:p9\ \ \pageref{proposition:高々可算な無限集合はNへの全単射が存在する}ページ}
+  高々可算な無限集合$A$に対して$A$から$\mathbb{N}$への全単射写像が存在する.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）850		（ラベル）proposition:高々可算な無限集合はNへの全単射が存在する
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Theorem \ref{theorem:可算集合の要素の有限列全体も可算}\ \ E:p6 THEOREM 0B,\ K:p10 定理0B\ \ \pageref{theorem:可算集合の要素の有限列全体も可算}ページ}
+  $A$を高々可算集合とするとき,
+  $A$の要素からなる有限列全体の集合も高々可算.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）877		（ラベル）theorem:可算集合の要素の有限列全体も可算
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p7 ,\ K:p12}
+  集合族$\mathcal{C}$が\textbfgt{chain}{鎖}であるとは,
+  任意の$X,Y\in \mathcal{C}$に対して$X\subseteq Y$か$Y\subseteq X$のいずれかが成立することをいう.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）969		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Lemma \ref{lemma:ツォルンの補題}\ \ E:p7 ZORN'S LEMMA,\ K:p12 ツォルンの補題\ \ \pageref{lemma:ツォルンの補題}ページ}
+  集合族$\mathcal{A}$が
+  \begin{equation*}
+    \text{任意の$\mathcal{C}\subseteq \mathcal{A}$が鎖ならば$\bigcup \mathcal{C}\in \mathcal{A}$}
+  \end{equation*}
+  を満たすとき,
+  $\mathcal{A}$には超集合関係にて極大な要素$A$が存在する,
+  つまり$A$はどの$X\in \mathcal{A}$に対しても$A\subsetneq X$となることはない.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）978		（ラベル）lemma:ツォルンの補題
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p8 ,\ K:p12}
+  集合$A,B$に対して$A$から$B$への全単射写像が存在するとき,
+  $A$と$B$は\textbfgt{equinumerous}{対等}であるといい,
+  $A \sim B$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）996		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p8 ,\ K:p12}
+  $\mathbb{N}$と整数全体の集合$\mathbb{Z}$は対等である.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1002		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p8 ,\ K:p12}
+  任意の集合$A,B,C$に対して以下の3つが成立する.
+  \begin{itemize}
+    \item[1. ] $A \sim A$.
+    \item[2. ] $A \sim B$ならば$B \sim A$.
+    \item[3. ] $A \sim B$かつ$B \sim C$ならば$A \sim C$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1011		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p8 ,\ K:p13}
+  集合$A$に対して$\card A$を,
+  任意の集合$B$に対して
+  \begin{equation*}
+    \card A = \card B \leftrightarrow A \sim B
+  \end{equation*}
+  を満たすものとし,
+  これを$A$の\textbfgt{cardninal numger}{基数}または\textbfgt{cardinality}{濃度}という.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1024		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p8 ,\ K:p13}
+  集合$A,B$に対して,
+  ある$B^{\prime}\subseteq B$があって$A \sim B^{\prime}$であるとき,
+  $A$ \textbf{dominated by} $B$（$A$は$B$で\textgt{おさえられている}）といい,
+  $A \preceq B$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1034		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p8 ,\ K:p13}
+  $A \preceq B$であるとき,
+  $A$から$B$への単射写像が存在する.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1041		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p8 ,\ K:p14}
+  集合$A,B$に対して$A \preceq B$であるとき,
+  $\card A \leq \card B$であるとする.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1050		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p9 ,\ K:p14}
+  任意の集合$A,B,C$に対して以下の2つが成立する.
+  \begin{itemize}
+    \item[1. ] $A \preceq A$.
+    \item[2. ] $A \preceq B$かつ$B \preceq C$ならば$A \preceq C$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1070		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Proposition E:p9 ,\ K:p14}
+  $A\preceq \mathbb{N}$であることと,
+  $A$が高々可算であることは同値.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1082		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Theorem \ref{theorem:シュレーダー・ベルンシュタインの定理}\ \ E:p9 SCH\"{O}DER-BERNSTEIN THEOREM,{\ \\}\hspace{3.5cm}\ K:p14 シュレーダー・ベルンシュタイン（Schr\"{o}der-Bernstein）の定理\ \ \pageref{theorem:シュレーダー・ベルンシュタインの定理}ページ}
+  集合$A,B$と,
+  基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[(a)] $A \preceq B$かつ$B \preceq A$ならば$A \sim B$.
+    \item[(b)] $\kappa \leq \lambda$かつ$\lambda \leq \kappa$ならば$\kappa = \lambda$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1091		（ラベル）theorem:シュレーダー・ベルンシュタインの定理
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Theorem \ref{theorem:比較可能定理}\ \ E:p9 THEOREM 0C,\ K:p14 定理0C\ \ \pageref{theorem:比較可能定理}ページ}
+  集合$A,B$と,
+  基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[(a)] $A \preceq B$または$B \preceq A$の少なくとも一方が成り立つ.
+    \item[(b)] $\kappa \leq \lambda$または$\lambda \leq \kappa$の少なくとも一方が成り立つ. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1105		（ラベル）theorem:比較可能定理
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Notation E:p9,\ K:p14}
+  $\card \mathbb{N}$を$\aleph_0$で,
+  $\card \mathbb{R}$を$2^{\aleph_0}$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1125		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Definition E:p9,\ K:p15}
+  集合$A,B$とその基数$\card A=\kappa, \card B = \lambda$に対して,
+  その演算$+,\cdot$を以下のように定める.
+  \begin{itemize}
+    \item[1.]
+      $A\cap B = \emptyset$のとき,
+      $\kappa + \lambda\ =\ \card ( A \cup B )$.
+    \item[2.] $\kappa \cdot \lambda\ =\ \card ( A \times B )$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1130		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Theorem \ref{theorem:基数算術の定理}\ \ E:p9 CARDINAL ARITHMETIC THEOREM,\ K:p15 基数算術の定理\ \ \pageref{theorem:基数算術の定理}ページ}
+  $\kappa \leq \lambda$かつ$\lambda$が無限な基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[1.] $\kappa + \lambda\ =\ \lambda$.
+    \item[2.] $\kappa \neq 0$ならば$\kappa \cdot \lambda\ =\ \lambda$.
+    \item[3.] $\kappa$が無限ならば$\aleph_0 \cdot \kappa\ =\ \kappa$. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1141		（ラベル）theorem:基数算術の定理
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Theorem \ref{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}\ \ E:p10 THEOREM 0D,\ K:p15 定理0D\ \ \pageref{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}ページ}
+  無限集合$A$に対して,
+  $A$の要素からなる有限列全体の集合$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}$の濃度は$\card A$と同じ.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1151		（ラベル）theorem:無限集合の要素の有限列全体はその集合の濃度に一致
+	\end{itemize}
+\end{itembox}
+\ \\
+\begin{itembox}[l]{Example E:p10,\ K:p16}
+  実数における代数数的数全体の集合の濃度は$\aleph_0$である.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_導入.tex}
+		\item[]（行数）1157		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\
+
+\end{document}
