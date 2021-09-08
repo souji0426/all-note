@@ -7,12 +7,24 @@
 
 \begin{table}[H]
 	\begin{center}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			記号 & 説明 & 頁数 & 記号 & 説明 & 頁数  \\ \hline \hline
-			$\defeq$ & \multicolumn{1}{|l|}{オブジェクトを定義するための記号} & \pageref{definition:;演算} & $\defarr$ & \multicolumn{1}{|l|}{述語を定義するための記号} & \pageref{definition:;演算}  \\ \hline
-			$\emptyset$ & \multicolumn{1}{|l|}{空集合} & \pageref{definition:空集合} & $A;t$ & \multicolumn{1}{|l|}{集合に要素を1つ付け足す演算} & \pageref{definition:;演算}  \\ \hline
-		\end{tabular}
+		{ \renewcommand\arraystretch{1.5}
+			\begin{tabular}{|c|c|c||c|c|c|}
+				\hline
+				記号 & 説明 & 頁数 & 記号 & 説明 & 頁数  \\ \hline \hline
+			$\BijectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{（集合$X$から$Y$への）全単射写像$f$} & \pageref{definition:全単射} & $X\times Y$ & \multicolumn{1}{|l|}{（$X$と$Y$の）直積集合} & \pageref{definition:直積集合}  \\ \hline
+			$\defeq$ & \multicolumn{1}{|l|}{オブジェクトを定義するための記号} & \pageref{notetion:定義するための記号} & $\defarr$ & \multicolumn{1}{|l|}{述語を定義するための記号} & \pageref{notetion:定義するための記号}  \\ \hline
+			$\dom(R)$ & \multicolumn{1}{|l|}{（関係$R$の）定義域} & \pageref{definition:関係} & $\emptyset$ & \multicolumn{1}{|l|}{空集合} & \pageref{definition:空集合}  \\ \hline
+			$[x]$ & \multicolumn{1}{|l|}{（$x$の）同値類} & \pageref{definition:同値類} & $\fld(R)$ & \multicolumn{1}{|l|}{（関係$R$の）領域} & \pageref{definition:関係}  \\ \hline
+			$\id_X$ & \multicolumn{1}{|l|}{（集合$X$上の）恒等写像} & \pageref{definition:恒等写像} & $\cap$ & \multicolumn{1}{|l|}{共通部分演算} & \pageref{definition:共通部分}  \\ \hline
+			$\bigcap$ & \multicolumn{1}{|l|}{（集合族の）共通部分演算} & \pageref{definition:集合族の共通部分} & $\InjectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{（集合$X$から$Y$への）単射写像$f$} & \pageref{definition:単射}  \\ \hline
+			$\map{f}{X}{Y}$ & \multicolumn{1}{|l|}{（集合$X$から$Y$への）写像・関数$f$} & \pageref{definition:写像} & $\mathbb{N}$ & \multicolumn{1}{|l|}{自然数全体の集合} & \pageref{notation:自然数全体の集合}  \\ \hline
+			$\op{x}{y}$ & \multicolumn{1}{|l|}{（$x$と$y$の）順序対} & \pageref{definition:順序対} & $\mathcal{P}(X)$ & \multicolumn{1}{|l|}{（集合$X$の）べき集合} & \pageref{definition:べき集合}  \\ \hline
+			$A\backslash{R}$ & \multicolumn{1}{|l|}{（集合$A$の関係$R$による）商集合} & \pageref{definition:商集合} & $\ran(R)$ & \multicolumn{1}{|l|}{（関係$R$の）値域} & \pageref{definition:関係}  \\ \hline
+			$A;t$ & \multicolumn{1}{|l|}{集合に要素を1つ付け足す演算} & \pageref{definition:セミコロン演算} & $\subset$ & \multicolumn{1}{|l|}{部分集合関係} & \pageref{definition:部分集合関係}  \\ \hline
+			$\SurjectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{（集合$X$から$Y$への）全射写像$f$} & \pageref{definition:全射} & $\cup$ & \multicolumn{1}{|l|}{和集合演算} & \pageref{definition:和集合}  \\ \hline
+			$\bigcup$ & \multicolumn{1}{|l|}{（集合族の）和集合演算} & \pageref{definition:集合族の和集合} &  &  &   \\ \hline
+			\end{tabular}
+		}
 	\end{center}
 \end{table}
 

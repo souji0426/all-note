@@ -165,18 +165,19 @@ sub make_list_and_output {
     $num_of_row = int( $data->{"num_of_symbol"} / $num_of_column ) + 1;
   }
   print $fh "\\begin\{table\}\[H\]\n";
-  print $fh "\t\\begin\{center\}\n";
+  print $fh "\t" x 1 . "\\begin\{center\}\n";
+  print $fh "\t" x 2 . "\{ \\renewcommand\\arraystretch{1.5}\n";
 
   my $column_setting = "|c|c|c|" x $num_of_column;
-  print $fh "\t\t\\begin\{tabular\}\{${column_setting}\}\n";
-  print $fh "\t\t\t\\hline\n";
+  print $fh "\t" x 3 . "\\begin\{tabular\}\{${column_setting}\}\n";
+  print $fh "\t" x 4 . "\\hline\n";
 
   my $part_of_header = "記号 & 説明 & 頁数";
   my @array;
   for ( my $i = 0; $i < $num_of_column; $i++ ){
     push( @array, $part_of_header );
   }
-  my $header = "\t\t\t" . join( " & ", @array ) . "  \\\\ \\hline \\hline\n";
+  my $header = "\t" x 4 . join( " & ", @array ) . "  \\\\ \\hline \\hline\n";
   print $fh encode( "cp932", $header );
 
   for ( my $row = 0; $row < $num_of_row; $row++ ){
@@ -184,8 +185,9 @@ sub make_list_and_output {
     print $fh $one_line;
   }
 
-  print $fh "\t\t\\end\{tabular\}\n";
-  print $fh "\t\\end\{center\}\n";
+  print $fh "\t" x 3 . "\\end\{tabular\}\n";
+  print $fh "\t" x 2 . "}\n";
+  print $fh "\t" x 1 . "\\end\{center\}\n";
   print $fh "\\end\{table\}\n\n";
 }
 

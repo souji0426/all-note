@@ -6,10 +6,6 @@ del "./note.dvi"
 
 del "./note.log"
 
-del "./note.out"
-
-del "./note.toc"
-
 cd ./tool
 
 perl -w summarize_def_and_thm.pl
