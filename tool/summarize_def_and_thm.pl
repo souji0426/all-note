@@ -142,6 +142,7 @@ sub get_all_def_and_thm_data_in_one_file {
     }
 
   }
+  close $fh;
 }
 
 sub output_tex {

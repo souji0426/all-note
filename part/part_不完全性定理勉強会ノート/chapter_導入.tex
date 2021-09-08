@@ -85,7 +85,7 @@
 \end{definition}
 
 \begin{definition}[E:p2,\ K:p2]
-  \label{definition:演算}
+  \label{definition:;演算}
   オブジェクト$t$と集合$A$に対して,
   その要素が$t$か$A$に属する要素のみであるような集合を$A;t$で表す. \\
   のちに定義する和集合記号$\cup$を用いて定義しなおせば,
@@ -96,8 +96,10 @@
     どこまでメジャーなんだろうか.
   }
 \end{definition}
+%s-e::$A;t$::集合に要素を1つ付け足す演算::definition:;演算
 
 \begin{notation}[定義するための記号]
+  \label{notetion:定義するための記号}
   もの（数学的対象）を定義するさいに「$\defeq$」,
   \footnote{
     この記号はテキストでは導入されていないが,
@@ -117,6 +119,8 @@
       かつ$t\in B$であれば$t\in A$である（Definition \ref{definition:集合}） \qedhere
   \end{itemize}
 \end{notation}
+%d-e::$\defeq$::オブジェクトを定義するための記号::definition:;演算
+%d-e::$\defarr$::述語を定義するための記号::definition:;演算
 
 \begin{proposition}[]
   オブジェクト$t$と集合$A$に対して,
@@ -141,13 +145,14 @@
 \end{proof}
 
 \begin{definition}[空集合(E:p2,\ K:p2~3)]
-  \label{definition:empty set}
+  \label{definition:空集合}
   要素を全く持たない集合を\textbfgt{empty set}{空集合}といい,
   $\emptyset$で表す.
   集合$A$が空であることは$A=\emptyset$で表せ,
   （論理式で書けば例えば$\forall x(\ x\notin A\ )$となる）
   空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
 \end{definition}
+%e-m::$\emptyset$::空集合::definition:空集合
 
 \begin{definition}[外延的記法(E:p2,\ K:p3)]
   オブジェクト$x,x_1,\dots,x_n$に対して,

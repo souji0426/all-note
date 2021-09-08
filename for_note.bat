@@ -12,6 +12,10 @@ del "./note.toc"
 
 cd ./tool
 
+perl -w summarize_def_and_thm.pl
+
+perl -w make_symbol_list.pl
+
 perl -w convert_comma_and_period.pl
 
 pause
