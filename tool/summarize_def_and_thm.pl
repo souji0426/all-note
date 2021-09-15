@@ -45,22 +45,19 @@ sub get_target_environment {
 sub get_all_def_and_thm_data {
   my ( $setting, $data_hash, $target_environment ) = @_;
   foreach my $part_counter ( sort keys %$data_hash ) {
-    my $chapter_key = $data_hash->{$part_counter}->{"chapter"};
-    foreach my $chapter_counter ( sort keys %{$chapter_key } ) {
+    my $part_key = $data_hash->{$part_counter};
+    foreach my $chapter_counter ( sort keys %{$part_key->{"chapter"}} ) {
+      my $chapter_key = $part_key->{"chapter"}->{$chapter_counter};
+      get_all_def_and_thm_data_in_one_file( $setting, $chapter_key, $target_environment );
 
-      my $section_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter}->{"section"};
-      my $num_of_section = keys %{$section_key};
+      foreach my $section_counter ( sort keys %{$chapter_key->{"section"}} ) {
+        my $section_key = $chapter_key->{"section"}->{$section_counter};
+        get_all_def_and_thm_data_in_one_file( $setting, $section_key, $target_environment );
 
-      if ( $num_of_section == 0 ) {
-        my $target_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter};
-        get_all_def_and_thm_data_in_one_file( $setting, $target_key, $target_environment );
-      } else {
-
-        foreach my $section_counter ( sort keys %{$section_key} ) {
-          my $target_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter}->{"section"}->{$section_counter};
-          get_all_def_and_thm_data_in_one_file( $setting, $target_key, $target_environment );
+        foreach my $subsection_counter ( sort keys %{$section_key->{"subsection"}} ) {
+          my $subsection_key = $section_key->{"subsection"}->{$subsection_counter};
+          get_all_def_and_thm_data_in_one_file( $setting, $subsection_key, $target_environment );
         }
-
       }
     }
   }
@@ -71,10 +68,14 @@ sub get_all_def_and_thm_data {
 sub get_all_def_and_thm_data_in_one_file {
   my ( $setting, $data_hash, $target_environment ) = @_;
 
+  if ( !exists( $data_hash->{"file_path"} ) ) {
+    return;
+  }
+
   my $file_path = $data_hash->{"file_path"};
   my $target_tex_file_path = $setting->{"summarize_def_and_thm"}->{"output_tex_file_path"};
   $target_tex_file_path =  encode( "cp932", decode( "utf8", $target_tex_file_path ) );
-  if ( $target_tex_file_path  eq $file_path ) {
+  if ( $target_tex_file_path eq $file_path ) {
     return;
   }
 
@@ -85,10 +86,10 @@ sub get_all_def_and_thm_data_in_one_file {
   my $is_footnote = 0;
   my $line_counter_for_item;
   my $item_counter = 0;
-  my $item_label = "";
+  my @item_labels_array = ();
   my $lines_str = "";
-
   my $item_name = "";
+  my $target_key;
 
   while( my $line = <$fh> ) {
 
@@ -96,7 +97,7 @@ sub get_all_def_and_thm_data_in_one_file {
 
     if ( $is_target_line ) {
 
-      if ( $line =~ /\\footnote\{/ ) {
+      if ( $line =~ /^\s{1,}\\footnote\{/ ) {
         $is_footnote = 1;
         next;
       }
@@ -104,8 +105,8 @@ sub get_all_def_and_thm_data_in_one_file {
         $is_footnote = 0;
         next;
       }
-      if ( $line =~ /\s{1,}\\label\{(.+)\}/ ) {
-        $item_label = $1;
+      if ( $line =~ /^\s{1,}\\label\{(.+)\}/ ) {
+        push( @item_labels_array, $1 );
         next;
       }
       if ( !$is_footnote and $line !~ /^\\end/ ) {
@@ -114,13 +115,14 @@ sub get_all_def_and_thm_data_in_one_file {
 
       if ( $line =~ /^\\end\{/ ) {
 
-        $data_hash->{"item"}->{sprintf( "%04d", $item_counter )}->{"str"} = $lines_str;
-        $data_hash->{"item"}->{sprintf( "%04d", $item_counter )}->{"label"} = $item_label;
+        $target_key->{"str"} = $lines_str;
+        $target_key->{"label"} = join( " , ", @item_labels_array );
 
         $is_target_line = 0;
         $line_counter_for_item = 0;
         $lines_str = "";
-        $item_label = "";
+        @item_labels_array = ();
+        $target_key = "";
 
       }
     } else {
@@ -131,10 +133,12 @@ sub get_all_def_and_thm_data_in_one_file {
           $line_counter_for_item = $line_counter;
           $item_counter++;
 
-          $data_hash->{"item"}->{sprintf( "%04d", $item_counter )}->{"environment_name"} = $environment_name;
-          $data_hash->{"item"}->{sprintf( "%04d", $item_counter )}->{"line"} = $line_counter_for_item;
-          $item_name = $1;
-          $data_hash->{"item"}->{sprintf( "%04d", $item_counter )}->{"item_name"} = $1;
+          $data_hash->{"item"}->{sprintf( "%04d", $item_counter )} = {};
+          $target_key = $data_hash->{"item"}->{sprintf( "%04d", $item_counter )};
+
+          $target_key->{"environment_name"} = $environment_name;
+          $target_key->{"line"} = $line_counter_for_item;
+          $target_key->{"item_name"} = $1;
 
           next;
         }
@@ -155,32 +159,36 @@ sub output_tex {
   print $fh "\\begin{document}\n\n";
 
   foreach my $part_counter ( sort keys %{$data} ) {
-    my $part_name = decode( "cp932", $data->{$part_counter}->{"name"} );
+    my $part_key = $data->{$part_counter};
+    my $part_name = decode( "cp932", $part_key->{"name"} );
     if (  $part_name eq "その他" or $part_name eq "情報一覧" ) {
       next;
     }
 
     my $chapter_number = sprintf( "%d", $part_counter );
-    my $chapter_name = decode( "cp932", $data->{$part_counter}->{"name"} );
+    my $chapter_name = decode( "cp932", $part_key->{"name"} );
     my $section_title = "\\section\{${chapter_number}部　${chapter_name}\}\n";
     print $fh encode( "cp932", $section_title );
     my $section_label = "\\label\{section:${chapter_number}部　${chapter_name}\}\n\n";
     print $fh encode( "cp932", $section_label );
+
+
     foreach my $chapter_counter ( sort keys %{$data->{$part_counter}->{"chapter"}}) {
-      my $target_key = $data->{$part_counter}->{"chapter"}->{$chapter_counter};
-      my $num_of_section = keys %{$target_key->{"section"}};
-      if ( $num_of_section == 0 ) {
-        output_items( $fh, $target_key );
-      } else {
-        foreach my $section_counter ( sort keys %{$target_key->{"section"}} ) {
-          $target_key = $target_key->{"section"}->{$section_counter};
-          output_items( $fh, $target_key );
+      my $chapter_key = $part_key->{"chapter"}->{$chapter_counter};
+      output_items( $fh, $chapter_key );
+
+      foreach my $section_counter ( sort keys %{$chapter_key->{"section"}} ) {
+        my $section_key = $chapter_key->{"section"}->{$section_counter};
+        output_items( $fh, $section_key );
+
+        foreach my $subsection_counter ( sort keys %{$section_key->{"subsection"}} ) {
+          my $subsection_key = $section_key->{"subsection"}->{$subsection_counter};
+          output_items( $fh, $subsection_key );
+
         }
       }
     }
-
   }
-
   print $fh "\n\\end{document}";
   close $fh;
 }

@@ -1,0 +1,343 @@
+\documentclass[C:/math/note-logic-intro/note]{subfiles}
+
+\begin{document}
+
+\begin{definition}[真理値割り当て(E:p20~21,\ K:p30~32)]\label{def:真理値割り当て}
+  $\mathcal{A}\subseteq \mathcal{P}$とする.
+  \begin{itemize}
+    \item[1.]
+      \DefRef{def:記号}とは別に新たに2つの記号を用意する.
+      それらを$F$（これを\textbfgt{falsity}{偽}とよぶ）,
+      $T$（これを\textbfgt{truth}{真}とよぶ）とする.
+    \item[2.]
+      $v\colon\mathcal{A}\to \{ F,T \}$なる$v$を文記号の集合$\mathcal{A}$に対する\textbfgt{truth assignment}{真理値割り当て}という.
+    \item[3.]
+      $\bar{\mathcal{A}}$を$\mathcal{A}$から始めて5種類の式構成操作を使って構成できる整式全体の集合とする.
+    \item[4.]
+      真理値割り当て$v\colon\mathcal{A}\to \{ F,T \}$に対して,
+      $\bar{v}\colon\bar{\mathcal{A}}\to \{ F,T \}$を各$A\in \mathcal{A}$と$\alpha,\beta\in \bar{\mathcal{A}}$について以下の6条件をみたすものとする.
+      \begin{itemize}
+        \item[4-0.] $\bar{v}(A)=v(A)$
+        \item[4-1.]
+            $\bar{v}((\lnot \alpha))=
+            \begin{cases}
+              T & \bar{v}(\alpha)=F\text{のとき} \\
+              F & \text{それ以外のとき}
+            \end{cases}$
+        \item[4-2.]
+          $\bar{v}((\alpha\land \beta))=
+          \begin{cases}
+            T & \bar{v}(\alpha)=T\text{かつ}\bar{v}(\beta)=T\text{のとき} \\
+            F & \text{それ以外のとき}
+          \end{cases}$
+        \item[4-3.]
+          $\bar{v}((\alpha\lor \beta))=
+          \begin{cases}
+            T & \bar{v}(\alpha)=T\text{または}\bar{v}(\beta)=T\text{（もしくはその両方）のとき} \\
+            F & \text{それ以外のとき}
+          \end{cases}$
+        \item[4-4.]
+          $\bar{v}((\alpha\to \beta))=
+          \begin{cases}
+            F & \bar{v}(\alpha)=T\text{かつ}\bar{v}(\beta)=F\text{のとき} \\
+            T & \text{それ以外のとき}
+          \end{cases}$
+        \item[4-5.]
+          $\bar{v}((\alpha\leftrightarrow \beta))=
+          \begin{cases}
+            T & \bar{v}(\alpha)=\bar{v}(\beta)\text{のとき} \\
+            F & \text{それ以外のとき}
+          \end{cases}$
+      \end{itemize}
+  \end{itemize}
+  \index{ぶんろんり@文論理!ぎ@偽}\index{sentential logic!falsity}
+  \index{ぎ@偽}\index{falsity}
+  \index{ぶんろんり@文論理!しん@真}\index{sentential logic!truth}
+  \index{しん@真}\index{truth}
+  \index{ぶんろんり@文論理!しんりちわりあて@真理値割り当て}\index{sentential logic!truth assignment}
+  \index{しんりちわりあて@真理値割り当て}\index{truth assignment}
+\end{definition}
+
+テキストにあるなし関わらず気になったことを注意しておくと,
+\begin{enumerate}
+  \item
+    上記定義1.では新たな記号が定義されたが,
+    \DefRef{def:記号}では記号を割り当てるもの（それを今後記号と同一視して使っていくもの）として,
+    オブジェクトの列を使用したが,
+    ここでは列であるようなことは書かれていない.
+    それは\DefRef{def:記号}の注意事項\ref{remark:symbolの定義の「無限個のオブジェクトの列」部分と「列の第一成分から」部分について}でも書いたように,
+    今から無限個の記号を用意するわけでもないので,
+    列でもなくともよいということなのかもしれない. \\
+    もっというともし議論の進め方次第では先にすべての使う記号を定義しておく流儀もありえて,
+    そのような場合には表\ref{table:文論理の記号}の括弧記号の前にこの$T,F$を追加してやればよい.
+    ただその場合,
+    記号の有限列であるという表現の定義にて「真理値を表す記号は除く」と付け加えなくてはいけないだろう.
+    これ以外にも定義や議論の中で煩わしい問題が増えるのかもしれない.
+    ならばこのタイミングて新たな記号として用意するのが妥当なのかもしれない.
+  \item \label{remark:真理値は記号なのか}
+    \textgt{真理値は記号なのか？} \\
+    このテキストでは文記号の表現を構成するモノも,
+    真理値として使用するモノもどちらも初めに用意された「記号」という同じ種類のものである.
+    他のテキストだと真理値とは何と定めているかを,
+    勉強会運営時点で所持していたロジックの入門書などをまとめて眺めてみた結果をこれから記す.
+    文論理の記号としては真理値を定めていないもの,
+    つまり文記号や論理記号と真理値を同じ種類のものである（このテキストのようにどちらも記号であるなどと言い切っている）としていないものとして,
+    \cite{Logic005:todayama},
+    \cite{Logic003:Tsuboi},
+    \cite{Logic006:kashima},
+    \cite{Logic004:Sato-kurahashi-usuba-kurokawa-kikuchi},
+    \cite{Logic007:kikuchi}があった.
+    細かく見ていくと\cite{Logic005:todayama}ではここでいう文論理の記号を記号とは呼ばず語彙と呼んでいる.
+    そして真偽を表すものとして$1,0$を使うとしている.
+    \cite{Logic003:Tsuboi}でも真偽を表すものとして$1,0$を使っているが,
+    ここでいう文記号を命題変数,
+    それ以外の記号を論理記号と呼ぶ流儀で,
+    文論理の表現を構成するものは全て記号であるというこのテキストと異なる点が興味深い.
+    \cite{Logic006:kashima},\cite{Logic004:Sato-kurahashi-usuba-kurokawa-kikuchi}ではこのテキストとほぼ同じ形で文論理の記号を記号として導入している.
+    しかし特徴的なのは,
+    真偽を表すものとして$1,0$といった数学の記号ではなく,
+    日本語の漢字そのまま真,偽を使っている点だろうか.
+    ある種英語圏の人が$1,0$ではなく$T,F$を使うような感覚と似たようなものかもしれない.
+    ただしこのテキストは真理値割り当てをこのテキストのように変数記号から真理値への関数であるというような数学的に厳密な定義をしていない（なんなら真理値割り当てという言葉の定義も明瞭でない）.
+    そんな議論の進め方をするテキストだからこそ,
+    とくに真理値が漢字であっても困らないのであろう.
+    むしろそれによって日本人にとって分かりやすい部分もあるように思える.
+    \cite{Logic007:kikuchi}では真理値とは記号であると書いている.
+    そして単なる記号でもないと表すためか$T,F$ではなく$\mathbb{T},\mathbb{F}$としている.
+    ただここでいう文記号とは何らかの集合の要素であるとし,
+    記号とは捉えず命題変数と呼んでいる. \\
+    「文記号や論理記号と真理値を同じ種類のものであるとしていない」という共通点はあれど,
+    それ以外の定義の仕方も様々なことが分かる.
+    これはいま気になっていることがそこまで大きな問題でないことを表しているし,
+    そのときの議論の進めやすさや,
+    その人それぞれのキャラクター・教育的配慮の表れに過ぎないのかもしれない. \\
+    ちなみに私がこの時点で所持していた本の中で明確に「文記号や論理記号と真理値を同じ種類のものである」という議論の進め方をしているものはなかった.
+    \footnote{
+      私は初めてこの本を読んだとき,
+      真理値を文論理の記号として扱うことに驚いた.
+      それは単にそのような流儀を初めて見たからである.
+      使い方として真理値以外の記号は文論理の表現を構成するためのもので,
+      真理値はそれらを充足関係などで評価するためのものという印象があった.
+      しかしこれまで何度か意識してきた通り,
+      これから何らかの公理系の上にこれから文論理を実装していこうしているならば,
+      例えば集合論の公理系から文論理の議論を展開しようとしているのならば,
+      文論理の定義を記述するためのモノも全て同じ集合になる（集合論の公理系で扱えるものは集合だけなのだから）から,
+      もともとから特に身分差を付け辛いという点では,
+      真理値も同じ記号（の仲間）としてしまう方が分かりやすいのかもしれない.
+      そうなると1つ上の注意事項後半の事柄を意識する必要がある.
+    }
+  \item \label{remark:2値以外の論理}
+    \textgt{真理値が2値でない論理} \\
+    テキストでは「このテキストでは2値論理だけを考える」としているが,
+    別の,
+    つまりもっと真理値が多い論理についても言及されている.
+    例えば3値論理,
+    真理値が$\aleph_0$個の論理,
+    さらには真理値の集合を単位区間$[0,1]$や適当な空間とするものなどがある.
+  \item
+    3.ではテキストの書き方に合わせたが,
+    「式構成操作を\textgt{有限回}施した整式全体」などと言ってもよいと思われる.
+    そうすると0回の操作をした（なにもしていない）,
+    つまり文記号1文字だけの整式も$\bar{\mathcal{A}}$に属することが明瞭になる.
+    そうすると$\mathcal{A}\subseteq \bar{\mathcal{A}}$であり,
+    $\mathcal{A}=\dom{v}\subseteq \dom(\bar{v})=\bar{\mathcal{A}}$となって,
+    $v=\bar{v}\restric \mathcal{A}$と分かるから,
+    $v$は$\bar{v}$の$\mathcal{A}$への制限であるし,
+    $\bar{v}$は$v$の拡大である.
+    \footnote{
+      テキストでは拡張と書いてあるが,
+      写像の拡張概念は定義されているわけではない.
+      もちろん単なる日常会話として十分に理解はできるのだけれど,
+      私が拡大とよぶ概念を拡張とよぶ流儀もあるので,
+      言葉として使うならば定義しておくべきだと思われた.
+      かなり揚げ足ぎみなツッコミではあるが,
+      そのセットとして語られそうな制限概念については定義していたので,
+      なおさら書いた次第です.
+    }
+  \item
+    テキストにあるとおり,
+    条件4-1.から4-5.までは以下のような表で表すこともできる.
+    \begin{table}[H]
+      \begin{center}
+        \begin{tabular}{ccccccc}
+        \hline
+        $\alpha$ & $\beta$ & $(\lnot \alpha)$ & $(\alpha \land \beta)$ & $(\alpha \lor \beta)$ & $(\alpha \to \beta)$ & $(\alpha \leftrightarrow \beta)$  \\ \hline
+        $T$ & $T$ & $F$ & $T$ & $T$ & $T$ & $T$ \\
+        $T$ & $F$ & $F$ & $F$ & $T$ & $F$ & $F$ \\
+        $F$ & $T$ & $T$ & $F$ & $T$ & $T$ & $F$ \\
+        $F$ & $F$ & $T$ & $F$ & $F$ & $T$ & $T$
+        \end{tabular}
+      \end{center}
+      \caption{(E:p21 TABLE \glThree,\ K:p32 表 \glThree)}
+      \label{table:文論理の記号}
+    \end{table}
+\end{enumerate}
+
+\begin{example}[E:p21~23,\ K:p32~34]
+  \label{example:真理値割り当て}
+  整式$\alpha$を
+  \begin{equation*}
+    (\ (\ A\ \to\ (A_1\to A_6)\ )\ \leftrightarrow\ (\ (A_2\land A_1)\ \to\ A_6\ )\ )
+  \end{equation*}
+  とし,
+  $\dom(v)=\{ A_1,A_2,A_6 \}$な真理値割り当て$v$を,
+  $v(A_1)=T,\ v(A_2)=T,\ v(A_6)=F$で定めると,
+  $\bar{v}(\alpha)=T$である.
+\end{example}
+
+この例はテキストにて木を用いて解説されているし,
+とくに付け加えることもないので次の話題に移る. \\
+
+次の定理はテキストの流れ通りここでは示さず○○にて示す.
+\index{あとでかく@後で書く}
+
+\begin{theorem}[E:p23 THEOREM 12A,\ K:p34 定理 12A]
+  集合$\mathcal{A}\subseteq \mathcal{P}$へのどんな真理値割り当て$v$についても,
+  \DefRef{def:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
+\end{theorem}
+
+\begin{definition}[充足関係(E:p23~24,\ K:p34~36)]
+  \label{definition:論理式の充足関係}
+  \label{definition:トートロジー的に含意する}
+  \label{definition:トートロジー}
+  \label{definition:トートロジー的に同値}
+  整式の集合$\Sigma$と整式$\tau,\sigma$,
+  そして$\mathcal{A}_{\tau}, \mathcal{A}_{\Sigma,\tau}$をそれぞれ$\tau$,
+  $\Sigma,\tau$に含まれるすべての文記号の集合とする.
+  \begin{itemize}
+    \item[1.]
+      $\mathcal{A}_{\tau}\subseteq \dom(v)$な真理値割り当て$v$に対して$\bar{v}(\tau)=T$であるとき,
+      $v$ \textbf{satisfies} $\tau$（$v$は$\tau$を\textgt{充足する}）という.
+    \item[2.]
+      $\mathcal{A}_{\Sigma,\tau}$を定義域として含むすべての真理値割り当てに対して,
+      それが$\Sigma$のすべての要素を充足するならば$\tau$をも充足するとき,
+      $\Sigma$ \textbf{tautologically implies} $\tau$（$\Sigma$は$\tau$を\textgt{トートロジー的に含意する}）といい,
+      $\Sigma \models \tau$で表す.
+    \item[3.]
+      $\emptyset\models \tau$であるとき,
+      つまり$\mathcal{A}_{\tau}$を定義域として含むどんな真理値割り当ても$\tau$を充足するとき,
+      $\tau$は\textbfgt{tautology}{トートロジー}であるといい,
+      単に$\models \tau$で表す.
+    \item[4.]
+      $\Sigma$が一元集合であるとき,
+      つまり$\{ \sigma \}\models \tau$であるとき単に$\sigma \models \tau$と表すことにする. \\
+      $\sigma \models \tau$かつ$\tau \models \sigma$であるとき,
+      $\sigma$と$\tau$は\textbfgt{tautologically equivalent}{トートロジー的に同値}であるといい,
+      $\sigma \models $\rotatebox[origin=c]{180}{$\models$}$\tau$で表す.
+  \end{itemize}
+  \index{ぶんろんり@文論理!じゅうそくする@充足する}\index{sentential logic!satisfy}
+  \index{じゅうそくする@充足する}\index{satisfy}
+  \index{ぶんろんり@文論理!とーとろじーてきにがんいする@トートロジー的に含意する}\index{sentential logic!tautologically imply}
+  \index{とーとろじーてきにがんいする@トートロジー的に含意する}\index{tautologically imply}
+  \index{ぶんろんり@文論理!とーとろじー@トートロジー}\index{sentential logic!tautology}
+  \index{とーとろじー@トートロジー}\index{tautology}
+  \index{ぶんろんり@文論理!とーとろじーてきにどうち@トートロジー的に同値}\index{sentential logic!tautologically equivalent}
+  \index{とーとろじーてきにどうち@トートロジー的に同値}\index{tautologically equivalent}
+\end{definition}
+%e-q::$\Sigma \models \tau$::$\Sigma$は$\tau$をトートロジー的に含意する::definition:トートロジー的に含意する
+%t-a::$\models \tau$::$\Sigma$は$\tau$はトートロジーである::definition:トートロジー
+
+\begin{example}[E:p23,\ K:p35~36]
+  \label{example:トートロジー}
+  $A,B\in \mathcal{P}$とする.
+  \begin{itemize}
+    \item[1,]
+      \ExRef{example:真理値割り当て}で挙げた整式$\alpha$と真理値割り当て$v$について,
+      $v$は$\alpha$を充足すると述べたが,
+      それ以外のどの真理値割り当ても$\alpha$を従属する.
+      つまり$\alpha$はトートロジーである.
+    \item[2.] $\{ A,(\lnot A) \}\models B$である.
+    \item[3.] $\{ A,(A\to B) \}\models B$である.
+  \end{itemize}
+\end{example}
+
+\begin{proof}
+  テキストより少し詳しく解説・証明する.
+  \begin{itemize}
+    \item[1.]
+      改めて,整式$\alpha$は
+      \begin{equation*}
+        (\ (\ A\ \to\ (A_1\to A_6)\ )\ \leftrightarrow\ (\ (A_2\land A_1)\ \to\ A_6\ )\ )
+      \end{equation*}
+      となっていた.
+      $\{ A_1,A_2,A_6 \}\subseteq \dom(v)$な真理値割り当て$v$は,
+      $v\restric \{ A_1,A_2,A_6 \}$を考えると,
+      以下の$v_1$から$v_8$のいずれかになるので,
+      \begin{table}[H]
+        \begin{center}
+          \begin{tabular}{c|ccc}
+                 & $A_1$ & $A_2$ & $A_6$ \\ \hline
+          $v_1$  & $T$ & $T$ & $T$ \\
+          $v_2$  & $T$ & $T$ & $F$ \\
+          $v_3$  & $T$ & $F$ & $T$ \\
+          $v_4$  & $T$ & $F$ & $F$ \\
+          $v_5$  & $F$ & $T$ & $T$ \\
+          $v_6$  & $F$ & $T$ & $F$ \\
+          $v_7$  & $F$ & $F$ & $T$ \\
+          $v_8$  & $F$ & $F$ & $F$
+          \end{tabular}
+        \end{center}
+      \end{table}
+      $\alpha$がトートロジーであることを示すには$v_1$から$v_8$のいずれも$\alpha$を充足することを確かめればよい.
+      \SecRef{section:真理値表}を参考にして真理値表を書いて作業的に確かめることもできるが,
+      ここではあえて真理値表を使わずに確かめてみる. \\
+      $\alpha_1$を$(A\to(A_1\to A_6))$と,
+      $\alpha_2$を$((A_2\land A_1)\to A_6)$とおくと,
+      $\alpha$は$(\alpha_1\leftrightarrow \alpha_2)$で表せる.
+      もし真理値割り当て$v$が$\bar{v}(\alpha)=T$ならば$\bar{v}(\alpha_1)=\bar{v}(\alpha_2)$でなくてはならない. \\
+      いまある真理値割り当て$v$が$v(A_2)=F$ならば$A_1,A_6$の値に関わらず$\bar{v}(\alpha_1)=T=\bar{v}(\alpha_2)$となることが分かるので,
+      $v_3,v_4,v_7,v_8$はOK. \\
+      つぎに$v(A_2)=T$とすると,
+      $\bar{v}(\alpha_1)=T$とするには$v(A_1)=F$か,
+      $v(A_1)=T$かつ$v(A_6)=T$とすればよい.
+      $v(A_1)=F$な$v$は$\bar{v}(\alpha_2)=T$であるし,
+      $v(A_1)=T$かつ$v(A_6)=T$な$v$も$\bar{v}(\alpha_2)=T$である.
+      よって$v(A_1)=F$な$v_5,v_6$も,
+      $v(A_1)=T$かつ$v(A_6)=T$な$v_1$もOK. \\
+      残るは$v_2$だが,
+      これは\ExRef{example:真理値割り当て}で確かめているのでOK.
+    \item[2.]
+      示すべき$\{ A,(\lnot A) \}\models B$を定義に戻って論理式も使って書くと,
+      $\{ A, B \}\subseteq \dom(v)$な任意の真理値割り当て$v$に対して
+      \begin{equation}
+        \forall \varphi\in \{ A,(\lnot A) \}\big(\ \bar{v}(\varphi)=T\ \to\ \bar{v}(B)=T\ \big) \tag{\dag}
+      \end{equation}
+      となる.
+      そして$\{ A, B \}$に対するどのような真理値割り当ても,
+      $\{ A,(\lnot A) \}$の全ての要素を同時に充足することはない,
+      つまり式$(\dag)$の前件は常に成立しないので,
+      $v$が$B$を充足するかどうかに関係なく,
+      $\{ A,(\lnot A) \}\models B$である.
+    \item[3.]
+      $A,(A\to B)$のどちらも充足する真理値割り当て$v$は,
+      $v(A)=v(B)=T$となるものだけである.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        $\models$の左右に現れる整式に含まれる文記号は$A,B$だけなので,
+        $A,B$に関する割り当てだけ,
+        つまり4種類だけに注目すればよい.
+        そのすべてについて真理値表などで確かめてもよいが,
+        議論だけで確かめると,
+        まず$\models$の左の集合に$A$という整式があるので,
+        探すべき割り当て$v$は$v(A)=T$でなくてはならない.
+        そして$v(A)=T$かつ$\bar{v}((A\to B))=T$とするには$v(B)=T$でなくてはならない.
+        そして他の値の組み合わせはどれも$A,(A\to B)$を同時に充足することはない.
+      \end{sub-block}
+      そしてそんな$v$はすでに$v(B)=T$であるから,
+      $\{ A,(A\to B) \}\models B$である. \qedhere
+  \end{itemize}
+\end{proof}
+
+ここで以下の定理が紹介されていますが,
+テキストにある通りこの定理の証明は\SecRef{section:コンパクト性と実効性}にて出てきます.
+
+\begin{theorem}[コンパクト性定理(E:p24 COMPACTNESS THEOREM,\ K:p36 コンパクト性定理)]\label{thm:文論理のコンパクト性定理}
+  $\Sigma$は無限個の整式からなる集合で,
+  いかなる$\Sigma$の有限な部分集合$\Sigma_0$についても,
+  $\Sigma_0$のすべての要素を同時に充足する真理値割り当てが存在するとする.
+  このとき,
+  $\Sigma$のすべての要素を同時に充足する真理値割り当てが存在する.
+\end{theorem}
+
+
+
+\end{document}

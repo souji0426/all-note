@@ -1,10 +1,26 @@
 taskkill /f /im AcroRd32.exe
 
-del "./note.pdf"
-
 del "./note.dvi"
 
+del "./note.ilg"
+
+del "./note.aux"
+
+del "./note.bbl"
+
+del "./note.blg"
+
+del "./note.idx"
+
+del "./note.ind"
+
 del "./note.log"
+
+del "./note.out"
+
+del "./note.toc"
+
+del "./note.pdf"
 
 cd ./tool
 

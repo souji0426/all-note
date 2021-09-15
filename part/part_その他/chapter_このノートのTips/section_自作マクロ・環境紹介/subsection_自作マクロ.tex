@@ -1,15 +1,6 @@
 \documentclass[C:/souji/all-note/note]{subfiles}
 
 \begin{document}
-この節ではこのノートで使用していた,
-自前で定義したTeXのマクロや環境について紹介しています.
-コンパイルされてPDFになると見えない部分なので,
-それなりに価値はあると思います.
-大抵あれこれ色んなインターネットのサイトを見ながら作っているので,
-どこを参考にしたか分からないものをあるかもです.
-なるべく参考になったサイトなどは参考文献にも載せておこうかと思っています.
-
-\subsection{自作マクロ}\label{subsection:自作マクロ}
 
 使用分野別にまとめておきます.
 \begin{enumerate}
@@ -123,54 +114,5 @@
   \end{enumerate}
 
 \end{enumerate}
-
-\subsection{自作環境}\label{subsection:自作環境}
-
-\begin{enumerate}
-  \item ぶら下げと背景変更 \\
-    証明中の不要ならば読み飛ばしてほしい部分やテキストでは行間に相当する部分などを,
-    ここに記述して分かりやすくするためのもの.
-
-\begin{verbatim*}
-\definecolor{BIP-back}{gray}{0.9}
-\newenvironment{sub-block}[1]
-  {
-    \begin{tcolorbox}[
-    colback = BIP-back,
-    colframe = white,
-    boxrule = 10pt,
-    fonttitle = \bfseries,
-    breakable = true]
-    \begin{itemize} \item[#1]
-  }
-  {
-    \end{itemize}
-    \end{tcolorbox}
-    \vspace{-5pt}
-  }
-\end{verbatim*}
-
-    以下のように変数に何も入れないと
-
-\begin{verbatim*}
-\begin{sub-block}{}
-  こんな感じ \\
-  になって,
-\end{sub-block}
-\end{verbatim*}
-
-    \begin{sub-block}{}
-      こんな \\
-      感じになって,
-    \end{sub-block}
-
-    例えば変数に\verb*|{\boldmath $\because$}\,|とか入れてみると,
-
-    \begin{sub-block}{{\boldmath $\because$}\,}
-      こんな \\
-      感じになる.
-    \end{sub-block}
-
-    \end{enumerate}
 
 \end{document}

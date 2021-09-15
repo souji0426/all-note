@@ -1,0 +1,360 @@
+\documentclass[C:/math/note-logic-intro/note]{subfiles}
+
+\begin{document}
+
+\begin{exercise}[E:p19 1.,\ K:p29 1.]
+ 日本語の文をみっつ挙げ,
+ それらの文を私たちの形式言語に翻訳しなさい.
+ 文は,
+ なんらかの意味のある構造を持つように,
+ また,
+ 翻訳が15個以上の記号からなる列になるように選びなさい.
+\end{exercise}
+
+\begin{answer}
+ 5つの文記号とその日本語での意味を以下のように定める.
+ \begin{flushleft}
+   \hspace{1cm}$P_1$：○○月××日の△△小学校周辺の天気は晴れ \\
+   \hspace{1cm}$P_2$：○○月××日に△△小学校には運動場がある \\
+   \hspace{1cm}$P_3$：○○月××日に△△小学校には生徒が1人以上いる \\
+   \hspace{1cm}$P_4$：○○月××日に△△小学校には教師が1人以上いる \\
+   \hspace{1cm}$Q$：○○月××日に△△小学校にて運動会が開催されている \\
+ \end{flushleft}
+ これらを使って以下のように3つの整式を作る
+ \begin{flushleft}
+   \hspace{1cm}$\varphi_1\ =\ (\ (\ (\ (\ P_1 \land P_2\ )\ \land P_3\ )\ \land\ P_4\ )\ \to\ Q\ )$ \\
+   \hspace{1cm}$\varphi_2\ =\ (\ (\lnot Q)\ \to\ (\ (\ (\ (\lnot P_1)\lor(\lnot P_2)\ )\ \lor (\lnot P_3)\ )\ \lor (\lnot P_4)\ )\ )$ \\
+   \hspace{1cm}$\varphi_1\ =\ (\ (\ (\ (\ P_1 \land P_2\ )\ \land P_3\ )\ \land\ P_4\ )\ \land\ (\lnot Q)\ )$
+ \end{flushleft}
+ すると$\varphi_1$は「○○月××日に△△小学校周辺の天気は晴れで,
+ △△小学校に運動場があり,
+ △△小学校に生徒も教員も1人以上いれば,
+ 運動会が開催されている」となり,
+ $\varphi_2$は「○○月××日に△△小学校にて運動会が開催されていないならば,
+ 同日に△△小学校周辺の天気が晴れでないか,
+ △△小学校に運動場・生徒・教員のいずれかが存在しない」となり,
+ $\varphi_3$は「○○月××日に△△小学校周辺の天気は晴れで,
+ △△小学校に運動場・生徒・教員も存在するが,
+ 運動会は開催されていない」となる.
+ \footnote{
+   問題文によれば,
+   何も同じ記号で3つの文章を作れとはなっていないが,
+   めんどくさかったので……
+   また意味のある文章を作るためにもすでに作った$\varphi_1$の,
+   $\varphi_2$はその対偶に,
+   $\varphi_3$はその否定とすることで楽をさせてもらった.
+   こういうのはそれこそ教養があると面白い回答を出せるのだろう.
+ }
+\end{answer}
+
+次のExerciseを証明するために2つのPropositionを証明しておく.
+
+\begin{comment}
+ 2番目の演習問題を示そうとして最初用意していた命題.
+ でも使わなかったので.
+ \begin{proposition}\label{prop:括弧以外だけの長さ2以上表現は整式でない}
+   左右の括弧記号以外を用いた,
+   その長さが2以上の表現は整式でない.
+ \end{proposition}
+
+ \begin{proof}
+   $\alpha$を左右の括弧記号以外を用いた長さ2以上の表現とする.
+   その長さが2以上であることから$\alpha$は文記号一文字だけの表現ではない. \\
+   $\alpha$の長さが2だとすると,
+   $\alpha$が文記号一文字だけの表現でないことから,
+   $\alpha$が整式となるにはなんらかの式構成操作の結果であるが,
+   式構成操作の結果はいずれも長さが3以上となるため,
+   $\alpha$は整式ではない. \\
+   $\alpha$の長さが3以上だとすると,
+   長さが2のときと同様$\alpha$が整式になるには,はなんらかの式構成操作の結果でなくてはいけないが,
+   そうなると$\alpha$の一番左端の記号は左括弧記号でなくてはいけないが,
+   $\alpha$は左括弧記号を含まないため$\alpha$は整式ではない.
+ \end{proof}
+
+ \begin{proposition}\label{prop:長さ2以上で左端が左括弧でない・右端が右括弧でない表現は整式でない}
+   長さが2以上で,
+   左端の記号が左括弧記号でない,
+   または右端の記号が右括弧記号でない表現は整式でない.
+ \end{proposition}
+
+ \begin{proof}
+   \PropRef{prop:括弧以外だけの長さ2以上表現は整式でない}と同様のやり方で証明できるので省略.
+ \end{proof}
+\end{comment}
+
+\begin{proposition}\label{prop:式構成操作を行った整式は長さが4以上}
+ いずれかの式構成操作の結果となっている整式は長さが4以上である.
+ つまり文記号1文字という表現でない整式は,
+ その長さは4以上となる.
+\end{proposition}
+
+\begin{proof}
+ $\alpha$は文記号1文字という表現でないとする.
+ ある表現$\beta_1, \beta_2$があって,
+ $\alpha = \mathcal{E}_{\lnot}(\beta_1)$となっていたとすると,
+ $\beta_1$の長さは1以上であるから,
+ $\alpha$の長さは$(, ), \lnot$の3つ分長さが増えて4以上となる. \\
+ $\alpha = \mathcal{E}_{\land}(\beta_1m \beta_2)$となっていたとすると,
+ $\beta_1, \beta_2$のいずれの長さも1以上であるから,
+ $\alpha$の長さは$(, ), \lnot$の3つ分と$\beta_1, \beta_2$を合わせて5以上となる.
+ つまりこの場合でも長さは4以上となり,
+ 他の2項結合記号による式構成操作でも同様である.
+\end{proof}
+
+\begin{proposition}\label{prop:整式でない表現の式構成操作の結果も整式でない}
+ 整式でない表現に式構成操作を行っても整式にはならない. \\
+ もっというと$\alpha$を整式でない表現とすると$\mathcal{E}_{\lnot}(\alpha)$は整式でない. \\
+ 2つの表現$\alpha,\beta$のどちらか1つは整式でないとすると,
+ $\mathcal{E}_{\square}(\alpha, \beta)$（$\square$は2項結合記号のどれか）のいずれも整式でない.
+\end{proposition}
+
+\begin{proof}
+ $\alpha$を整式でない表現とする.
+ すると整式でないということは$\alpha$を末項とするようないかなる表現の有限列も構成列とはならない. \\
+ $\mathcal{E}_{\lnot}(\alpha)$が整式となるとすると,
+ 構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$が存在して$\varepsilon_n=\mathcal{E}_{\lnot}(\alpha)$となっている.
+ 構成列の定義\DefRef{def:構成列と整式}から$\exists j<n\big( \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j ) \big)$となっているから,
+ そのような$j$を固定すると,
+ $\varepsilon_j = \alpha$である.
+ すると$\ntuple{\varepsilon_1}{\varepsilon_j}$は$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
+ \PropRef{prop:構成列の始切片は構成列}から$\ntuple{\varepsilon_1}{\varepsilon_j}$も構成列である.
+ $\ntuple{\varepsilon_1}{\varepsilon_j}$という構成列の存在から$\alpha$が整式となるが,
+ これは矛盾. \\
+ 2つの表現$\alpha,\beta$のどちらか1つは整式でないとする.
+ $\mathcal{E}_{\land}(\alpha, \beta)$が整式となるとすると,
+ 同様に構成列の定義から$\exists j,k<n\big( \varepsilon_n=\mathcal{E}_{\land}( \varepsilon_j, \varepsilon_k ) \big)$となっているから,
+ そのような$j,k$を固定すると,$\varepsilon_j = \alpha,\  \varepsilon_k = \beta$である.
+ もし$\alpha$が整式でないとすると,
+ $\ntuple{\varepsilon_1}{\varepsilon_j}$は$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
+ 先ほどと同様の理由で矛盾する.
+ $\beta$が整式でなかった場合も同様に,
+ またそれ以外の2項結合記号に関する式構成操作に関しても同様に示せるので省略する.
+\end{proof}
+
+\begin{exercise}[E:p19 2.,\ K:p29 2.]
+ 長さが2,3,6の整式は存在しないこと,
+ そして,
+ それら以外のすべての正整数の長さをもつ整式は存在することを示しなさい.
+\end{exercise}
+
+\begin{proof}
+ 以下のように細かく分けて証明する.
+ \begin{itemize}
+   \item 長さが2または3のどんな表現も整式でないこと \\
+     $\alpha$を長さが2である表現とする.
+     $\alpha$はその長さから文記号1文字だけの表現ではないため,
+     何らかの式構成操作の結果であるが,
+     \PropRef{prop:式構成操作を行った整式は長さが4以上}よりいずれの式構成操作の結果も長さが4以上になり,
+     長さが2である$\alpha$は整式ではない. \\
+     $\alpha$の長さが3である場合も同様なので省略する.
+   \item どんな長さが6の表現も整式でないこと \\
+     $\alpha$を長さが6である表現とする.
+     $\alpha$はその長さから文記号1文字だけの表現ではないため,
+     何らかの式構成操作の結果である. \\
+     なんらかの表現$\beta$があって$\alpha = \mathcal{E}_{\lnot}(\beta)$となっていたとする.
+     すると$\alpha$は$(\lnot \beta)$という形の表現であり,
+     $\beta$の長さは3である.
+     しかし長さが3の整式は存在しないため,
+     $\beta$も整式でない.
+     そして\PropRef{prop:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない. \\
+     続いてなんらかの表現$\beta_1, \beta_2$があって,
+     $\alpha = \mathcal{E}_{\land}( \beta_1, \beta_2 )$となっていたとする.
+     すると$\alpha$は$( \beta_1 \land \beta_2 )$という形の表現であり,
+     $\beta_1, \beta_2$の長さはどちらかは1,
+     どちらかは2という配分になっている.
+     かりに$\beta_1$の長さを2とすると,
+     長さが2の整式は存在しないため$\beta_1$は整式でない.
+     そして\PropRef{prop:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない.
+     他の2項結合記号に関しても同様なので省略する.
+   \item 長さが$1,4,5$の整式が存在すること \\
+     $A,A^{\prime}$を文記号のいずれかとする.
+     表現$\alpha_1, \alpha_4, \alpha_5$を,
+     $\alpha_1 = A,\ \alpha_4 = (\lnot A),\ \alpha_5 = ( A\land A^{\prime} )$とおくと,
+     それぞれ長さが$1,4,5$で,
+     いずれも構成列を構築できることから整式である.
+   \item 長さが$7,8,9$の整式が存在すること \\
+     1つ上で示したことより長さが$1,4,5$の整式が存在するので,
+     それらの中から1つとり$\alpha_1, \alpha_4, \alpha_5$とおく（添え字はその長さを表している）.
+     表現$\alpha_7, \alpha_8, \alpha_9$を,
+     $\alpha_7 = ( \lnot \alpha_4 ),\ \alpha_8 = ( \lnot \alpha_5 ),\ \alpha_9 = ( \alpha_1 \land \alpha_5 )$とおくと,
+     それぞれ長さが$7,8,9$で,
+     いずれも構成列を構築できることから整式である.
+   \item $10$以上の任意の長さの整式が存在すること \\
+     任意に$10$以上の自然数$n$をとる.
+     $n$に対してある自然数$m$があって,
+     $n=7+3m$また$n=8+3m$または$n=9+3m$のいずれかである.
+     $n=7+3m$な$n$に対しては,
+     表現$\alpha$を$\alpha=\mathcal{E}^m_{\lnot}(\alpha_7)$とおく.
+     ここで$\alpha_7$は1つ上で示したことにより存在する長さが7の何らかの整式で,
+     $\mathcal{E}^m_{\lnot}(\alpha_7)$は$\alpha_7$に$\mathcal{E}_{\lnot}$演算を$m$回施したものとする.
+     すると表現$\alpha$は長さが$n$であり,
+     構成列を構築できることから整式である. \\
+     $n=8+3m$または$n=9+3m$であっても長さが$8,9$の整式を用いることで同様に示せるので省略する. \qedhere
+ \end{itemize}
+\end{proof}
+
+\begin{exercise}[E:p19 3.,\ K:p29 3.]
+ $\alpha$を整式として,
+ $\alpha$の中で2項結合記号が出現する箇所の数を$c$で,
+ $\alpha$の中で文記号が出現する箇所の数を$s$で表します.
+ （たとえば,
+ $\alpha$が$(A\to(\lnot A))$の場合は,
+ $c=1,\ s=2$です.）
+ 帰納法の原理を使って,
+ $s=c+1$であることを示しなさい.
+\end{exercise}
+
+\begin{proof}
+ 整式の集合$\mathcal{A}$を$\mathcal{A}=\{ \alpha | s_{\alpha} = c_{\alpha}+1 \}$とする.
+ ここで$s_{\alpha}$は$\alpha$の中で文記号が出現する箇所の数,
+ $c_{\alpha}$は$\alpha$の中で2項結合記号が出現する箇所の数とする.
+ 以下の2つのことを示せば帰納法の原理である\ThRef{thm:文論理における帰納法の原理}より証明完了となる.
+ \begin{itemize}
+   \item $\mathcal{A}$にはすべての文記号が属すること \\
+     任意に文記号をとり$A$とおく.
+     $A$1文字だけという表現は整式でもある.
+     $A$という整式の2項結合記号の数は0,
+     文記号の数は1より$\mathcal{A}$に属する条件をみたす.
+   \item $\mathcal{A}$がすべての式構成操作について閉じていること \\
+     任意に$\alpha,\beta\in \mathcal{A}$をとる.
+     それぞれの整式に対する$\mathcal{A}$の条件にある数を$c_{\alpha},s_{\alpha},\ c_{\beta},s_{\beta}$とおくと,
+     $s_{\alpha} = c_{\alpha}+1,\ s_{\beta} = c_{\beta}+1$をみたしている.
+     整式$\gamma$に対して同様に$c_{\gamma},s_{\gamma}$を定めておく. \\
+     $\gamma = \mathcal{E}_{\lnot}(\alpha)$とすると,
+     $\gamma$は$\alpha$から2項結合記号も文記号も増えていない,
+     つまり$c_{\gamma}=c_{\alpha},\ s_{\gamma}=s_{\alpha}$であり,
+     仮定より$s_{\gamma} = c_{\gamma}+1$をみたし$\gamma\in \mathcal{A}$,
+     つまり$\mathcal{A}$は式構成操作$\mathcal{E}_{\lnot}$について閉じている. \\
+     続けて$\gamma = \mathcal{E}_{\land}(\alpha,\beta)$とすると,
+     $\gamma$はその作り方から2項結合記号の出現する箇所の個数は$\alpha,\beta$の2つのものに加えて$\land$1つが増えているので,
+     $c_{\gamma}=c_{\alpha}+c_{\beta}+1$である.
+     $\gamma$は$\alpha,\beta$の2つに含まれるもの以外には文記号が増えていないので,
+     $s_{\gamma}=s_{\alpha}+s_{\beta}$である.
+     すると
+     \begin{align*}
+       s_{\gamma}\ &=\  s_{\alpha}+s_{\beta} \\
+       &=\ (c_{\alpha}+1)\ +\ (c_{\beta}+1) \\
+       &=\ (c_{\alpha}+c_{\beta}+1)\ +\ 1 \ =\ c_{\gamma}+1
+     \end{align*}
+     より$\gamma\in \mathcal{A}$,
+     つまり$\mathcal{A}$は式構成操作$\mathcal{E}_{\land}$について閉じている. \\
+     他の2項結合記号に関する式構成操作について同様なので省略する. \qedhere
+ \end{itemize}
+\end{proof}
+
+\begin{exercise}[E:p19 4.,\ K:p29 4.]
+ $\varphi$で終わる構成列があって,
+ $\varphi$は記号$A_4$を含んでいないとします.
+ この構成列から$A_4$を含む表現をすべて取り去ったとしても,
+ その結果はやはり正しい構成列になっていることを示しなさい.
+\end{exercise}
+
+\begin{proof}
+ $\ntuple{\varepsilon_1}{\varepsilon_n}$を$\varepsilon_n=\varphi$な構成列とし,
+ $\varphi$は記号$A_4$を含んでいないとする.
+ $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$を$\ntuple{\varepsilon_1}{\varepsilon_n}$から$A_4$を含む表現をすべて取り去った表現の有限列とする.
+ 仮定より$\varepsilon^{\prime}_m=\varphi$である.
+ ここで$m=n$ならば「$\forall i( \varepsilon_i = \varepsilon^{\prime}_i )$」となって,
+ もともと$\ntuple{\varepsilon_1}{\varepsilon_n}$のどの表現にも$A_4$が含まれていなかったことになり,
+ 証明することがなくなってしまうので,
+ $m<n$としておく. \\
+ \DefRef{def:構成列と整式}より$\ntuple{\varepsilon_1}{\varepsilon_n}$は「$\forall i\leq n(\ (1)\lor(2)\lor(3)\ )$」をみたしている.
+ いま,
+ $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$が構成列でなかったとする.
+ つまり「$\exists i^{\prime}\leq m(\ \lnot(1^{\prime})\land \lnot(2^{\prime})\land \lnot(3^{\prime})\ )$」として,
+ そんな$i^{\prime}$を1つ固定する.
+ ここで
+ \begin{itemize}
+   \item[$\lnot(1^{\prime})$] $\varepsilon^{\prime}_{i^{\prime}}\notin \mathcal{P}$.
+   \item[$\lnot(2^{\prime})$] $\forall j<i^{\prime}\big(\ \varepsilon^{\prime}_{i^{\prime}}\neq \mathcal{E}_{\lnot}( \varepsilon^{\prime}_j )\ \big)$.
+   \item[$\lnot(3^{\prime})$] $\forall j,k<i^{\prime}\big(\ \varepsilon^{\prime}_{i^{\prime}}\neq \mathcal{E}_{\square}( \varepsilon^{\prime}_j, \varepsilon^{\prime}_k )\ \big)$. \\
+     ここで$\square$は2項結合記号のいずれかを表す.
+ \end{itemize}
+ である.
+ $\varepsilon^{\prime}_{i^{\prime}} = \varepsilon_i$なる$\ntuple{\varepsilon_1}{\varepsilon_n}$に含まれる表現が存在するので,
+ それも固定する. \\
+ $\varepsilon_i$が$(1)$をみたす,
+ つまり文記号だったとすると,
+ $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$の作り方から文記号だったものがそうでない表現に変わることはないので,
+ $\varepsilon^{\prime}_{i^{\prime}}$も文記号となるが,
+ これは$\varepsilon^{\prime}_{i^{\prime}}$が$\lnot(1^{\prime})$をみたすことに反する. \\
+ つぎに$\varepsilon_i$が$(2)$をみたす,
+ つまり$\exists j<i\big(\ \varepsilon_i=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$だったすると,
+ $\varepsilon^{\prime}_{i^{\prime}}$が$\lnot(2^{\prime})$をみたすことから,
+ $\ntuple{\varepsilon_1}{\varepsilon_n}$のときに存在していた$\varepsilon_j$が$\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$を作ったさいに取り去られた,
+ つまりそのような$\varepsilon_j$は$A_4$を含んでいたことになる.
+ すると$\varepsilon_i=\mathcal{E}_{\lnot}( \varepsilon_j )$より$\varepsilon_i$も,
+ そして$\varepsilon^{\prime}_{i^{\prime}}$も$A_4$記号を含んでいることになるが,
+ これは$\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$の作り方に矛盾. \\
+ $\varepsilon_i$が$(3)$をみたすときも同様に示せるので省略.
+\end{proof}
+
+\begin{exercise}[E:p19 5.,\ K:p29 5.]
+ $\alpha$は否定記号$\lnot$を含まない整式とします.
+ \begin{itemize}
+   \item[(a)]
+     $\alpha$の長さ（記号列を構成する記号の個数）は奇数であることを示しなさい.
+   \item[(b)]
+     $\alpha$を構成する記号のうち,
+     文記号が占める割合が$1/4$を超えることを示しなさい.
+ \end{itemize}
+\end{exercise}
+
+\begin{proof}
+ (a)(b)に関してテキストのヒントを使って同時に示す. \\
+ $\mathcal{A}\subseteq \mathcal{F}$を否定記号$\lnot$を含まない整式の集合とする.
+ 整式に含まれる左括弧記号の個数
+ \footnote{
+   別の言い方をすれば,
+   その整式に対して施された否定記号以外の式構成操作の回数ともいえる.
+   また\ExRef{example:文論理の整式の両括弧の数は同じ}にある通り,
+   どんな整式に含まれる左括弧と右括弧記号の数は同じということを知っていれば,
+   別に右括弧記号の個数でも一緒である. \\
+   また個人的にはもう少し証明に有利になるような帰納法の回し方はないものかとも思っている.
+ }
+ に関する累積帰納法を用いる.
+ 任意に$n\in \mathbb{N}$をとる.
+ 帰納法の仮定は「$n$個未満の左括弧記号を含む任意のの整式に対して,
+ ある$k\in \mathbb{N}$があって,
+ その長さは$4k+1$で,
+ 文記号の数は$k+1$になっている」とする. \\
+ 任意に左括弧記号の個数が$n$個な整式$\varphi \in \mathcal{A}$をとる.
+ いま$n=0$,
+ つまり$\varphi$が文記号1文字という形の整式ならば明らか. \\
+ よって$n>0$とすると,
+ $\varphi$は否定記号以外の記号による式構成操作によって出来上がったものであるため,
+ ある$\alpha,\beta\in \mathcal{A}$があって$\varphi = \mathcal{E}_{\land}(\alpha, \beta)$となっていたとすると,
+ $\varphi$は$(\alpha \land \beta)$という形になっている.
+ $\varphi$の左括弧記号の個数が$n$個であることから,
+ $\alpha,\beta$はそれぞれそれ未満,
+ つまり$n$個未満であるため,
+ 帰納法の仮定からそれぞれに対してある$k_{\alpha},k_{\beta}\in \mathbb{N}$があって,
+ $\alpha,\beta$のそれぞれの長さは$4k_{\alpha}+1,4k_{\beta}+1$となっていて,
+ それぞれに含まれる文記号の個数は$k_{\alpha}+1,k_{\beta}+1$個である.
+ すると$\varphi$の長さは,
+ その形から$\alpha$と$\beta$の長さに加えて,
+ $(.\lnot,)$の3つの記号があることから,
+ $k\in \mathbb{N}$を$k=k_{\alpha}+k_{\beta}+1$とおけば,
+ \begin{align*}
+   (4k_{\alpha}+1)\ +\ (4k_{\beta}+1)\ +\ 3\ &=\ 4(\ k_{\alpha}+k_{\beta}+1\ )\ +\ 1 \\
+   &=\ 4k+1
+ \end{align*}
+ である. \\
+ $\varphi$に含まれる文記号の個数は$\alpha,\beta$に含まれるものから増えていないので,
+ $(k_{\alpha}+1)+(k_{\beta}+1)\ =\ (k_{\alpha}+k_{\beta}+1)+1\ =\ k+1$である.
+ よってそんな$k$の存在から左括弧記号が$n$個のときも成立.
+ そして$\varphi$が他の式構成操作によって出来上がったものであっても同様に示せるので省略する. \\
+ これまでに示したことにより,
+ $\mathcal{A}$に属する任意の整式$\varphi$の長さは何らかの自然数$k$をもって$4k+1$となっているので,
+ その長さは奇数,
+ つまり(a)は成立する. \\
+ そして$\varphi$を構成する記号の個数とはその長さと同じだから$4k+1$個,
+ そして文記号の個数は$k+1$であるから,
+ 文記号の占める割合とは
+ \begin{equation*}
+   (\varphi\text{に含まれる文記号の個数}) / (\varphi\text{を構成する記号の個数})\ =\ (k+1) / (4k+1)\ > 1/4
+ \end{equation*}
+ となって$1/4$を超えているため(b)も成立している.
+\end{proof}
+
+\end{document}

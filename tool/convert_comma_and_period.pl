@@ -120,7 +120,7 @@ sub output_ramaining_data {
     foreach my $file_path ( keys %$data ) {
       print "\n";
       print $file_path . encode( "cp932", "にて発見ーーーーーーー\n" );
-      foreach my $line_counter ( keys %{$data->{$file_path}} ) {
+      foreach my $line_counter ( sort keys %{$data->{$file_path}} ) {
         my $line = $data->{$file_path}->{$line_counter};
         print "\n";
         print encode( "cp932", "\t${line_counter}行目：：" );

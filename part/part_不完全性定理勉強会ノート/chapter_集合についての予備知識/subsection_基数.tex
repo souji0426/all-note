@@ -1,0 +1,194 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+\begin{definition}[E:p8 ,\ K:p12]
+  \label{definition:集合の対等関係}
+  集合$A,B$に対して$A$から$B$への全単射写像が存在するとき,
+  $A$と$B$は\textbfgt{equinumerous}{対等}であるといい,
+  $A \sim B$で表す.
+\end{definition}
+%e-q::$\sim$::集合の対等関係::definition:集合の対等関係
+
+\begin{proposition}[E:p8 ,\ K:p12]
+  $\mathbb{N}$と整数全体の集合$\mathbb{Z}$は対等である.
+\end{proposition}
+%あとで書く
+\begin{comment}
+  整数全体集合は可算であること.
+  素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+
+\begin{proposition}[E:p8 ,\ K:p12]
+  任意の集合$A,B,C$に対して以下の3つが成立する.
+  \begin{itemize}
+    \item[1. ] $A \sim A$.
+    \item[2. ] $A \sim B$ならば$B \sim A$.
+    \item[3. ] $A \sim B$かつ$B \sim C$ならば$A \sim C$. \qedhere
+  \end{itemize}
+\end{proposition}
+%あとで書く
+\begin{comment}
+  対等関係は同値関係。素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+テキストでは単純に「対等である関係が反射的, 対称的かつ推移的であることは容易に確かめられる」と書いてある.
+この記述は少し雑である.
+前の定義を見ると「関係○○が反射的」であるというのは本来ある集合$A$を用いて「関係○○が集合$A$上で反射的」という風に,
+何の集合上でかと一緒に語られるべき述語である.
+対称的と推移的は「どの集合上かは」記述する必要はない.
+もちろん何を証明すればよいかが伝わるかどうかで見えれば,
+伝わるとは思う.
+なので雑というのは,
+この「反射的」という言葉遣いに対しての感想であるが,
+なぜ何故書かなかったかも推測することはできる.
+かなり細かいことをいえば,
+オブジェクトな「関係」とメタな「関係」が公理的集合論には存在する.
+実際に存在を保証されている集合$A$を用いて$R\subseteq A^2$となっているような$R$は,
+集合でもあるからオブジェクトな「関係」である.
+一方この対応関係$\sim$というのは,
+同値関係と同じような論理式を満たしはするものの,
+上の$R$における集合$A$に相当するものが存在しない.
+なぜなら対等関係とはある意味「全ての集合の集合」上の同値関係であるが,
+公理的集合論において「全ての集合の集合」とは集合にはならない（こういうのは真のクラスと呼んだりする）.
+なので
+
+
+\begin{definition}[E:p8 ,\ K:p13]
+  集合$A$に対して$\card A$を,
+  任意の集合$B$に対して
+  \begin{equation*}
+    \card A = \card B \leftrightarrow A \sim B
+  \end{equation*}
+  を満たすものとし,
+  これを$A$の\textbfgt{cardninal numger}{基数}または\textbfgt{cardinality}{濃度}という.
+\end{definition}
+
+\begin{definition}[E:p8 ,\ K:p13]
+  集合$A,B$に対して,
+  ある$B^{\prime}\subseteq B$があって$A \sim B^{\prime}$であるとき,
+  $A$ \textbf{dominated by} $B$（$A$は$B$で\textgt{おさえられている}）といい,
+  $A \preceq B$で表す.
+\end{definition}
+
+\begin{proposition}[E:p8 ,\ K:p13]
+  $A \preceq B$であるとき,
+  $A$から$B$への単射写像が存在する.
+\end{proposition}
+%あとで書く
+\begin{comment}
+  AがBにおさえられていればAからBへの単射が存在する。素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+
+\begin{definition}[E:p8 ,\ K:p14]
+  集合$A,B$に対して$A \preceq B$であるとき,
+  $\card A \leq \card B$であるとする.
+\end{definition}
+
+アメリカでは$\leq$でも$\leqq$でもなく$\leqslant$を使う,
+少なくとも$\leqq$のように二重線になっているものは使わない,
+みたいなことを聞いた記憶がある.
+%あとで書く
+\begin{comment}
+  wikiのリンクをはる。https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%AD%89%E5%8F%B7
+\end{comment}
+
+それはさておき,
+テキストでは上記の定義は「$\card A \leq \card B$」ではなく「$A \leqslant B$」になっている.
+基数は私たちのよく知る数に対応するものでもあるので,
+よほど（無限）基数に着目した話をしない限りは,
+今後このノートにて$\leq$と$\leqslant$は使い分けず,
+$\leq$で統一することにする.
+
+\begin{proposition}[E:p9 ,\ K:p14]
+  任意の集合$A,B,C$に対して以下の2つが成立する.
+  \begin{itemize}
+    \item[1. ] $A \preceq A$.
+    \item[2. ] $A \preceq B$かつ$B \preceq C$ならば$A \preceq C$. \qedhere
+  \end{itemize}
+\end{proposition}
+%あとで書く
+\begin{comment}
+  AがBにおさえられるという関係は反射的・推移的。素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+
+\begin{proposition}[E:p9 ,\ K:p14]
+  $A\preceq \mathbb{N}$であることと,
+  $A$が高々可算であることは同値.
+\end{proposition}
+%あとで書く
+\begin{comment}
+  AがNにおさえられればAは可算。素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+
+\begin{theorem}[E:p9 SCH\"{O}DER-BERNSTEIN THEOREM,{\ \\}\hspace{3.5cm}\ K:p14 シュレーダー・ベルンシュタイン（Schr\"{o}der-Bernstein）の定理]
+  \label{theorem:シュレーダー・ベルンシュタインの定理}
+  集合$A,B$と,
+  基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[(a)] $A \preceq B$かつ$B \preceq A$ならば$A \sim B$.
+    \item[(b)] $\kappa \leq \lambda$かつ$\lambda \leq \kappa$ならば$\kappa = \lambda$. \qedhere
+  \end{itemize}
+\end{theorem}
+%あとで書く
+\begin{comment}
+  ベルンシュタインの定理。素朴集合論の復習で証明したらリンクをはる.
+\end{comment}
+
+\begin{theorem}[E:p9 THEOREM 0C,\ K:p14 定理0C]
+  \label{theorem:比較可能定理}
+  集合$A,B$と,
+  基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[(a)] $A \preceq B$または$B \preceq A$の少なくとも一方が成り立つ.
+    \item[(b)] $\kappa \leq \lambda$または$\lambda \leq \kappa$の少なくとも一方が成り立つ. \qedhere
+  \end{itemize}
+\end{theorem}
+%あとで書く
+\begin{comment}
+  比較可能定理。選択公理の復習で証明したらリンクをはる.
+\end{comment}
+
+この定理は比較可能定理とも呼ばれる.
+%あとで書く
+\begin{comment}
+  比較可能定理と書いてある文献を見つけたらメモる
+\end{comment}
+
+\begin{notation}[E:p9,\ K:p14]
+  $\card \mathbb{N}$を$\aleph_0$で,
+  $\card \mathbb{R}$を$2^{\aleph_0}$で表す.
+\end{notation}
+
+\begin{definition}[E:p9,\ K:p15]
+  集合$A,B$とその基数$\card A=\kappa, \card B = \lambda$に対して,
+  その演算$+,\cdot$を以下のように定める.
+  \begin{itemize}
+    \item[1.]
+      $A\cap B = \emptyset$のとき,
+      $\kappa + \lambda\ =\ \card ( A \cup B )$.
+    \item[2.] $\kappa \cdot \lambda\ =\ \card ( A \times B )$. \qedhere
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[E:p9 CARDINAL ARITHMETIC THEOREM,\ K:p15 基数算術の定理]
+  \label{theorem:基数算術の定理}
+  $\kappa \leq \lambda$かつ$\lambda$が無限な基数$\kappa, \lambda$に対して,
+  \begin{itemize}
+    \item[1.] $\kappa + \lambda\ =\ \lambda$.
+    \item[2.] $\kappa \neq 0$ならば$\kappa \cdot \lambda\ =\ \lambda$.
+    \item[3.] $\kappa$が無限ならば$\aleph_0 \cdot \kappa\ =\ \kappa$. \qedhere
+  \end{itemize}
+\end{theorem}
+
+\begin{theorem}[E:p10 THEOREM 0D,\ K:p15 定理0D]
+  \label{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}
+  無限集合$A$に対して,
+  $A$の要素からなる有限列全体の集合$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}$の濃度は$\card A$と同じ.
+\end{theorem}
+
+\begin{example}[E:p10,\ K:p16]
+  実数における代数数的数全体の集合の濃度は$\aleph_0$である.
+\end{example}
+
+
+\end{document}

@@ -30,48 +30,46 @@ sub main {
 sub get_all_symbol_data {
   my ( $setting, $data_hash ) = @_;
   foreach my $part_counter ( sort keys %$data_hash ) {
+    my $part_key = $data_hash->{$part_counter};
     my $chapter_key = $data_hash->{$part_counter}->{"chapter"};
-    foreach my $chapter_counter ( sort keys %{$chapter_key } ) {
+    foreach my $chapter_counter ( sort keys %{$part_key->{"chapter"}} ) {
+      my $chapter_key = $part_key->{"chapter"}->{$chapter_counter};
+      get_all_symbol_data_in_one_file( $setting, $chapter_key );
 
-      my $section_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter}->{"section"};
-      my $num_of_section = keys %{$section_key};
+      foreach my $section_counter ( sort keys %{$chapter_key->{"section"}} ) {
+        my $section_key = $chapter_key->{"section"}->{$section_counter};
+        get_all_symbol_data_in_one_file( $setting, $section_key );
 
-      if ( $num_of_section == 0 ) {
-        my $target_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter};
-        get_all_symbol_data_in_one_file( $setting, $target_key );
-      } else {
-
-        foreach my $section_counter ( sort keys %{$section_key} ) {
-          my $target_key = $data_hash->{$part_counter}->{"chapter"}->{$chapter_counter}->{"section"}->{$section_counter};
-          get_all_symbol_data_in_one_file( $setting, $target_key );
+        foreach my $subsection_counter ( sort keys %{$section_key->{"subsection"}} ) {
+          my $subsection_key = $section_key->{"subsection"}->{$subsection_counter};
+          get_all_symbol_data_in_one_file( $setting, $subsection_key );
         }
-
       }
     }
-    return $data_hash;
   }
-
   return $data_hash;
 }
 
 sub get_all_symbol_data_in_one_file {
   my ( $setting, $data_hash ) = @_;
 
-  my $file_path = $data_hash->{"file_path"};
+  if ( !exists( $data_hash->{"file_path"} ) ) {
+    return;
+  }
 
+  my $file_path = $data_hash->{"file_path"};
+  my $symbol_counter = 1;
   open( my $fh, "<", $file_path  );
   while( my $line = <$fh> ) {
     if ( $line =~ /\%(.+)::(.+)::(.+)::(.+)/ ) {
 
-      my ( $first_alphabet, $second_alphabet ) = split( "-", $1 );
-      if ( !exists( $data_hash->{"symbol_data"}->{$first_alphabet}->{$second_alphabet} ) ) {
-        $data_hash->{"symbol_data"}->{$first_alphabet}->{$second_alphabet} = {};
-      }
-      my $target_key = $data_hash->{"symbol_data"}->{$first_alphabet}->{$second_alphabet};
-      my $num_of_data = keys %{$target_key};
-      $target_key->{sprintf( "%03d", $num_of_data )}->{"symbol"} = $2;
-      $target_key->{sprintf( "%03d", $num_of_data )}->{"explanation"} = $3;
-      $target_key->{sprintf( "%03d", $num_of_data )}->{"label"} = $4;
+      $data_hash->{"symbol_data"}->{sprintf( "%03d", $symbol_counter )} = {};
+      my $target_key = $data_hash->{"symbol_data"}->{sprintf( "%03d", $symbol_counter )};
+      $target_key->{"symbol"} = $2;
+      $target_key->{"explanation"} = $3;
+      $target_key->{"label"} = $4;
+
+      $symbol_counter++;
     }
   }
   close $fh;
@@ -82,20 +80,23 @@ sub summarize_data {
   my $data = {};
 
   foreach my $part_counter ( sort keys %$all_symbol_data ) {
-    $data->{$part_counter}->{"name"} = $all_symbol_data->{$part_counter}->{"name"};
-    $data->{$part_counter}->{"label"} = $all_symbol_data->{$part_counter}->{"label"};
+    my $part_key = $all_symbol_data->{$part_counter};
+    $data->{$part_counter}->{"name"} = $part_key->{"name"};
+    $data->{$part_counter}->{"label"} = $part_key->{"label"};
 
     my $data_hash = {};
 
-    foreach my $chapter_counter ( sort keys %{$all_symbol_data->{$part_counter}->{"chapter"}}) {
-      my $target_key = $all_symbol_data->{$part_counter}->{"chapter"}->{$chapter_counter};
-      my $num_of_section = keys %{$target_key->{"section"}};
-      if ( $num_of_section == 0 ) {
-        get_symbol_data_in_one_file( $data_hash, $target_key );
-      } else {
-        foreach my $section_counter ( sort keys %{$target_key->{"section"}} ) {
-          $target_key = $target_key->{"section"}->{$section_counter};
-          get_symbol_data_in_one_file( $data_hash, $target_key );
+    foreach my $chapter_counter ( sort keys %{$part_key->{"chapter"}}) {
+      my $chapter_key = $part_key->{"chapter"}->{$chapter_counter};
+      get_symbol_data_in_one_hash( $data_hash, $chapter_key );
+
+      foreach my $section_counter ( sort keys %{$chapter_key->{"section"}} ) {
+        my $section_key = $chapter_key->{"section"}->{$section_counter};
+        get_symbol_data_in_one_hash( $data_hash, $section_key );
+
+        foreach my $subsection_counter ( sort keys %{$section_key->{"subsection"}} ) {
+          my $subsection_key = $section_key->{"subsection"}->{$subsection_counter};
+          get_symbol_data_in_one_hash( $data_hash, $subsection_key );
         }
       }
     }
@@ -108,19 +109,17 @@ sub summarize_data {
   return $data;
 }
 
-sub get_symbol_data_in_one_file {
-  my ( $data_hash, $data ) = @_;
-  my $symbol_counter = keys %$data_hash;
-  foreach my $first_alphabet ( sort keys %{$data->{"symbol_data"}} ) {
-    foreach my $second_alphabet ( sort keys %{$data->{"symbol_data"}->{$first_alphabet}} ) {
-      my $target_key = $data->{"symbol_data"}->{$first_alphabet}->{$second_alphabet};
-      foreach my $counter ( sort keys %{$target_key} ) {
-        $symbol_counter++;
-        $data_hash->{sprintf( "%03d", $symbol_counter )}->{"symbol"} = $target_key->{$counter}->{"symbol"};
-        $data_hash->{sprintf( "%03d", $symbol_counter )}->{"explanation"} = $target_key->{$counter}->{"explanation"};
-        $data_hash->{sprintf( "%03d", $symbol_counter )}->{"label"} = $target_key->{$counter}->{"label"};
-      }
-    }
+sub get_symbol_data_in_one_hash {
+  my ( $data_hash, $target_data ) = @_;
+  my $sum_symbol_counter = keys %$data_hash;
+  foreach my $symbol_counter ( sort keys %{$target_data->{"symbol_data"}} ) {
+    $sum_symbol_counter++;
+    my $target_key = $target_data->{"symbol_data"}->{$symbol_counter};
+    $data_hash->{sprintf( "%03d", $sum_symbol_counter )} = {};
+    my $target_hash = $data_hash->{sprintf( "%03d", $sum_symbol_counter )};
+    $target_hash->{"symbol"} = $target_key->{"symbol"};
+    $target_hash->{"explanation"} = $target_key->{"explanation"};
+    $target_hash->{"label"} = $target_key->{"label"};
   }
 }
 

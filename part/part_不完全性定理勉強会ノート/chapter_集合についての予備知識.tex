@@ -495,19 +495,21 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
   ゆえに構成成分も一致しない.
 \end{example}
 
-
-ここで有限列の長さの定義の曖昧さが少し影響てくる.
+ここで有限列の長さの定義の曖昧さが少し影響がでてくる.
 たとえばExample \ref{example:集合として一致するが長さが異なる有限列}の$S_1$は$\op{\op{0,1}{0}}{1}=\op{\op{0}{1},0}{1}$でもあるから,
 これの長さとして$2$か$3$のどちらを採用すればよいか混乱する.
-テキストに書いてある注意事項のように写像で定義すれば問題は解決できる.
+テキストに書いてある注意事項のように,
+写像で定義すれば問題は解決できる.
 関数の定義の先取りにはなってしまうが,
 たとえば$S_1$を$\map{ S_1 }{ \{ 1,2 \} }{A}$として,
 $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 すると$S_1$と$S_2$はそもそも定義域が違う別の関数となるので混乱がなくなる.
 しかしながら1章以降は$\{ 0,1,\op{0}{1},\op{0,1}{0} \}$のような集合から有限列を構成したりはしない.
 つまり$\{ 0,1,\op{2}{3} \}$のような「どの要素も他の要素からなる有限列とは一致しない」集合を扱うときには,
-長さの定義に曖昧さがでることはないので特に長さの定義を意識する必要はないということである.
-最初にこれの注意に該当することは\DefRef{definition:symbol}下の注意事項\ \ref{remark:symbolの定義の「これらの記号のどれもが他の記号の有限な長さの列とは一致しない」部分}があてはまる.
+長さの定義に曖昧さがでることはないので,
+特に長さの定義を意識する必要はないということである.
+最初にこれの注意に該当することは\ThRef{theorem:可算集合の要素の有限列全体も可算}や,
+\DefRef{definition:symbol}下の注意事項\ \ref{remark:symbolの定義の「これらの記号のどれもが他の記号の有限な長さの列とは一致しない」部分}があてはまる.
 
 \begin{definition}[直積集合(E:p4,\ K:p6)]
   \label{definition:直積集合}
@@ -905,7 +907,7 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
       言い換えればどんな$A$から$\{ 0,1,\dots, n-1 \}$の写像も全単射にならないともいえる.
       \footnote{
         よくよく見てみれば「無限」であるということはキチンと定義されていなかったので追加しました.
-        一般的には無限とは有限でないという定義なので,
+        一般的には無限とは有限でないという定義なので（それゆえに説明する必要がなかったのかも）,
         ここでいう有限の定義の否定をその定義とすることにしました.
       }
     \item[3.] 集合$A$が\textbfgt{at most countable}{高々可算}であるとは,
@@ -1061,6 +1063,44 @@ $g(s_1) = g(s_2)$とならなくてはならず,
 口語的には写る先が1つに定まらないとも言えて,
 これでは$g$が写像としては矛盾している. \\
 
+\ExRef{example:集合として一致するが長さが異なる有限列}のすぐ下でも書いたが,
+有限列は写像でもって定義することもできる.
+例えば上の例にだした$s_1,s_2$も,
+$\map{s_1}{ \{ 0,1 \} }{A},\map{s_2}{ \{ 0,1,2 \} }{A}$で,
+\begin{gather*}
+  s_1(0) = \op{0,1}{0},\ s_1(1)=1 \\
+  s_2(0) = \op{0}{1},\ s_2(1)=0,\ s_2(2)=1
+\end{gather*}
+と定めれば,
+（写像として）$s_1 \neq s_2$である.
+すると写像$g$を,
+$\map{s}{ \{ 0,\dots, m \} }{A}$に対し$s(i)=a$なる$a\in A$を$a_i$と表すことにすれば,
+\begin{equation*}
+  g(s)\ =\ 2^{s^{-1}(a_0)+1}\cdot 3^{s^{-1}(a_1)+1}\dots p_{m}^{s^{-1}(a_m)+1}
+\end{equation*}
+と定めれば,
+\footnote{
+  テキストでは導入されていないけれど,
+  $s^{-1}$は$s$の逆写像を表しています.
+}
+$g(s_1)\neq g(s_2)$となって写像としてもwell-definedとなり,
+上のように$\min$を使う必要もなくなる.
+つまり写像で定義すれば順序対の入れ子構造で定義したときのように,
+長さが違うがモノとして異なるような例は,
+$A$がどんな集合でも生まれることはない.
+なぜなら写像で定義した場合の「列の長さ」とは定義域の要素の数のことであり,
+つまり長さが違えば,
+それはつまり写像として定義域が異なることになって,
+その対応規則がどうあれ一致することはないからである.
+\begin{itembox}[l]{今後の課題}
+  ただ本当にそうなのか疑問に思ってしまった.
+  なぜなら写像も順序対の集合であり,
+  そうなると集合だけを用いて書き直すことができる（順序対よりもかなり構造が複雑にはなっていると思うが）.
+  そうなると順序対の時のように,
+  定義域が異なる（つまり含まれる順序対の数が一致しない）が,
+  集合としては一致することはないのだろうか？
+\end{itembox}
+
 ここから\textbfgt{tree}{木}についての話題が始まるが,
 今後どれほど大事なのか分からないので,
 一旦飛ばすことにする. \\
@@ -1103,172 +1143,8 @@ $g(s_1) = g(s_2)$とならなくてはならず,
   ZFC復習やったらここに証明へのリンクをはる.
 \end{comment}
 
-\section{基数}\label{section:基数}
-
-\begin{definition}[E:p8 ,\ K:p12]
-  集合$A,B$に対して$A$から$B$への全単射写像が存在するとき,
-  $A$と$B$は\textbfgt{equinumerous}{対等}であるといい,
-  $A \sim B$で表す.
-\end{definition}
-
-\begin{proposition}[E:p8 ,\ K:p12]
-  $\mathbb{N}$と整数全体の集合$\mathbb{Z}$は対等である.
-\end{proposition}
-%あとで書く
-\begin{comment}
-  整数全体集合は可算であること.
-  素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{proposition}[E:p8 ,\ K:p12]
-  任意の集合$A,B,C$に対して以下の3つが成立する.
-  \begin{itemize}
-    \item[1. ] $A \sim A$.
-    \item[2. ] $A \sim B$ならば$B \sim A$.
-    \item[3. ] $A \sim B$かつ$B \sim C$ならば$A \sim C$. \qedhere
-  \end{itemize}
-\end{proposition}
-%あとで書く
-\begin{comment}
-  対等関係は同値関係。素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{definition}[E:p8 ,\ K:p13]
-  集合$A$に対して$\card A$を,
-  任意の集合$B$に対して
-  \begin{equation*}
-    \card A = \card B \leftrightarrow A \sim B
-  \end{equation*}
-  を満たすものとし,
-  これを$A$の\textbfgt{cardninal numger}{基数}または\textbfgt{cardinality}{濃度}という.
-\end{definition}
-
-\begin{definition}[E:p8 ,\ K:p13]
-  集合$A,B$に対して,
-  ある$B^{\prime}\subseteq B$があって$A \sim B^{\prime}$であるとき,
-  $A$ \textbf{dominated by} $B$（$A$は$B$で\textgt{おさえられている}）といい,
-  $A \preceq B$で表す.
-\end{definition}
-
-\begin{proposition}[E:p8 ,\ K:p13]
-  $A \preceq B$であるとき,
-  $A$から$B$への単射写像が存在する.
-\end{proposition}
-%あとで書く
-\begin{comment}
-  AがBにおさえられていればAからBへの単射が存在する。素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{definition}[E:p8 ,\ K:p14]
-  集合$A,B$に対して$A \preceq B$であるとき,
-  $\card A \leq \card B$であるとする.
-\end{definition}
-
-アメリカでは$\leq$でも$\leqq$でもなく$\leqslant$を使う,
-少なくとも$\leqq$のように二重線になっているものは使わない,
-みたいなことを聞いた記憶がある.
-%あとで書く
-\begin{comment}
-  wikiのリンクをはる。https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%AD%89%E5%8F%B7
-\end{comment}
-
-それはさておき,
-テキストでは上記の定義は「$\card A \leq \card B$」ではなく「$A \leqslant B$」になっている.
-基数は私たちのよく知る数に対応するものでもあるので,
-よほど（無限）基数に着目した話をしない限りは,
-今後このノートにて$\leq$と$\leqslant$は使い分けず,
-$\leq$で統一することにする.
-
-\begin{proposition}[E:p9 ,\ K:p14]
-  任意の集合$A,B,C$に対して以下の2つが成立する.
-  \begin{itemize}
-    \item[1. ] $A \preceq A$.
-    \item[2. ] $A \preceq B$かつ$B \preceq C$ならば$A \preceq C$. \qedhere
-  \end{itemize}
-\end{proposition}
-%あとで書く
-\begin{comment}
-  AがBにおさえられるという関係は反射的・推移的。素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{proposition}[E:p9 ,\ K:p14]
-  $A\preceq \mathbb{N}$であることと,
-  $A$が高々可算であることは同値.
-\end{proposition}
-%あとで書く
-\begin{comment}
-  AがNにおさえられればAは可算。素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{theorem}[E:p9 SCH\"{O}DER-BERNSTEIN THEOREM,{\ \\}\hspace{3.5cm}\ K:p14 シュレーダー・ベルンシュタイン（Schr\"{o}der-Bernstein）の定理]
-  \label{theorem:シュレーダー・ベルンシュタインの定理}
-  集合$A,B$と,
-  基数$\kappa, \lambda$に対して,
-  \begin{itemize}
-    \item[(a)] $A \preceq B$かつ$B \preceq A$ならば$A \sim B$.
-    \item[(b)] $\kappa \leq \lambda$かつ$\lambda \leq \kappa$ならば$\kappa = \lambda$. \qedhere
-  \end{itemize}
-\end{theorem}
-%あとで書く
-\begin{comment}
-  ベルンシュタインの定理。素朴集合論の復習で証明したらリンクをはる.
-\end{comment}
-
-\begin{theorem}[E:p9 THEOREM 0C,\ K:p14 定理0C]
-  \label{theorem:比較可能定理}
-  集合$A,B$と,
-  基数$\kappa, \lambda$に対して,
-  \begin{itemize}
-    \item[(a)] $A \preceq B$または$B \preceq A$の少なくとも一方が成り立つ.
-    \item[(b)] $\kappa \leq \lambda$または$\lambda \leq \kappa$の少なくとも一方が成り立つ. \qedhere
-  \end{itemize}
-\end{theorem}
-%あとで書く
-\begin{comment}
-  比較可能定理。選択公理の復習で証明したらリンクをはる.
-\end{comment}
-
-この定理は比較可能定理とも呼ばれる.
-%あとで書く
-\begin{comment}
-  比較可能定理と書いてある文献を見つけたらメモる
-\end{comment}
-
-\begin{notation}[E:p9,\ K:p14]
-  $\card \mathbb{N}$を$\aleph_0$で,
-  $\card \mathbb{R}$を$2^{\aleph_0}$で表す.
-\end{notation}
-
-\begin{definition}[E:p9,\ K:p15]
-  集合$A,B$とその基数$\card A=\kappa, \card B = \lambda$に対して,
-  その演算$+,\cdot$を以下のように定める.
-  \begin{itemize}
-    \item[1.]
-      $A\cap B = \emptyset$のとき,
-      $\kappa + \lambda\ =\ \card ( A \cup B )$.
-    \item[2.] $\kappa \cdot \lambda\ =\ \card ( A \times B )$. \qedhere
-  \end{itemize}
-\end{definition}
-
-\begin{theorem}[E:p9 CARDINAL ARITHMETIC THEOREM,\ K:p15 基数算術の定理]
-  \label{theorem:基数算術の定理}
-  $\kappa \leq \lambda$かつ$\lambda$が無限な基数$\kappa, \lambda$に対して,
-  \begin{itemize}
-    \item[1.] $\kappa + \lambda\ =\ \lambda$.
-    \item[2.] $\kappa \neq 0$ならば$\kappa \cdot \lambda\ =\ \lambda$.
-    \item[3.] $\kappa$が無限ならば$\aleph_0 \cdot \kappa\ =\ \kappa$. \qedhere
-  \end{itemize}
-\end{theorem}
-
-\begin{theorem}[E:p10 THEOREM 0D,\ K:p15 定理0D]
-  \label{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}
-  無限集合$A$に対して,
-  $A$の要素からなる有限列全体の集合$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}$の濃度は$\card A$と同じ.
-\end{theorem}
-
-\begin{example}[E:p10,\ K:p16]
-  実数における代数数的数全体の集合の濃度は$\aleph_0$である.
-\end{example}
-
+\subsection*{基数}
+\label{subsection:基数}
+\subfile{C:/souji/all-note/part/part_不完全性定理勉強会ノート/chapter_集合についての予備知識/subsection_基数.tex}
 
 \end{document}
