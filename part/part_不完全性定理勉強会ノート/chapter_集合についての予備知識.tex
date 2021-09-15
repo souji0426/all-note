@@ -97,7 +97,7 @@
     どこまでメジャーなんだろうか.
   }
 \end{definition}
-%$A;t$::集合$A$の要素に$t$を加える演算::definition:セミコロン演算
+\RegisterInSymbolList{$A;t$}{集合$A$の要素に$t$を加える演算}{definition:セミコロン演算}
 
 \begin{notation}[定義するための記号]
   \label{notetion:定義するための記号}
@@ -120,8 +120,8 @@
       かつ$t\in B$であれば$t\in A$である（Definition \ref{definition:集合}） \qedhere
   \end{itemize}
 \end{notation}
-%$\defeq$::オブジェクトを定義するための記号::notetion:定義するための記号
-%$\defarr$::述語を定義するための記号::notetion:定義するための記号
+\RegisterInSymbolList{$\defeq$}{オブジェクトを定義するための記号}{notetion:定義するための記号}
+\RegisterInSymbolList{$\defarr$}{述語を定義するための記号}{notetion:定義するための記号}
 
 \begin{proposition}[]
   オブジェクト$t$と集合$A$に対して,
@@ -154,7 +154,7 @@
   空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
 \end{definition}
 \index{くうしゅうごう@空集合}\index{empty set}
-%$\emptyset$::空集合::definition:空集合
+\RegisterInSymbolList{$\emptyset$}{空集合}{definition:空集合}
 
 \begin{definition}[外延的記法(E:p2,\ K:p3)]
   オブジェクト$x,x_1,\dots,x_n$に対して,
@@ -224,7 +224,7 @@
   （論理式で書けば$\forall x(x\in A\to x\in B)$となる）
 \end{definition}
 \index{ぶぶんしゅうごう@部分集合}\index{subset}
-%$A\subseteq B$::集合$A$は$B$の部分集合である::definition:部分集合関係
+\RegisterInSymbolList{$A\subseteq B$}{集合$A$は$B$の部分集合である}{definition:部分集合関係}
 
 \begin{proposition}[(E:p2,\ K:p3)]
   $\emptyset$はどんな集合に対しても部分集合となる.
@@ -249,7 +249,7 @@
   }
 \end{definition}
 \index{べきしゅうごう@べき集合}\index{power set}
-%$\mathcal{P}(X)$::（集合$X$の）べき集合::definition:べき集合
+\RegisterInSymbolList{$\mathcal{P}(X)$}{集合$X$の）べき集合}{definition:べき集合}
 
 \begin{example}[E:p3,\ K:p4]
   $\mathcal{P}(\emptyset)\ =\ \{\emptyset\}$ \\
@@ -306,14 +306,14 @@
   \end{itemize}
 \end{definition}
 \index{わしゅうごう@和集合}\index{union}
-%$A \cup B$::集合$A$と$B$の和集合::definition:和集合
+\RegisterInSymbolList{$A \cup B$}{集合$A$と$B$の和集合}{definition:和集合}
 \index{きょうつうぶぶん@共通部分}\index{intersection}
-%$A \cap B$::集合$A$と$B$の共通部分::definition:共通部分
+\RegisterInSymbolList{$A \cap B$}{集合$A$と$B$の共通部分}{definition:共通部分}
 \index{まじわらない@（2つの集合が）交わらない}\index{disjoint}
 \index{わしゅうごう@（集合族の）和集合}\index{union}
-%$\bigcup\mathcal{A}$::（集合族$\mathcal{A}$の）和集合::definition:集合族の和集合
+\RegisterInSymbolList{$\bigcup\mathcal{A}$}{集合族$\mathcal{A}$の和集合}{definition:集合族の和集合}
 \index{きょうつうぶぶん@（集合族の）共通部分}\index{intersection}
-%$\bigcap\mathcal{A}$::（集合族$\mathcal{A}$の）共通部分::definition:集合族の共通部分
+\RegisterInSymbolList{$\bigcap\mathcal{A}$}{集合族$\mathcal{A}$の共通部分}{definition:集合族の共通部分}
 
 \begin{example}[E:p3,\ K:p4~5]
   $t$をオブジェクト,
@@ -361,7 +361,7 @@
   \end{itemize}
 \end{definition}
 \index{じゅんじょつい@順序対}\index{ordered pair}
-%$\op{x}{y}$::（$x$と$y$の）順序対::definition:順序対
+\RegisterInSymbolList{$\op{x}{y}$}{$x$と$y$の順序対}{definition:順序対}
 
 \begin{definition}[有限列(E:p4,\ K:p5)]
   \label{definition:有限列}
@@ -524,7 +524,7 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
   \end{itemize}
 \end{definition}
 \index{ちょくせきしゅうごう@直積集合}\index{Cartesian product}
-%$X\times Y$::（集合$X$と$Y$の）直積集合::definition:直積集合
+\RegisterInSymbolList{$X\times Y$}{集合$X$と$Y$の直積集合}{definition:直積集合}
 
 \begin{definition}[関係(E:p4~5,\ K:p6~7)]
   \label{definition:関係}
@@ -561,9 +561,9 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 \index{ちいき@（関係の）値域}\index{range}
 \index{りょういき@（関係の）領域}\index{field}
 \index{せいげん@（関係の）制限}\index{restriction}
-%$\dom(R)$::（関係$R$の）定義域::definition:関係
-%$\ran(R)$::（関係$R$の）値域::definition:関係
-%$\fld(R)$::（関係$R$の）領域::definition:関係
+\RegisterInSymbolList{$\dom(R)$}{関係$R$の定義域}{definition:関係}
+\RegisterInSymbolList{$\ran(R)$}{関係$R$の値域}{definition:関係}
+\RegisterInSymbolList{$\fld(R)$}{関係$R$の領域}{definition:関係}
 
 \begin{example}[E:p4~5,\ K:p6~7]
   集合$R_1,R_2\subseteq \mathbb{N}^2$に対し
@@ -684,11 +684,11 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 \index{ぜんしゃ@全射（写像）}\index{surjection}
 \index{ぜんたんしゃ@全単射（写像）}\index{bijection}
 \index{こうとうしゃぞう@恒等写像}\index{identity map}
-%$\map{f}{X}{Y}$::（集合$X$から$Y$への）写像・関数$f$::definition:写像
-%$\InjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）単射写像$f$::definition:単射
-%$\SurjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全射写像$f$::definition:全射
-%$\BijectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全単射写像$f$::definition:全単射
-%$\id_X$::（集合$X$上の）恒等写像::definition:恒等写像
+\RegisterInSymbolList{$\map{f}{X}{Y}$}{集合$X$から$Y$への写像・関数}{definition:写像}
+\RegisterInSymbolList{$\InjectionMap{f}{X}{Y}$}{集合$X$から$Y$への単射写像$f$}{definition:単射}
+\RegisterInSymbolList{$\SurjectionMap{f}{X}{Y}$}{集合$X$から$Y$への全射写像$f$}{definition:全射}
+\RegisterInSymbolList{$\BijectionMap{f}{X}{Y}$}{集合$X$から$Y$への全単射写像$f$}{definition:全単射}
+\RegisterInSymbolList{$\id_X$}{集合$X$上の恒等写像}{definition:恒等写像}
 
 \begin{definition}[演算(E:p5,\ K:p8)]
   \label{definition:演算}
@@ -821,8 +821,8 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
   }
 \end{definition}
 \index{どうちるい@同値類}\index{equivalence class}
-%$[x]$::（$x$の）同値類::definition:同値類
-%$A\backslash{R}$::（集合$A$の関係$R$による）商集合::definition:商集合
+\RegisterInSymbolList{$[x]$}{$x$の同値類}{definition:同値類}
+\RegisterInSymbolList{$A\backslash{R}$}{集合$A$の関係$R$による商集合}{definition:商集合}
 
 \begin{proposition}[E:p6,\ K:p9]
   集合$A$上の同値関係$R$に対して,
@@ -876,7 +876,7 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
   \label{notation:自然数全体の集合}
   自然数全体の集合$\{ 0,1,2,\dots \}$を$\mathbb{N}$で表す.
 \end{notation}
-%$\mathbb{N}$::自然数全体の集合::notation:自然数全体の集合
+\RegisterInSymbolList{$\mathbb{N}$}{自然数全体の集合}{notation:自然数全体の集合}
 
 ここに「個々の自然数そのものを集合を使って定義する方法もあります」とあって,
 テキストにある通り,
@@ -1091,15 +1091,24 @@ $A$がどんな集合でも生まれることはない.
 なぜなら写像で定義した場合の「列の長さ」とは定義域の要素の数のことであり,
 つまり長さが違えば,
 それはつまり写像として定義域が異なることになって,
-その対応規則がどうあれ一致することはないからである.
-\begin{itembox}[l]{今後の課題}
-  ただ本当にそうなのか疑問に思ってしまった.
-  なぜなら写像も順序対の集合であり,
-  そうなると集合だけを用いて書き直すことができる（順序対よりもかなり構造が複雑にはなっていると思うが）.
-  そうなると順序対の時のように,
-  定義域が異なる（つまり含まれる順序対の数が一致しない）が,
-  集合としては一致することはないのだろうか？
-\end{itembox}
+その対応規則がどうあれ一致することはないからである. \\
+
+そうは言い切ったものの,
+そのあとで本当にそうなのか疑問に思ってしまった.
+なぜなら写像も順序対の集合であり,
+そうなると順序対を集合で書き直せば,
+集合だけを用いて書き直すことができる（順序対よりも構造がかなり複雑にはなっていると思うが）.
+そうなると長さが異なるが集合として一致する順序対の例があるように,
+定義域が異なる（つまり含まれる順序対の数が一致しない）が,
+集合としては一致することはあるのだろうか？
+今後の課題としてまとめておく.
+
+\begin{kongo}
+  \label{kongo:対応規則は異なるが集合として一致する写像は存在するか？}
+  対応規則（の数や内容）が異なる（写像としては異なるように見える）が,
+  要素になっている順序対も全て集合に書き直したとき,
+  集合として一致するような写像の組み合わせは存在するか？
+\end{kongo}
 
 ここから\textbfgt{tree}{木}についての話題が始まるが,
 今後どれほど大事なのか分からないので,

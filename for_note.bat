@@ -8,6 +8,8 @@ del "./note.log"
 
 cd ./tool
 
+perl -w make_kongo_list.pl
+
 perl -w summarize_def_and_thm.pl
 
 perl -w make_symbol_list.pl

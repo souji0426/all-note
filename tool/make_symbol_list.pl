@@ -61,7 +61,7 @@ sub get_all_symbol_data_in_one_file {
   my $symbol_counter = 1;
   open( my $fh, "<", $file_path  );
   while( my $line = <$fh> ) {
-    if ( $line =~ /\%(.+)::(.+)::(.+)/ ) {
+    if ( $line =~ /^\\RegisterInSymbolList\{(.+)\}\{(.+)\}\{(.+)\}/ ) {
 
       $data_hash->{"symbol_data"}->{sprintf( "%03d", $symbol_counter )} = {};
       my $target_key = $data_hash->{"symbol_data"}->{sprintf( "%03d", $symbol_counter )};
