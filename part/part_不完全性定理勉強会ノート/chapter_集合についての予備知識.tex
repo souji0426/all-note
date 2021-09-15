@@ -97,7 +97,7 @@
     どこまでメジャーなんだろうか.
   }
 \end{definition}
-%s-e::$A;t$::集合に要素を1つ付け足す演算::definition:セミコロン演算
+%$A;t$::集合$A$の要素に$t$を加える演算::definition:セミコロン演算
 
 \begin{notation}[定義するための記号]
   \label{notetion:定義するための記号}
@@ -120,8 +120,8 @@
       かつ$t\in B$であれば$t\in A$である（Definition \ref{definition:集合}） \qedhere
   \end{itemize}
 \end{notation}
-%d-e::$\defeq$::オブジェクトを定義するための記号::notetion:定義するための記号
-%d-e::$\defarr$::述語を定義するための記号::notetion:定義するための記号
+%$\defeq$::オブジェクトを定義するための記号::notetion:定義するための記号
+%$\defarr$::述語を定義するための記号::notetion:定義するための記号
 
 \begin{proposition}[]
   オブジェクト$t$と集合$A$に対して,
@@ -154,7 +154,7 @@
   空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
 \end{definition}
 \index{くうしゅうごう@空集合}\index{empty set}
-%e-m::$\emptyset$::空集合::definition:空集合
+%$\emptyset$::空集合::definition:空集合
 
 \begin{definition}[外延的記法(E:p2,\ K:p3)]
   オブジェクト$x,x_1,\dots,x_n$に対して,
@@ -224,7 +224,7 @@
   （論理式で書けば$\forall x(x\in A\to x\in B)$となる）
 \end{definition}
 \index{ぶぶんしゅうごう@部分集合}\index{subset}
-%s-u::$\subset$::部分集合関係::definition:部分集合関係
+%$A\subseteq B$::集合$A$は$B$の部分集合である::definition:部分集合関係
 
 \begin{proposition}[(E:p2,\ K:p3)]
   $\emptyset$はどんな集合に対しても部分集合となる.
@@ -249,7 +249,7 @@
   }
 \end{definition}
 \index{べきしゅうごう@べき集合}\index{power set}
-%p-o::$\mathcal{P}(X)$::（集合$X$の）べき集合::definition:べき集合
+%$\mathcal{P}(X)$::（集合$X$の）べき集合::definition:べき集合
 
 \begin{example}[E:p3,\ K:p4]
   $\mathcal{P}(\emptyset)\ =\ \{\emptyset\}$ \\
@@ -306,14 +306,14 @@
   \end{itemize}
 \end{definition}
 \index{わしゅうごう@和集合}\index{union}
-%u-n::$\cup$::和集合演算::definition:和集合
+%$A \cup B$::集合$A$と$B$の和集合::definition:和集合
 \index{きょうつうぶぶん@共通部分}\index{intersection}
-%i-n::$\cap$::共通部分演算::definition:共通部分
+%$A \cap B$::集合$A$と$B$の共通部分::definition:共通部分
 \index{まじわらない@（2つの集合が）交わらない}\index{disjoint}
 \index{わしゅうごう@（集合族の）和集合}\index{union}
-%u-n::$\bigcup$::（集合族の）和集合演算::definition:集合族の和集合
+%$\bigcup\mathcal{A}$::（集合族$\mathcal{A}$の）和集合::definition:集合族の和集合
 \index{きょうつうぶぶん@（集合族の）共通部分}\index{intersection}
-%i-n::$\bigcap$::（集合族の）共通部分演算::definition:集合族の共通部分
+%$\bigcap\mathcal{A}$::（集合族$\mathcal{A}$の）共通部分::definition:集合族の共通部分
 
 \begin{example}[E:p3,\ K:p4~5]
   $t$をオブジェクト,
@@ -361,7 +361,7 @@
   \end{itemize}
 \end{definition}
 \index{じゅんじょつい@順序対}\index{ordered pair}
-%o-r::$\op{x}{y}$::（$x$と$y$の）順序対::definition:順序対
+%$\op{x}{y}$::（$x$と$y$の）順序対::definition:順序対
 
 \begin{definition}[有限列(E:p4,\ K:p5)]
   \label{definition:有限列}
@@ -524,7 +524,7 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
   \end{itemize}
 \end{definition}
 \index{ちょくせきしゅうごう@直積集合}\index{Cartesian product}
-%c-a::$X\times Y$::（$X$と$Y$の）直積集合::definition:直積集合
+%$X\times Y$::（集合$X$と$Y$の）直積集合::definition:直積集合
 
 \begin{definition}[関係(E:p4~5,\ K:p6~7)]
   \label{definition:関係}
@@ -561,9 +561,9 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 \index{ちいき@（関係の）値域}\index{range}
 \index{りょういき@（関係の）領域}\index{field}
 \index{せいげん@（関係の）制限}\index{restriction}
-%d-o::$\dom(R)$::（関係$R$の）定義域::definition:関係
-%r-a::$\ran(R)$::（関係$R$の）値域::definition:関係
-%f-i::$\fld(R)$::（関係$R$の）領域::definition:関係
+%$\dom(R)$::（関係$R$の）定義域::definition:関係
+%$\ran(R)$::（関係$R$の）値域::definition:関係
+%$\fld(R)$::（関係$R$の）領域::definition:関係
 
 \begin{example}[E:p4~5,\ K:p6~7]
   集合$R_1,R_2\subseteq \mathbb{N}^2$に対し
@@ -684,11 +684,11 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよい.
 \index{ぜんしゃ@全射（写像）}\index{surjection}
 \index{ぜんたんしゃ@全単射（写像）}\index{bijection}
 \index{こうとうしゃぞう@恒等写像}\index{identity map}
-%m-a::$\map{f}{X}{Y}$::（集合$X$から$Y$への）写像・関数$f$::definition:写像
-%i-n::$\InjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）単射写像$f$::definition:単射
-%s-u::$\SurjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全射写像$f$::definition:全射
-%b-i::$\BijectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全単射写像$f$::definition:全単射
-%i-d::$\id_X$::（集合$X$上の）恒等写像::definition:恒等写像
+%$\map{f}{X}{Y}$::（集合$X$から$Y$への）写像・関数$f$::definition:写像
+%$\InjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）単射写像$f$::definition:単射
+%$\SurjectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全射写像$f$::definition:全射
+%$\BijectionMap{f}{X}{Y}$::（集合$X$から$Y$への）全単射写像$f$::definition:全単射
+%$\id_X$::（集合$X$上の）恒等写像::definition:恒等写像
 
 \begin{definition}[演算(E:p5,\ K:p8)]
   \label{definition:演算}
@@ -821,8 +821,8 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
   }
 \end{definition}
 \index{どうちるい@同値類}\index{equivalence class}
-%e-q::$[x]$::（$x$の）同値類::definition:同値類
-%q-u::$A\backslash{R}$::（集合$A$の関係$R$による）商集合::definition:商集合
+%$[x]$::（$x$の）同値類::definition:同値類
+%$A\backslash{R}$::（集合$A$の関係$R$による）商集合::definition:商集合
 
 \begin{proposition}[E:p6,\ K:p9]
   集合$A$上の同値関係$R$に対して,
@@ -876,7 +876,7 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
   \label{notation:自然数全体の集合}
   自然数全体の集合$\{ 0,1,2,\dots \}$を$\mathbb{N}$で表す.
 \end{notation}
-%n-a::$\mathbb{N}$::自然数全体の集合::notation:自然数全体の集合
+%$\mathbb{N}$::自然数全体の集合::notation:自然数全体の集合
 
 ここに「個々の自然数そのものを集合を使って定義する方法もあります」とあって,
 テキストにある通り,
