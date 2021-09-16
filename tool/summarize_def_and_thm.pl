@@ -219,12 +219,12 @@ sub output_items {
 
     print $fh $str;
     print $fh "\t\\begin\{itemize\}\n";
+    $file_path = substr( $file_path, 18 );
     print $fh encode( "cp932", "\t\t\\item\[\]（ファイルパス）\\path\{" ) . $file_path . "\}\n";
     print $fh encode( "cp932", "\t\t\\item\[\]（行数）" ) . $line;
     print $fh encode( "cp932", "\t\t（ラベル）" ) . $label . "\n";
     print $fh "\t\\end\{itemize\}\n";
-    print $fh "\\end{itembox}\n\\ \\\\\n";
-
+    print $fh "\\end{itembox}\n\\ \\\\\\vspace\{-0.5cm\}\n";
 
   }
 }

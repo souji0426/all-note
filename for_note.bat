@@ -8,6 +8,8 @@ del "./note.log"
 
 cd ./tool
 
+perl -w make_atode_list.pl
+
 perl -w make_kongo_list.pl
 
 perl -w summarize_def_and_thm.pl
@@ -53,11 +55,5 @@ del "./note.out"
 del "./note.toc"
 
 del "./note.pdf"
-
-cd ./tool
-
-perl -w check_atode_list.pl
-
-cd ../
 
 "./soujiÉmÅ[Ég.pdf"
