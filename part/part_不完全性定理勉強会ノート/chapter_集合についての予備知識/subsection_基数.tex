@@ -8,10 +8,11 @@
   $A$と$B$は\textbfgt{equinumerous}{対等}であるといい,
   $A \sim B$で表す.
 \end{definition}
+\index{たいとうである@（集合が）対等である}\index{equinumerous}
 \RegisterInSymbolList{$\sim$}{集合の対等関係}{definition:集合の対等関係}
 
 \begin{proposition}[E:p8 ,\ K:p12]
-  $\mathbb{N}$と整数全体の集合$\mathbb{Z}$は対等である.
+  $\mathbb{N}$と整数全体の集合は対等である.
 \end{proposition}
 %あとで書く
 \begin{comment}
@@ -29,8 +30,10 @@
 \end{proposition}
 %あとで書く
 \begin{comment}
-  対等関係は同値関係。素朴集合論の復習で証明したらリンクをはる.
+  対等関係は同値関係.
+  素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
+
 テキストでは単純に「対等である関係が反射的, 対称的かつ推移的であることは容易に確かめられる」と書いてある.
 この記述は少し雑である.
 前の定義を見ると「関係○○が反射的」であるというのは本来ある集合$A$を用いて「関係○○が集合$A$上で反射的」という風に,
@@ -54,21 +57,34 @@
 
 
 \begin{definition}[E:p8 ,\ K:p13]
-  集合$A$に対して$\card A$を,
+  \label{definition:基数・濃度}
+  集合$A$に対して$\card ( A )$を,
   任意の集合$B$に対して
   \begin{equation*}
-    \card A = \card B \leftrightarrow A \sim B
+    \card ( A ) = \card ( B ) \leftrightarrow A \sim B
   \end{equation*}
   を満たすものとし,
+  \footnote{
+    テキストでは「$\card(A)$」は「$\card A$」と書いていますが,
+    手書きでの見やすさも考慮して,
+    また普段の自分の記法ともあわせて,
+    このノートでも「$\card(A)$」と書くことにしました.
+  }
   これを$A$の\textbfgt{cardninal numger}{基数}または\textbfgt{cardinality}{濃度}という.
 \end{definition}
+\index{きすう@基数}\index{cardninal numger}
+\index{のうど@（集合の）濃度}\index{cardinality}
+\RegisterInSymbolList{$\card ( A )$}{集合$A$の基数・濃度}{definition:基数・濃度}
 
 \begin{definition}[E:p8 ,\ K:p13]
+  \label{definition:集合がおさえられているという関係}
   集合$A,B$に対して,
   ある$B^{\prime}\subseteq B$があって$A \sim B^{\prime}$であるとき,
   $A$ \textbf{dominated by} $B$（$A$は$B$で\textgt{おさえられている}）といい,
   $A \preceq B$で表す.
 \end{definition}
+\index{おさえられている@（集合がある集合に）おさえられている}\index{dominated by}
+\RegisterInSymbolList{$A \preceq B$}{$A$は$B$でおさえられている}{definition:集合がおさえられているという関係}
 
 \begin{proposition}[E:p8 ,\ K:p13]
   $A \preceq B$であるとき,
@@ -76,24 +92,28 @@
 \end{proposition}
 %あとで書く
 \begin{comment}
-  AがBにおさえられていればAからBへの単射が存在する。素朴集合論の復習で証明したらリンクをはる.
+  AがBにおさえられていればAからBへの単射が存在する.
+  素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
 
 \begin{definition}[E:p8 ,\ K:p14]
+  \label{definition:基数の大小関係}
   集合$A,B$に対して$A \preceq B$であるとき,
-  $\card A \leq \card B$であるとする.
+  $\card ( A ) \leq \card ( B )$であるとする.
 \end{definition}
+\RegisterInSymbolList{$\leq$}{基数の大小関係}{definition:基数の大小関係}
 
 アメリカでは$\leq$でも$\leqq$でもなく$\leqslant$を使う,
 少なくとも$\leqq$のように二重線になっているものは使わない,
 みたいなことを聞いた記憶がある.
 %あとで書く
 \begin{comment}
-  wikiのリンクをはる。https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%AD%89%E5%8F%B7
+  wikiのリンクをはる.
+  https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%AD%89%E5%8F%B7
 \end{comment}
 
 それはさておき,
-テキストでは上記の定義は「$\card A \leq \card B$」ではなく「$A \leqslant B$」になっている.
+テキストでは上記の定義は「$\card ( A ) \leq \card ( B )$」ではなく「$A \leqslant B$」になっている.
 基数は私たちのよく知る数に対応するものでもあるので,
 よほど（無限）基数に着目した話をしない限りは,
 今後このノートにて$\leq$と$\leqslant$は使い分けず,
@@ -108,7 +128,8 @@ $\leq$で統一することにする.
 \end{proposition}
 %あとで書く
 \begin{comment}
-  AがBにおさえられるという関係は反射的・推移的。素朴集合論の復習で証明したらリンクをはる.
+  AがBにおさえられるという関係は反射的・推移的.
+  素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
 
 \begin{proposition}[E:p9 ,\ K:p14]
@@ -117,7 +138,8 @@ $\leq$で統一することにする.
 \end{proposition}
 %あとで書く
 \begin{comment}
-  AがNにおさえられればAは可算。素朴集合論の復習で証明したらリンクをはる.
+  AがNにおさえられればAは可算.
+  素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
 
 \begin{theorem}[E:p9 SCH\"{O}DER-BERNSTEIN THEOREM,{\ \\}\hspace{3.5cm}\ K:p14 シュレーダー・ベルンシュタイン（Schr\"{o}der-Bernstein）の定理]
@@ -129,13 +151,15 @@ $\leq$で統一することにする.
     \item[(b)] $\kappa \leq \lambda$かつ$\lambda \leq \kappa$ならば$\kappa = \lambda$. \qedhere
   \end{itemize}
 \end{theorem}
+\index{しゅれーだーべるんしゅたいんのていり@シュレーダー・ベルンシュタインの定理}\index{Schr\"{o}der-Bernstein Theorem}
 %あとで書く
 \begin{comment}
-  ベルンシュタインの定理。素朴集合論の復習で証明したらリンクをはる.
+  ベルンシュタインの定理.
+  素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
 
 \begin{theorem}[E:p9 THEOREM 0C,\ K:p14 定理0C]
-  \label{theorem:比較可能定理}
+  \label{theorem:濃度の比較可能定理}
   集合$A,B$と,
   基数$\kappa, \lambda$に対して,
   \begin{itemize}
@@ -145,22 +169,22 @@ $\leq$で統一することにする.
 \end{theorem}
 %あとで書く
 \begin{comment}
-  比較可能定理。選択公理の復習で証明したらリンクをはる.
+  濃度の比較可能定理.
+  選択公理の復習で証明したらリンクをはる.
 \end{comment}
 
-この定理は比較可能定理とも呼ばれる.
-%あとで書く
-\begin{comment}
-  比較可能定理と書いてある文献を見つけたらメモる
-\end{comment}
 
 \begin{notation}[E:p9,\ K:p14]
-  $\card \mathbb{N}$を$\aleph_0$で,
-  $\card \mathbb{R}$を$2^{\aleph_0}$で表す.
+  \label{notation:アレフ記法}
+  $\card ( \mathbb{N} )$を$\aleph_0$で,
+  $\card ( \mathbb{R} )$を$2^{\aleph_0}$で表す.
 \end{notation}
+\RegisterInSymbolList{$\aleph_0$}{自然数全体の集合の濃度}{notation:アレフ記法}
+\RegisterInSymbolList{$2^{\aleph_0}$}{実数全体の集合の濃度}{notation:アレフ記法}
 
 \begin{definition}[E:p9,\ K:p15]
-  集合$A,B$とその基数$\card A=\kappa, \card B = \lambda$に対して,
+  \label{definition:基数の演算}
+  集合$A,B$とその基数$\card ( A ) = \kappa, \card ( B ) = \lambda$に対して,
   その演算$+,\cdot$を以下のように定める.
   \begin{itemize}
     \item[1.]
@@ -169,6 +193,31 @@ $\leq$で統一することにする.
     \item[2.] $\kappa \cdot \lambda\ =\ \card ( A \times B )$. \qedhere
   \end{itemize}
 \end{definition}
+\RegisterInSymbolList{$+$}{基数の和}{definition:基数の演算}
+\RegisterInSymbolList{$\cdot$}{基数の積}{definition:基数の演算}
+
+\begin{theorem}[E:p9,\ K:p15]
+  選択公理を仮定する.
+  どんな無限集合も可算な無限部分集合をもつ.
+\end{theorem}
+
+\begin{proof}
+  任意に無限集合をとり,
+  それを$A$とおく.
+  $\mathcal{A}=\mathcal{P}(A)\setminus \{ \emptyset \}$とおくと,
+  $\mathcal{A}$は空でない集合の空でない集合族である.
+  よって選択公理より$\mathcal{A}$には選択関数$\map{f}{\mathcal{A}}{A}$が存在する,
+  つまり$\forall X\in \mathcal{A}(\ f(X)\in X\ )$をみたす$f$が存在するので,
+  そんな$f$を1つとって固定する.
+  $a_i\in A$を帰納的に以下のように定める.
+  \begin{align*}
+    a_0\ &=\ f( A ) \\
+    a_{i+1}\ &=\ f(\ A\setminus\{ a_0,a_1,\dots,a_i \}\ )
+  \end{align*}
+  $A^{\prime}=\SetBar{a_i}{i\in \mathbb{N}}$とおくと,
+  $A$が無限集合であることから$A^{\prime}$も無限集合であり,
+  明らかに$A^{\prime}$は可算な$A$の部分集合である.
+\end{proof}
 
 \begin{theorem}[E:p9 CARDINAL ARITHMETIC THEOREM,\ K:p15 基数算術の定理]
   \label{theorem:基数算術の定理}
@@ -179,12 +228,43 @@ $\leq$で統一することにする.
     \item[3.] $\kappa$が無限ならば$\aleph_0 \cdot \kappa\ =\ \kappa$. \qedhere
   \end{itemize}
 \end{theorem}
+\index{きすうさんじゅつのていり@基数算術の定理}\index{cardinal arithmetic theorem}
 
 \begin{theorem}[E:p10 THEOREM 0D,\ K:p15 定理0D]
   \label{theorem:無限集合の要素の有限列全体はその集合の濃度に一致}
   無限集合$A$に対して,
-  $A$の要素からなる有限列全体の集合$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}$の濃度は$\card A$と同じ.
+  $A$の要素からなる有限列全体の集合$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}$の濃度は$\card ( A )$と同じ.
 \end{theorem}
+
+\begin{proof}
+  任意の$n\in \mathbb{N}$に対して$\card ( A^{n+1} )=\card ( A )$である.
+  \begin{sub-block}{{\boldmath $\because$}\,}
+    これは$n\in \mathbb{N}$についての数学的帰納法から示せる.
+    \begin{itemize}
+      \item[]\hspace{-0.5cm}（Basis）$A^{0+1}=A$より明らか.
+      \item[]\hspace{-0.5cm}（Induction step） \\
+        ある$n\in \mathbb{N}$について$\card  ( A^{n+1} ) = \card ( A )$が成立しているとする.
+        その定義から$A^{(n+1)+1}=A^{n+1}\times A$であり,
+        \DefRef{definition:基数の演算}から
+        \begin{align*}
+          \card (A^{n+1}\times A)\ &=\ \card ( A^{n+1} ) \cdot \card ( A ) \\
+          &=\ \card ( A ) \cdot \card ( A^{n+1} )
+          \intertext{\ThRef{theorem:基数算術の定理}における$\kappa, \lambda$を$\kappa=\card ( A ),\lambda=\card ( A^{n+1} )$とすると,}
+          &=\ \card  A^{n+1}\ =\ \card ( A )
+        \end{align*}
+        よって$\card ( A^{(n+1)+1} ) = \card ( A )$である.
+    \end{itemize}
+  \end{sub-block}
+  すると$\displaystyle \bigcup_{n\in \mathbb{N}}A^{n+1}=A\cup A^2\cup A^3\cup \dots$より,
+  \begin{align*}
+    \displaystyle \card ( \bigcup_{n\in \mathbb{N}}A^{n+1} )\ & =\ \card ( A ) + \card ( A^2 ) + \card ( A^3 ) +\dots \\
+    &=\ \card ( A ) + \card ( A ) + \card ( A )+\dots \\
+    &=\ \aleph_0 \cdot \card ( A ) \\
+    \intertext{そしてもう一度\ThRef{theorem:基数算術の定理}より}
+    &=\ \card ( A )
+  \end{align*}
+
+\end{proof}
 
 \begin{example}[E:p10,\ K:p16]
   実数における代数数的数全体の集合の濃度は$\aleph_0$である.

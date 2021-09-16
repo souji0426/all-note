@@ -875,6 +875,14 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていないであろう.
 \begin{notation}[E:p6,\ K:p9]
   \label{notation:自然数全体の集合}
   自然数全体の集合$\{ 0,1,2,\dots \}$を$\mathbb{N}$で表す.
+  \footnote{
+    ところで「$\mathbb{N}$を自然数の集合とする」だと,
+    自然数の集合というものを定義して,
+    それに$\mathbb{N}$という記号を割り当てたという定義の主張に見えますが,
+    ここにあるように「自然数全体の集合を$\mathbb{N}$で表す」だと,
+    単に今後その記号を使うという記法の導入にも見える.
+    なのでここでは定義ではなく記法としてみました.
+  }
 \end{notation}
 \RegisterInSymbolList{$\mathbb{N}$}{自然数全体の集合}{notation:自然数全体の集合}
 
@@ -885,7 +893,7 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
 %あとで書く
 \begin{comment}
   実際に集合での自然数の構成をするようなページにたどり着いたときに,
-  再度確認しておく.
+  再度確認して○○部分を埋めておくこと.
   またもしZFCからの数学展開ノートができていれば,
   そのリンクもはる.
 \end{comment}
@@ -995,8 +1003,8 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
   ここで$\map{g^{\prime}}{\mathcal{S}}{\mathbb{N}}$を,
   $g^{\prime}(\ntuple{a_0}{a_m})=2^{f(a_0)+1}\cdot 3^{f(a_1)+1}\dots p_{m}^{f(a_m)+1}$と定めると,
   $g$はこの$g^{\prime}$を用いて,
-  $g(s)=\min \SetBar{ g^{\prime}(s^{\prime}) }{ s^{\prime} \land s^{\prime}=s }$や,
-  $g(s) = \min g^{\prime}[ \, \SetBar{s^{\prime}}{s^{\prime} \land s^{\prime}=s} \, ]$と書くことができる. \\
+  $g(s)=\min \SetBar{ g^{\prime}(s^{\prime}) }{ s^{\prime} \in \mathcal{S} \land s^{\prime}=s }$や,
+  $g(s) = \min g^{\prime}[ \, \SetBar{s^{\prime}}{s^{\prime} \in \mathcal{S} \land s^{\prime}=s} \, ]$と書くことができる. \\
 
   そして$g$はwell-definedである（これについてのさらなる議論は証明後に）.
   \begin{sub-block}{{\boldmath $\because$}\,}
@@ -1019,11 +1027,11 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
 
   写像$g$は単射である.
   \begin{sub-block}{{\boldmath $\because$}\,}
-    任意に$s_1 \neq s_2$なる$s_1,s_2\in S$をとり,
+    任意に$s_1 \neq s_2$なる$s_1,s_2\in \mathcal{S}$をとり,
     $g(s_1)=g(s_2)$だったとする.
-    $g(s_1)=g(s_2)$より$\min g^{\prime}[ \, \SetBar{ s\in S }{s=s_1} \, ]=\min g^{\prime}[ \, \SetBar{ s\in S }{s=s_2} \, ]$だから,
-    $n\in g^{\prime}[ \, \SetBar{ s\in S }{s=s_1} \, ]\cap g^{\prime}[ \, \SetBar{ s\in S }{s=s_2} \, ]$なる$n\in \mathbb{N}$が存在することになる.
-    そんな$n$に対して$g(s)=n$かつ$s=s_1$かつ$s=s_2$なる$s\in S$が存在することになる.
+    $g(s_1)=g(s_2)$より$\min g^{\prime}[ \, \SetBar{ s\in \mathcal{S} }{s=s_1} \, ]=\min g^{\prime}[ \, \SetBar{ s\in \mathcal{S} }{s=s_2} \, ]$だから,
+    $n\in g^{\prime}[ \, \SetBar{ s\in \mathcal{S} }{s=s_1} \, ]\cap g^{\prime}[ \, \SetBar{ s\in S }{s=s_2} \, ]$なる$n\in \mathbb{N}$が存在することになる.
+    そんな$n$に対して$g(s)=n$かつ$s=s_1$かつ$s=s_2$なる$s\in \mathcal{S}$が存在することになる.
     するとこの$s$を介して$s_1=s_2$となるが,
     これは矛盾.
   \end{sub-block}
@@ -1115,7 +1123,7 @@ $A$がどんな集合でも生まれることはない.
 一旦飛ばすことにする. \\
 %あとで書く
 \begin{comment}
-  木の使い方が最後らへんまで読んで分かったら書く.
+  最後らへんまで読んで木の使い方が分かったらどのような使い方だったか書く.
 \end{comment}
 
 続いて選択公理の話題が入る.
