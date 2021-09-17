@@ -270,5 +270,55 @@ $\leq$で統一することにする.
   実数における代数数的数全体の集合の濃度は$\aleph_0$である.
 \end{example}
 
+普段研究対象とするようなものでないので,
+ここで代数的数について定義しておく（定義は\cite{wiki003}を参考にした）.
+
+\begin{definition}
+  \label{definition:代数的数}
+  複素数$\alpha$が\textbfgt{algebraic number}{代数的数}であるとは,
+  ある整数係数$n$次多項式$f(x)=a_n x^n + a_{n-1}x^{n-1}+ \dots + a_1 x + a_0$（$a_n\neq 0$かつどの$a_i$も整数）があって,
+  $\alpha$が$f(x)$の根になっている,
+  つまり$f(\alpha) = 0$をみたすことをいう.
+  代数的数でない複素数は\textbfgt{transcendental number}{超越数}とよぶ.
+\end{definition}
+
+ただテキストでは実数の中での複素数にだけ注目しているように思われるので,
+実数の中での代数的数のみに注目して,
+そんな数の集合が可算であることを示す.
+
+\begin{proof}
+  実数かつ代数的数全ての集合を$\mathcal{A}$とおく.
+  この$\mathcal{A}$が可算であることを示す.
+  ある$n\in\mathbb{N}$に対して,
+  全ての$n$次多項式の全ての実数根を集めた集合を$A_n$とおく.
+  つまり,
+  \begin{gather*}
+    A_0\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_0(\ f(\alpha)=0\ ) }\ =\ \mathbb{Z} \\
+    A_1\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_1 x + a_0(\ f(\alpha)=0\ ) } \\
+    \vdots \\
+    A_n\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_n x^n + a_{n-1}x^{n-1}+ \dots + a_1 x + a_0(\ f(\alpha)=0\ ) }
+  \end{gather*}
+  と定めると,
+  $\mathcal{A}=\displaystyle \bigcup_{n\in \mathbb{N}}(A_n)$となる.
+  そして各$A_n$は可算集合である.
+  \begin{sub-block}{{\boldmath $\because$}\,}
+    $n$次多項式は$a_0,\dots,a_n\in \mathbb{Z}$（ただし$a_n\neq 0$）の組み合わせの数だけ存在する.
+    つまり$n$次多項式全体の集合の濃度は$\card( \mathbb{Z}\setminus\{ 0 \} \times \mathbb{Z}^{n-1} )$であり,
+    これまでの定理を用いて計算を進めると
+    \begin{align*}
+      \card( \mathbb{Z}\setminus\{ 0 \} \times \mathbb{Z}^{n-1} )\ &=\ \card( \mathbb{Z}\setminus\{ 0 \} ) \cdot \card( \mathbb{Z}^{n-1} ) \\
+      &=\ \card( \mathbb{Z} ) \cdot \card( \mathbb{Z} )\ =\ \card( \mathbb{Z} )\ =\ \card( \mathbb{N} )\ =\ \aleph_0
+    \end{align*}
+    であり,
+    つまり$n$次多項式はどれも可算無限に存在する.
+  \end{sub-block}
+  そして各$n$次多項式の実数根は高々$n$個であり,
+  つまり$\card ( A_n )\leq \aleph_0^n=\aleph_0$.
+  よって$\card ( A_n )=\aleph_0$である.
+  すると$\card( \mathcal{A} )=\aleph_0 \cdot \card( A_n )=\aleph_0 \cdot \aleph_0=\aleph_0$より,
+  $\mathcal{A}$も可算集合である.
+\end{proof}
+
+
 
 \end{document}
