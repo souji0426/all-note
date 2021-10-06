@@ -21,6 +21,7 @@
 \end{comment}
 
 \begin{proposition}[E:p8 ,\ K:p12]
+  \label{proposition:対等関係は同値関係}
   任意の集合$A,B,C$に対して以下の3つが成立する.
   \begin{itemize}
     \item[1. ] $A \sim A$.
@@ -53,7 +54,8 @@
 上の$R$における集合$A$に相当するものが存在しない.
 なぜなら対等関係とはある意味「全ての集合の集合」上の同値関係であるが,
 公理的集合論において「全ての集合の集合」とは集合にはならない（こういうのは真のクラスと呼んだりする）.
-なので
+なのでそのような説明を避けるために,
+ある意味雑に書くしかなかったのでは推測する.
 
 
 \begin{definition}[E:p8 ,\ K:p13]
@@ -75,6 +77,45 @@
 \index{きすう@基数}\index{cardninal numger}
 \index{のうど@（集合の）濃度}\index{cardinality}
 \RegisterInSymbolList{$\card ( A )$}{集合$A$の基数・濃度}{definition:基数・濃度}
+
+ここの基数の定義は（数学的な）基数を始めて見る人にとってはかなり分かりにくいのではないだろうか？
+また逆に一度でも具体的なモノとして基数を定義したことがあるならば,
+それこそここに書いてあるように順序数を厳密に定義した上で,
+その中で特別な順序数として基数を定めたことがあるならば,
+この定義は本当に自分が知っている基数と同じものなのか不安に思うかもしれない.
+著者自身はこの定義で問題ないと書いてある.
+ならば,
+この定義のやり方で納得できるよう,
+もう少し補足してみる.
+この定義の最大の不満点は基数というモノを,
+具体的に構成することなく,
+その性質でもって定義していることだと思われる.
+テキストにある通り,
+よくよく考えれば,
+私たちは$2$が「何か」は具体的に知らないのに,
+$2$のその性質「$1$の次の数である」とか,
+関係する事実「$1+1$の演算結果」といったものから捉えて,
+上手に$2$を利用できている.
+「数」はある種極端な例としても,
+そのようなことは数以上に抽象的な数学の議論の中でも行われている.
+私が思い浮かぶ例としては「順序対」である.
+このテキストでは$x$と$y$の順序対$\op{x}{y}$を,
+$\op{x}{y}=\{ \{ x \} , \{ x,y \} \}$でもって具体的に（集合でもって）定義している.
+しかし、テキストによっては
+\begin{equation*}
+  \forall x^{\prime}\ y^{\prime}\left(\ \op{x}{y}=\op{x^{\prime}}{y^{\prime}}\ \to\ x=x^{\prime} \land y=y^{\prime} \ \right)
+\end{equation*}
+をみたす組$\op{x}{y}$のこととして,
+つまり順序対が満たしてほしい性質でもって定義しているものもある（例えば\cite{Basic001}の50ページ,
+\cite{Basic007}の14ページ,
+\cite{Basic008}の75ページなど）.
+単純に平面の1点の座標の表現としてとか,
+直積集合の要素としてとかで順序対を必要としている場合は,
+これで十分である.
+著者の専門分野的に基数の理解が浅いということはありえないので,
+このテキストにおける基数の扱いも,
+先の\cite{Basic007}での順序対と同じようなもので,
+著者なりの基数についての必要最低限がこの定義だと思われる.
 
 \begin{definition}[E:p8 ,\ K:p13]
   \label{definition:集合がおさえられているという関係}
@@ -100,24 +141,26 @@
   \label{definition:基数の大小関係}
   集合$A,B$に対して$A \preceq B$であるとき,
   $\card ( A ) \leq \card ( B )$であるとする.
+  \footnote{
+    欧米では「大きい（小さい）かまたは等しい」という記号を書くとき,
+    イコールを表す部分が「$\leqq$」のように二重線になっているものは使わないと聞いたことがあります.
+    Wikipediaにもそう書いてあったり（例えば\cite{Wiki004}とか）.
+    また同じ二重線でないものとして「$\leqslant$」も使われるようです.
+    これは使用者の好みに寄るのかな.
+  }
 \end{definition}
 \RegisterInSymbolList{$\leq$}{基数の大小関係}{definition:基数の大小関係}
 
-アメリカでは$\leq$でも$\leqq$でもなく$\leqslant$を使う,
-少なくとも$\leqq$のように二重線になっているものは使わない,
-みたいなことを聞いた記憶がある.
-%あとで書く
-\begin{comment}
-  wikiのリンクをはる.
-  https://ja.wikipedia.org/wiki/%E4%B8%8D%E7%AD%89%E5%8F%B7
-\end{comment}
-
-それはさておき,
-テキストでは上記の定義は「$\card ( A ) \leq \card ( B )$」ではなく「$A \leqslant B$」になっている.
-基数は私たちのよく知る数に対応するものでもあるので,
-よほど（無限）基数に着目した話をしない限りは,
-今後このノートにて$\leq$と$\leqslant$は使い分けず,
-$\leq$で統一することにする.
+原著では上記の定義は「$\card ( A ) \leq \card ( B )$」で,
+和訳では「$A \leqslant B$」になっている.
+これはおそらくこの部分だけでなく,
+原著は前者で統一されており,
+和訳は後者で統一されている.
+これはなぜかと和訳者である嘉田氏に聞いたところ,
+版元の仕様らしい.
+つまり嘉田氏のソースファイルでは「$\leq$」となっているが,
+印刷物として出力したときに「$\leqslant $」となるようになっているようだ.
+今後このノートでは原著にあわせて（特に不都合もなさそうなので）$\leq$で統一することにする.
 
 \begin{proposition}[E:p9 ,\ K:p14]
   任意の集合$A,B,C$に対して以下の2つが成立する.
@@ -131,6 +174,10 @@ $\leq$で統一することにする.
   AがBにおさえられるという関係は反射的・推移的.
   素朴集合論の復習で証明したらリンクをはる.
 \end{comment}
+
+\PropRef{proposition:対等関係は同値関係}と同様ここもテキストでは,
+「「おさえられる」という関係は反射的かつ推移的」と書いてある.
+しかし\PropRef{proposition:対等関係は同値関係}下の注意事項が同じように当てはまることに注意.
 
 \begin{proposition}[E:p9 ,\ K:p14]
   $A\preceq \mathbb{N}$であることと,
@@ -211,7 +258,7 @@ $\leq$で統一することにする.
   そんな$f$を1つとって固定する.
   $a_i\in A$を帰納的に以下のように定める.
   \begin{align*}
-    a_0\ &=\ f( A ) \\
+    a_0\ &=\ f( A ), \\
     a_{i+1}\ &=\ f(\ A\setminus\{ a_0,a_1,\dots,a_i \}\ )
   \end{align*}
   $A^{\prime}=\SetBar{a_i}{i\in \mathbb{N}}$とおくと,
@@ -261,7 +308,7 @@ $\leq$で統一することにする.
     &=\ \card ( A ) + \card ( A ) + \card ( A )+\dots \\
     &=\ \aleph_0 \cdot \card ( A ) \\
     \intertext{そしてもう一度\ThRef{theorem:基数算術の定理}より}
-    &=\ \card ( A )
+    &=\ \card ( A ). \qedhere
   \end{align*}
 
 \end{proof}
@@ -293,10 +340,11 @@ $\leq$で統一することにする.
   全ての$n$次多項式の全ての実数根を集めた集合を$A_n$とおく.
   つまり,
   \begin{gather*}
-    A_0\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_0(\ f(\alpha)=0\ ) }\ =\ \mathbb{Z} \\
-    A_1\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_1 x + a_0(\ f(\alpha)=0\ ) } \\
+    A_0\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_0(\ f(\alpha)=0\ ) }\ =\ \mathbb{Z}, \\
+    A_1\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_1 x + a_0(\ f(\alpha)=0\ ) }, \\
     \vdots \\
-    A_n\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_n x^n + a_{n-1}x^{n-1}+ \dots + a_1 x + a_0(\ f(\alpha)=0\ ) }
+    A_n\ =\ \SetBar{ \alpha \in \mathbb{R} }{ \exists f(x)=a_n x^n + a_{n-1}x^{n-1}+ \dots + a_1 x + a_0(\ f(\alpha)=0\ ) }, \\
+    \vdots
   \end{gather*}
   と定めると,
   $\mathcal{A}=\displaystyle \bigcup_{n\in \mathbb{N}}(A_n)$となる.

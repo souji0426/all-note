@@ -40,11 +40,11 @@ cd ../
 
 platex note.tex
 
-pbibtex note -kanji=utf8
+pbibtex note -kanji=sjis
 
 platex note.tex
 
-pbibtex note -kanji=utf8
+pbibtex note -kanji=sjis
 
 platex note.tex
 

@@ -169,9 +169,6 @@
     単に今後その記号を使うという記法の導入にも見える.
     なのでここでは定義ではなく記法としてみました.
   }
-  \footnote{
-    まぁここより前にたくさん登場してしまっている記号だけど.
-  }
   整数全体の集合$\{ \dots,-2,-1,0,1,2,\dots \}$を$\mathbb{Z}$で,
   実数全体の集合を$\mathbb{R}$で表す.
   \footnote{
@@ -425,6 +422,7 @@
   \begin{equation*}
     \forall n\in \mathbb{N}\left(\ \forall x_1,\dots,x_n,y_1,\dots,y_n \left(\ \ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}\ \to\ \forall i(\ 1\leq i\leq n\to x_i=y_i\ )\ \right)\ \right)
   \end{equation*}
+  となる.
   よって$n\in \mathbb{N}$について数学的帰納法を用いて証明する.
   \begin{itemize}
     \item[]\hspace{-0.5cm}（Basis） \\
@@ -436,15 +434,16 @@
       $\ntuple{x_1}{x_{n},x_{n+1}}=\ntuple{y_1}{y_{n},y_{n+1}}$だったとする.
       一般的な順序$n$個組の定義から
       \begin{gather*}
-        \ntuple{x_1}{x_{n},x_{n+1}}\ =\ \op{\ntuple{x_1}{x_n}}{x_{n+1}} \\
+        \ntuple{x_1}{x_{n},x_{n+1}}\ =\ \op{\ntuple{x_1}{x_n}}{x_{n+1}}, \\
         \ntuple{y_1}{y_{n},y_{n+1}}\ =\ \op{\ntuple{y_1}{y_n}}{y_{n+1}}
       \end{gather*}
       であり,
       今順序対の定義から第一成分・第二成分同士が等しいので,
       \begin{gather*}
-        \ntuple{x_1}{x_n}\ =\ \ntuple{y_1}{y_n} \\
+        \ntuple{x_1}{x_n}\ =\ \ntuple{y_1}{y_n}, \\
         x_{n+1}\ =\ y_{n+1}
       \end{gather*}
+      となる.
       今に任意に取られた$n$個の要素たちについては
       \begin{equation*}
         \ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}\ \to\ \forall i(\ 1\leq i\leq n\to x_i=y_i\ )
@@ -479,9 +478,10 @@
       $\ntuple{x_1}{x_{m+1}}=\ntuple{y_1,\dots,y_m}{y_{m+1+k}}$を仮定する.
       一般順序組の定義から
       \begin{gather*}
-        \ntuple{x_1}{x_{m+1}}\ =\ \op{\ntuple{x_1}{x_m}}{x_{m+1}} \\
+        \ntuple{x_1}{x_{m+1}}\ =\ \op{\ntuple{x_1}{x_m}}{x_{m+1}}, \\
         \ntuple{y_1,\dots,y_m}{y_{m+1+k}}\ =\ \op{\ntuple{y_1}{y_{m+k}}}{x_{m+k+1}}
       \end{gather*}
+      となっている.
       つまり各第一成分が等しいということなので
       \begin{equation*}
         \ntuple{x_1}{x_m}\ =\ \ntuple{y_1}{y_{m+k}}
@@ -511,7 +511,7 @@ $x_i$や$y_i$それぞれが$A$に属する場合,
   逆に$A=\{ 0,1,\op{0}{1},\op{0,1}{0} \}$として,
   $A$の有限列$S_1,S_2$を
   \begin{gather*}
-    S_1\ =\ \op{\op{0,1}{0}}{1} \\
+    S_1\ =\ \op{\op{0,1}{0}}{1}, \\
     S_2\ =\ \op{\op{0}{1},0}{1}
   \end{gather*}
   とすると,
@@ -1068,7 +1068,7 @@ well-defined性を確かめている部分にも書いてある通り,
 $A=\{ 0,1,\op{0}{1},\op{0,1}{0} \}$とし,
 その要素からなる以下のような2つの有限列$s_1,s_2$を,
 \begin{gather*}
-  s_1\ =\ \op{\op{0,1}{0}}{1} \\
+  s_1\ =\ \op{\op{0,1}{0}}{1}, \\
   s_2\ =\ \op{\op{0}{1},0}{1}
 \end{gather*}
 としてみる.
@@ -1081,7 +1081,7 @@ $A=\{ 0,1,\op{0}{1},\op{0,1}{0} \}$とし,
 \end{equation*}
 のように定めてみれば,
 \begin{gather*}
-  g(s_1)\ =\ 2^{f(\op{0,1}{0})+1}3^{f(1)+1}\ =\ 2^4 3^2 \\
+  g(s_1)\ =\ 2^{f(\op{0,1}{0})+1}3^{f(1)+1}\ =\ 2^4 3^2, \\
   g(s_2)\ =\ 2^{f(\op{0}{1})+1}3^{f(0)+1}5^{f(1)+1}\ =\ 2^3 3^1 5^2
 \end{gather*}
 となり$g(s_1) \neq g(s_2)$となるが,
@@ -1095,7 +1095,7 @@ $g(s_1) = g(s_2)$とならなくてはならず,
 例えば上の例にだした$s_1,s_2$も,
 $\map{s_1}{ \{ 0,1 \} }{A},\map{s_2}{ \{ 0,1,2 \} }{A}$で,
 \begin{gather*}
-  s_1(0) = \op{0,1}{0},\ s_1(1)=1 \\
+  s_1(0) = \op{0,1}{0},\ s_1(1)=1, \\
   s_2(0) = \op{0}{1},\ s_2(1)=0,\ s_2(2)=1
 \end{gather*}
 と定めれば,

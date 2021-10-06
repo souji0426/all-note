@@ -72,7 +72,8 @@
 
 まずはこれから使う記号という単語を定義する.
 
-\begin{definition}[記号(E:p13~14,\ K:p20)]\label{def:記号}
+\begin{definition}[記号(E:p13~14,\ K:p20)]
+  \label{definition:記号}
  互いに区別できる無限個のオブジェクトの列を用意し固定する.
  その列の成分となっているオブジェクトをそれぞれ\textbfgt{symbol}{記号}とよぶ. \\
  \index{ぶんろんり@文論理!きごう@記号}\index{sentential logic!symbol}
@@ -118,6 +119,16 @@
    \index{ぶんろんり@文論理!ぶんきごう@文記号}\index{sentential logic!sentence symbol}
    \index{ぶんきごう@文記号}\index{sentence symbol}
 \end{definition}
+\RegisterInSymbolList{$($}{文論理の左括弧記号}{definition:記号}
+\RegisterInSymbolList{$)$}{文論理の右括弧記号}{definition:記号}
+\RegisterInSymbolList{$\lnot$}{文論理の否定記号}{definition:記号}
+\RegisterInSymbolList{$\land$}{文論理の連言記号}{definition:記号}
+\RegisterInSymbolList{$\lor$}{文論理の宣言記号}{definition:記号}
+\RegisterInSymbolList{$\to$}{文論理の条件記号}{definition:記号}
+\RegisterInSymbolList{$\leftrightarrow$}{文論理の双条件記号}{definition:記号}
+\RegisterInSymbolList{$A_n$}{文論理の$n$番目の文記号}{definition:記号}
+
+
 ここでテキストにあるものも含めていくつか注意を述べる.
 順番や内容はテキストとは異なっている.
 \begin{enumerate}
@@ -297,7 +308,7 @@
    さきに有限個で済む文記号以外をオブジェクトの番号の小さいものから割り当てていき,
    残った無限個のオブジェクトにその番号が小さいものから文記号についている番号の小さいもの順に割り当てていく.
    そうすれば一番分かりやすいと思われるため,
-   だからこそDefinition \ref{def:記号}においても「列の第一成分から」とテキストにはないものを追加した.
+   だからこそDefinition \ref{definition:記号}においても「列の第一成分から」とテキストにはないものを追加した.
    1つ上の注意に書いた通り実装方法にはこだわらないのだから別にこの注意は不要でもあるのだが,
    この時点で勉強会で話した「お気持ち」を伝えるためにも付記しておいた. \\
    また別の実装方法もいくつも存在することを注意しておく.
@@ -317,7 +328,7 @@
    この2つの列は集合として一致しているので同じものとして扱わなくてはいけない.
    よってこのようなことが起こらないためにはこの条件は必要である.
    この条件と\LemRef{lemma:長さの違う有限列が一致するとき始切片で帳尻が合う}や\ExRef{example:集合として一致するが長さが異なる有限列}の議論もあわせて,
-   もし2つの記号の列が$\ntuple{a_1}{a_m}=\ntuple{b_1}{b_n}$でDefinition \ref{def:記号}の条件をみたす記号ならば,
+   もし2つの記号の列が$\ntuple{a_1}{a_m}=\ntuple{b_1}{b_n}$でDefinition \ref{definition:記号}の条件をみたす記号ならば,
    $m=n$かつ$a_i=b_i$となる.
  \item
    \textgt{無限の文記号を用意しない方法} \\
@@ -344,8 +355,10 @@
 
 つぎに「表現」という言葉を定義するため,
 以降日常言語としての表現は使わないよう気をつける.
-\begin{definition}[表現(E:p15,\ K:p23)]\label{def:表現}
- \DefRef{def:finite sequence}の用語を用いる.
+
+\begin{definition}[表現(E:p15,\ K:p23)]
+  \label{definition:表現}
+ \DefRef{definition:有限列}の用語を用いる.
  \begin{itemize}
    \item[1.] 文論理の記号の集合を以降$\mathcal{S}$で表すことにする.
    \item[2.]
@@ -392,7 +405,7 @@
 
 例の\ref{remark:表現の結合と代入}つ目における$((\lnot A_1)\to A_2)$とは,
 $(\alpha\to \beta)$の$\alpha,\beta$部分にその表現を代入したものである.
-Definition \ref{def:表現}でも使ったが改めて注意すると,
+Definition \ref{definition:表現}でも使ったが改めて注意すると,
 $\alpha,\beta$は文論理の記号ではなく,
 文論理について議論している表現を変数のように使いたいための私たちの記号である.
 プログラミングでいうところのマクロのようなものともいえる.
@@ -403,7 +416,7 @@ $\alpha,\beta$は文論理の記号ではなく,
    \item
      $\mathcal{E}_{\lnot}(\alpha)=(\lnot \alpha)$と定める.
      より厳密には$\mathcal{E}_{\lnot}(\alpha)\defeq \op{(}{\lnot}\alpha \singleseq{)}$であり,
-     これはDefinition \ref{def:表現}で定義した表現の文字列連結である.
+     これはDefinition \ref{definition:表現}で定義した表現の文字列連結である.
      つまり$\mathcal{E}_{\lnot}$は$\mathcal{E}$上の1変数関数である.
    \item
    $\mathcal{E}_{\land}(\alpha,\beta)=(\alpha \land \beta)$と定める.
@@ -416,12 +429,14 @@ $\alpha,\beta$は文論理の記号ではなく,
  \index{しきこうせいそうさ@式構成操作}\index{formula-building operation}
 \end{definition}
 
-\begin{definition}[（素朴な）整式の定義(E:p16~17,\ K:p25)]\label{def:（素朴な）整式の定義}
+\begin{definition}[（素朴な）整式の定義(E:p16~17,\ K:p25)]
+  \label{definition:（素朴な）整式の定義}
  \textbfgt{well-formed formula}{整式}とは以下のように帰納的に定義される.
  \index{ぶんろんり@文論理!しせいしき@整式}\index{sentential logic!well-formed formula}
  \index{しせいしき@整式}\index{well-formed formula}
  \footnote{
-   テキストでは単に「式（formula）」とか原著だと「wff」などの呼び方も提示されているが,
+   テキストでは単に「式（formula）」とか,
+   原著だと「wff」などの呼び方も提示されているが,
    個人的な理由で整式のみで統一する.
  }
 
@@ -442,7 +457,8 @@ $\alpha,\beta$は文論理の記号ではなく,
 この「有限回適用して」の部分を構成列というものを使って厳密に定義できる. \\
 1.4節ではこれについてもう一度触れることがあるようなのであとで書くことにする\index{あとでかく@後で書く}.
 
-\begin{definition}[構成列と整式(E:p17~18,\ K:p26~27)]\label{def:構成列と整式}
+\begin{definition}[構成列と整式(E:p17~18,\ K:p26~27)]
+  \label{definition:構成列と整式}
  表現の集合$\mathcal{E}$の有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が\textbfgt{construction sequence}{構成列}であるとは,
  各$i\leq n$に対して(1)から(3)のいずれかをみたすときをいう.
  \index{ぶんろんり@文論理!こうせいれつ@構成列}\index{sentential logic!construction sequence}
@@ -492,7 +508,8 @@ $\exists j,k< i\exists \square \in \mathcal{E}_2 ( \varepsilon_i=\mathcal{E}_{\s
 ゆえにテキストでは（おそらく意図的に）一貫して（\ChapRef{chapter:導入}のような別に論理学に直接関係する概念でなくても）何かを定義するさいには,
 日常言語で述べることにしたのであろう.
 
-\begin{example}\label{example:構成列}
+\begin{example}
+  \label{example:構成列}
  整式$\alpha$を$(\ (A_1\land A_{10})\ \to\ (\ (\lnot A_3)\ \lor\ (A_8\leftrightarrow A_3)\ )\ )$とすると,
  以下の有限列は
  \begin{equation*}
@@ -539,7 +556,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    $S^{\prime}_4$は$(\lnot A_3)$の構成列である.
    これは単なる観察ではなく,
    つまりこの整式だけにあてはまる現象ではなくすべての整式に対して成立する.
-   これは\PropRef{prop:構成列の始切片は構成列}で示した.
+   これは\PropRef{proposition:構成列の始切片は構成列}で示した.
  \item
    また例えば$\singleseq{A_1}$は$A_1$という整式の構成列であるが,
    1つ組の定義から$\singleseq{A_1}=A_1$でもあるから,
@@ -583,7 +600,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    このほかにも表現や整式の単なる長さや整式に含まれる文記号の個数など,
    表現・整式に備わる様々な「数」を使って証明していくことになる.
  \item
-   \DefRef{def:（素朴な）整式の定義}にある定義を採用するテキストも多い.
+   \DefRef{definition:（素朴な）整式の定義}にある定義を採用するテキストも多い.
    これのメリットとしては「任意の整式に対して○○」という主張に対して\textgt{構成に関する帰納法}を使うことができることである.
    構成に関する帰納法は\textbfgt{structural induction}{構造的帰納法}と呼ばれることもある.
    なので以降は（カッコいい方の）構造的帰納法という呼び名を使っていく.
@@ -599,14 +616,15 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
        $(\lnot \alpha), (\alpha \land \beta), (\alpha \lor \beta), (\alpha \to \beta), (\alpha \leftrightarrow \beta)$が○○をみたしていることを示す.
    \end{itemize}
    証明すべきことの名前（Basisとかのこと）は\cite{Logic005:todayama}から拝借した.
-   もちろん\cite{Logic005:todayama}では整式の定義は\DefRef{def:（素朴な）整式の定義}と同じようになされている. \\
+   もちろん\cite{Logic005:todayama}では整式の定義は\DefRef{definition:（素朴な）整式の定義}と同じようになされている. \\
    ときどき余裕があればこちらのやり方でも証明してみることにする.
    もしかしたら主張によってはこちらの方が証明がやりやすくなることもあるかもしれない.
 \end{enumerate}
 
 では練習がてら色々と自分で簡単な主張を用意して証明してみる.
 
-\begin{proposition}\label{prop:構成列の始切片は構成列}
+\begin{proposition}
+  \label{proposition:構成列の始切片は構成列}
  構成列のどのその真の始切片もまた構成列である.
 \end{proposition}
 
@@ -714,7 +732,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
      そのような$\varepsilon_j$を固定する.
      $\ntuple{\varepsilon_1}{\varepsilon_j}$は,
      構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
-     \PropRef{prop:構成列の始切片は構成列}より構成列である.
+     \PropRef{proposition:構成列の始切片は構成列}より構成列である.
      この構成列は$\varepsilon_j$に対応する構成列でその長さは$n$未満なので,
      帰納法の仮定より$\varepsilon_j\in \mathcal{A}$である.
      そして仮定より$\mathcal{E}_{\lnot}$が$\mathcal{A}$上閉じていることから$\mathcal{E}_{\lnot}( \varepsilon_j )\in \mathcal{A}$である.
@@ -724,7 +742,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
      そんな$\varepsilon_j,\varepsilon_k$を固定する.
      $\ntuple{\varepsilon_1}{\varepsilon_j},\ntuple{\varepsilon_1}{\varepsilon_k}$は,
      構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
-     \PropRef{prop:構成列の始切片は構成列}より構成列である.
+     \PropRef{proposition:構成列の始切片は構成列}より構成列である.
      この2つの構成列はどちらも長さが$n$未満なので,
      帰納法の仮定より$\varepsilon_j,\varepsilon_k\in \mathcal{A}$である.
      そして仮定より$\mathcal{E}_{\land}$が$\mathcal{A}$上閉じていることから$\mathcal{E}_{\land}( \varepsilon_j, \varepsilon_k )\in \mathcal{A}$である.
@@ -754,7 +772,8 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
 
 整式全体に関する定理の証明に対して帰納法の原理を使うことができる.
 
-\begin{example}[E:p18 EXAMPLE,\ K:p28 例]\label{example:文論理の整式の両括弧の数は同じ}
+\begin{example}[E:p18 EXAMPLE,\ K:p28 例]
+  \label{example:文論理の整式の両括弧の数は同じ}
  どの整式もそれに含まれる右括弧・左括弧の個数は同じである.
  \footnote{
    テキストでは「左括弧の数が右括弧の数より多い表現は整式ではない」だが,
