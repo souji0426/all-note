@@ -210,6 +210,11 @@ sub output_items {
     if ( $label eq "" ) {
       print $fh "\\begin{itembox}[l]{${environment_name}\ ${item_name}}\n";
     } else {
+      my @label_array = split( " , ", $label );
+      my $num_of_label_array = @label_array;
+      if ( $num_of_label_array > 1 ) {
+        $label = @label_array[0];
+      } 
       my $title = $environment_name .
                       "\ \\ref\{" . $label . "\}\\ \\ " .
                       $item_name . "\\ \\ " .
