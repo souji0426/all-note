@@ -1,0 +1,1334 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
+この節では位相空間の基本事項をまとめていきます.
+基本的には\cite{basic001:Tsukuda-kika}を（かなり）参考にしています.
+ゆえにここに書いている証明は,そのノートを自分なりに整理したものになっています.
+
+\subsection{距離空間入門事項}
+\label{subsection:距離空間入門事項}
+
+ここでは距離空間に関する定義をまとめておく.
+\begin{definition}[]
+  \label{definition:距離空間}
+  集合$X$に対して,$d:X\times X\to \mathbb{R}$が$X$上の\textgt{距離関数}（\textbf{metric}）であるとは,
+  以下の3条件を満たすことをいう.
+  \begin{itemize}
+    \item[(d1)]
+      (i)\ $\forall x,y\in X\big(\  d(x,y)\geq 0 \ \big)$ \\
+      (ii)\ $\forall x,y\in X\big(\  d(x,y)= 0\ \leftrightarrow\ x=y \ \big)$
+    \item[(d1)] $\forall x,y\in X\big(\  d(x,y)=d(y,x) \ \big)$
+    \item[(d1)] $\forall x,y,z\in X\big(\  d(x,z)\leq d(x,y)+d(y,z) \ \big)$
+  \end{itemize}
+  $d$が$X$上の距離関数のとき,
+  組$(X,d)$を\textgt{距離空間}（\textbf{metric space}）という.
+  $d$が文脈から明らかならば単に「距離空間$X$」と呼ぶ.
+\end{definition}
+\index{metric space!metric}
+\index{きょりくうかん@距離空間!きょりかんすう@距離関数}
+\index{metric space}
+\index{きょりくうかん@距離空間}
+
+続いて部分空間について定義しておく.
+\begin{definition}[]
+  \label{definition:部分距離空間}
+  距離空間$(X,d)$と$A\subseteq X$に対して,
+  組$(A,d\restric A\times A)$を$(X,d)$の\textgt{部分距離空間}（\textbf{metric subspace}）,
+    \index{metric space!metric subspace}
+    \index{きょりくうかん@距離空間!ぶぶんきょりくうかん@部分距離空間}
+  あるいは単に\textgt{部分空間}という.
+\end{definition}
+
+続いて距離空間の構造を調べるための写像を定義します.
+\begin{definition}[]
+  \label{definition:等長写像}
+  距離空間$(X,d_X)$と$(Y,d_Y)$に対して,
+  \begin{itemize}
+    \item[・]
+      $f:X\to Y$が\textgt{距離を保つ},
+      あるいは\textgt{等長写像}（\textbf{isometry}） \\
+        \index{metric space!isometry}
+        \index{きょりくうかん@距離空間!とうちょうしゃぞう@等長写像}
+      \hspace{1cm}$\ \defarr\ \forall x,x^{\prime}\in X\big(\  d_X(x,x^{\prime})=d_Y(f(x),f(x^{\prime})) \ \big)$
+    \item[・]
+      $X$と$Y$が距離空間として\textgt{等長}（\textbf{isometric}）,
+        \index{metric space!isometric}
+        \index{きょりくうかん@距離空間!とうちょう@等長}
+      あるいは\textgt{同型}（\textbf{isomorphic}）であるとは,
+      $X$から$Y$への全射等長写像が存在することをいう. \qedhere
+  \end{itemize}
+\end{definition}
+
+通常「同型」とは構造（この場合は距離）が同じで,
+全単射写像が存在する場合に使う言葉ですが,
+上記の定義では全射であることしか要求していません.
+これは等長写像が常に単射であることが示せるからです.
+それを含めた細かな主張をまとめておきます.
+
+\begin{proposition}[]
+  距離空間$(X,d_X),\ (Y,d_Y),\ (Z,d_Z)$と$f:X\to Y,\  g:Y\to Z$に対して
+  \begin{itemize}
+    \item[(1)] $f$が等長写像ならば単射.
+    \item[(2)]
+      $f,g$が等長写像ならば,
+      その合成$g\circ f:X\to Z$も等長写像
+    \item[(3)]
+      $f$が全射等長写像ならば,
+      その逆写像も等長写像
+    \item[(4)]
+      $f$が全射等長写像ならば,
+      $X$と$f[X]$は距離空間として等長,
+      つまり同型.
+    \item[(5)]
+      $X$と$Y$が同型ならば,
+      等長写像$f^{\prime}:X\to Y,\  g^{\prime}:Y\to Z$が存在して
+      $g^{\prime}\circ f^{\prime}=id_X,\  f^{\prime}\circ g^{\prime}=id_Y$が成立する.
+    \item[(6)]
+      $A\subseteq X$に対して,
+      包含写像$i_A:X\to X$は$(X,d_X)$から部分空間$(A,d\restric A\times A)$への等長写像. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \
+  \begin{itemize}
+    \item[(1)]
+      $f(x)=f(x^{\prime})\land x\neq x^{\prime}$なる$x,x^{\prime}\in X$が存在したとします.
+      $x^{\prime}$より$d(x,x^{\prime})>0$,$f(x)=f(x^{\prime})$より$d_Y(f(x),f(x^{\prime}))=0$ですが,
+      これは$f$が等長写像であることに矛盾.
+    \item[(2)]
+      任意に$x,x^{\prime}\in X$をとります.
+      $d_Z(g\circ f(x),g\circ f(x^{\prime}))=d_Z(\  g(f(x)),g(f(x^{\prime})) \ )$で,
+      $g$が等長写像であることから$d_Z(\  g(f(x)),g(f(x^{\prime})) \ )=d_Y(\  f(x),f(x^{\prime}) \ )$.
+      そして$f$が等長写像であることから$d_Y(\  f(x),f(x^{\prime}) \ )=d_X(x,x^{\prime})$.
+      まとめると$d_Z(g\circ f(x),g\circ f(x^{\prime}))=d_X(x,x^{\prime})$より$g\circ f$は等長写像.
+    \item[(3)]
+      (1)より$f$は単射でもあるので,$f$は全単射より逆写像$f^{-1}$が存在.
+      ある$y,y^{\prime}\in Y$に対して$d_Y(y,y^{\prime})=d_X(f^{-1}(y),f^{-1}(y^{\prime}))$でなかったとします.
+      $f$は等長写像なので
+      $d_X(f^{-1}(y),f^{-1}(y^{\prime}))=d_Y(\  f(f^{-1}(x)),f(f^{-1}(x^{\prime})) \ )=d_Y(y,y^{\prime})$となって矛盾.
+    \item[(4)]
+      $f^{\prime}:X\to f[X]$を$f^{\prime}(x)=f(x)$とすれば,
+      $f^{\prime}$は$X$から$f[X]$への等長写像で,$f^{\prime}$はその作り方から全射.
+      そんな全射等長写像の存在から$X$と$f[X]$は同型です.
+    \item[(5)]
+      $X$と$Y$が同型なので,その間の等長写像を$f$とおく.
+      (1)より$f$は単射,
+      $X$と$Y$が同型なので$f$は全射,
+      故に逆写像$f^{-1}$が存在する.
+      (3)より$f^{-1}$も等長写像で,
+      $f^{-1}$が逆写像であることから$f^{-1}\circ f=id_X,\  f\circ f^{-1}=id_Y$です.
+      等長写像$f^{\prime}:X\to Y,\  g^{\prime}:Y\to Z$が存在して
+      $g^{\prime}\circ f^{\prime}=id_X,\  f^{\prime}\circ g^{\prime}=id_Y$が成立する.
+    \item[(6)]
+      包含写像の定義と,
+      恒等写像が明らかに等長写像であることから,
+      ここまでの議論より明らか. \qedhere
+  \end{itemize}
+\end{proof}
+
+\begin{definition}[]
+  \label{definition:開球}
+  距離空間$(X,d)$,$x\in X$, $\varepsilon>0$に対して
+  \begin{itemize}
+    \item[・]
+      $U_{\varepsilon}(x)\ \defeq\ \{\  y\in X\ |\ d(x,y)<\varepsilon \ \}$
+      として,これを$x$を中心とする半径$\varepsilon$の\textgt{開球}（\textbf{open ball}）,
+        \index{metric space!open ball}
+        \index{きょりくうかん@距離空間!かいきゅう@開球}
+      \textgt{開円盤}（\textbf{open disc}）あるいは{\boldmath $\varepsilon$}\textgt{近傍}と呼ぶ.
+    \item[・]
+      $S_{\varepsilon}(x)\ \defeq\ \{\  y\in X\ |\ d(x,y)=\varepsilon \ \}$
+      として,
+      これを$x$を中心とする半径$\varepsilon$の\textgt{球面}（\textbf{sphere}）と呼ぶ. \qedhere
+        \index{metric space!sphere}
+        \index{きょりくうかん@距離空間!きゅうめん@球面}
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[]
+  \label{definition:距離空間における集合の直径}
+  距離空間$(X,d)$と空でない$A\subseteq X$に対して,
+  $\delta(A)\ \defeq\ \sup\{\  d(x,y)\ |\  x,y\in A \ \}$
+  として,
+  これを$A$の\textgt{直径}（\textbf{diameter}）と呼ぶ.
+    \index{metric space!diameter}
+    \index{きょりくうかん@距離空間!ちょっけい@（集合の）直径}
+  必要ならば$\delta(\emptyset)=-\infty$と約束する. \\
+  $\delta(A)<+\infty$のとき,$A$は\textgt{有界}（\textbf{bounded}）という.
+    \index{metric space!bounded}
+    \index{きょりくうかん@距離空間!ゆうかい@（集合が）有界}
+\end{definition}
+
+\begin{proposition}[]
+  距離空間$(X,d)$と$A,B\subseteq X$,$A$は空でないとするとき
+  \begin{itemize}
+    \item[(1)] $A\subseteq B$ならば$\delta(A)\leq \delta(B)$.
+    \item[(2)]
+      $A$が有界\ $\leftrightarrow$\ $\forall x\in X\exists r>0\big(\  A\subseteq U_r(x) \ \big)$
+    \item[(3)]
+      $A$が有界\ $\leftrightarrow$\ $\exists x\in X\exists r>0\big(\  A\subseteq U_r(x) \ \big)$
+    \item[(4)] $A\in [X]^{<\omega}$ならば$A$は有界.
+    \item[(5)] $\forall x\in X\forall r> 0 \big(\  \delta(U_r(x))\leq 2r \ \big)$ \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \
+  \begin{itemize}
+    \item[(1)]
+      実数の2つの部分集合$R,R^{\prime}$に対して$R\subseteq R^{\prime}$ならば$\sup R\leq \sup R^{\prime}$です.
+      $A\subseteq B$だから$\{\  d(x,y)\ |\  x,y\in A \ \}\subseteq \{\  d(x,y)\ |\  x,y\in B \ \}$なので,
+      両方の$\sup$をとれば$\delta(A)\leq \delta(B)$です.
+    \item[(2)]
+      \begin{itemize}
+        \item[($\rightarrow$)]
+          $A$が有界なので,ある$s\in\mathbb{R}$でもって$\delta(A)=s$です.
+          任意にとった$x$に対して,
+          もう1つ$a\in A$をとっておく.
+          $r=s+d(x,a)+1$とおくと,
+          $A\subseteq u_r(x)$です.
+          なぜならば任意に$b\in A$をとると
+          \begin{align*}
+            d(x,b)\ &\leq\ d(x,a)+d(a,b)\  &\text{(d3)より} \\
+                    &\leq\ d(x,a)+s &  \\
+                    &\leq\ r
+          \end{align*}
+          つまり$b\in U_r(x)$なので,$A\subseteq U_r(x)$です.
+        \item[($\leftarrow$)]
+          任意に$x\in X$をとり,
+          それに対して存在する$r>0$を固定します.
+          $A\subseteq U_r(x)$より(1)より$\delta(A)\leq \delta(U_r(x))$,
+          そしてその定義から$\delta(U_r(x))\leq 2r$,
+          つまり$\delta(A)\leq 2r < +\infty$より$A$は有界です.
+      \end{itemize}
+    \item[(3)]
+      (2)より明らか.
+    \item[(4)]
+      $A$は有限なので,
+      集合$\{\  d(x,y)\ |\  x,y\in A \ \}$も有限です.
+      するとこれは実数の有限集合なので最大元が存在し,
+      故に有界です.
+    \item[(5)]
+      任意の$y,z\in U_r(x)$に対して
+      \begin{equation*}
+        d(y,z)\ \leq\  d(y,x)+d(x,z)\ <\ r+r\ =\ 2r
+      \end{equation*}
+      より,
+      その定義から$\delta(U_r(x))\leq 2r$. \qedhere
+  \end{itemize}
+\end{proof}
+
+(5)についてですが,
+これは距離空間やその$r$の取り方によって等号が成立したりしなかったりします.
+例えば$n$次元ユークリッド空間（Example \ref{example:ユークリッド空間}）ならば,
+$\delta(U_r(x))= 2r$（Proposition \ref{proposition:ユークリッド空間の性質}(8)）となり,
+離散距離空間（Example \ref{example:離散距離空間}）ならば,
+ある$r$に対して$\delta(U_r(x))< 2r$（Proposition \ref{proposition:離散距離空間の性質}(3)）となります.
+
+
+\begin{definition}[]
+  \label{definition:距離空間における2つの集合の距離}
+  距離空間$(X,d)$と空でない$A,B\subseteq X$に対して,
+  $d(A,B)\ \defeq\ \inf\{\  d(a,b)\ |\  a\in A\land b\in B \ \}$
+  として,
+  これを$A$と$B$の\textgt{距離}と呼ぶ. \\
+    \index{きょりくうかん@距離空間!きょり@（2つの集合の）距離}
+  とくに$A$が一元集合のとき$A=\{ a \}$とおくならば,
+  $d(\{ a \},B)$を単に$d(a,B)$と書いて,$a$と$B$の距離という.
+  つまり$d(a,B)\ \defeq\ \inf\{\  d(a,b)\ |\  b\in B \ \}$
+\end{definition}
+
+\begin{proposition}[]
+  距離空間$(X,d)$と空でない$A,B\subseteq X$に対して,$A\cap B\neq \emptyset$ならば$d(A,B)=0$.
+\end{proposition}
+
+\begin{proof}
+  $A\cap B\neq \emptyset$なので$x\in A\cap B$を1つ取れば,
+  $d(x,x)\in \{\  d(a,b)\ |\  a\in A\land b\in B \ \}$,
+  そして$d(x,x)=0$より,$d(A,B)$の定義から$d(A,B)=0$です.
+\end{proof}
+
+しかしこの命題の逆は一般的には成立しません.
+Proposition \ref{proposition:ユークリッド空間の性質}(7)を見てください.
+
+\subsection{距離空間の例}
+\label{subsection:距離空間の例}
+ここでは\ref{subsection:距離空間入門事項}節の用語を使いながら,
+距離空間の例をいくつか挙げていきます.
+
+\begin{example}
+  \label{example:ユークリッド空間}
+  $n\in \omega$, $\mathbb{R}^n=\{\  (x_1,x_2,\cdots,x_n)\ |\  x_i\in\mathbb{R} \ \}$,$x=(x_1,\cdots,x_n),y=(y_1,\cdots,y_n)\in \mathbb{R}^n$に対して,
+  $d:\mathbb{R}\times\mathbb{R}\to \mathbb{R}$を
+  \begin{equation*}
+    d(x,y)\ =\ \sqrt{\displaystyle\sum_{i=1}^n(x_i-y_i)^2}
+  \end{equation*}
+  とおくと,
+  $d$は$\mathbb{R}^n$上の距離関数である. \\
+  $(\mathbb{R}^n,d)$は{\boldmath $n$}\textgt{次元ユークリッド空間}（\textbf{n-dimensional Euclidian space}）と呼ばれる.
+    \index{metric space!Euclidian space}
+    \index{きょりくうかん@距離空間!ゆーくりっどくうかん@ユークリッド空間}
+\end{example}
+
+\begin{proof}
+  距離空間の3条件を$d$が満たすか確かめる.
+  \begin{itemize}
+    \item[(d1)]
+     \begin{itemize}
+       \item[(i)]
+        各$(x_i-y_i)^2$は$0$以上,非負なので,
+        故に$d(x,y)$もいかなる$x,y\in \mathbb{R}^n$に対しても$d(x,y)\geq 0$である.
+       \item[(ii)]
+        ある$x,y\in \mathbb{R}^n$があって$d(x,y)=0$とすると,
+        各$i$に対して
+        \begin{equation*}
+          0\ \leq\ (x_i-y_i)^2\ \leq\ \sqrt{\displaystyle\sum_{i=1}^n(x_i-y_i)^2}\ =0
+        \end{equation*}
+        より$(x_i-y_i)^2=0$,
+        つまり$x_i-y_i=0$だから$x_i=y_i$.
+        これが各$i$について成立し,
+        ゆえに$x=y$.
+     \end{itemize}
+    \item[(d2)]
+      各$i$に対して$(x_i-y_i)^2=(y_i-x_i)^2$だから,
+      $d$の定義より明らか.
+    \item[(d3)]
+      任意に$x,y,z\in \mathbb{R}^n$をとって,
+      $z$も$z=(z_1,\cdots,z_n)$とおく.
+      $d(x,z)\leq d(x,y)+d(y,z)$,
+      つまり$d(x,y)+d(y,z)-d(x,z)\geq 0$を示すことが目標になりますが,
+      (d1)より$d(x,z),d(x,y),d(y,z)$は非負なので,
+      $\big(\  d(x,y)+d(y.z) \ \big)^2-\big(\  d(x,z) \ \big)^2\geq 0$を示せば,
+      目標の証明になっている.
+      $a_i=x_i-y_i$,$b_i=y_i-z_i$とおくと,
+      $x_i-z_i=a_i+b_i$となる.
+      すると
+      \begin{equation*}
+        d(x,y)=\sqrt{\displaystyle\sum_{i=1}^n(a_i)^2}\ ,\ d(y.z)=\sqrt{\sum_{i=1}^n(b_i)^2}
+        \ ,\ d(x,z)=\sqrt{\sum_{i=1}^n(a_i+b_i)^2}
+      \end{equation*}
+      となって
+      \begin{align*}
+        &\big(\  d(x,y)+d(y.z) \ \big)^2 - \big(\  d(x,z) \ \big)^2\  \\
+        &=\big(\  d(x,y)^2+2 d(x,y) d(y,z)+d(y,z)^2 \ \big) - \big(\  d(x,z) \ \big)^2 \\
+        &=\left(\ \textstyle\sum_{i=1}^n(a_i)^2 + 2\sqrt{\displaystyle\sum_{i=1}^n(a_i)^2}\sqrt{\displaystyle\sum_{i=1}^n(b_i)^2} + \textstyle\sum_{i=1}^n(b_i)^2\ \right) - \sum_{i=1}^n(a_i+b_i)^2 &  \\
+        &=\left(\ 2\sqrt{\sum_{i=1}^n(a_i)^2}\sqrt{\sum_{i=1}^n(b_i)^2} + \sum_{i=1}^n(a_i)^2 + \sum_{i=1}^n(b_i)^2\ \right) - \sum_{i=1}^n(a_i^2+2a_ib_i+b_i^2) & \\
+        &=\ 2\sqrt{\sum_{i=1}^n(a_i)^2}\sqrt{\sum_{i=1}^n(b_i)^2} + \textstyle\sum_{i=1}^n(a_i)^2 + \textstyle\sum_{i=1}^n(b_i)^2 -\big(\  \textstyle\sum_{i=1}^n(a_i)^2 + 2\displaystyle\sum_{i=1}^n(a_i b_i) + \textstyle\sum_{i=1}^n(b_i)^2 \ \big) & \\
+        &=\ 2\sqrt{\sum_{i=1}^n(a_i)^2}\sqrt{\sum_{i=1}^n(b_i)^2}\ -\  2\sum_{i=1}^n(a_i b_i)
+        \ =\ 2\left(\  \sqrt{\sum_{i=1}^n(a_i)^2}\sqrt{\sum_{i=1}^n(b_i)^2}\ -\  \sum_{i=1}^n(a_i b_i) \ \right)
+      \end{align*}
+      より,$\displaystyle\sqrt{\sum_{i=1}^n(a_i)^2}\sqrt{\sum_{i=1}^n(b_i)^2}\ -\  \sum_{i=1}^n(a_i b_i)\ \geq\  0$を示す.
+      そのために
+      \begin{equation*}
+        \displaystyle\left(\  \sum_{i=1}^n(a_i b_i) \ \right)^2\ \leq\ \left(\ \sum_{i=1}^n(a_i)^2 \ \right)\left(\ \sum_{i=1}^n(b_i)^2 \ \right)
+      \end{equation*}
+      を示します.
+      上記の式は\textbf{Schwarz}\textgt{の不等式}（の別表現）と呼ばれています. \\
+      $\sum_{i=1}^n(b_i)^2=0$ならば,
+      全ての$b_i$が$0$だと分かり,
+      両辺$0$になって成立. \\
+      $\sum_{i=1}^n(b_i)^2\neq 0$とする.
+      どの$b_i^2$も非負なので,
+      $\sum_{i=1}^n(b_i)^2> 0$です.
+      任意に$t\in \mathbb{R}$をとり,
+      $\sum_{i=1}^n(a_i+ t b_i)^2$を考えるとこれも非負,
+      そして
+      \begin{equation*}
+        0\ \leq\ \sum_{i=1}^n(a_i+ t b_i)^2\ =\ \sum_{i=1}^n(a_i)^2 + 2t \sum_{i=1}^n(a_i b_i) + t^2 \sum_{i=1}^n(b_i)^2
+      \end{equation*}
+      で,
+      $\sum_{i=1}^n(b_i)^2> 0$より,
+      これを$t$を変数とした不等式とすると,
+      その判別式は
+      \begin{equation*}
+        \left(\ 2 \sum_{i=1}^n(a_i b_i)\ \right)\ -\ 4\left(\  \sum_{i=1}^n(a_i)^2\ \right)\left(\  \sum_{i=1}^n(b_i)^2\ \right)\ \leq 0
+      \end{equation*}
+      つまり
+      \begin{equation*}
+        \left(\  \sum_{i=1}^n(a_i b_i)\ \right)\ -\ \left(\  \sum_{i=1}^n(a_i)^2\ \right)\left(\  \sum_{i=1}^n(b_i)^2\ \right)\ \leq 0
+      \end{equation*}
+      よって,
+      $\displaystyle\left(\  \sum_{i=1}^n(a_i b_i) \ \right)^2\ \leq\ \left(\ \sum_{i=1}^n(a_i)^2 \ \right)\left(\ \sum_{i=1}^n(b_i)^2 \ \right)$が証明できた. \qedhere
+  \end{itemize}
+\end{proof}
+
+この空間について前節の用語を振り返ります.
+\begin{proposition}[]
+  \label{proposition:ユークリッド空間の性質}
+  1次元ユークリッド空間$(\mathbb{R},d)$と$x,y\in \mathbb{R}$,$\varepsilon >0$に対して
+  \begin{itemize}
+    \item[(1)] $d(x,y)=\sqrt{(x-y)^2}=|x-y|$
+    \item[(2)] $U_{\varepsilon}(x)\ =\ (x-\varepsilon,x+\varepsilon)$
+    \item[(3)] $S_{\varepsilon}(x)\ =\ \{ x-\varepsilon,x+\varepsilon \}$
+    \item[(4)]
+      何らかの$r\in \mathbb{R}$に対して,
+      $f,g:\mathbb{R}\to \mathbb{R}$を$f(x)=x_r$,$g(x)=x-r$とすれば,
+      $f,g$は1次元ユークリッド空間から自身への等長写像になっている.
+    \item[(5)]
+      $d\restric \mathbb{Z}\times \mathbb{Z}$や$d\restric \mathbb{Q}\times \mathbb{Q}$は
+      $\mathbb{Z}$,$\mathbb{Q}$上の距離関数となり,
+      この距離により$\mathbb{Z}$,$\mathbb{Q}$は1次元ユークリッド空間$\mathbb{R}$の部分距離空間になる.
+  \end{itemize}
+  2次元ユークリッド空間$(\mathbb{R}^2,d)$と$\langle x,y\rangle\in \mathbb{R}^2$（$\mathbb{R}$の要素を$(x,y)$と書くと区間に見えるので,
+  ここでは$\langle x,y\rangle$と書くことにした）,
+  $\varepsilon >0$に対して
+  \begin{itemize}
+    \item[(6)]
+      $U_{\varepsilon}(\langle x,y\rangle)\ =\ \{\  \langle x^{\prime},y^{\prime}\rangle\ |\  (x^{\prime}-x)^2+(y^{\prime}-y)^2<\varepsilon^2  \ \}$
+    \item[(7)]
+      $A,B\subseteq \mathbb{R}^2$を$A=\{ \langle 0,x\rangle|x\in \mathbb{R}\}$,
+      $B=\{ \langle x,\frac{1}{x}\rangle|x\in \mathbb{R}\}$とおくと,
+      $A\cap B=\emptyset$かつ$d(A,B)=0$が成立.
+  \end{itemize}
+  $n$次元ユークリッド空間$(\mathbb{R}^n,d)$と$x\in \mathbb{R}^n$,$r >0$に対して
+  \begin{itemize}
+    \item[(8)] $\delta( U_r(x) )=2r$. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{example}
+  \label{example:離散距離空間}
+  集合$X$に対して,$d:X\times X\to \mathbb{R}$を
+  \begin{eqnarray*}
+    d(x,y)\ =\
+    \left\{
+    \begin{array}{ll}
+      1 & x\neq y \\
+      0 & x=y \\
+    \end{array}
+    \right.
+  \end{eqnarray*}
+  で定めると,
+  $d$は$X$上の距離関数で,
+  距離空間$(X,d)$は\textgt{離散距離空間}（\textbf{discrete metric space}）と呼ぶ.
+    \index{metric space!discrete metric space}
+    \index{きょりくうかん@距離空間!りさんきょりくうかん@離散距離空間}
+\end{example}
+
+\begin{proof}
+  (d1), (d2)はその定義より明らか.
+  (d3)に関しては任意にとった3点$x,y,z\in X$を,
+  $x=y\land y=z,\ x\neq y\land y=z,\cdots$など場合分けすれば,
+  その全てにおいて成立することが確かめられる.
+\end{proof}
+
+\begin{proposition}[]
+  \label{proposition:離散距離空間の性質}
+  離散距離空間$(X,d)$と$x\in X$,$\varepsilon >0$に対して
+  \begin{itemize}
+    \item[(1)]
+      $U_{\varepsilon}(x)\ =\
+        \left\{
+        \begin{array}{ll}
+          \{ x \} & \varepsilon \leq 1 \\
+          X & \varepsilon > 1 \\
+        \end{array}
+        \right.$
+    \item[(2)]
+      $S_{\varepsilon}(x)\ =\
+        \left\{
+        \begin{array}{ll}
+          \emptyset & \varepsilon \neq 1 \\
+          X\setminus\{x\} & \varepsilon = 1 \\
+        \end{array}
+        \right.$
+    \item[(3)]
+     $r \leq 1$のとき,
+     $\delta(U_r(x))=0$,
+     つまり$\delta(U_r(x))< 2r$. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\subsection{位相空間の定義と閉集合}
+\label{subsection:位相空間の定義と閉集合}
+
+
+位相空間を以下のように定義する.
+\begin{definition}[]
+  \label{definition:位相空間}
+  空でない集合$X$に対して,
+  そのべき集合の部分集合$\mathcal{O}\subseteq \mathcal{P}(X)$が$X$上の\textgtbf{位相}{topology}であるとは,
+  以下の3条件をみたすことである.
+  \begin{itemize}
+    \item[(O1)] $\emptyset, X\in \mathcal{O}$.
+    \item[(O2)] $\forall O_1,O_2\in \mathcal{O}(\ O_1\cap O_2\in \mathcal{O}\ )$.
+    \item[(O3)] $\forall \{ O_{\lambda}\}_{\lambda \in \Lambda}\subseteq \mathcal{O}(\ \bigcup_{\lambda \in \Lambda}O_{\lambda}\in \mathcal{O}\ )$.
+  \end{itemize}
+    \index{topological space!topology}
+    \index{いそうくうかん@位相空間!いそう@位相}
+  $X$と$X$上の位相$\mathcal{O}$の組$(X,\mathcal{O})$を\textgtbf{位相空間}{topological space}という. \\
+    \index{topological space}
+    \index{いそうくうかん@位相空間}
+  $(X,\mathcal{O})$が位相空間であるとき,
+  $\mathcal{O}$の要素を（その位相空間の）\textgtbf{開集合}{open set}という.
+    \index{topological space!open set}
+    \index{いそうくうかん@位相空間!かいしゅうごう@開集合}
+\end{definition}
+
+また位相空間$(X,\mathcal{O})$における$\mathcal{O}$のことを位相ではなく,
+その空間の\textgtbf{開集合系}{system of open sets}とよぶこともある. \\
+  \index{topological space!system of open sets}
+  \index{いそうくうかん@位相空間!かいしゅうごうけい@開集合系}
+
+ある集合に位相を入れるとか,
+位相を定めるというのは,
+上の3条件をみたす集合たちを定めること,
+つまり開集合全体を定めるという意味になる. \\
+位相を入れられた集合,
+つまり$(X,\mathcal{O})$における$X$のことを,
+位相空間$(X,\mathcal{O})$の\textgtbf{台集合}{underlying set}と呼ぶこともある
+\footnote{
+  台集合とはWikipediaの「数学的構造」のページ\cite{Basic009:wiki-mathematical-structure}によると,
+  (何の構造も持たない) 単なる「はだか」の集合という意味で使い,
+  とくにその構造は位相でなくても使うことができる.
+  個人的には便利な言葉だと思うので以降も使っていく.
+}
+. \\
+\index{topological space!underlying set}
+\index{いそうくうかん@位相空間!だいしゅうごう@台集合}
+位相空間によっては開集合はなんであるかを提示しにくい場合もある
+そのために位相の定め方は他にもいくつかある. \\
+
+開集合の双対概念として閉集合がある.
+
+\begin{definition}[]
+  \label{definition:閉集合}
+  位相空間$(X,\mathcal{O})$に対して,
+  $F\subseteq X$が\textgtbf{閉集合}{closed set}であるとは,
+  $X\setminus F$が$X$の開集合,
+  つまり$X\setminus F\in \mathcal{O}$となることである. \\
+    \index{topological space!closed set}
+    \index{いそうくうかん@位相空間!へいしゅうごう@閉集合}
+  位相空間$(X,\mathcal{O})$の閉集合全体の集合をその位相空間の\textgtbf{閉集合系}{system of closed sets}とよび,
+    \index{topological space!system of closed sets}
+    \index{いそうくうかん@位相空間!へいしゅうごうけい@閉集合系}
+  $\mathcal{F}$や$\mathcal{C}$などで表す
+  \footnote{
+    ここらへんはテキストによっても変わるので,
+    自分もその時々の記号の使われ具合によって変えることにする.
+  }
+  .
+\end{definition}
+
+閉集合が開集合の双対概念である由縁は以下のような開集合と似た（対照的な）性質を持つことにある.
+
+\begin{proposition}[]
+  \label{proposition:閉集合の3性質}
+  $\mathcal{F}$を位相空間$(X,\mathcal{O})$の閉集合系とするとき,
+  $\mathcal{F}$は以下の3つの性質をみたす.
+  \begin{itemize}
+    \item[(F1)] $\emptyset, X\in \mathcal{F}$.
+    \item[(F2)] $\forall F_1,F_2\in \mathcal{F}(\ F_1\cup F_2\in \mathcal{F}\ )$.
+    \item[(F3)] $\forall \{ F_{\lambda}\}_{\lambda \in \Lambda}\subseteq \mathcal{F}(\ \bigcap_{\lambda \in \Lambda}F_{\lambda}\in \mathcal{F}\ )$. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  証明は省略する.
+\end{proof}
+
+集合$X$に位相を定めるとき,
+開集合が何かを定めるのではなく,
+閉集合とは何かを定めた上でその補集合全体を開集合と定める方法もある.
+これは\DefRef{definition:位相空間}の下の文章にも書いた,
+開集合を直接定める以外の位相を定める方法の1つである.
+これは以下のような定理を示すことで分かる.
+
+\begin{theorem}
+  \label{theorem:閉集合系は位相を定める}
+  集合$X$に対して$\mathcal{F}\subseteq \mathcal{P}(X)$が\PropRef{proposition:閉集合の3性質}の(F1)～(F3)をみたしているとする.
+  このとき$\mathcal{O}\subseteq \mathcal{P}(X)$を
+  \begin{equation*}
+    \mathcal{O}\ =\ \{\ O\subseteq X\ |\ X\setminus O\in \mathcal{F}\ \}
+  \end{equation*}
+  で定めると,
+  \begin{itemize}
+    \item[(1)] $\mathcal{O}$は$X$の位相となり,
+    \item[(2)] $\mathcal{F}$は$\mathcal{O}$の閉集合系になっている.
+    \item[(3)] また位相空間の開集合系から定めた位相はもとの位相と一致する. \qedhere
+  \end{itemize}
+\end{theorem}
+
+\begin{proof}
+  (1)と(2)の証明は省略する. \\
+  位相空間$(X,\mathcal{O})$とその閉集合系$\mathcal{F}$に対して,
+  $\mathcal{O}_{\mathcal{F}}=\{\ O\subseteq X\ |\ X\setminus O\in \mathcal{F}\ \}$とおく.
+  証明すべきことは$\mathcal{O}=\mathcal{O}_{\mathcal{F}}$である. \\
+  $\mathcal{O}\subseteq \mathcal{O}_{\mathcal{F}}$を示すため任意に$O\in \mathcal{O}$をとる.
+  $F=X\setminus O$とおくと,
+  $X\setminus F=X\setminus(X\setminus O)=O$より$X\setminus F\in \mathcal{O}$,
+  つまり$F$は位相空間$(X,\mathcal{O})$の閉集合より$F\in \mathcal{F}$.
+  すると$X\setminus O= F\in \mathcal{F}$より$O\in \mathcal{O}_{\mathcal{F}}$. \\
+  $\mathcal{O}_{\mathcal{F}}\subseteq \mathcal{O}$も同様に示せるので省略する.
+\end{proof}
+
+
+\subsection{開基と準基}
+\label{subsection:開基と準基}
+
+
+\begin{definition}[]
+  $(X,\mathcal{O})$を位相空間とする.
+  $\mathcal{B}\subseteq \mathcal{O}$が$\mathcal{O}$の\textgt{開基}（\textbf{open base}）であるとは,
+  任意の開集合が$\mathcal{B}$に属する集合の和集合で表現できるときをいう.
+    \index{topological space!opan base}
+    \index{いそうくうかん@位相空間!かいき@開基}
+  論理式で書くと$\forall O\in\mathcal{O}\exists \{ B_{\lambda}\} _{\lambda \in \Lambda}\subseteq \mathcal{B}\big(\  O=\bigcup_{\lambda \in \Lambda}B_{\lambda}\ \big)$です.
+\end{definition}
+
+\begin{definition}[]
+  $(X,\mathcal{O})$を位相空間が\textgt{第二可算公理}（\textbf{second axiom of countability}）を満たすとは,
+  $(X,\mathcal{O})$に高々可算な開基が存在するときをいう.
+    \index{topological space!second axiom of countability}
+    \index{いそうくうかん@位相空間!だいにかさんこうり@第二可算公理}
+\end{definition}
+
+\begin{definition}[]
+  集合$X$と$\mathcal{G}\subseteq \mathcal{P}(X)$に対し,
+  $\mathcal{G}$が生成する位相とは,
+  $\mathcal{G}$を含む位相全ての共通部分,
+  すなわち$\mathcal{G}$の元が全て開集合になるような最弱の位相のことをいい,
+  $\mathcal{O}(\mathcal{G})$で表す.
+    \index{いそうくうかん@位相空間!せいせい@（集合族から）生成する位相}
+\end{definition}
+
+\begin{definition}[]
+  $(X,\mathcal{O})$を位相空間とする.
+  $\mathcal{B}\subseteq \mathcal{O}$が$\mathcal{O}$の\textgt{準基}（\textbf{sub base}）であるとは,
+  $\mathcal{B}$の有限個の元の共通部分として表される集合全体が$\mathcal{O}$の開基になること,
+  つまり$\{\ \bigcap_{i\in [n]}B_i\ |\ \{ B_i\} _{i\in [n]}\subseteq \mathcal{B}\ \}$が
+  $\mathcal{O}$が開基になっているということです.
+    \index{topological space!sub base}
+    \index{いそうくうかん@位相空間!じゅんき@準基}
+\end{definition}
+
+$\mathcal{B}$の$0$個の元の共通部分は$X$であると決めておきます. \\
+ある集合族で生成される位相は,
+どんな集合が開集合になっているか分かりにくい.
+以下の補題で少しは分かりやすくなると思います.
+
+\begin{lemma}[]
+  \label{lemma:生成された位相の開集合の表現}
+  集合$X$と$\mathcal{G}\subseteq \mathcal{P}(X)$に対し,
+  $\mathcal{G}$は$\mathcal{O}(\mathcal{G})$の準基になっている.
+  つまり$\mathcal{O}(\mathcal{G})$における開集合とは,
+  「$\mathcal{G}$の元の有限個の共通部分」たちの和集合で表せます.
+\end{lemma}
+
+\begin{proof}
+  $\mathcal{G}$の有限個の元の共通部分として表せる集合全体を$\Hat{\mathcal{G}}$と表す,
+  つまり
+  \begin{equation*}
+    \Hat{\mathcal{G}}\ =\ \{\ \displaystyle\bigcap_{i\in[n]}G_i\ |\ \{G_i\}_{i\in {n}}\subseteq \mathcal{G}\ \}
+  \end{equation*}
+です.
+さらに$\Hat{\mathcal{G}}$の元の和集合全体として表せる集合全体を$\mathcal{O}$で表す,
+つまり
+\begin{equation*}
+  \Hat{\mathcal{O}}\ =\ \{\ \displaystyle\bigcup_{\lambda \in \Lambda}O_{\lambda}\ |\ \{O_{\lambda}\}_{\lambda \in \Lambda}\subseteq \Hat{\mathcal{G}}\ \}
+\end{equation*}
+示すべきをここまでの定義を使って書けば$\mathcal{O}=\mathcal{O}(\mathcal{G})$です.
+\begin{itemize}
+  \item[・]$\mathcal{O}\subseteq \mathcal{O}(\mathcal{G})$ \\
+    $\mathcal{G}\subseteq \mathcal{O}(\mathcal{G})$で,$\mathcal{O}(\mathcal{G})$は定義から位相です.
+    すると位相は,
+    有限共通部分で閉じているから$\Hat{\mathcal{O}}\subseteq \mathcal{O}(\mathcal{G})$,
+    そしてそれらの和集合で閉じているから$\mathcal{O}\subseteq \mathcal{O}(\mathcal{G})$です.
+  \item[・]$\mathcal{O}(\mathcal{G})\subseteq \mathcal{O}$ \\
+    その定義から$\mathcal{G}\subseteq \mathcal{O}$なので,
+    $\mathcal{O}$が位相であることを示せばOKです.
+    なぜならば$\mathcal{O}(\mathcal{G})$は$\mathcal{G}$を含む最小の位相だからです.
+    \begin{itemize}
+      \item[・] $\emptyset,X\in \mathcal{O}$ \\
+        $\emptyset$は$\Hat{\mathcal{O}}$の$0$個の元の和集合として表現できます.
+        $X$は$\mathcal{B}$の$0$個の元の共通部分として$\Hat{\mathcal{O}}$に属し,
+        それの1つの和集合として$\mathcal{O}$に属します.
+      \item[・] 有限共通部分で閉じること \\
+        任意に$O_1,O_2\in\mathcal{O}$をとると,
+        $\{ O^1_\lambda\} _{\lambda\in \Lambda_1},\ \{ O^2_\lambda\} _{\lambda\in \Lambda_2}\subseteq \Hat{\mathcal{G}}$があって,
+        $O_i=\displaystyle\bigcup_{\lambda\in \Lambda_i}O^i_{\lambda}$（$i=1,2$）です.
+        $O_1\cap O_2=\displaystyle\bigcup_{\langle \lambda_1,\lambda_2\rangle\in \Lambda_1\times \Lambda_2}O_{\lambda_1}\cap O_{\lambda_2}$で,
+        $\Lambda=\Lambda_1\times \Lambda_2$とおけば,$\{ O_{\lambda_1}\cap O_{\lambda_2}\} _{\langle \lambda_1,\lambda_2\rangle\in \Lambda}$は,
+        各$O_{\lambda_1}\cap O_{\lambda_2}$が$\Hat{\mathcal{G}}$に属することから,
+        $\Hat{\mathcal{G}}$の部分集合族であり,
+        つまり$O_1\cap O_2$は$\{ O_{\lambda_1}\cap O_{\lambda_2}\} _{\langle \lambda_1,\lambda_2\rangle\in \Lambda}$の和集合なので$\mathcal{O}$に属します.
+      \item[・] 和集合で閉じること \\
+        任意に$\{ O_\lambda\} _{\lambda\in \Lambda}\subseteq \mathcal{O}$をとります.
+        各$O_{\lambda}$に対し,$\Lambda^{\lambda}$を添え字集合とした集合族$\{ O_\mu\} _{\mu\in \Lambda^{\lambda}}\subseteq \Hat{\mathcal{G}}$があって$O_{\lambda}=\bigcup_{\mu\in \Lambda^{\lambda}}O_{\mu}$です.
+        $\Lambda^{\prime}=\bigcup_{\lambda\in \Lambda}\Lambda^{\lambda}$とおくと,$\{ O_\mu\} _{\mu\in \Lambda^{\prime}}$も$\Hat{\mathcal{G}}$の集合族で$\bigcup_{\mu\in \Lambda}O_{\mu}\in\mathcal{O}$です.
+        そして$\bigcup_{\lambda\in \Lambda}O_{\lambda}=\bigcup_{\mu\in \Lambda}O_{\mu}$より,$\bigcup_{\lambda\in \Lambda}O_{\lambda}\in\mathcal{O}$です. \qedhere
+    \end{itemize}
+\end{itemize}
+\end{proof}
+
+開基の双対概念として閉基というものがあります.
+これについて性質も含めて簡単にまとめておきます.
+
+\begin{definition}[]
+  \label{definition:閉基}
+  $X$を位相空間とし,
+  $\mathcal{C}$をその閉集合全体の集合とする.
+  $\mathcal{B}\subseteq \mathcal{C}$が$\mathcal{C}$の\textgt{閉基}（\textbf{base for the closed sets}）であるとは,
+  任意の閉集合が$\mathcal{B}$に属する集合の共通部分で表現できるときをいう.
+  \footnote{
+    開基がopen baseなので閉基はclosed baseなのかと思ったが,
+    どうやらそのような呼び方は定着していないっぽい.
+  }
+    \index{topological space!base for the closed sets}
+    \index{いそうくうかん@位相空間!へいき@閉基}
+\end{definition}
+
+定義だけなら\cite{Basic004:Saito-kiso}にも載っていましたが,
+閉基にどのような性質があるかはWikipediaの『開基』のページ\cite{Basic006:wiki-basis}を参考にしました.
+以下の命題はそれに載っていたものです.
+
+\begin{proposition}[]
+  \label{proposition:閉基は開基の双対概念}
+  $(X,\mathcal{O})$を位相空間,
+  $\mathcal{C}$をその閉集合全体の集合とするとき,
+  以下は同値.
+  \begin{itemize}
+    \item[(1)] $\mathcal{B}\subseteq \mathcal{C}$が$\mathcal{C}$の閉基である.
+    \item[(2)] $\mathcal{F}=\{ F | \exists C\in \mathcal{B}( F = X\setminus C ) \}$が$\mathcal{O}$の開基. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \ \\
+  \vspace{-0.5cm}
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}$(1)\ \Rightarrow\ (2)$ \\
+      $\mathcal{F}$がその定義から開集合の族であることは明らか.
+      開基であることを示すため,
+      任意に開集合$O\in \mathcal{O}$をとる.
+      $C=X\setminus O$とすると,
+      $C$は閉集合であることと$\mathcal{B}$が$\mathcal{C}$の閉基であることから,
+      \begin{equation*}
+        \exists \{ C_\lambda \}_{\lambda \in \Lambda}\subseteq \mathcal{B}(\ C= \displaystyle\bigcap_{\lambda \in \Lambda}C_{\lambda}\ )
+      \end{equation*}
+      が成立するので,
+      そんな$\{ C_\lambda \}_{\lambda \in \Lambda}$を1つとって固定する.
+      そして$X\setminus O=\bigcap_{\lambda \in \Lambda}C_{\lambda}$より,
+      $O =  X\setminus \bigcap_{\lambda \in \Lambda}C_{\lambda}\ =\ \bigcup_{\lambda \in \Lambda}(X\setminus C_{\lambda})$.
+      ここで$F_{\lambda}=X\setminus C_{\lambda}$とおくと,
+      各$F_{\lambda}$は$\mathcal{F}$に属し,
+      これは$O$が$\mathcal{F}$の要素の和集合で表せた,
+      つまり$\mathcal{F}$が$\mathcal{O}$の開基であることを示したことになる.
+    \item[]$(2)\ \Rightarrow\ (1)$ \\
+    　$(1)\ \Rightarrow\ (2)$の議論を反転させることで同様に示すことができるので省略する. \qedhere
+  \end{itemize}
+\end{proof}
+
+開基・閉基について成り立つことで,
+証明がパラレルに済みそうなものをまとめてみます.
+
+\begin{proposition}[]
+  \label{proposition:開基・閉基であることの言い換え}
+  位相空間$X$の開集合全体を$\mathcal{O}$,
+  閉集合全体を$\mathcal{C}$とおき,
+  さらに$\mathcal{B}\subseteq \mathcal{P}(X)$に対して,
+  以下の(1-1)と(1-2),
+  (2-1)と(2-2)はそれぞれ同値である.
+  \begin{itemize}
+    \item[(1-1)] $\mathcal{B}$が$\mathcal{O}$の開基.
+    \item[(1-2)]
+      任意の$O\in \mathcal{O}$と$x\in O$に対して,
+      ある$U\in \mathcal{B}$が存在して,
+      $x\in U$かつ$U\subseteq O$となる.
+    \item[(2-1)] $\mathcal{B}$が$\mathcal{C}$の閉基.
+    \item[(2-2)]
+      任意の$C\in \mathcal{C}$と$x\notin C$に対して,
+      ある$F\in \mathcal{B}$が存在して,
+      $A\subseteq F$かつ$x\notin F$となる. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \ \\
+  \vspace{-0.5cm}
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}(1-1)$\ \Rightarrow\ $(1-2) \\
+      任意に$O\in \mathcal{O}$と$x\in O$をとる.
+      この$O$に対して$\mathcal{B}$が$\mathcal{O}$の開基であることから,
+      $\mathcal{B}_{O}\subseteq \mathcal{B}$があって$O = \bigcup \mathcal{B}_{O}$となっている.
+      すると$x\in O$より$x\in \bigcup \mathcal{B}_{O}$より,
+      ある$U\in \mathcal{B}_{O}$があって$x\in U$.
+      そして$U\in \mathcal{B}_{O}$より$U\subseteq O$.
+      そんな$U$の存在から(1-2)は成立.
+    \item[]\hspace{-0.5cm}(1-2)$\ \Rightarrow\ $(1-1) \\
+      任意の$O\in \mathcal{O}$をとる.
+      (1-1)より各$x\in O$に対して存在する$\mathcal{B}$の要素を$U_x$とおく.
+      すると$O=\bigcup_{x\in O}U_x$であり,
+      $\{ U_x \}_{x\in O}\subseteq \mathcal{B}$の存在から$\mathcal{B}$は$\mathcal{O}$の開基である.
+    \item[]\hspace{-0.5cm}(2-1)$\ \Rightarrow\ $(2-2) \\
+      任意に$C\in \mathcal{C}$と$x\notin C$をとる.
+      $\mathcal{B}$$\mathcal{C}$の閉基であることから,
+      ある$\mathcal{B}_C\subseteq \mathcal{B}$があって$C = \bigcap \mathcal{B}_C$となっている.
+      ここで$\exists B\in \mathcal{B}_C( x\notin B)$が成立する.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        もし$\forall B\in \mathcal{B}_C( x\in B)$とすると,
+        $x\in \bigcap \mathcal{B}_C$より,
+        $C= \bigcap \mathcal{B}_C$と$x\notin C$に矛盾する.
+      \end{sub-block}
+      そんな$B$を1つとると,
+      $C= \bigcap \mathcal{B}_C \subseteq B$と$x\notin B$より,
+      そんな$B$の存在から(2-2)が成立.
+    \item[]\hspace{-0.5cm}(2-2)$\ \Rightarrow\ $(2-1) \\
+      任意に$C\in \mathcal{C}$をとる.
+      各$x\in X\setminus C$に対して(2-2)より存在する$F$を$F_x$とおく.
+      すると$\{ F_x\}_{x\in X\setminus C}$は$C=\bigcap_{x\in X\setminus C} F_x$をみたす.
+      そんな$\{ F_x\}_{x\in X\setminus C}\subseteq \mathcal{B}$の存在から$\mathcal{B}$は$\mathcal{C}$の閉基. \qedhere
+  \end{itemize}
+\end{proof}
+
+さきの命題を利用して集合族が開基・閉基になる別の同値条件を紹介する.
+
+\begin{proposition}[]
+  \label{proposition:開基の同値条件}
+  $X\neq \emptyset$,
+  $\mathcal{B}\subseteq \mathcal{P}(X)$に対して以下の(1)と「(2-1)かつ(2-2)」は同値.
+  さらに(3)が成立する.
+  \begin{itemize}
+    \item[(1)] $\mathcal{B}$は集合$X$のある位相の開基である.
+    \item[(2-1)] $X=\bigcup \mathcal{B}$.
+    \item[(2-2)]
+      任意の$B_1,B_2\in \mathcal{B}$と$x\in B_1\cap B_2$に対して,
+      ある$B\in \mathcal{B}$が存在して$x\in B$かつ$B\subseteq B_1\cap B_2$.
+    \item[(3)] 「(2-1)かつ(2-2)」をみたす$\mathcal{B}$を開基とする集合$X$の位相は一意的である. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  \ \\
+  \vspace{-0.5cm}
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}(1)$\ \Rightarrow\ $(2-1)かつ(2-2) \\
+      $\mathcal{B}$を$X$の位相$\mathcal{O}$の開基とする.
+      \begin{itemize}
+        \item[] \hspace{-0.5cm}(2-1)であること. \\
+          $X\in \mathcal{O}$より$\mathcal{B}$が$\mathcal{O}$の開基であることから,
+          $\mathcal{B}_X\subseteq \mathcal{B}$があって$X=\bigcup \mathcal{B}_X$となっている.
+          $\bigcup \mathcal{B}_X\subseteq \bigcup \mathcal{B}$より$X=\bigcup \mathcal{B}$.
+        \item[] \hspace{-0.5cm}(2-2)であること. \\
+          任意に$B_1,B_2\in \mathcal{B}$をとると,
+          $\mathcal{B}$が$\mathcal{O}$の開基であることから$B_1,B_2\in \mathcal{O}$より$B_1\cap B_2\in \mathcal{O}$.
+          このときある$x$が$x\in B_1\cap B_2$ならば$\exists B\in \mathcal{B}(\ x\in B\ \land\ B\subseteq B_1\cap B_2\ )$.
+          これは\PropRef{proposition:開基・閉基であることの言い換え}より明らか.
+      \end{itemize}
+    \item[]\hspace{-0.5cm}(2-1)かつ(2-2)$\ \Rightarrow\ $(1) \\
+      $\mathcal{B}\subseteq \mathcal{P}(X)$が(2-1)かつ(2-2)をみたしているとする.
+      \begin{equation*}
+        \mathcal{O}\ =\ \{\ \bigcup \mathcal{A}\ |\ \mathcal{A}\subseteq \mathcal{B}\ \} \tag{\dag}
+      \end{equation*}
+      するとこの$\mathcal{O}$は$X$の位相になっている.
+      それを確かめるため位相の定義の3条件（\DefRef{definition:位相空間}）を示す.
+      \begin{itemize}
+        \item[(O1)] $\emptyset, X\in \mathcal{O}$. \\
+          $\mathcal{A}\subseteq \mathcal{B}$を$\mathcal{A}=\emptyset$とすれば,
+          $\bigcup \mathcal{A}=\bigcup \emptyset = \emptyset$より,
+          そんな$\mathcal{A}$の存在から,
+          $\emptyset\in \mathcal{O}$. \\
+          $X= \bigcup\mathcal{B}$より$\mathcal{A}=\mathcal{B}$とすれば,
+          $\mathcal{A}\subseteq \mathcal{B}$で$\bigcup \mathcal{A}=X$より,
+          そんな$\mathcal{A}$の存在から,
+          $X\in \mathcal{O}$.
+        \item[(O2)] $\forall O_1,O_2\in \mathcal{O}(\ O_1\cap O_2\in \mathcal{O}\ )$. \\
+          任意に$O_1,O_2\in \mathcal{O}$をとると,
+          $\mathcal{A}_{i}\subseteq \mathcal{B}$があって$O_i=\bigcup \mathcal{A}_{i}$となっている（$i=1,2$）.
+          $x$を$x\in O_1\cap O_2$とすると,
+          $x\in O_i=\bigcup \mathcal{A}_i$より,
+          ある$B_i\in \mathcal{A}_i$があって$x\in B_i$かつ$B_i\subseteq O_i$となっている.
+          そんな$B_1,B_2$を1つ固定する.
+          すると$x\in B_1\cap B_2$となっていて,
+          (2-2)よりある$B_x\in \mathcal{B}$があって$x\in B_x$かつ$B_x\subseteq B_1\cap B_2\subseteq O_1\cap O_2$である.
+          各$x$ごとに存在するそんな$B_x$を集めた集合を$\mathcal{A}$とおくと,
+          つまり
+          \begin{equation*}
+            \mathcal{A}\ =\ \{\ B_x\ |\ x\in O_1\cap O_2\ \land\ x\in B_x\ \land\ B_x\subseteq O_1\cap O_2\ \}
+          \end{equation*}
+          であり,
+          その定義から$\mathcal{A}\subseteq \mathcal{B}$であり,
+          $\bigcup \mathcal{A}=\bigcup_{x\in O_1\cap O_2}B_x$であることに注意すれば,
+          $\bigcup \mathcal{A}=O_1\cap O_2$である.
+          そんな$\mathcal{A}$の存在から,
+          $O_1\cap O_2\in \mathcal{O}$.
+        \item[(O3)]
+          $\forall \{ O_{\lambda}\}_{\lambda \in \Lambda}\subseteq \mathcal{O}(\ \bigcup_{\lambda \in \Lambda}O_{\lambda}\in \mathcal{O}\ )$. \\
+          任意に$\{ O_{\lambda}\}_{\lambda \in \Lambda}\subseteq \mathcal{O}$をとると,
+          $\{ \mathcal{A}_{\lambda}\}_{\lambda \in \Lambda}$があって,
+          各$\mathcal{A}_{\lambda}$が$\mathcal{A}_{\lambda}\subseteq \mathcal{B}$かつ$O_{\lambda}=\bigcup \mathcal{A}_{\lambda}$となっている.
+          すべての$\mathcal{A}_{\lambda}$が$\mathcal{A}_{\lambda}\subseteq \mathcal{B}$より,
+          $\mathcal{A}=\bigcup_{\lambda \in \Lambda}\mathcal{A}_{\lambda}$とおくと$\mathcal{A}\subseteq \mathcal{B}$である.
+          すると$\bigcup_{\lambda \in \Lambda}O_{\lambda}=\bigcup_{\lambda \in \Lambda}\bigcup \mathcal{A}_{\lambda}=\bigcup \mathcal{A}$となるので,
+          $\mathcal{A}$の存在から,
+          $\bigcup_{\lambda \in \Lambda}O_{\lambda}\in \mathcal{O}$.
+      \end{itemize}
+      明らかに$\mathcal{B}$はこの位相$\mathcal{O}$の開基である.
+    \item[]\hspace{-0.5cm}(3) \\
+      「(2-1)かつ(2-2)」をみたす$\mathcal{B}$を開基とする位相を$\mathcal{O}$とおくと,
+      開基の定義から$\mathcal{O}=\{\ O\ |\ \exists \mathcal{A}\subseteq \mathcal{B}(O=\bigcup \mathcal{A})\ \}$である.
+      これは$\dag$での$\mathcal{O}$と同じもの,
+      つまり$\mathcal{B}$を開基とする位相はこの$\mathcal{O}$のみである. \qedhere
+  \end{itemize}
+\end{proof}
+
+同様の事実が閉基についても成立する.
+
+\begin{proposition}[]
+  \label{proposition:閉基の同値条件}
+  $X\neq \emptyset$,
+  $\mathcal{B}\subseteq \mathcal{P}(X)$に対して以下の(1)と「(2-1)かつ(2-2)」は同値.
+  さらに(3)が成立する.
+  \begin{itemize}
+    \item[(1)] $\mathcal{B}$は集合$X$のある位相の閉基である.
+    \item[(2-1)] $\emptyset=\bigcap \mathcal{B}$.
+    \item[(2-2)]
+      任意の$B_1,B_2\in \mathcal{B}$と$x\notin B_1\cup B_2$に対して,
+      ある$B\in \mathcal{B}$が存在して$x\notin B$かつ$B_1\cup B_2\subseteq B$.
+    \item[(3)] 「(2-1)かつ(2-2)」をみたす$\mathcal{B}$を閉基とする集合$X$の位相は一意的である. \qedhere
+  \end{itemize}
+\end{proposition}
+
+\begin{proof}
+  「(1)$\ \Rightarrow\ $(2-1)かつ(2-2)」は\PropRef{proposition:開基の同値条件}と同様にできるので省略する.
+  \begin{itemize}
+    \item[] \hspace{-0.5cm}(2-1)かつ(2-2)$\ \Rightarrow\ $(1) \\
+      $\mathcal{B}\subseteq \mathcal{P}(X)$が(2-1)かつ(2-2)をみたしているとする.
+      \begin{equation*}
+        \mathcal{F}\ =\ \{\ \bigcap \mathcal{A}\ |\ \mathcal{A}\subseteq \mathcal{B}\ \} \tag{\dag}
+      \end{equation*}
+      するとこの$\mathcal{F}$は$X$の閉集合系になっている.
+      それを確かめるため閉集合系の3つの性質（\PropRef{proposition:閉集合の3性質}の(F1)～(F3)）を確かめる.
+      \begin{itemize}
+        \item[(F1)] $\emptyset, X\in \mathcal{F}$. \\
+          $\emptyset=\bigcap \mathcal{B}$より$\mathcal{A}=\mathcal{B}$とおけば,
+          $\mathcal{A}\subseteq \mathcal{B}$かつ$\emptyset=\bigcap \mathcal{A}$より,
+          そんな$\mathcal{A}$の存在から$\emptyset\in \mathcal{F}$. \\
+          なんらかの$\mathcal{A}$に対して集合族の共通部分の定義から$\bigcap \mathcal{A}=\{\ x\in X\ |\ \forall A\in \mathcal{A}(x\in A)\ \}$より,
+          $\mathcal{A}=\emptyset$とおくと,
+          $\forall A\in \emptyset( x\in A)$はどんな$x$についても成立する,
+          つまり$\bigcap \mathcal{A}=\bigcap\emptyset = X$となる.
+          そんな$\mathcal{A}$の存在から$X\in \mathcal{F}$.
+        \item[(F2)] $\forall F_1,F_2\in \mathcal{F}(\ F_1\cup F_2\in \mathcal{F}\ )$. \\
+          任意に$F_1,F_2\in \mathcal{F}$をとると,
+          $\mathcal{A}_{i}\subseteq \mathcal{B}$があって$F_i=\bigcap \mathcal{A}_{i}$となっている（$i=1,2$）.
+          $x$を$x\notin F_1\cup F_2$とすると,
+          $x\notin F_i=\bigcap \mathcal{A}_i$より,
+          ある$B_i\in \mathcal{A}_i$があって$x\notin B_i$かつ$F_i\subseteq B_i$となっている.
+          そんな$B_1,B_2$を1つ固定する.
+
+          すると$x\notin B_1\cup B_2$となっていて,
+          (2-2)よりある$B_x\in \mathcal{B}$があって$x\notin B_x$かつ$F_1\cup F_2\subseteq B_1\cup B_2\subseteq B_x$となっている.
+          各$x$ごとに存在するそんな$B_x$を集めた集合を$\mathcal{A}$とおくと,
+          つまり
+          \begin{equation*}
+            \mathcal{A}\ =\ \{\ B_x\ |\ x\notin F_1\cup F_2\ \land\ x\notin B_x\ \land\ F_1\cup F_2\subseteq B_x\ \}
+          \end{equation*}
+          であり,
+          その定義から$\mathcal{A}\subseteq \mathcal{B}$であり,
+          $\bigcap \mathcal{A} = \bigcap_{x\notin F_1\cup F_2}B_x$であることに注意すれば,
+          $\bigcap \mathcal{A} = F_1\cup F_2$である.
+          \begin{sub-block}{{\boldmath $\because$}\,}
+            どの$B_x$も$F_1\cup F_2\subseteq B_x$より$F_1\cup F_2\subseteq \bigcap \mathcal{A}$は明らかである. \\
+            $\bigcap \mathcal{A} \subseteq F_1\cup F_2$を示すために$X\setminus F_1\cup F_2\subseteq X\setminus \bigcap \mathcal{A}$を確かめる.
+            任意に$x\in X\setminus F_1\cup F_2$な$x$,
+            つまり$x\notin F_1\cup F_2$な$x\in X$をとると$x\notin B_x$かつ$B_x\in \mathcal{A}$なる$B_x$がある.
+            そんな$B_x$の存在から$x\in \mathcal{A}$である.
+          \end{sub-block}
+          そんな$\mathcal{A}$の存在から,
+          $F_1\cup F_2\in \mathcal{F}$.
+        \item[(F3)]
+          $\forall \{ F_{\lambda}\}_{\lambda \in \Lambda}\subseteq \mathcal{F}(\ \bigcap_{\lambda \in \Lambda}F_{\lambda}\in \mathcal{F}\ )$. \\
+         これは\PropRef{proposition:開基の同値条件}の(O3)を反転させればできるので省略する.
+      \end{itemize}
+      \ThRef{theorem:閉集合系は位相を定める}のようにこの$\mathcal{F}$を用いて位相を定めれば,
+      明らかに$\mathcal{F}$はその位相の閉基である.
+    \item[]\hspace{-0.5cm}(3) \\
+      すぐ上のように$X$に位相を定めたとすると,
+      あとは\PropRef{proposition:開基の同値条件}と同様にできる. \qedhere
+  \end{itemize}
+\end{proof}
+
+
+\subsection{直積位相}
+\label{subsection:直積位相}
+
+
+有限個の集合の直積集合には以下のように位相を入れるのが一般的です.
+\begin{definition}[]
+  $(X,\mathcal{O}_X),\ (Y,\mathcal{O}_Y)$を位相空間とする.
+  $X$と$Y$の\textgt{直積空間}（\textbf{product space}）とは,
+  $X\times Y$に$\{\  O_X\times O_Y\ |\  O_X\in\mathcal{O}_X,O_Y\in\mathcal{O}_Y\ \}$が生成する位相を入れた位相空間のことで,
+  この位相を\textgt{直積位相}（\textbf{product topology}）という.
+    \index{topological space!product space}
+    \index{いそうくうかん@位相空間!ちょくせきくうかん@（2個の空間の）直積空間}
+    \index{topological space!product topology}
+    \index{いそうくうかん@位相空間!ちょくせきいそう@（2個の位相の）直積位相}
+\end{definition}
+
+より一般的な直積集合に対しては以下のように位相を定義します.
+\SecRef{subsection:直積の一般化}のDefinition \ref{definition:一般直積集合}とそのあとの議論も参考にしてください.
+
+\begin{definition}[]
+  \label{definition:一般直積位相空間}
+  $\{ (X_{\lambda},\mathcal{O}_{\lambda})\} _{\lambda\in \Lambda}$を位相空間の族とする.
+  この集合族の\textgt{直積空間}とは,
+  $\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$に
+  $\{\  p^{-1}_{\lambda}[O]\ |\  O\in\mathcal{O}_{\lambda} \}$が生成する位相を入れた空間のこと,
+  この位相を\textgt{直積位相}という.
+    \index{いそうくうかん@位相空間!ちょくせきくうかん@（位相空間の族の）直積空間}
+    \index{いそうくうかん@位相空間!ちょくせきいそう@（位相空間の族の）直積位相}
+\end{definition}
+
+直積空間を構成する$X,Y$や$X_{\lambda}$のことを\textgt{因子空間}と呼びます. \\
+  \index{いそうくうかん@位相空間!いんしくうかん@因子空間}
+直積位相は以下の補題から,どのような集合が開集合になっているか分かりやすくなります.
+
+\begin{lemma}[]
+  \label{lemma:直積空間の開基の表現}
+  直積位相空間$\prod_{\lambda \in \Lambda}X_{\lambda}$に対して
+  \begin{equation*}
+    \{\ \prod_{\lambda \in \Lambda}B_{\lambda}\ |\ \exists L\in [\Lambda]^{<\omega}\big(\ \lambda\in L\rightarrow B_{\lambda}\in\mathcal{O}_{\lambda}\ \lor\ \lambda\notin L\rightarrow B_{\lambda}=X_\lambda\ \big)\ \}
+  \end{equation*}
+  は直積位相の開基になっている.
+\end{lemma}
+
+\begin{proof}
+  証明はLemma \ref{lemma:生成された位相の開集合の表現}より明らかです.
+\end{proof}
+
+\subsection{compactな位相空間}
+\label{subsection:compactな位相空間}
+
+被覆の定義,Definition \ref{definition:被覆}も参考にしてください.
+\begin{definition}[]
+  $(X,\mathcal{O})$を位相空間として
+  \begin{itemize}
+    \item[・]
+      $\{ O_{\lambda} \} _{\lambda \in \Lambda}\subseteq \mathcal{O}$が$A\subseteq X$の被覆のとき,
+      $\{ O_{\lambda} \} _{\lambda \in \Lambda}$を$A$の\textgt{開被覆}（\textbf{open covering}）とよぶ.
+    \item[・]
+      $(X,\mathcal{O})$が\textbf{compact}
+      $\ \defarr\ \forall \{ O_{\lambda} \} _{\lambda \in \Lambda}：X\text{の開被覆}
+      \ (\{ O_{\lambda} \} _{\lambda \in \Lambda}\text{が有限部分被覆をもつ})$
+    \item[・]
+      $A\subseteq X$が\textbf{compact}
+      \ $\stackrel{\text{def}}{\Longleftrightarrow}$\ $(X,\mathcal{O})$の部分空間$A$がcompact. \qedhere
+  \end{itemize}
+    \index{topological space!open covering}
+    \index{いそうくうかん@位相空間!かいひふく@開被覆}
+    \index{topological space!compact}
+    \index{いそうくうかん@位相空間!こんぱくと@コンパクト}
+\end{definition}
+
+その定義からどんな有限集合上の位相もcompactになります.
+
+\begin{lemma}[]
+  \label{lemma:有限集合上の位相はcompact}
+  集合$X$が$|X|<\omega$ならば,任意の$X$上の位相$\mathcal{O}$に対し$(X,\mathcal{O})$はcompact.
+\end{lemma}
+
+\begin{proof}
+  $|X|<\omega$より$X=\{ x_0,\cdots,x_n\}$とおきます.
+  任意に$X$の開被覆$\{ O_{\lambda} \} _{\lambda \in \Lambda}$をとると,
+  $X$の被覆なので各$i\leq n$に対して$x_i\in O_{\lambda}$なる$\lambda$が存在するので,
+  それを$\lambda_i$とおき,
+  $\Lambda^{\prime}=\{ \lambda_0,\cdots,\lambda_n\}$とします.
+  $X=\bigcup_{0\leq i\leq n}\{ x_i\}\subseteq \bigcup_{\lambda_i\in\Lambda^{\prime}}O_{\lambda_i}$より
+  $\{ O_{\lambda} \} _{\lambda \in \Lambda^{\prime}}$は$\{ O_{\lambda} \} _{\lambda \in \Lambda}$の有限部分被覆だから,
+  その存在から$(X,\mathcal{O})$はcompact.
+\end{proof}
+
+有限交叉性とcompact性の関係について述べます.
+
+\begin{lemma}[]
+  \label{lemma:有限交叉性と位相空間のcompact性}
+  位相空間$X$に対して,
+  以下は同値.
+  \begin{itemize}
+    \item[(1)] $X$がcompact.
+    \item[(2)] $\forall \{ F_{\lambda}\} _{\lambda\in \Lambda}$：閉集合の族
+      $\big(\ \{ F_{\lambda}\} _{\lambda\in \Lambda}\text{：FIPをもつ}
+      \ \rightarrow\ \bigcap_{\lambda\in \Lambda}F_{\lambda}\neq \emptyset\ \big)$.\qedhere
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  \
+  \begin{itemize}
+    \item[] $(1)\rightarrow (2)$ \\
+      任意に有限交叉性をもつ閉集合の族$\{ F_{\lambda}\} _{\lambda\in \Lambda}$をとる.
+      $\bigcap_{\lambda\in \Lambda}F_{\lambda}= \emptyset$だったとすると,
+      $\bigcup_{\lambda\in \Lambda}F^C_{\lambda}= X$より$\{ F^C_{\lambda}\} _{\lambda\in \Lambda}$は$X$の開被覆です.
+      ここで$F^C$とは$F$の補集合を表しています.
+      (1)より$\{ F^C_{\lambda}\} _{\lambda\in \Lambda}$は有限部分被覆をもつので,
+      それを$\{ F^C_i\} _{i\in L}$とおけば$X=\bigcup_{i\in L}F^C_i$,
+      つまり$\emptyset=\bigcap_{i\in L}F_i$となりますが,
+      これは$\{ F_{\lambda}\} _{\lambda\in \Lambda}$の有限交叉性に矛盾.
+    \item[] $(2)\rightarrow (1)$ \\
+      任意に$X$の開被覆$\{ O_{\lambda}\} _{\lambda\in \Lambda}$をとる.
+      $X$が有限部分被覆を持たなかった,
+      つまり$\forall L\in [\lambda]^{<\omega}\big(\  X\neq\bigcup_{i\in L}O_i\ \big)$です.
+      任意に$L\in [\lambda]^{<\omega}$をとると,
+      $X\neq\bigcup_{i\in L}O_i$より$\exists x\in X\big(\ \forall i\in L(x\notin O_i)\ \big)$です.
+      そんな$x$を1つとれば$\forall i\in L(x\in O^C_i)$が成立,
+      つまり$x\in \bigcap_{i\in L}O^C_i$なので$\bigcap_{i\in L}O^C_i\neq \emptyset$です.
+      これは閉集合の族$\{ O^C_{\lambda}\} _{\lambda\in \Lambda}$が有限交叉性を持つことを表しているので,
+      (2)より$\bigcap_{\lambda\in \Lambda}O^C_{\lambda}\neq \emptyset$でなくてはいけませんが,
+      $X=\bigcup_{\lambda\in \Lambda}O_{\lambda}$より$\bigcap_{\lambda\in \Lambda}O^C_{\lambda}=\emptyset$より
+      これは矛盾,つまり$X$は有限交叉性をもちます. \qedhere
+  \end{itemize}
+\end{proof}
+
+因子空間が有限個であるような直積空間は,
+因子空間全てがcompactならばcompactになります.
+\begin{theorem}[]
+  位相空間$(X,\mathcal{O}_X),\ (Y,\mathcal{O}_Y)$が共にcompactならば,直積位相空間$X\times Y$もcompact
+\end{theorem}
+
+\begin{proof}
+  $\mathscr{O}=\{ O_\lambda \}_{\lambda \in \Lambda}$を$X\times Y$の開被覆として,
+  $\mathscr{O}$の有限部分被覆を構成します.
+  \begin{equation*}
+    \mathcal{A}=\{O^X_\lambda\}_{\lambda \in \Lambda_{\mathcal{A}}}=
+    \{\ O^X_\lambda \in \mathcal{O}_X\ |\ \exists G_1,\cdots,G_n\in \mathscr{O}\left(\ O^X_{\lambda}\times Y
+    \ \subseteq\displaystyle\bigcup_{1\leq i\leq n}G_i\ \right)\ \}
+  \end{equation*}
+  とおくと,$\mathcal{A}$は$X$の開被覆です.
+  \begin{sub-block}{{\boldmath $\because$}\,}
+    各点$x\in X$が何らかの$\mathcal{A}$の要素に属することを示す.
+    任意に$x\in X$をとる.
+    この$x$に対し$Y$の部分集合族$\mathcal{B}_{x}$を以下のように定義する.
+    \begin{equation*}
+      \mathcal{B}_{x}=\{\ O^Y\in \mathcal{O}_Y\
+      |\ \exists O^X\in \mathcal{O}_X\ \exists G\in \mathscr{O}
+      \left(\ x\in O^X\ \land\ O^X\times O^Y\subseteq G\ \right)\ \}
+    \end{equation*}
+    このとき$\mathcal{B}_{x}$は$Y$の開被覆.
+    \begin{sub-block}{{\boldmath $\because$}\,}
+      各点$y\in Y$が何らかの$\mathcal{B}_x$の要素に属することを示す.
+      任意に$y\in Y$をとる.
+      この$y$と先に固定されている$x$に対して,
+      $\mathscr{O}$は$X\times Y$の開被覆だから
+      $\langle x,y\rangle$はある要素$G\in \mathscr{O}$に属するのでその1つを改めて$G$として固定する.
+      つまり$\langle x,y\rangle\in G$.
+      ここで$G$は$X\times Y$の開集合なので直積位相の定義から,
+      ある$O^X\in \mathcal{O}_X,\ O^Y\in \mathcal{O}_Y$があって$G=O^X\times O^Y$となっている.
+      この$O^Y$は$O^X$,
+      $G$の存在から$O^Y\in \mathcal{B}_x$で,
+      $y\in O^Y$.
+    \end{sub-block}
+    $Y$のcompact性より
+    \begin{equation*}
+      \exists V_1,\cdots,V_m\in \mathcal{B}_{x}
+      \left(\ Y=\displaystyle\bigcup_{1\leq i\leq m}V_i\ \right)
+    \end{equation*}
+    この$V_i$を固定すると,
+    それぞれに対して$\mathcal{B}_{x}$の定義から$U_i\in \mathcal{O}_X,\ G_i\in \mathscr{O}$（$1\leq i\leq m$）があって$U_i\times V_i\subseteq G_i$となっている.
+    $U_x=U_1 \cap \cdots \cap U_m$とおけば,
+    $x\in U_x$と$U_x\in \mathcal{O}_X$が成立する.
+    \begin{equation*}
+      \displaystyle\bigcup_{1\leq i\leq m}(U_x\times V_i)\
+      =\ U_x\times \left(\bigcup_{1\leq i\leq m}V_i\right)\ =\ U_x\times Y
+    \end{equation*}
+    そして$\forall i(\ U_x\times V_i \subseteq G_i\ )$が分かるから
+    \begin{equation*}
+      U_x\times Y\subseteq\ \displaystyle\bigcup_{1\leq i\leq m}G_i
+    \end{equation*}
+    よって$u_x\in \mathcal{A}$で,
+    この$U_x$が$x$が属する$\mathcal{A}$の要素になる.
+  \end{sub-block}
+  $X$のcompact性より
+  \begin{equation*}
+    \exists O^X_1,\cdots,O^X_m\in \mathcal{A}\left(\ X=\displaystyle\bigcup_{1\leq i\leq m}O^X_i\ \right)
+  \end{equation*}
+  が成立.
+  各$O^X_i$に対して$\mathcal{A}$の定義から
+  \begin{equation*}
+    \exists O_{i_1},\cdots,O_{i_n}\in \mathscr{O}
+    \left(\ O^X_i\times Y\subseteq \displaystyle\bigcup_{1\leq j\leq n}O_{i_j}\ \right).
+  \end{equation*}
+  すると
+  \begin{align*}
+    X \times Y\ &=\ \left(\ \displaystyle\bigcup_{1\leq i\leq m}O^X_i\ \right)\times Y
+                 =\ \displaystyle\bigcup_{1\leq i\leq m}(O_i \times Y) \\
+                &\subseteq\ \displaystyle\bigcup_{1\leq i\leq m}\left(\ \bigcup_{1\leq j\leq n}O_{i_j}\ \right)
+  \end{align*}
+  よって$X\times Y$が$m\times n$個の,すなわち有限個の$\mathscr{O}$の要素で被覆できた.
+\end{proof}
+
+しかし上記の定理の一般系（Tychonoffの定理）を示すには選択公理が必要です.
+またその主張は選択公理と同値になります.
+この証明は\cite{Basic002:Uchida-set}（117ページあたりから）を参考にした.
+
+\begin{lemma}[選択公理は\textbf{Tychonoff}\textgt{の定理}と同値]
+  \label{lemma:選択公理とTychonoffの定理は同値}
+  以下は同値.
+  \begin{itemize}
+    \item[(1)] 選択公理
+    \item[(2)] （Tychonoffの定理） \\
+      $\{\ (X_{\lambda},\mathcal{O}_{\lambda})\ \}_{\lambda \in \Lambda}$をcompact位相空間の族とし,
+      $(Y,\mathcal{O})$をその直積位相空間とすれば,$Y$はcompact. \qedhere
+      \label{theorem:Tychonoffの定理}
+  \end{itemize}
+    \index{いそうくうかん@位相空間!ちこのふのていり@Tychonoffの定理}
+\end{lemma}
+
+\begin{proof}
+  \
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}$(1)\ \Rightarrow\ (2)$ \\
+      $\mathcal{A}\subseteq \mathcal{P}(Y)$を有限交叉性をもつ閉集合の族として,
+      $\bigcap\mathcal{A}\neq \emptyset$であることを示す.
+      \begin{equation*}
+        \mathcal{F}\ =\ \{\ \mathcal{A}'\subseteq \mathcal{P}(Y)\ |
+        \ \mathcal{A}\subseteq\mathcal{A}'\ \land\ \mathcal{A}'\text{：有限交叉性をもつ}\ \}
+      \end{equation*}
+      と定義すれば,
+      $(\mathcal{F},\subseteq)$は帰納的半順序集合です.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        $(\mathcal{F},\subseteq)$が半順序集合であることの確かめは省略します.
+        任意に全順序部分集合$C\subseteq \mathcal{F}$をとれば,
+        その和集合$\bigcup C$は$C$の上界になっています.
+        その存在から$(\mathcal{F},\subseteq)$は帰納的です.
+      \end{sub-block}
+      選択公理よりZornの補題をこの$(\mathcal{F},\subseteq)$に適用できるので
+      $(\mathcal{F},\subseteq)$は少なくとも1つの極大元を持つから,
+      それを$\mathcal{B}$とおきます.
+      この$\mathcal{B}$に対して以下の2つが成立.
+      \begin{itemize}
+        \item[(i)] $\forall F_1,\cdots,F_n\in \mathcal{B}(\ F_1\cap\cdots\cap F_n\in\mathcal{B}\ )$
+        \item[(ii)]
+          $\forall A\subseteq Y(\ \forall F\in\mathcal{B}(A\cap F\neq \emptyset)\ \rightarrow\ A\in\mathcal{B}\ )$
+      \end{itemize}
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        (i)は$\mathcal{B}$が有限交叉性を持つ範囲で$\mathcal{A}$を大きくしていった集合であることから,
+        (ii)は$\mathcal{B}$の極大性より明らかです.
+      \end{sub-block}
+      $p_{\lambda}:Y\rightarrow X_{\lambda}$を射影とすると以下が成立.
+      \begin{equation*}
+        \exists y=\langle x_{\lambda}\in X_{\lambda}\rangle_{\lambda \in \Lambda}\in Y
+        \big(\ \forall F\in \mathcal{B}\ \forall \lambda\in \Lambda
+        \left(\ x_{\lambda}\in (p_{\lambda}[F])^a\ \right)\ \big)
+      \end{equation*}
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        ある$\lambda \in \Lambda$に対して$\mathcal{B}_{\lambda}\subseteq \mathcal{P}(X_{\lambda})$を
+        \begin{equation*}
+          \mathcal{B}_{\lambda}\ =\ \{\ (p_{\lambda}[F])^a\ |\ F\in\mathcal{B}\ \}
+        \end{equation*}
+        と定義すれば$\mathcal{B}_{\lambda}\subseteq X_{\lambda}$で,
+        閉包の定義から閉集合の族になっていて,
+        有限交叉性をもちます.
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          任意に$\mathcal{B}_{\lambda}$の2要素をとり,
+          定義からそれに対応する$\mathcal{B}$の2要素を$F_1,F_2$とおきます.
+          つまり$(p_{\lambda}[F_1])^a,\ (p_{\lambda}[F_2])^a\in \mathcal{B}_{\lambda}$です.
+          $\mathcal{B}$は有限交叉性をもつので$F_1\cap F_2\neq\emptyset$.
+          ここから$\emptyset\neq p_{\lambda}[F_1\cap F_2]\subseteq p_{\lambda}[F_1]\cap p_{\lambda}[F_2]$より
+          $p_{\lambda}[F_1]\cap p_{\lambda}[F_2]\neq \emptyset$です.
+          閉包の定義から$p_{\lambda}[F_i]\subseteq (p_{\lambda}[F_i])^a$なので
+          $(p_{\lambda}[F_1])^a\cap (p_{\lambda}[F_2])^a\neq \emptyset$です.
+        \end{sub-block}
+        $(X_{\lambda},\mathcal{O}_{\lambda})$のcompact性から
+        $\bigcap \mathcal{B}_{\lambda}\neq \emptyset$が成立する.
+        集合族$\{\ \bigcap \mathcal{B}_{\lambda}\ |\ \lambda \in \Lambda\ \}$に選択公理を適用して
+        $\langle x_{\lambda}\in X_{\lambda}\rangle_{\lambda \in \Lambda}$を作れば,
+        これが求めるべき$y$になっています.
+      \end{sub-block}
+      この$y$は全ての$\mathcal{B}$の要素の触点になっています.
+      つまり$\forall F\in \mathcal{B}(\ y\in F^a\ )$
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        任意に$F\in \mathcal{B}$をとる.
+        $y$が$F$の触点であるとは,
+        任意の$y$の近傍が$F$と交わることなので任意に$y$の近傍$N$をとる.
+        近傍の定義からこの$N$に対して$\mathcal{O}$の開集合$O$があって$y\in O\subseteq N$となっている.
+        ここで直積位相の定義から,
+        この$O$に対して$\lambda_1,\cdots,\lambda_n\in \Lambda$とそれに対応する$U_i\in\mathcal{O}_{\lambda_i}$（$1\leq i\leq n$）があって,
+        $O=\displaystyle\bigcap^{n}_{i=1}p^{-1}_{\lambda_i}[U_{\lambda_i}]$となっている,
+        つまり以下が成立しています.
+        \begin{equation*}
+          y\ \in\  \displaystyle\bigcap^{n}_{i=1}p^{-1}_{\lambda_i}[U_{\lambda_i}]\ \subseteq\ N
+        \end{equation*}
+        $p^{-1}_{\lambda_i}[U_{\lambda_i}]$とは$U_{\lambda_i}$と$\lambda_i$以外の$X_{\lambda}$との直積だから,
+        $y\in \displaystyle\bigcap^{n}_{i=1}p^{-1}_{\lambda_i}[U_{\lambda_i}]$より,
+        $p_{\lambda_i}(y)=x_{\lambda_i}\in U_{\lambda_i}$が成立しています. \\
+        $F\cap N\neq\emptyset$を示すため$F\cap p^{-1}_{\lambda_1}[U_{\lambda_1}]\cap\cdots\cap
+        p^{-1}_{\lambda_n}[U_{\lambda_n}]\neq \emptyset$を示す.
+        そのためにまず以下が成立することを確かめる.
+        \begin{equation*}
+          \forall i(\ p^{-1}_{\lambda_i}[U_{\lambda_i}]\ \in\ \mathcal{B}\ )
+        \end{equation*}
+        \begin{sub-block}{{\boldmath $\because$}\,}
+          $\{\  p^{-1}_{\lambda_i}[U_{\lambda_i}]\ \} _{i\leq n}$は有限交叉性を持ちます.
+          なので$\mathcal{B}$の極大性より,
+          $\{\  p^{-1}_{\lambda_i}[U_{\lambda_i}]\ \} _{i\leq n}\subseteq \mathcal{B}$です.
+        \end{sub-block}
+        よって$\mathcal{B}$の性質(i)から
+        $F\cap p^{-1}_{\lambda_1}[U_{\lambda_1}]\cap\cdots\cap
+        p^{-1}_{\lambda_n}[U_{\lambda_n}]\neq \emptyset$が成立します.
+        つまり$F\cap N\neq \emptyset$.
+      \end{sub-block}
+      任意に$A\in\mathcal{A}$をとると$A$は閉集合なので$A^a=A$で,
+      $\mathcal{B}$の定義からどの$A$も$\mathcal{B}$に属する.
+      そして$y$の性質からどの$A^a$にも$y$は属する,
+      つまり$A$に属する.
+      よって$\forall A\in\mathcal{A}(y\in A)$という$y$の存在から$\bigcap\mathcal{A}\neq \emptyset$.
+
+    \item[]\hspace{-0.5cm}$(2)\ \Rightarrow\ (1)$ \\
+
+      選択公理そのものではなく同値な直積定理を証明します.
+      示すことはLemma \ref{lemma:選択公理と直積定理は同値}より
+      各要素が空でない集合族$\{ A_{\lambda} \} _{\lambda \in \Lambda}$に対して,
+      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$を示す. \\
+      まずどの$A_{\lambda}$にも属さない,
+      つまり$\displaystyle\bigcup_{\lambda \in \Lambda}A_{\lambda}$に属さない元を1つとり,
+      それを$\alpha$とおきます.
+      各$\lambda \in \Lambda$に対して$X_{\lambda}=A_{\lambda}\cup\{ \alpha \}$とします.
+      $\mathcal{O}_{\lambda}=\{\  B\subseteq X_{\lambda}\ |\ |X_{\lambda}\setminus B|<\omega\ \}
+      \cup\{\emptyset,\ \{ \alpha \}\}$とおくと$\mathcal{O}_{\lambda}$は$X_{\lambda}$上のcompactな位相です.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        補有限位相での証明を参考にしてください（まだ書いてない）.
+      \end{sub-block}
+      $Y=\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$とおくと,
+      $f:X_{\lambda}\rightarrow\{\alpha\}$という要素があるので$Y\neq\emptyset$です.
+      $Y\neq\emptyset$と因子空間全てがcompactであることより,
+      仮定のTychonoffの定理（Theorem \ref{theorem:Tychonoffの定理}）から直積空間$Y$もcompactです.
+      射影$p_{\lambda}:Y\rightarrow X_{\lambda}$を用いて各$\lambda\in \Lambda$に対し
+      $F_{\lambda}=p^{-1}_{\lambda}[A_\lambda]$とおくと,
+      どの$F_{\lambda}$も$Y$において閉集合です.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        直積位相は各射影$p_{\lambda}:Y\rightarrow X_{\lambda}$が連続になる位相で,
+        各$A_{\lambda}$は$X_{\lambda}$において$\{\alpha\}$が開集合であることより閉集合だから,
+        連続写像$p_{\lambda}$による逆像$p^{-1}_{\lambda}[A_\lambda]$もまた閉集合です.
+      \end{sub-block}
+      さらに$\{F_{\lambda}\}_{\lambda \in \Lambda}$は有限交叉性をもちます.
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        有限個の$\lambda_1,\cdots,\lambda_n\in \Lambda$を任意にとる.
+        $y=\langle x_{\lambda}\in X_{\lambda}\rangle_{\lambda \in \Lambda}$を
+        \begin{eqnarray*}
+          x_{\lambda}=
+            \left\{
+              \begin{array}{ll}
+                \alpha                     & \lambda \notin \Lambda\setminus\{\lambda_1,\cdots,\lambda_n\} \\
+                x_{\lambda}\in A_{\lambda} & \exists i(\ \lambda = \lambda_i\ ) \\
+              \end{array}
+            \right.
+        \end{eqnarray*}
+        な点とすれば,$y\in Y$であることは明らか.
+        また$\forall i(\ y\in F_{\lambda_i}\ )$が成立します.
+        なぜなら$x_{\lambda_i}\in A_{\lambda_i}$より$p_{\lambda_i}(y)\in A_{\lambda_i}$,
+        つまり$y\in p^{-1}_{\lambda_i}[A_{\lambda_i}]=F_{\lambda_i}$だからです.
+        すなわち$\displaystyle\bigcap_{1\leq i\leq n}F_{\lambda_i}\neq \emptyset$です.
+      \end{sub-block}
+      よって$\{F_{\lambda}\}_{\lambda \in \Lambda}$はcompact空間$Y$の有限交叉性をもつ閉集合の族だから
+      $\displaystyle\bigcap_{\lambda \in \Lambda}F_{\lambda}\neq \emptyset$です.
+      そして$\displaystyle\bigcap_{\lambda \in \Lambda}F_{\lambda}
+      =\bigcap_{\lambda \in \Lambda}p^{-1}_{\lambda}[A_\lambda]
+      =\prod_{\lambda \in \Lambda}A_{\lambda}$なので
+      $\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$です. \qedhere
+    \end{itemize}
+\end{proof}
+
+\end{document}

@@ -97,19 +97,19 @@ sub get_all_def_and_thm_data_in_one_file {
 
     if ( $is_target_line ) {
 
-      if ( $line =~ /^\s{1,}\\footnote\{/ ) {
+      if ( $line =~ /^\s{1,}\\footnote\{\n$/ ) {
         $is_footnote = 1;
         next;
       }
-      if ( $is_footnote and $line =~ /^\s{1,}\}/ ) {
+      if ( $is_footnote and $line =~ /^\s{1,}\}\n$/ ) {
         $is_footnote = 0;
         next;
       }
-      if ( $line =~ /^\s{1,}\\label\{(.+)\}/ ) {
+      if ( $line =~ /^\s{1,}\\label\{(.*)\}\n$/ ) {
         push( @item_labels_array, $1 );
         next;
       }
-      if ( !$is_footnote and $line !~ /^\\end/ ) {
+      if ( !$is_footnote and $line !~ /^\\end\{/ ) {
         $lines_str .= $line;
       }
 
@@ -127,7 +127,7 @@ sub get_all_def_and_thm_data_in_one_file {
       }
     } else {
       foreach my $environment_name (  @{$target_environment} ) {
-        if ( $line =~ /^\\begin\{${environment_name}\}\[(.+)\]/ ) {
+        if ( $line =~ /\\begin\{${environment_name}\}\[(.*)\]$/ ) {
 
           $is_target_line = 1;
           $line_counter_for_item = $line_counter;
@@ -214,7 +214,7 @@ sub output_items {
       my $num_of_label_array = @label_array;
       if ( $num_of_label_array > 1 ) {
         $label = @label_array[0];
-      } 
+      }
       my $title = $environment_name .
                       "\ \\ref\{" . $label . "\}\\ \\ " .
                       $item_name . "\\ \\ " .

@@ -21,7 +21,6 @@ sub main {
   my $all_sub_tex_file_tree = catch_all_subfile_tex_tree( $all_note_dir );
 
   my $all_atode_data = get_all_atode( $all_sub_tex_file_tree );
-  output_file( $all_atode_data );
 
   my $summarized_data = summarize_data( $all_atode_data );
 

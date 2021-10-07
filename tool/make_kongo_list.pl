@@ -90,11 +90,11 @@ sub get_all_kongo_in_one_file {
         push( @item_labels_array, $1 );
         next;
       }
-      if ( !$is_footnote and $line !~ /^\\end/ ) {
+      if ( !$is_footnote and $line !~ /\\end\{kongo\}\n$/ ) {
         $lines_str .= $line;
       }
 
-      if ( $line =~ /^\\end\{kongo\}/ ) {
+      if ( $line =~ /\\end\{kongo\}\n$/ ) {
 
         $target_key->{"str"} = $lines_str;
         $target_key->{"label"} = join( " , ", @item_labels_array );
@@ -106,7 +106,7 @@ sub get_all_kongo_in_one_file {
 
       }
     } else {
-      if ( $line =~ /^\\begin\{kongo\}/ ) {
+      if ( $line =~ /\\begin\{kongo\}\n$/ ) {
 
         $is_target_line = 1;
         $item_counter++;
