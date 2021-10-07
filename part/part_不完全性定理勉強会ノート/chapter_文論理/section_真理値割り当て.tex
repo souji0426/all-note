@@ -2,11 +2,12 @@
 
 \begin{document}
 
-\begin{definition}[真理値割り当て(E:p20~21,\ K:p30~32)]\label{def:真理値割り当て}
-  $\mathcal{A}\subseteq \mathcal{P}$とする.
+\begin{definition}[真理値割り当て(E:p20~21,\ K:p30~32)]
+  \label{definition:真理値割り当て}
+  $\mathcal{A}\subseteq \SetOfSentenceSymbol$とする.
   \begin{itemize}
     \item[1.]
-      \DefRef{def:記号}とは別に新たに2つの記号を用意する.
+      \DefRef{definition:記号}とは別に新たに2つの記号を用意する.
       それらを$F$（これを\textbfgt{falsity}{偽}とよぶ）,
       $T$（これを\textbfgt{truth}{真}とよぶ）とする.
     \item[2.]
@@ -57,15 +58,17 @@
   \index{ぶんろんり@文論理!しんりちわりあて@真理値割り当て}\index{sentential logic!truth assignment}
   \index{しんりちわりあて@真理値割り当て}\index{truth assignment}
 \end{definition}
+\RegisterInSymbolList{$T$}{文論理における真理値の真}{definition:真理値割り当て}
+\RegisterInSymbolList{$F$}{文論理における真理値の偽}{definition:真理値割り当て}
 
 テキストにあるなし関わらず気になったことを注意しておくと,
 \begin{enumerate}
   \item
     上記定義1.では新たな記号が定義されたが,
-    \DefRef{def:記号}では記号を割り当てるもの（それを今後記号と同一視して使っていくもの）として,
+    \DefRef{definition:記号}では記号を割り当てるもの（それを今後記号と同一視して使っていくもの）として,
     オブジェクトの列を使用したが,
     ここでは列であるようなことは書かれていない.
-    それは\DefRef{def:記号}の注意事項\ref{remark:symbolの定義の「無限個のオブジェクトの列」部分と「列の第一成分から」部分について}でも書いたように,
+    それは\DefRef{definition:記号}の注意事項\ref{remark:symbolの定義の「無限個のオブジェクトの列」部分と「列の第一成分から」部分について}でも書いたように,
     今から無限個の記号を用意するわけでもないので,
     列でもなくともよいということなのかもしれない. \\
     もっというともし議論の進め方次第では先にすべての使う記号を定義しておく流儀もありえて,
@@ -188,34 +191,49 @@
 この例はテキストにて木を用いて解説されているし,
 とくに付け加えることもないので次の話題に移る. \\
 
-次の定理はテキストの流れ通りここでは示さず○○にて示す.
-\index{あとでかく@後で書く}
-
 \begin{theorem}[E:p23 THEOREM 12A,\ K:p34 定理 12A]
-  集合$\mathcal{A}\subseteq \mathcal{P}$へのどんな真理値割り当て$v$についても,
-  \DefRef{def:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
+  集合$\mathcal{A}\subseteq \SetOfSentenceSymbol$へのどんな真理値割り当て$v$についても,
+  \DefRef{definition:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
 \end{theorem}
+
+%あとで書く
+\begin{comment}
+  この定理12Aの完全な証明が分かれば,
+  ここに引用すること.
+\end{comment}
+
+次の記法は今後便利に思えたので導入する.
+
+\begin{definition}[]
+  \label{definition:整式の集合の全ての要素に含まれる文記号の集合}
+  $\Sigma \subseteq \SetOfWff$に対して,
+  その全ての要素である整式に含まれる文記号の集合を$\SetOfSentenceSymbol(\Sigma)$で表す.
+  またある$\alpha\in \SetOfWff$でもって$\Sigma=\{ \alpha \}$となっていた場合は,
+  $\SetOfSentenceSymbol(\Sigma)=\SetOfSentenceSymbol(\{ \alpha \})$を単に$\SetOfSentenceSymbol( \alpha )$と略記する.
+\end{definition}
+
+例えば$\Sigma=\{\ (A_1\land A_2), (\lnot A_2), A_3, (A_1\to A_9) \ \}$だったとき,
+$\SetOfSentenceSymbol(\Sigma)=\{ A_1,A_2,A_3,A_9\}$となる.
+これを用いるとテキストよりは（記号は増えるものの）以下の定義の主張が少しは見やすくなるのではと考えた.
 
 \begin{definition}[充足関係(E:p23~24,\ K:p34~36)]
   \label{definition:論理式の充足関係}
   \label{definition:トートロジー的に含意する}
   \label{definition:トートロジー}
   \label{definition:トートロジー的に同値}
-  整式の集合$\Sigma$と整式$\tau,\sigma$,
-  そして$\mathcal{A}_{\tau}, \mathcal{A}_{\Sigma,\tau}$をそれぞれ$\tau$,
-  $\Sigma,\tau$に含まれるすべての文記号の集合とする.
+  整式の集合$\Sigma$と整式$\tau,\sigma$に対して,
   \begin{itemize}
     \item[1.]
-      $\mathcal{A}_{\tau}\subseteq \dom(v)$な真理値割り当て$v$に対して$\bar{v}(\tau)=T$であるとき,
+      $\SetOfSentenceSymbol(\tau)\subseteq \dom(v)$な真理値割り当て$v$に対して$\bar{v}(\tau)=T$であるとき,
       $v$ \textbf{satisfies} $\tau$（$v$は$\tau$を\textgt{充足する}）という.
     \item[2.]
-      $\mathcal{A}_{\Sigma,\tau}$を定義域として含むすべての真理値割り当てに対して,
+      $\SetOfSentenceSymbol(\Sigma) \cup \SetOfSentenceSymbol(\tau)$を定義域として含むすべての真理値割り当てに対して,
       それが$\Sigma$のすべての要素を充足するならば$\tau$をも充足するとき,
       $\Sigma$ \textbf{tautologically implies} $\tau$（$\Sigma$は$\tau$を\textgt{トートロジー的に含意する}）といい,
       $\Sigma \models \tau$で表す.
     \item[3.]
       $\emptyset\models \tau$であるとき,
-      つまり$\mathcal{A}_{\tau}$を定義域として含むどんな真理値割り当ても$\tau$を充足するとき,
+      つまり$\SetOfSentenceSymbol(\tau)$を定義域として含むどんな真理値割り当ても$\tau$を充足するとき,
       $\tau$は\textbfgt{tautology}{トートロジー}であるといい,
       単に$\models \tau$で表す.
     \item[4.]
@@ -223,7 +241,7 @@
       つまり$\{ \sigma \}\models \tau$であるとき単に$\sigma \models \tau$と表すことにする. \\
       $\sigma \models \tau$かつ$\tau \models \sigma$であるとき,
       $\sigma$と$\tau$は\textbfgt{tautologically equivalent}{トートロジー的に同値}であるといい,
-      $\sigma \models $\rotatebox[origin=c]{180}{$\models$}$\tau$で表す. \qedhere
+      $\sigma \TautoEquiv \tau$で表す. \qedhere
   \end{itemize}
   \index{ぶんろんり@文論理!じゅうそくする@充足する}\index{sentential logic!satisfy}
   \index{じゅうそくする@充足する}\index{satisfy}
@@ -236,10 +254,11 @@
 \end{definition}
 \RegisterInSymbolList{$\Sigma \models \tau$}{$\Sigma$は$\tau$をトートロジー的に含意する}{definition:トートロジー的に含意する}
 \RegisterInSymbolList{$\models \tau$}{$\Sigma$は$\tau$はトートロジーである}{definition:トートロジー}
+\RegisterInSymbolList{$\TautoEquiv$}{トートロジー的に同値}{definition:トートロジー}
 
 \begin{example}[E:p23,\ K:p35~36]
   \label{example:トートロジー}
-  $A,B\in \mathcal{P}$とする.
+  $A,B\in \SetOfSentenceSymbol$とする.
   \begin{itemize}
     \item[1,]
       \ExRef{example:真理値割り当て}で挙げた整式$\alpha$と真理値割り当て$v$について,
@@ -279,7 +298,7 @@
         \end{center}
       \end{table}
       $\alpha$がトートロジーであることを示すには$v_1$から$v_8$のいずれも$\alpha$を充足することを確かめればよい.
-      \SecRef{section:真理値表}を参考にして真理値表を書いて作業的に確かめることもできるが,
+      \SecRef{subsection:真理値表}を参考にして真理値表を書いて作業的に確かめることもできるが,
       ここではあえて真理値表を使わずに確かめてみる. \\
       $\alpha_1$を$(A\to(A_1\to A_6))$と,
       $\alpha_2$を$((A_2\land A_1)\to A_6)$とおくと,
@@ -330,13 +349,15 @@
 ここで以下の定理が紹介されていますが,
 テキストにある通りこの定理の証明は\SecRef{section:コンパクト性と実効性}にて出てきます.
 
-\begin{theorem}[コンパクト性定理(E:p24 COMPACTNESS THEOREM,\ K:p36 コンパクト性定理)]\label{thm:文論理のコンパクト性定理}
+\begin{theorem}[コンパクト性定理(E:p24 COMPACTNESS THEOREM,\ K:p36 コンパクト性定理)]
+  \label{thm:文論理のコンパクト性定理}
   $\Sigma$は無限個の整式からなる集合で,
   いかなる$\Sigma$の有限な部分集合$\Sigma_0$についても,
   $\Sigma_0$のすべての要素を同時に充足する真理値割り当てが存在するとする.
   このとき,
   $\Sigma$のすべての要素を同時に充足する真理値割り当てが存在する.
 \end{theorem}
+\index{ぶんろんり@文論理!こんぱくとせいていり@コンパクト性定理}\index{sentential logic!Compactness Theorem}
 
 \subsection{真理値表}
 \label{subsection:真理値表}

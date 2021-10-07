@@ -76,10 +76,10 @@ sub get_all_atode_in_one_file {
     $line_counter++;
 
     if ( $is_target_line ) {
-      if ( $line =~ /^\\begin\{comment\}/ ) {
+      if ( $line =~ /\\begin\{comment\}\n$/ ) {
         next;
 
-      } elsif ( $line =~ /^\\end\{comment\}/ ) {
+      } elsif ( $line =~ /\\end\{comment\}\n$/ ) {
         $target_key->{"str"} = $lines_str;
 
         $is_target_line = 0;
@@ -91,10 +91,10 @@ sub get_all_atode_in_one_file {
       }
 
     } else {
-      if ( $line eq encode( "cp932", "\%あとで書く\n" ) or
-          $line eq encode( "cp932", "\%後で書く\n" ) or
-          $line eq encode( "cp932", "\%あとでかく\n" ) ) {
-
+      if ( decode( "cp932", $line ) =~  /\%あとで書く\n$/ or
+            decode( "cp932", $line ) =~  /\%後で書く\n$/ or
+            decode( "cp932", $line ) =~  /\%あとでかく\n$/ )
+     {
         $is_target_line = 1;
         $item_counter++;
 
@@ -105,7 +105,6 @@ sub get_all_atode_in_one_file {
         next;
       }
     }
-
   }
   close $fh;
 }

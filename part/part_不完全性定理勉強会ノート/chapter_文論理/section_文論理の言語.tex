@@ -137,9 +137,11 @@
    これはこの記号を区切り文字として使うということである.
    区切り文字とは日常言語における「,」や「、」のことで,
    文の読みやすさや文意が伝わりやすくするために用いる文字のことである.
-   すなわちこの文論理の言語においては読みやすくするために「$($」や「$)$」を使うということである. \\
-   また一階述語述語論理における区切り文字については後で忘れないように書くこと
-   \index{あとでかく@後で書く}
+   すなわちこの文論理の言語においては読みやすくするために「$($」や「$)$」を使うということである.
+   %あとで書く
+   \begin{comment}
+     一階述語述語論理において区切り文字がどのような扱いになっているか分かったら補足すること.
+   \end{comment}
  \item
    \tablename\ \ref{table:文論理の記号}の「$\lor$」の注意事項における「包含的な」について \\
    これは日本語における「または」にも排他的なものと包含的なものと二種類あり,
@@ -268,11 +270,10 @@
    集合による実装は,
    まず集合論内の議論によって自然数を構築する.
    よく知られた方法としては順序数理論を展開し順序数の中でも特別なものを自然数とする方法である.
-   \footnote{
-     勉強会では公理的集合論の復習にてそれを扱った.
-     導入の注意事項を参考に.
-     \index{あとでかく@後で書く}
-   }
+   %あとで書く
+   \begin{comment}
+     公理的集合論の服種をやったときに順序数としての自然数の定義が終わったらここの脚注に引用する.
+   \end{comment}
    すると集合としての自然数を得ることができたので,
    それを使って（雑なものでよければ）さきの自然数を使ったものと同様にすればよい. \\
    大事なことはこのテキストでは,
@@ -281,7 +282,11 @@
    またそれに依存しない理論の話が続いていく. \\
    ではなぜするかどうかも分からない「実装する上での注意」なんて著者は併記したのだろうか？
    それはつまり実際に自然数論や集合論を使って文論理の理論を展開することがあるからである.
-   これについてはあとで書く\index{あとでかく@後で書く} \\
+   %あとで書く
+   \begin{comment}
+     このテキストで後々そういう話をするのでそこまで読み進めたあとに引用する.
+     具体的には自然数論や集合論を使って文論理の理論を展開するところまで読んだらの話.
+   \end{comment}
    また今後記号が割り振られたオブジェクトとその記号をとくに区別せず割り振られた方の記号を使って使っていく.
    つまり仮に自然数を使って上記のように実装したとしていても,
    オブジェクトとしての$0$は使わず,
@@ -350,9 +355,25 @@
    しかし可算無限個でなくてはいけないというわけではない.
    例えば文記号全てを濃度が可算より大きい集合$\mathbb{R}$を使って定めてもよい.
    つまり各実数を文記号だと扱うわけである.
-   しかしこれによる弊害もあるようだ.
-   これについてはあとで書く\index{あとでかく@後で書く}.
+   %あとで書く
+   \begin{comment}
+     文記号の集合が不可算になったときにどのような弊害があるのか分かれば,
+     ここに引用する.
+   \end{comment}
 \end{enumerate}
+
+テキストにはないが便利のため以下の記法を用意しておく.
+
+\begin{notation}
+  \label{notation:文記号の集合}
+  その文論理の文記号の集合を$\SetOfSentenceSymbol$で表す.
+\end{notation}
+\RegisterInSymbolList{$\SetOfSentenceSymbol$}{文論理の文記号の集合}{notation:文記号の集合}
+
+上の注意事項より何が文記号なのかはその時の議論によって変わるので,
+$\SetOfSentenceSymbol=\{ A_0, A_1,A_2,\dots \}$や$\SetOfSentenceSymbol=\{ A,A^{\prime},A^{\prime\prime},\dots \}$となったりする.
+また文記号は常に無限個用意されるので,
+$\card( \SetOfSentenceSymbol ) \geq \aleph_0$である.
 
 つぎに「表現」という言葉を定義するため,
 以降日常言語としての表現は使わないよう気をつける.
@@ -361,34 +382,38 @@
   \label{definition:表現}
  \DefRef{definition:有限列}の用語を用いる.
  \begin{itemize}
-   \item[1.] 文論理の記号の集合を以降$\mathcal{S}$で表すことにする.
+   \item[1.] 文論理の記号の集合を以降$\SetOfSymbol$で表すことにする.
    \item[2.]
-     $\mathcal{A}$の要素からなる有限列を\textbfgt{expression}{表現}とよぶ.
+     $\SetOfSymbol$の要素からなる有限列を\textbfgt{expression}{表現}とよぶ.
      \index{ぶんろんり@文論理!ひょうげん@表現}\index{sentential logic!expression}
      \index{ひょうげん@表現}\index{expression}
 
-     またすべての表現の集合を$\mathcal{E}$で表すことにする. \\
-     また表現$\ntuple{s_1}{s_n}$をその成分を順番に並べて$s_1s_2\dots s_{n-1}s_n$と書くこともある.
+     またすべての表現の集合を$\SetOfExpression$で表すことにする. \\
+     また表現$\ntuple{s_1}{s_n}$（ここで各$s_i$は$\SetOfSymbol$の要素である）をその成分を順番に並べて$s_1s_2\dots s_{n-1}s_n$と書くこともある.
      以降どちらの使い方も柔軟に使っていくことにする.
    \item[3.]
-     $\alpha,\beta\in \mathcal{E}$に対してそれぞれ$\alpha=\ntuple{a_1}{a_m},\ \beta=\ntuple{b_1}{b_n}$とするとき,
+     $\alpha,\beta\in \SetOfExpression$に対してそれぞれ$\alpha=\ntuple{a_1}{a_m},\ \beta=\ntuple{b_1}{b_n}$とするとき,
      $\alpha\beta\defeq \langle a_1,\dots,a_m,b_1,\dots,b_n\rangle$として,
      これを$\alpha$と$\beta$の\textbfgt{string concatenation}{文字列連結}とよぶ.
      \index{ぶんろんり@文論理!もじれつけつごう@文字列結合}\index{sentential logic!string concatenation}
      \index{もじれつけつごう@文字列結合}\index{string concatenation}
      \footnote{
        これはテキストでは定義されていない言葉ではありますが,
-       定義しておくと便利かと思ったのでプログラミングにおける文字列結合演算を参考に定義しておきました
-       （\url{https://ja.wikipedia.org/wiki/\%E6\%96\%87\%E5\%AD\%97\%E5\%88\%97\%E7\%B5\%90\%E5\%90\%88}）.
+       定義しておくと便利かと思ったのでプログラミングにおける文字列結合演算（例えば\cite{Wiki008}）を参考に定義しておきました.
      }
      \qedhere
  \end{itemize}
 \end{definition}
+\RegisterInSymbolList{$\SetOfSymbol$}{文論理の記号の集合}{definition:表現}
+\RegisterInSymbolList{$\SetOfExpression$}{文論理の表現の集合}{definition:表現}
+
+明らかに$\SetOfSentenceSymbol \subseteq \SetOfSymbol$であり,
+$\SetOfExpression=\bigcup_{n\in \mathbb{N}}\SetOfSymbol^n$である.
 
 表現の2通りの表し方についてだが当然私たちにとって分かりやすいのは$s_1s_2\dots s_{n-1}s_n$の方である.
 だからその定義に踏み込んで議論する必要がないときには$s_1s_2\dots s_{n-1}s_n$の方を優先的に使っていく. \\
 
-この文字列結合は$\mathcal{E}$の2項演算,
+この文字列結合は$\SetOfExpression$上の2項演算,
 つまり演算結果$\alpha\beta$も表現である.
 またその意味もその名前のごとく$\alpha$の列の後ろに$\beta$の列をそのまま並べたものになっている.
 
@@ -413,23 +438,29 @@ $\alpha,\beta$は文論理の記号ではなく,
 プログラミングでいうところのマクロのようなものともいえる.
 
 \begin{definition}[式構成操作(E:p17,\ K:p25)]
- $\alpha,\beta\in \mathcal{E}$と論理記号に対して
+  \label{definition:式構成操作}
+ $\alpha,\beta\in \SetOfExpression$と論理記号に対して
  \begin{itemize}
    \item
      $\mathcal{E}_{\lnot}(\alpha)=(\lnot \alpha)$と定める.
      より厳密には$\mathcal{E}_{\lnot}(\alpha)\defeq \op{(}{\lnot}\alpha \singleseq{)}$であり,
      これはDefinition \ref{definition:表現}で定義した表現の文字列連結である.
-     つまり$\mathcal{E}_{\lnot}$は$\mathcal{E}$上の1変数関数である.
+     つまり$\mathcal{E}_{\lnot}$は$\SetOfExpression$上の1変数関数である.
    \item
    $\mathcal{E}_{\land}(\alpha,\beta)=(\alpha \land \beta)$と定める.
    より厳密には$\mathcal{E}_{\land}(\alpha,\beta)\defeq \singleseq{(} \alpha \singleseq{\land} \beta \singleseq{)} $であり,
-   $\mathcal{E}_{\land}$は$\mathcal{E}$上の2変数関数である. \\
-   同様にして$\mathcal{E}$上の2変数関数として$\mathcal{E}_{\lor},\mathcal{E}_{\to},\mathcal{E}_{\leftrightarrow}$を定義する.
+   $\mathcal{E}_{\land}$は$\SetOfExpression$上の2変数関数である. \\
+   同様にして$\SetOfExpression$上の2変数関数として$\mathcal{E}_{\lor},\mathcal{E}_{\to},\mathcal{E}_{\leftrightarrow}$を定義する.
  \end{itemize}
  これらの5つの演算をあわせて\textbfgt{formula-building operation}{式構成操作}とよぶ.
  \index{ぶんろんり@文論理!しきこうせいそうさ@式構成操作}\index{sentential logic!formula-building operation}
  \index{しきこうせいそうさ@式構成操作}\index{formula-building operation}
 \end{definition}
+\RegisterInSymbolList{$\mathcal{E}_{\lnot}$}{$\lnot$を付ける式構成操作}{definition:式構成操作}
+\RegisterInSymbolList{$\mathcal{E}_{\land}$}{$\land$でつなげる式構成操作}{definition:式構成操作}
+\RegisterInSymbolList{$\mathcal{E}_{\lor}$}{$\lor$でつなげる式構成操作}{definition:式構成操作}
+\RegisterInSymbolList{$\mathcal{E}_{\to}$}{$\to$でつなげる式構成操作}{definition:式構成操作}
+\RegisterInSymbolList{$\mathcal{E}_{\leftrightarrow}$}{$\leftrightarrow$でつなげる式構成操作}{definition:式構成操作}
 
 \begin{definition}[（素朴な）整式の定義(E:p16~17,\ K:p25)]
   \label{definition:（素朴な）整式の定義}
@@ -454,14 +485,18 @@ $\alpha,\beta$は文論理の記号ではなく,
 それらの式構成操作の結果もまた整式であると主張している. \\
 この定義は別に数学的に間違っているわけではない.
 しかしより厳密に定義することもできる.
-そうしたとき式構成操作を$\mathcal{E}$上の関数として捉えることにも意味がでてくる. \\
+そうしたとき式構成操作を$\SetOfExpression$上の関数として捉えることにも意味がでてくる. \\
 簡単にいうと整式とは文記号から始めて式構成操作を有限回適用して構成できる表現のことと言えるが,
-この「有限回適用して」の部分を構成列というものを使って厳密に定義できる. \\
-1.4節ではこれについてもう一度触れることがあるようなのであとで書くことにする\index{あとでかく@後で書く}.
+この「有限回適用して」の部分を構成列というものを使って厳密に定義できる.
+%あとで書く
+\begin{comment}
+  何種類かの操作で「閉じさせる」という構成方法について\SecRef{section:帰納法と再帰}を読み終わって議論が分かれば,
+  ここに引用しておく.
+\end{comment}
 
 \begin{definition}[構成列と整式(E:p17~18,\ K:p26~27)]
   \label{definition:構成列と整式}
- 表現の集合$\mathcal{E}$の有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が\textbfgt{construction sequence}{構成列}であるとは,
+ 表現の集合$\SetOfExpression$の有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が\textbfgt{construction sequence}{構成列}であるとは,
  各$i\leq n$に対して(1)から(3)のいずれかをみたすときをいう.
  \index{ぶんろんり@文論理!こうせいれつ@構成列}\index{sentential logic!construction sequence}
  \index{こうせいれつ@構成列}\index{construction sequence}
@@ -478,18 +513,20 @@ $\alpha,\beta$は文論理の記号ではなく,
  \index{ぶんろんり@文論理!しせいしき@整式}\index{sentential logic!well-formed formula}
  \index{しせいしき@整式}\index{well-formed formula}
 
- すべての整式の集合は今後$\mathcal{F}$で表すことにする.
+ すべての整式の集合は今後$\SetOfWff$で表すことにする.
  \footnote{
    これもテキストではこの記号を与えたりはしていませんが,
    個人的に便利なことが多かったので定めておきました.
  }
 \end{definition}
+\RegisterInSymbolList{$\SetOfWff$}{文論理の整式の集合}{definition:構成列と整式}
 
-いまだけの記法として$\mathcal{P}$を文記号の集合,
+明らかに$\SetOfWff \subseteq \SetOfExpression$である.
+
 $\mathcal{E}_2$を2項結合記号の集合とするとき,
 有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が構成列であることは論理式で
 \begin{equation*}
- \forall i<n\big(\ \varepsilon_i\in \mathcal{P}\ \lor\ \exists j< i( \varepsilon_i=\mathcal{E}_{\lnot}( \varepsilon_j ) )\ \lor\ \exists j,k< i\exists \square \in \mathcal{E}_2 ( \varepsilon_i=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)
+ \forall i<n\big(\ \varepsilon_i\in \SetOfSentenceSymbol\ \lor\ \exists j< i( \varepsilon_i=\mathcal{E}_{\lnot}( \varepsilon_j ) )\ \lor\ \exists j,k< i\exists \square \in \mathcal{E}_2 ( \varepsilon_i=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)
 \end{equation*}
 と書ける.
 ここで$\mathcal{E}_{\square}$という書き方は直感的にはわかりやすいが,
@@ -504,9 +541,10 @@ $\exists j,k< i\exists \square \in \mathcal{E}_2 ( \varepsilon_i=\mathcal{E}_{\s
 と書くべきだろうが,
 ここで初めて$\mathcal{E}_{\lor}$に含まれている$\lor$と,
 各論理式をつないでいる$\lor$とで記号の衝突が起きている.
-これが頭の中で完全に区別できている人たちの中で議論のさいにこう書くなら問題はないが（それでも多分良い顔はしないと思うけれど）,
+これが頭の中で完全に区別できている人たちの中で,
+議論のさいにこう書くなら問題はないが（それでも多分良い顔はしないと思うけれど）,
 初学者には余計な誤解やそれによる遠回りを与える可能性がある.
-ゆえにテキストでは（おそらく意図的に）一貫して（\ChapRef{chapter:導入}のような別に論理学に直接関係する概念でなくても）何かを定義するさいには,
+ゆえにテキストでは（おそらく意図的に）一貫して（\ChapRef{chapter:集合についての予備知識}のような別に論理学に直接関係する概念でなくても）何かを定義するさいには,
 日常言語で述べることにしたのであろう.
 
 \begin{example}
@@ -520,7 +558,7 @@ $\exists j,k< i\exists \square \in \mathcal{E}_2 ( \varepsilon_i=\mathcal{E}_{\s
 \end{example}
 
 ここでテキストでは系統樹による説明がある（これより前から何度か登場しているけれど）.
-\ChapRef{chapter:導入}によると木概念は非形式的な議論にしか使わないと書いてある.
+\ChapRef{chapter:集合についての予備知識}によると木概念は非形式的な議論にしか使わないと書いてある.
 つまり系統樹を使って説明されている事柄はすべて定義に戻ればより厳密な数学的議論をすることができるということなので,
 このノートでは系統樹を使った説明は必要だと思ったときにします.
 \footnote{
@@ -536,20 +574,33 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
 \end{equation*}
 整式$\alpha$の構成列である. \\
 
-ここからさらにテキストに（この時点で）ない注意を例え話を入れながら追加する.
+ここからさらに（この時点で）テキストにない注意を例え話を入れながら追加する.
 \begin{enumerate}
  \item
    たとえば整式$(A_1\land A_2)$の構成列として最も単純なものは$\langle A_1,A_2,(A_1\land A_2)\rangle$であろうが,
    別に$\langle A_2,A_1,(A_1\land A_2)\rangle$でもよい.
    つまり構成列の定義をみたす範囲で文記号が現れる順番を変えてもよい.
    また構成列の定義をみたす範囲で余計な整式を構成列に混ぜてもよい.
-   たとえば$S_1=\langle A_1,A_2,A_3,(A_1\land A_2)\rangle$や$S_2=\langle A_1,A_2,A_3,(\lnot A_3),(A_1\land A_2)\rangle$も$(A_1\land A_2)$の構成列である.
+   たとえば
+   \begin{gather*}
+     S_1=\langle A_1,A_2,A_3,(A_1\land A_2)\rangle, \\
+     S_2=\langle A_1,A_2,A_3,(\lnot A_3),(A_1\land A_2)\rangle
+   \end{gather*}
+   とおくと,
+   $S_1, S_2$どちらも$(A_1\land A_2)$の構成列である.
    しかし$\langle A_1,A_2,A_3,(A_1\land A_2),A_3\rangle$は整式$A_3$の構成列である.
    さらに$\langle A_1,A_2,A_3\rangle$も$\langle A_3,A_3,A_3\rangle$も$A_3$の構成列である.
  \item
    ある構成列の始切片もまた構成列で,
    ゆえになんらかの整式に対応した構成列となる.
-   例えば$S^{\prime}_1=\singleseq{A_1},\ S^{\prime}_2=\op{A_1}{A_2},\ S^{\prime}_3=\langle A_1,A_2,A_3\rangle,\ S^{\prime}_4=\langle A_1,A_2,A_3,(\lnot A_3)\rangle$は,
+   例えば
+   \begin{gather*}
+     S^{\prime}_1=\singleseq{A_1}, \\
+     S^{\prime}_2=\op{A_1}{A_2}, \\
+     S^{\prime}_3=\langle A_1,A_2,A_3\rangle, \\
+     S^{\prime}_4=\langle A_1,A_2,A_3,(\lnot A_3)\rangle
+   \end{gather*}
+   とおくと,
    それぞれ$S_2$の始切片で,
    $S^{\prime}_1$は$A_1$の,
    $S^{\prime}_2$は$A_2$の,
@@ -567,7 +618,13 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  \item
    $A_3,\ (\lnot A_3)$という$(A_1\land A_2)$に含まれていない文記号からなる整式を$S_2$から取り除いても,
    つまり構成列$\langle A_2,A_1,(A_1\land A_2)\rangle$は依然として$(A_1\land A_2)$の構成列のままである.
-   これはもっと一般的に示せる\index{あとでかく@後で書く}.
+   %あとで書く
+   \begin{comment}
+     ある整式の構成列があったとき,
+     その整式に含まれていない文記号を持つ整式がその構成列に含まれていた場合に,
+     そのような整式全てを構成列から除いても,
+     その整式の構成列であることには変わらない.
+   \end{comment}
  \item \label{remark:すべての整式に対しての構成の長さに関する証明の妥当性}
    またこの注意たちの前に整式に対応する構成列は1つではないと述べたが,
    もっといえば無数にある.
@@ -606,9 +663,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    構成に関する帰納法は\textbfgt{structural induction}{構造的帰納法}と呼ばれることもある.
    なので以降は（カッコいい方の）構造的帰納法という呼び名を使っていく.
    \footnote{
-     この呼び方は
-     \url{https://ja.wikipedia.org/wiki/\%E6\%A7\%8B\%E9\%80\%A0\%E7\%9A\%84\%E5\%B8\%B0\%E7\%B4\%8D\%E6\%B3\%95}
-     より知りました.
+     この呼び方はWikipedia『構造的帰納法』\cite{wiki007}より知りました.
    }
    これは次の2つのことを示るやり方である.
    \begin{itemize}
@@ -647,7 +702,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  つまり$m<n$である.
  ここで$\varepsilon_m$は構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$の成分の1つなので,
  \begin{itemize}
-   \item[($1^{\prime}$)] $\varepsilon_m \in \mathcal{P}$.
+   \item[($1^{\prime}$)] $\varepsilon_m \in \SetOfSentenceSymbol$.
    \item[($2^{\prime}$)] $\exists j<m\big(\ \varepsilon_m=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$.
    \item[($3^{\prime}$)] $\exists j,k<m\big(\ \varepsilon_m=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)$.
      ここで$\square$は2項結合記号のいずれかを表す.
@@ -657,7 +712,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  いま有限列$\ntuple{\varepsilon_1}{\varepsilon_{m-1}}$は$\ntuple{\varepsilon_1}{\varepsilon_m}$の真の始切片でかつ帰納法の仮定から構成列なので,
  任意の$i\leq m-1$に対して
  \begin{itemize}
-   \item[($1^{\prime\prime}$)] $\varepsilon_i \in \mathcal{P}$.
+   \item[($1^{\prime\prime}$)] $\varepsilon_i \in \SetOfSentenceSymbol$.
    \item[($2^{\prime\prime}$)] $\exists j<i\big(\ \varepsilon_m=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$.
    \item[($3^{\prime\prime}$)] $\exists j,k<i\big(\ \varepsilon_m=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)$.
      ここで$\square$は2項結合記号のいずれかを表す.
@@ -667,7 +722,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  ここまでの議論をまとめて「」で囲った2つの主張を合わせると,
  任意の$i\leq m$に対して
  \begin{itemize}
-   \item[($1$)] $\varepsilon_m \in \mathcal{P}$.
+   \item[($1$)] $\varepsilon_m \in \SetOfSentenceSymbol$.
    \item[($2$)] $\exists j<m\big(\ \varepsilon_m=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$.
    \item[($3$)] $\exists j,k<m\big(\ \varepsilon_m=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)$.
      ここで$\square$は2項結合記号のいずれかを表す.
@@ -676,18 +731,20 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  これは$\ntuple{\varepsilon_1}{\varepsilon_m}$が構成列になっていることを表している.
 \end{proof}
 
-\begin{theorem}{帰納法の原理(E:p18 INDUCTION PRINCIPLE,\ K:p27 帰納法の原理)}\label{thm:文論理における帰納法の原理}
+\begin{theorem}{帰納法の原理(E:p18 INDUCTION PRINCIPLE,\ K:p27 帰納法の原理)}
+  \label{thm:文論理における帰納法の原理}
  すべての文記号が属し,
  かつすべての式構成操作について閉じている整式の集合は,
  すべての整式からなる集合である.
 \end{theorem}
+\index{ぶんろんり@文論理!きのうほうのげんり@帰納法の原理}\index{sentential logic!Induction Principle}
 
 証明の前にいくつか注意事項を書いておく
 \begin{enumerate}
  \item
    定理の主張の条件をみたしている整式の集合を$\mathcal{A}$で表すことにすると,
-   集合として$\mathcal{A} = \mathcal{F}$を示すことが証明の目的となる.
-   $\mathcal{A}\subseteq \mathcal{F}$であることは明らかなので$\mathcal{F}\subseteq \mathcal{A}$を示すだけでよい.
+   集合として$\mathcal{A} = \SetOfWff$を示すことが証明の目的となる.
+   $\mathcal{A}\subseteq \SetOfWff$であることは明らかなので$\SetOfWff\subseteq \mathcal{A}$を示すだけでよい.
    部分集合の定義に戻ると,
    これは「任意の整式$\alpha$に対して$\alpha \in \mathcal{A}$」を示すことになったため,
    Example \ref{example:構成列}下の注意事項 \ref{remark:すべての整式に対しての構成の長さに関する証明の妥当性}にある通り,
@@ -695,12 +752,12 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    とくにこの場合は累積帰納法を用いて証明する.
  \item
    $\mathcal{A}$がすべての文記号が属するとは,
-   論理式で書けば$A\in \mathcal{P}( A \in \mathcal{A})$となる. \\
+   論理式で書けば$A\in \SetOfSentenceSymbol( A \in \mathcal{A})$となる. \\
    また全ての式構成操作について閉じるということをもう少し厳密に見ると,
-   $\mathcal{E}_{\lnot}$は$\mathcal{E}$上の1項演算,
-   それ以外の式構成操作は$\mathcal{E}$上の2項演算であり,
-   $\mathcal{A}\subseteq \mathcal{E}$である.
-   たとえば$\mathcal{E}_{\lnot}\colon \mathcal{E}\to \mathcal{E}$について,
+   $\mathcal{E}_{\lnot}$は$\SetOfExpression$上の1項演算,
+   それ以外の式構成操作は$\SetOfExpression$上の2項演算であり,
+   $\mathcal{A}\subseteq \SetOfExpression$である.
+   たとえば$\mathcal{E}_{\lnot}\colon \SetOfExpression\to \SetOfExpression$について,
    この演算の$\mathcal{A}$への制限と考えることもできる.
    さらにこの$\mathcal{A}$は$\mathcal{E}_{\lnot}$について閉じている,
    つまり$\forall \alpha \in \mathcal{A}(\mathcal{E}_{\lnot}(\alpha)\in \mathcal{A})$と表すことができる.
@@ -721,16 +778,16 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
  この$\varepsilon_n$が$\mathcal{A}$に属することを示すことが目的である. \\
  構成列の定義から$\varepsilon_n$は以下のいずれかをみたす.
  \begin{itemize}
-   \item[($1$)] $\varepsilon_n \in \mathcal{P}$.
+   \item[($1$)] $\varepsilon_n \in \SetOfSentenceSymbol$.
    \item[($2$)] $\exists j<n\big(\ \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$.
    \item[($3$)] $\exists j,k<n\big(\ \varepsilon_n=\mathcal{E}_{\square}( \varepsilon_j, \varepsilon_k )\ \big)$.
      ここで$\square$は2項結合記号のいずれかを表す.
  \end{itemize}
  それぞれの場合について$\varepsilon_n\in \mathcal{A}$であることを示す.
  \begin{itemize}
-   \item[($1$)] $\varepsilon_n \in \mathcal{P}$のとき. \\
+   \item[($1$)] $\varepsilon_n \in \SetOfSentenceSymbol$のとき. \\
      整式$\varepsilon_n$は文記号一文字の整式であり,
-     仮定より$\mathcal{P} \subseteq \mathcal{A}$だから$\varepsilon_n\in \mathcal{A}$である.
+     仮定より$\SetOfSentenceSymbol \subseteq \mathcal{A}$だから$\varepsilon_n\in \mathcal{A}$である.
    \item[($2$)] $\exists j<n\big(\ \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j )\ \big)$のとき. \\
      そのような$\varepsilon_j$を固定する.
      $\ntuple{\varepsilon_1}{\varepsilon_j}$は,
@@ -758,7 +815,7 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
 
 \begin{proof}[Theorem \ref{thm:文論理における帰納法の原理}の構造的帰納法による証明]
  Theorem \ref{thm:文論理における帰納法の原理}の下に書いた注意事項を参考にして,
- $\mathcal{F}\subseteq \mathcal{A}$,
+ $\SetOfWff\subseteq \mathcal{A}$,
  つまり任意に取った整式が$\mathcal{A}$に属することを示す.
  これについて構造的帰納法を用いる.
  \begin{itemize}
@@ -786,7 +843,6 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    ここに書いたものになっていたので,
    こちらに合わせました.
    この例は後で\LemRef{lemma:文論理の整式の両括弧の数は同じ}にて再度登場するけれど,
-   \index{あとでかく@後で書く}
    そのときの主張の書き方はこちらの書き方に変わっているので,
    この書き方でも問題ないと思いました.
  }
@@ -800,10 +856,10 @@ Example \ref{example:構成列}で私が書いた構成列には「先に使う文記号は列先頭からす
    \item[1.] $\mathcal{A}$には全ての文記号（1つのみの整式）を含むこと
    \item[2.] $\mathcal{A}$は全ての式構成操作について閉じていること
  \end{itemize}
- \ThRef{thm:文論理における帰納法の原理}より$\mathcal{A}=\mathcal{F}$であることがわかる.
+ \ThRef{thm:文論理における帰納法の原理}より$\mathcal{A}=\SetOfWff$であることがわかる.
  \begin{itemize}
    \item[1.] （$\mathcal{A}$には全ての文記号（1つのみの整式）を含むこと） \\
-     任意に$A\in \mathcal{P}$をとる.
+     任意に$A\in \SetOfSentenceSymbol$をとる.
      $A$はそれぞれの括弧記号の数は0個,
      つまり両括弧記号の数は同じなので$A\in \mathcal{A}$である.
    \item[2.] （$\mathcal{A}$は全ての式構成操作について閉じていること） \\

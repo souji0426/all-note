@@ -825,17 +825,17 @@
 \begin{itembox}[l]{Definition \ref{definition:表現}\ \ 表現(E:p15,\ K:p23)\ \ \pageref{definition:表現}ページ}
  \DefRef{definition:有限列}の用語を用いる.
  \begin{itemize}
-   \item[1.] 文論理の記号の集合を以降$\mathcal{S}$で表すことにする.
+   \item[1.] 文論理の記号の集合を以降$\SetOfSymbol$で表すことにする.
    \item[2.]
-     $\mathcal{A}$の要素からなる有限列を\textbfgt{expression}{表現}とよぶ.
+     $\SetOfSymbol$の要素からなる有限列を\textbfgt{expression}{表現}とよぶ.
      \index{ぶんろんり@文論理!ひょうげん@表現}\index{sentential logic!expression}
      \index{ひょうげん@表現}\index{expression}
 
-     またすべての表現の集合を$\mathcal{E}$で表すことにする. \\
-     また表現$\ntuple{s_1}{s_n}$をその成分を順番に並べて$s_1s_2\dots s_{n-1}s_n$と書くこともある.
+     またすべての表現の集合を$\SetOfExpression$で表すことにする. \\
+     また表現$\ntuple{s_1}{s_n}$（ここで各$s_i$は$\SetOfSymbol$の要素である）をその成分を順番に並べて$s_1s_2\dots s_{n-1}s_n$と書くこともある.
      以降どちらの使い方も柔軟に使っていくことにする.
    \item[3.]
-     $\alpha,\beta\in \mathcal{E}$に対してそれぞれ$\alpha=\ntuple{a_1}{a_m},\ \beta=\ntuple{b_1}{b_n}$とするとき,
+     $\alpha,\beta\in \SetOfExpression$に対してそれぞれ$\alpha=\ntuple{a_1}{a_m},\ \beta=\ntuple{b_1}{b_n}$とするとき,
      $\alpha\beta\defeq \langle a_1,\dots,a_m,b_1,\dots,b_n\rangle$として,
      これを$\alpha$と$\beta$の\textbfgt{string concatenation}{文字列連結}とよぶ.
      \index{ぶんろんり@文論理!もじれつけつごう@文字列結合}\index{sentential logic!string concatenation}
@@ -844,7 +844,7 @@
  \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）360		（ラベル）definition:表現
+		\item[]（行数）381		（ラベル）definition:表現
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -861,30 +861,30 @@
  \end{enumerate}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）395		（ラベル）
+		\item[]（行数）420		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Definition 式構成操作(E:p17,\ K:p25)}
- $\alpha,\beta\in \mathcal{E}$と論理記号に対して
+\begin{itembox}[l]{Definition \ref{definition:式構成操作}\ \ 式構成操作(E:p17,\ K:p25)\ \ \pageref{definition:式構成操作}ページ}
+ $\alpha,\beta\in \SetOfExpression$と論理記号に対して
  \begin{itemize}
    \item
      $\mathcal{E}_{\lnot}(\alpha)=(\lnot \alpha)$と定める.
      より厳密には$\mathcal{E}_{\lnot}(\alpha)\defeq \op{(}{\lnot}\alpha \singleseq{)}$であり,
      これはDefinition \ref{definition:表現}で定義した表現の文字列連結である.
-     つまり$\mathcal{E}_{\lnot}$は$\mathcal{E}$上の1変数関数である.
+     つまり$\mathcal{E}_{\lnot}$は$\SetOfExpression$上の1変数関数である.
    \item
    $\mathcal{E}_{\land}(\alpha,\beta)=(\alpha \land \beta)$と定める.
    より厳密には$\mathcal{E}_{\land}(\alpha,\beta)\defeq \singleseq{(} \alpha \singleseq{\land} \beta \singleseq{)} $であり,
-   $\mathcal{E}_{\land}$は$\mathcal{E}$上の2変数関数である. \\
-   同様にして$\mathcal{E}$上の2変数関数として$\mathcal{E}_{\lor},\mathcal{E}_{\to},\mathcal{E}_{\leftrightarrow}$を定義する.
+   $\mathcal{E}_{\land}$は$\SetOfExpression$上の2変数関数である. \\
+   同様にして$\SetOfExpression$上の2変数関数として$\mathcal{E}_{\lor},\mathcal{E}_{\to},\mathcal{E}_{\leftrightarrow}$を定義する.
  \end{itemize}
  これらの5つの演算をあわせて\textbfgt{formula-building operation}{式構成操作}とよぶ.
  \index{ぶんろんり@文論理!しきこうせいそうさ@式構成操作}\index{sentential logic!formula-building operation}
  \index{しきこうせいそうさ@式構成操作}\index{formula-building operation}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）415		（ラベル）
+		\item[]（行数）440		（ラベル）definition:式構成操作
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -901,12 +901,12 @@
  \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）434		（ラベル）definition:（素朴な）整式の定義
+		\item[]（行数）465		（ラベル）definition:（素朴な）整式の定義
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Definition \ref{definition:構成列と整式}\ \ 構成列と整式(E:p17~18,\ K:p26~27)\ \ \pageref{definition:構成列と整式}ページ}
- 表現の集合$\mathcal{E}$の有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が\textbfgt{construction sequence}{構成列}であるとは,
+ 表現の集合$\SetOfExpression$の有限列$\ntuple{\varepsilon_1}{\varepsilon_n}$が\textbfgt{construction sequence}{構成列}であるとは,
  各$i\leq n$に対して(1)から(3)のいずれかをみたすときをいう.
  \index{ぶんろんり@文論理!こうせいれつ@構成列}\index{sentential logic!construction sequence}
  \index{こうせいれつ@構成列}\index{construction sequence}
@@ -923,10 +923,10 @@
  \index{ぶんろんり@文論理!しせいしき@整式}\index{sentential logic!well-formed formula}
  \index{しせいしき@整式}\index{well-formed formula}
 
- すべての整式の集合は今後$\mathcal{F}$で表すことにする.
+ すべての整式の集合は今後$\SetOfWff$で表すことにする.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）462		（ラベル）definition:構成列と整式
+		\item[]（行数）497		（ラベル）definition:構成列と整式
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -934,7 +934,7 @@
  どの整式もそれに含まれる右括弧・左括弧の個数は同じである.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_文論理の言語.tex}
-		\item[]（行数）778		（ラベル）example:文論理の整式の両括弧の数は同じ
+		\item[]（行数）835		（ラベル）example:文論理の整式の両括弧の数は同じ
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1002,11 +1002,11 @@
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Definition 真理値割り当て(E:p20~21,\ K:p30~32)}
-  $\mathcal{A}\subseteq \mathcal{P}$とする.
+\begin{itembox}[l]{Definition \ref{definition:真理値割り当て}\ \ 真理値割り当て(E:p20~21,\ K:p30~32)\ \ \pageref{definition:真理値割り当て}ページ}
+  $\mathcal{A}\subseteq \SetOfSentenceSymbol$とする.
   \begin{itemize}
     \item[1.]
-      \DefRef{def:記号}とは別に新たに2つの記号を用意する.
+      \DefRef{definition:記号}とは別に新たに2つの記号を用意する.
       それらを$F$（これを\textbfgt{falsity}{偽}とよぶ）,
       $T$（これを\textbfgt{truth}{真}とよぶ）とする.
     \item[2.]
@@ -1058,7 +1058,7 @@
   \index{しんりちわりあて@真理値割り当て}\index{truth assignment}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
-		\item[]（行数）5		（ラベル）
+		\item[]（行数）5		（ラベル）definition:真理値割り当て
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1073,13 +1073,13 @@
   $\bar{v}(\alpha)=T$である.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
-		\item[]（行数）176		（ラベル）example:真理値割り当て
+		\item[]（行数）179		（ラベル）example:真理値割り当て
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Theorem E:p23 THEOREM 12A,\ K:p34 定理 12A}
-  集合$\mathcal{A}\subseteq \mathcal{P}$へのどんな真理値割り当て$v$についても,
-  \DefRef{def:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
+  集合$\mathcal{A}\subseteq \SetOfSentenceSymbol$へのどんな真理値割り当て$v$についても,
+  \DefRef{definition:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
 		\item[]（行数）194		（ラベル）
@@ -1087,21 +1087,19 @@
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Definition \ref{definition:論理式の充足関係}\ \ 充足関係(E:p23~24,\ K:p34~36)\ \ \pageref{definition:論理式の充足関係}ページ}
-  整式の集合$\Sigma$と整式$\tau,\sigma$,
-  そして$\mathcal{A}_{\tau}, \mathcal{A}_{\Sigma,\tau}$をそれぞれ$\tau$,
-  $\Sigma,\tau$に含まれるすべての文記号の集合とする.
+  整式の集合$\Sigma$と整式$\tau,\sigma$に対して,
   \begin{itemize}
     \item[1.]
-      $\mathcal{A}_{\tau}\subseteq \dom(v)$な真理値割り当て$v$に対して$\bar{v}(\tau)=T$であるとき,
+      $\SetOfSentenceSymbol(\tau)\subseteq \dom(v)$な真理値割り当て$v$に対して$\bar{v}(\tau)=T$であるとき,
       $v$ \textbf{satisfies} $\tau$（$v$は$\tau$を\textgt{充足する}）という.
     \item[2.]
-      $\mathcal{A}_{\Sigma,\tau}$を定義域として含むすべての真理値割り当てに対して,
+      $\SetOfSentenceSymbol(\Sigma) \cup \SetOfSentenceSymbol(\tau)$を定義域として含むすべての真理値割り当てに対して,
       それが$\Sigma$のすべての要素を充足するならば$\tau$をも充足するとき,
       $\Sigma$ \textbf{tautologically implies} $\tau$（$\Sigma$は$\tau$を\textgt{トートロジー的に含意する}）といい,
       $\Sigma \models \tau$で表す.
     \item[3.]
       $\emptyset\models \tau$であるとき,
-      つまり$\mathcal{A}_{\tau}$を定義域として含むどんな真理値割り当ても$\tau$を充足するとき,
+      つまり$\SetOfSentenceSymbol(\tau)$を定義域として含むどんな真理値割り当ても$\tau$を充足するとき,
       $\tau$は\textbfgt{tautology}{トートロジー}であるといい,
       単に$\models \tau$で表す.
     \item[4.]
@@ -1109,7 +1107,7 @@
       つまり$\{ \sigma \}\models \tau$であるとき単に$\sigma \models \tau$と表すことにする. \\
       $\sigma \models \tau$かつ$\tau \models \sigma$であるとき,
       $\sigma$と$\tau$は\textbfgt{tautologically equivalent}{トートロジー的に同値}であるといい,
-      $\sigma \models $\rotatebox[origin=c]{180}{$\models$}$\tau$で表す. \qedhere
+      $\sigma \TautoEquiv \tau$で表す. \qedhere
   \end{itemize}
   \index{ぶんろんり@文論理!じゅうそくする@充足する}\index{sentential logic!satisfy}
   \index{じゅうそくする@充足する}\index{satisfy}
@@ -1121,12 +1119,12 @@
   \index{とーとろじーてきにどうち@トートロジー的に同値}\index{tautologically equivalent}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
-		\item[]（行数）199		（ラベル）definition:論理式の充足関係
+		\item[]（行数）219		（ラベル）definition:論理式の充足関係
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Example \ref{example:トートロジー}\ \ E:p23,\ K:p35~36\ \ \pageref{example:トートロジー}ページ}
-  $A,B\in \mathcal{P}$とする.
+  $A,B\in \SetOfSentenceSymbol$とする.
   \begin{itemize}
     \item[1,]
       \ExRef{example:真理値割り当て}で挙げた整式$\alpha$と真理値割り当て$v$について,
@@ -1138,11 +1136,11 @@
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
-		\item[]（行数）240		（ラベル）example:トートロジー
+		\item[]（行数）259		（ラベル）example:トートロジー
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Theorem コンパクト性定理(E:p24 COMPACTNESS THEOREM,\ K:p36 コンパクト性定理)}
+\begin{itembox}[l]{Theorem \ref{thm:文論理のコンパクト性定理}\ \ コンパクト性定理(E:p24 COMPACTNESS THEOREM,\ K:p36 コンパクト性定理)\ \ \pageref{thm:文論理のコンパクト性定理}ページ}
   $\Sigma$は無限個の整式からなる集合で,
   いかなる$\Sigma$の有限な部分集合$\Sigma_0$についても,
   $\Sigma_0$のすべての要素を同時に充足する真理値割り当てが存在するとする.
@@ -1150,7 +1148,22 @@
   $\Sigma$のすべての要素を同時に充足する真理値割り当てが存在する.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_真理値割り当て.tex}
-		\item[]（行数）333		（ラベル）
+		\item[]（行数）352		（ラベル）thm:文論理のコンパクト性定理
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Lemma \ref{lemma:文論理の整式の両括弧の数は同じ}\ \ E:p30 LEMMA 13A,\ K:p46 補題13A\ \ \pageref{lemma:文論理の整式の両括弧の数は同じ}ページ}
+  どの整式もそれに含まれる右括弧・左括弧の個数は同じである.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_構文解析のアルゴリズム/subsection_構文解析のアルゴリズム.tex}
+		\item[]（行数）5		（ラベル）lemma:文論理の整式の両括弧の数は同じ
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Lemma \ref{lemma:文論理の整式の真の始切片は左括弧の方が多い}\ \ E:p30 LEMMA 13B,\ K:p46 補題13A\ \ \pageref{lemma:文論理の整式の真の始切片は左括弧の方が多い}ページ}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_不完全性定理勉強会ノート/chapter_文論理/section_構文解析のアルゴリズム/subsection_構文解析のアルゴリズム.tex}
+		\item[]（行数）10		（ラベル）lemma:文論理の整式の真の始切片は左括弧の方が多い
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}

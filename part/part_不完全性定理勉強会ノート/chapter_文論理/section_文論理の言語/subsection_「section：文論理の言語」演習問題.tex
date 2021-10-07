@@ -83,7 +83,7 @@
 \end{comment}
 
 \begin{proposition}
-  \label{prop:式構成操作を行った整式は長さが4以上}
+  \label{proposition:式構成操作を行った整式は長さが4以上}
  いずれかの式構成操作の結果となっている整式は長さが4以上である.
  つまり文記号1文字という表現でない整式は,
  その長さは4以上となる.
@@ -103,7 +103,7 @@
 \end{proof}
 
 \begin{proposition}
-  \label{prop:整式でない表現の式構成操作の結果も整式でない}
+  \label{proposition:整式でない表現の式構成操作の結果も整式でない}
  整式でない表現に式構成操作を行っても整式にはならない. \\
  もっというと$\alpha$を整式でない表現とすると$\mathcal{E}_{\lnot}(\alpha)$は整式でない. \\
  2つの表現$\alpha,\beta$のどちらか1つは整式でないとすると,
@@ -115,11 +115,11 @@
  すると整式でないということは$\alpha$を末項とするようないかなる表現の有限列も構成列とはならない. \\
  $\mathcal{E}_{\lnot}(\alpha)$が整式となるとすると,
  構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$が存在して$\varepsilon_n=\mathcal{E}_{\lnot}(\alpha)$となっている.
- 構成列の定義\DefRef{def:構成列と整式}から$\exists j<n\big( \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j ) \big)$となっているから,
+ 構成列の定義\DefRef{definition:構成列と整式}から$\exists j<n\big( \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j ) \big)$となっているから,
  そのような$j$を固定すると,
  $\varepsilon_j = \alpha$である.
  すると$\ntuple{\varepsilon_1}{\varepsilon_j}$は$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
- \PropRef{prop:構成列の始切片は構成列}から$\ntuple{\varepsilon_1}{\varepsilon_j}$も構成列である.
+ \PropRef{proposition:構成列の始切片は構成列}から$\ntuple{\varepsilon_1}{\varepsilon_j}$も構成列である.
  $\ntuple{\varepsilon_1}{\varepsilon_j}$という構成列の存在から$\alpha$が整式となるが,
  これは矛盾. \\
  2つの表現$\alpha,\beta$のどちらか1つは整式でないとする.
@@ -146,7 +146,7 @@
      $\alpha$を長さが2である表現とする.
      $\alpha$はその長さから文記号1文字だけの表現ではないため,
      何らかの式構成操作の結果であるが,
-     \PropRef{prop:式構成操作を行った整式は長さが4以上}よりいずれの式構成操作の結果も長さが4以上になり,
+     \PropRef{proposition:式構成操作を行った整式は長さが4以上}よりいずれの式構成操作の結果も長さが4以上になり,
      長さが2である$\alpha$は整式ではない. \\
      $\alpha$の長さが3である場合も同様なので省略する.
    \item どんな長さが6の表現も整式でないこと \\
@@ -158,7 +158,7 @@
      $\beta$の長さは3である.
      しかし長さが3の整式は存在しないため,
      $\beta$も整式でない.
-     そして\PropRef{prop:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない. \\
+     そして\PropRef{proposition:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない. \\
      続いてなんらかの表現$\beta_1, \beta_2$があって,
      $\alpha = \mathcal{E}_{\land}( \beta_1, \beta_2 )$となっていたとする.
      すると$\alpha$は$( \beta_1 \land \beta_2 )$という形の表現であり,
@@ -166,7 +166,7 @@
      どちらかは2という配分になっている.
      かりに$\beta_1$の長さを2とすると,
      長さが2の整式は存在しないため$\beta_1$は整式でない.
-     そして\PropRef{prop:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない.
+     そして\PropRef{proposition:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない.
      他の2項結合記号に関しても同様なので省略する.
    \item 長さが$1,4,5$の整式が存在すること \\
      $A,A^{\prime}$を文記号のいずれかとする.
@@ -260,14 +260,14 @@
  もともと$\ntuple{\varepsilon_1}{\varepsilon_n}$のどの表現にも$A_4$が含まれていなかったことになり,
  証明することがなくなってしまうので,
  $m<n$としておく. \\
- \DefRef{def:構成列と整式}より$\ntuple{\varepsilon_1}{\varepsilon_n}$は「$\forall i\leq n(\ (1)\lor(2)\lor(3)\ )$」をみたしている.
+ \DefRef{definition:構成列と整式}より$\ntuple{\varepsilon_1}{\varepsilon_n}$は「$\forall i\leq n(\ (1)\lor(2)\lor(3)\ )$」をみたしている.
  いま,
  $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$が構成列でなかったとする.
  つまり「$\exists i^{\prime}\leq m(\ \lnot(1^{\prime})\land \lnot(2^{\prime})\land \lnot(3^{\prime})\ )$」として,
  そんな$i^{\prime}$を1つ固定する.
  ここで
  \begin{itemize}
-   \item[$\lnot(1^{\prime})$] $\varepsilon^{\prime}_{i^{\prime}}\notin \mathcal{P}$.
+   \item[$\lnot(1^{\prime})$] $\varepsilon^{\prime}_{i^{\prime}}\notin \SetOfSentenceSymbol$.
    \item[$\lnot(2^{\prime})$] $\forall j<i^{\prime}\big(\ \varepsilon^{\prime}_{i^{\prime}}\neq \mathcal{E}_{\lnot}( \varepsilon^{\prime}_j )\ \big)$.
    \item[$\lnot(3^{\prime})$] $\forall j,k<i^{\prime}\big(\ \varepsilon^{\prime}_{i^{\prime}}\neq \mathcal{E}_{\square}( \varepsilon^{\prime}_j, \varepsilon^{\prime}_k )\ \big)$. \\
      ここで$\square$は2項結合記号のいずれかを表す.
@@ -304,7 +304,7 @@
 
 \begin{proof}
  (a)(b)に関してテキストのヒントを使って同時に示す. \\
- $\mathcal{A}\subseteq \mathcal{F}$を否定記号$\lnot$を含まない整式の集合とする.
+ $\mathcal{A}\subseteq \SetOfWff$を否定記号$\lnot$を含まない整式の集合とする.
  整式に含まれる左括弧記号の個数
  \footnote{
    別の言い方をすれば,
