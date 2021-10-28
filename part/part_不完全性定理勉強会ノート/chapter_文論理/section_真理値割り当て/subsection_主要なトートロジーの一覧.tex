@@ -1,6 +1,47 @@
 \documentclass[C:/math/note-logic-intro/note]{subfiles}
 
 \begin{document}
+\begin{enumerate}
+  \item $\land,\lor,\leftrightarrow$の結合律と交換律.
+    \footnote{
+      テキストでは結合律と交換律と書いてあるだけでした.
+      いくらある程度数学に慣れている学部3年から4年の学生向け（このことは原著のまえがきに書いてあります）とはいえ,
+      一例だけでも書いてあげた方が丁寧かなと思い,
+      追記しました.
+    }
+    ここでは$\land$のみ記す \\
+    associative laws（結合律）：$(\ ((A\land B)\land C)\ \leftrightarrow\ (A\land (B\land C))\ )$. \\
+    commutative laws（交換律）：$(\ (A\land B)\ \leftrightarrow\ (B\land A)\ )$.
+    \index{けつごうりつ@（文結合記号の）結合律}\index{associative laws}
+    \index{こうかんりつ@（文結合記号の）交換律}\index{commutative laws}
+  \item distributive laws（分配律）
+    \begin{gather*}
+      (\ ( A\land ( B\lor C) )\ \leftrightarrow\ ( (A\land B) \lor (A\land C) )\ ). \\
+      (\ ( A\lor ( B\land C) )\ \leftrightarrow\ ( (A\lor B) \land (A\lor C) )\ ).
+    \end{gather*}
+    \index{ぶんぱいりつ@（文結合記号の）分配律}\index{distributive laws}
+  \item 否定
+    \begin{itemize}
+      \item[] $(\ (\lnot(\lnot A))\ \leftrightarrow\ A\ )$.
+      \item[] $(\ (\lnot(A\to B))\ \leftrightarrow\ (A\land (\lnot B))\ )$.
+      \item[] $(\ (\lnot (A\leftrightarrow B))\ ( (A\land (\lnot B)) \lor ((\lnot A) \land B))\ \ )$.
+      \item[] de Morgan' laws（ド・モルガンの法則）
+        \begin{gather*}
+          (\ (\lnot (A\land B))\ \leftrightarrow\ ((\lnot A) \lor (\lnot B))\ ). \\
+          (\ (\lnot (A\lor B))\ \leftrightarrow\ ((\lnot A) \land (\lnot B))\ ).
+        \end{gather*}
+    \end{itemize}
+    \index{どもるがんのほうそく@（文結合記号の）ド・モルガンの法則}\index{de Morgan' laws}
+  \item その他
+    \begin{itemize}
+      \item[] excluded middle（排中律）：$( A\lor (\lnot A))$.
+      \item[] contradiction（矛盾律）：$(\lnot (A \land (\lnot A)))$.
+      \item[] 対偶：$(\ (A\to B)\ \leftrightarrow\ ( (\lnot B)\to (\lnot A) )\ )$.
+      \item[] 移出：$(\ ( (A\land B)\to C )\ \leftrightarrow\ (A\to (B\to C))\ )$.
+    \end{itemize}
+    \index{はいちゅうりつ@排中律}\index{excluded middle}
+    \index{むじゅんりつ@矛盾律}\index{contradiction}
+\end{enumerate}
 
 
 \end{document}

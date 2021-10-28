@@ -167,11 +167,13 @@ sub make_list_and_output {
   print $fh "\t" x 1 . "\\begin\{center\}\n";
   print $fh "\t" x 2 . "\{ \\renewcommand\\arraystretch{1.5}\n";
 
-  my $column_setting = "|c|c|c|" x $num_of_column;
+  #my $column_setting = "|c|c|c|" x $num_of_column;
+  my $column_setting = "|c|c|" x $num_of_column;
   print $fh "\t" x 3 . "\\begin\{tabular\}\{${column_setting}\}\n";
   print $fh "\t" x 4 . "\\hline\n";
 
-  my $part_of_header = "記号 & 説明 & 頁数";
+  #my $part_of_header = "記号 & 説明 & 頁数";
+  my $part_of_header = "記号 & 頁数";
   my @array;
   for ( my $i = 0; $i < $num_of_column; $i++ ){
     push( @array, $part_of_header );
@@ -196,16 +198,17 @@ sub make_one_line {
   for ( my $i = 1; $i < $num_of_column+1; $i++ ){
     my $target_num = $num_of_column * $row + $i;
     my $symbol = "";
-    my $explanation_str = "";
+    #my $explanation_str = "";
     my $label_str = "";
     if ( exists( $data->{sprintf( "%03d", $target_num )} ) ) {
       $symbol = $data->{sprintf( "%03d", $target_num )}->{"symbol"};
-      my $explanation = $data->{sprintf( "%03d", $target_num )}->{"explanation"};
-      $explanation_str = "\\multicolumn\{1\}\{|l|\}\{${explanation}\}";
+      #my $explanation = $data->{sprintf( "%03d", $target_num )}->{"explanation"};
+      #$explanation_str = "\\multicolumn\{1\}\{|l|\}\{${explanation}\}";
       my $label = $data->{sprintf( "%03d", $target_num )}->{"label"};
       $label_str = "\\pageref\{${label}\}";
     }
-    my $part_of_one_line = "${symbol} & ${explanation_str} & ${label_str}";
+    #my $part_of_one_line = "${symbol} & ${explanation_str} & ${label_str}";
+    my $part_of_one_line = "${symbol} & ${label_str}";
     push( @array, $part_of_one_line );
   }
   return "\t\t\t" . join( " & ", @array ) . "  \\\\ \\hline\n";

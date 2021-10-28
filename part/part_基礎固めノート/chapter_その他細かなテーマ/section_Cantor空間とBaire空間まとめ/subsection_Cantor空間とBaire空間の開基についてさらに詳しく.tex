@@ -1,0 +1,416 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
+この節ではこれまで使用してきた\PropRef{proposition:Cantor空間とBaire空間の開基}の証明を目標とします.
+つまり何故全てのbasic open setの集合が,
+どちらの空間においてもその空間の開基になるのかをまとめてみます.
+
+もう一度一般的に議論すると,
+添え字集合が$\omega$,
+各因子空間の台集合が$X$であるような直積位相空間$\MapSet{\omega}{X}$において,
+その位相は$\mathcal{G}\subseteq \mathcal{P}(\MapSet{\omega}{X})$を
+\begin{equation*}
+  \mathcal{G}\ =\ \SetBar{ p^{-1}_i[O] }{ i\in \omega\land \text{$O$は$X$のopen set} }
+\end{equation*}
+とおいたときの,
+$\mathcal{G}$が生成する位相のことでした.
+ここで各$\in \omega$において$p_i$は第$i$成分の射影です.
+
+$\CantorSp$において$\mathcal{G}$がどのような集合になるか見てみます.
+$\CantorSp$において各因子空間$2$には離散位相が入っています.
+よって位相空間$2$では$\emptyset,\{ 0 \},\{ 1 \},2$の4つが開集合です.
+それぞれの開集合の,
+各射影での逆像がどのようになるのかというと,
+ある$i\in \omega$において$p^{-1}_i[\emptyset]=\emptyset$です.
+$p^{-1}_i[ \{ 0 \} ]$とは,
+$\CantorSp$の各要素を$0,1$の可算列と捉えた場合第$i$成分が$0$になっているような,
+$\CantorSp$の各要素を$\omega$から$2$への関数と捉えた場合$i$を$0$に写すような,
+そんなものたちの集合になっています.
+つまり後者でとらえた場合は,
+\begin{equation*}
+  p^{-1}_i[ \{ 0 \} ]\ =\ \SetBar{ f\in \CantorSp }{ f(i)=0 }
+\end{equation*}
+です.
+$\{ 1 \}$も同様にして$p^{-1}_i[ \{ 1 \} ]\ =\ \SetBar{ f\in \CantorSp }{ f(i)=1 }$となります.
+そして$p^{-1}_i[2]$とは$\CantorSp$の要素の中で$i$の値が$0$または$1$になっているもの全体ということで,
+つまり$p^{-1}_i[2]=\CantorSp$となります.
+一般的には$O\subseteq 2$に対して
+\begin{equation*}
+  p^{-1}_i[ O ]\ =\ \SetBar{ f\in \CantorSp }{ f(i)\in O }
+\end{equation*}
+となります.
+
+$\BaireSp$においても同様に各因子空間$\omega$には離散位相が入っている,
+つまり$\omega$のどの部分集合も$\omega$の開集合です.
+なので$O\subseteq \omega$に対して
+\begin{equation*}
+  p^{-1}_i[ O ]\ =\ \SetBar{ f\in \BaireSp }{ f(i)\in O }
+\end{equation*}
+となります.
+
+開集合$O$が一元集合のときは,
+$p^{-1}_i[ O ]$は1つのbasic setになります.
+それを元にする有限部分関数のための記法を用意します.
+
+\begin{definition}[]
+  \label{definition:有限定義域なωから自然数への関数}
+  $i,i_0,\dots,i_n\in \omega$に対して
+  \begin{itemize}
+    \item $k\in 2$に対して$\FinitlyDomeinFunc{i}{k}\ =\ \{ \op{i}{k} \}$と定めます.
+      つまり$i$を$k$に写すというたった1つの対応規則のみの関数のことです.
+      $k\in \omega$に対しても同様に$\FinitlyDomeinFunc{i}{k}$を定めます.
+    \item
+      $k_0,\dots,k_n\in 2$に対して
+      \begin{equation*}
+        \FinitlyDomeinFunc{i_0,\dots,i_n}{k_0,\dots,k_n}\ =\ \SetBar{ \op{i_m}{k_m} }{ 0\leq m \leq n }
+      \end{equation*}
+      として定め,
+      $k_0,\dots,k_n\in \omega$についても同様に定める. \qedhere
+  \end{itemize}
+\end{definition}
+\RegisterInSymbolList{$\FinitlyDomeinFunc{i}{k}$}{$i\in \omega$を$k$に写す関数}{definition:有限定義域なωから自然数への関数}
+\RegisterInSymbolList{$\FinitlyDomeinFunc{i_0,\dots,i_n}{k_0,\dots,k_n}$}{$i_0,\dots,i_n\in \omega$を$k_0,\dots,k_n$に写す関数}{definition:有限定義域なωから自然数への関数}
+
+つまり$k\in 2$に対して$p^{-1}_i[ \{ k \} ]=O(\FinitlyDomeinFunc{i}{k})$となります.
+$k\in \omega$の場合も同様です.
+より一般的には以下のようになります.
+
+\begin{proposition}[]
+  $A\subseteq 2$に対して$p^{-1}_i[ A ]=\bigcup_{a\in A}O(\FinitlyDomeinFunc{i}{a})$.
+  $A\subseteq \omega$の場合も同様.
+
+  とくに
+  \begin{gather*}
+    p^{-1}_i[ 2 ]\ =\ O(\FinitlyDomeinFunc{i}{0})\cup O(\FinitlyDomeinFunc{i}{1})\ =\ \CantorSp. \\
+    p^{-1}_i[ \omega ]\ =\ \bigcup_{k\in \omega}O(\FinitlyDomeinFunc{i}{k})\ =\ \BaireSp. \qedhere
+  \end{gather*}
+\end{proposition}
+
+よって$\CantorSp$の場合,
+$\mathcal{G}$は
+\begin{align*}
+  \mathcal{G}\ &=\ \SetBar{ p^{-1}_i[ \emptyset ] }{ i\in \omega }\ \cup\  \SetBar{ p^{-1}_i[ \{ 0 \ ] }{ i\in \omega }
+  \ \cup \ \SetBar{ p^{-1}_i[ \{ 1 \ ] }{ i\in \omega }\ \cup \ \SetBar{ p^{-1}_i[ 2 ] }{ i\in \omega } \\
+  &=\ \{ \emptyset,\emptyset,\dots \}\ \cup\ \{ \ O(\FinitlyDomeinFunc{0}{0}),O(\FinitlyDomeinFunc{0}{1}),\dots\  \}
+  \ \cup\ \{ \ O(\FinitlyDomeinFunc{1}{0}),O(\FinitlyDomeinFunc{1}{1}),\dots\  \}\ \cup\ \{ \CantorSp,\CantorSp,\dots \} \\
+  &=\ \{ \emptyset,\CantorSp \}\ \cup\ \SetBar{O(\FinitlyDomeinFunc{i}{0})}{i\in \omega}\ \cup\ \SetBar{O(\FinitePartialFunctions{)i}{1}}{i\in \omega} \\
+  &=\ \{ \emptyset,\CantorSp \}\ \cup\ \SetBar{O(\FinitlyDomeinFunc{i}{k})}{i\in \omega\land k\in 2}
+\end{align*}
+となります.
+$\BaireSp$の場合$\mathcal{G}$は同様にして
+\begin{equation*}
+  \mathcal{G}\ =\ \{ \emptyset, \BaireSp \}\ \cup\ \SetBar{O(\FinitlyDomeinFunc{i}{k})}{i\in \omega\land k\in \omega}
+\end{equation*}
+となります.
+
+ここまでの議論をまとめておきます.
+
+\begin{proposition}[]
+  \label{proposition:Cantor空間やBaire空間の位相を生成している集合}
+  $\mathcal{G}_2\subseteq \mathcal{P}(\CantorSp),\mathcal{G}_{\omega}\subseteq \mathcal{P}(\BaireSp)$を
+  \begin{gather*}
+    \mathcal{G}_2\ =\ \{ \emptyset,\CantorSp \}\ \cup\ \SetBar{O(\FinitlyDomeinFunc{i}{k})}{i\in \omega\land k\in 2}, \\
+    \mathcal{G}_{\omega}\ =\ \{ \emptyset, \BaireSp \}\ \cup\ \SetBar{O(\FinitlyDomeinFunc{i}{k})}{i\in \omega\land k\in \omega}
+  \end{gather*}
+  とすると,
+  Cantor空間の位相は$\mathcal{G}_2$が生成する位相,
+  Baire空間の位相は$\mathcal{G}_{\omega}$が生成する位相である.
+\end{proposition}
+
+もう一度位相空間論に戻ると,
+ある集合$\mathcal{G}$が生成する位相とは,
+$\mathcal{G}$の全ての要素を開集合とするような最弱の位相で,
+それは\LemRef{lemma:生成された位相の開集合の表現}より$\mathcal{G}$を準基とするような,
+つまり開基の$\mathcal{G}$の要素の有限個の共通部分全体になります.
+よってそんな開基を$\mathcal{B}$とおくと
+\begin{equation*}
+  \mathcal{B}\ =\ \SetBar{ \bigcap_{0\leq i\leq n}G_i }{ n\in \omega\land G_0,\dots,G_n\in \mathcal{G} }
+\end{equation*}
+です.
+
+よって先ほどの\PropRef{proposition:Cantor空間やBaire空間の位相を生成している集合}での$\mathcal{G}_2$や$\mathcal{G}_{\omega}$の有限個の要素で共通部分をとるとどのようになるか調べます.
+
+\begin{proposition}[]
+  互いに異なる$i,i_0,\dots,i_n\in \omega$と$A_0,\dots,A_n\subseteq \omega$に対して
+  \begin{enumerate}
+    \item
+      $k_0,k_1\in 2$が$k_0\neq k_1$ならば$O(\FinitlyDomeinFunc{i}{k_0})\cap O(\FinitlyDomeinFunc{i}{k_1})=\emptyset$. \\
+      より一般的には$O(\FinitlyDomeinFunc{i}{k})\cap O(\FinitlyDomeinFunc{i}{1-k})=\emptyset$.
+    \item
+      $k_0,\dots,k_n\in 2$に対して$\displaystyle\bigcap_{0\leq m\leq n}O(\FinitlyDomeinFunc{i_m}{k_m})=O(\FinitlyDomeinFunc{i_0,\dots,i_n}{k_0,\dots,k_n})$.
+    \item
+      $k_0,\dots,k_n\in \omega$に対して$\displaystyle\bigcap_{0\leq m\leq n}O(\FinitlyDomeinFunc{i}{k_m})=\emptyset$.
+    \item
+      $(\displaystyle\bigcup_{a\in A_0}O(\FinitlyDomeinFunc{i}{a}))\cap (\displaystyle\bigcup_{a\in A_1}O(\FinitlyDomeinFunc{i}{a}))=\displaystyle\bigcup_{a\in A_0\cap A_1}O(\FinitlyDomeinFunc{i}{a})$. \\
+      とくに$A_0\cap A_1=\emptyset$のとき$(\displaystyle\bigcup_{a\in A_0}O(\FinitlyDomeinFunc{i}{a}))\cap (\displaystyle\bigcup_{a\in A_1}O(\FinitlyDomeinFunc{i}{a}))=\emptyset$.
+    \item
+      $\displaystyle\bigcap_{0\leq m\leq n}\big(\ \displaystyle\bigcup_{a\in A_m}O(\FinitlyDomeinFunc{i_m}{a})\ \big)=\displaystyle\bigcup_{a_0\in A_0,\dots,a_n\in A_n}O(\FinitlyDomeinFunc{i_0,\dots,i_n}{a_0,\dots,a_n})$. \qedhere
+  \end{enumerate}
+\end{proposition}
+
+\begin{comment}
+\SecRef{subsection:Cantor空間とBaire空間の定義}や\SecRef{subsection:Cantor空間とBaire空間の別の開基表現}での2つの空間の定義は,
+そこまで位相空間論的に議論しない場合に,
+そしてそこまでこれらの空間そのものに注目しない（どんな集合が開集合になるかだけ分かっていればよいとか）場合に,
+一番わかりやすい最適な定義だと思われます（\cite{Game001}ではそんな議論の進め方をしています）.
+例えば\cite{Set008}ではCantor空間の位相とは$\mathcal{B}_{\vartriangleleft}$が生成する位相としており,
+何が開基になるかは（生成するということの定義より分かるから）明記されていません.
+これ以外にも別の言い方でこの空間の位相を定めているものもあるかもしれません.
+それらのテキストにおける位相空間$2^{\omega}$や$\omega^{\omega}$たちは,
+みんな同じモノなのか気になりました. \\
+
+\SecRef{subsection:Cantor空間とBaire空間の定義}と\SecRef{subsection:Cantor空間とBaire空間の別の開基表現}において,
+$\mathcal{B}_{<},\mathcal{B}_{\vartriangleleft}$のどちらもそれぞれの空間の開基としてよいことを示しました（\PropRef{proposition:Cnator空間・Baire空間の開基の別表現}）.
+この節ではもう少し位相空論論的に議論して開基について再考してみます. \\
+
+少し一般的に議論します.
+添え字集合が$\Lambda$,
+因子空間が全て離散位相空間$(X,\mathcal{P}(X))$であるような直積位相空間$X^{\Lambda}$について,
+\DefRef{definition:一般直積位相空間}より
+\begin{equation*}\label{equation:Cantor空間・Baire空間の生成元}
+  \mathcal{G}\ =\ \{\  p^{-1}_{\lambda}[O]\ |\  O\in\mathcal{O}_{\lambda} \}
+\end{equation*}
+とおくと,
+直積位相空間$X^{\Lambda}$の位相は$\mathcal{G}$が生成する位相です.
+\LemRef{lemma:直積空間の開基の表現}より$X^{\Lambda}$の開集合とは,
+$\mathcal{G}$の「有限個の要素の共通部分」の和集合で表現される,
+つまり
+\begin{equation*}\label{equation:Cantor空間・Baire空間の開基}
+  \mathcal{B}\ =\ \{\ \bigcap_{0\leq i\leq n}G_i\ |\ n\in \omega, G_0,\dots,G_i\in \mathcal{G}\ \}
+\end{equation*}
+を開基とする位相です.
+ここで$p_{\lambda}$とは$\lambda$成分への射影でした. \\
+
+Cantor空間やBaire空間では$\Lambda=\omega$なので,
+$i\in \omega$を用いて$p_i$と表せます.
+例えば$A\subseteq 2^{\omega}$を$f(i)=0$な$f\in 2^{\omega}$の集合とすると,
+$\forall f\in A(p_i(f)=0)$,
+つまり$p_i[A]=\{ 0 \}$です.
+また$\forall i\in \omega\big(\ p_i[2^{\omega}]=\{ 0,1\}= 2\ \big)$ですし,
+$\forall i\in \omega\big(\ p_i[\omega^{\omega}]=\omega\ \big)$です.
+
+そしてこれらの空間では因子空間である$2$や$\omega$には離散位相が入っているため,
+どんな$A\subseteq 2$や$A\subseteq \omega$も開集合です.
+つまり式\ref{equation:Cantor空間・Baire空間の生成元}にある$O$の候補は$2$や$\omega$の部分集合が該当します.
+たとえば$A=\{ k \}$な一元集合とすると,
+これもどちらにおいても開集合です.
+すると$p^{-1}_i[ \{ k \} ]$とは$f(i)=k$な$f$の集合となります.
+この射影の逆像はこれまでのbasic open setで表現することができます.
+
+\begin{definition}[]
+  $i\in \omega,k\in 2$に対して関数$s_{i=k}\colon \{ i \}\to 2$を$s_{i=k}(i)=k$なる関数とする. \\
+  $k\in \omega$に対しても同様にして$s_{i=k}\colon \{ i \}\to \omega$を定める.
+\end{definition}
+
+つまり$s_{i=k}$とはたった1つの対応規則のみの関数です.
+順序対として捉えると$s_{i=k}=\{ \op{i}{k} \}$です. \\
+
+すると明らかに$p^{-1}_i[ \{ k \} ]= O(s_{i=k})$です. \\
+
+しかし1元集合以外にも開集合はあります.
+たとえば$2^{\omega}$にて考えると$2=\{ 0,1 \}$も$2$の開集合なので,
+ある$n\in \omega$に対して$p^{-1}_i[\{ 0,1 \} ]$も$\mathcal{G}$に属します.
+$p^{-1}_i[\{ 0,1 \} ]$とは（$2^{\omega}$を$0,1$の可算列の集合と捉えると）第$i$成分が,
+もしくは関数としての$i$の値が$0$または$1$になるような$f\in 2^{\omega}$の集合,
+つまり$2^{\omega}$そのものになります.
+またbasic open setで表現すれば$p^{-1}_i[\{ 0,1 \} ]=O(s_{i=0})\cup O(s_{i=1})$です.
+$2^{\omega}$においてはどんな$i\in \omega$においても$O(s_{i=0})\cup O(s_{i=1})=2^{\omega}$です.
+$O(s_{i=0})\cup O(s_{i=1})=2^{\omega}$は一つのbasic open setで表現することはできません.
+そして離散位相空間$2$には$\emptyset$という開集合もあり,
+逆像の定義から$p^{-1}_i[\emptyset]=\emptyset$です.
+これもまた一つのbasic open setで表現することはできません.
+つまり$\mathcal{G}$の要素は$O(s_{i=k})$のような集合だけではないということです. \\
+
+$\omega^{\omega}$においては$p^{-1}_i[\{ k_1,k_2 \} ]=O(s_{i=k_1})\cup O(s_{i=k_2})$となり,
+$2^{\omega}$と同様,
+$p^{-1}_i[\omega]=\omega^{\omega},p^{-1}_i[\emptyset]=\emptyset$です.
+たとえば$A\subseteq \omega$を$\omega$の偶数全体の集合という開集合とするなら,
+$p^{-1}_i[A]=\bigcup_{k\in A}O(s_{i=k})=\bigcup_{k\in \omega}O(s_{i=2k})$です.
+つまりより一般的な$A\subseteq \omega$に対して$p^{-1}_i[A]=\bigcup_{k\in A}O(s_{i=k})$です.
+
+ここまでの離散位相空間としての$2$や$\omega$における開集合の,
+射影の逆像に関する議論を結果としてまとめておきます.
+
+\begin{proposition}[]
+  $2^{\omega}$において,
+  $k\in 2$と$A\subseteq 2$に対して
+  \begin{itemize}
+    \item[(1)] $A=\emptyset$ならば$\forall i\in \omega \big( p^{-1}_i[\emptyset]=\emptyset \big)$.
+    \item[(2)] $A=\{ k \}$ならば$\forall i\in \omega \big( p^{-1}_i[ A ]= O(s_{i=k}) \big)$.
+    \item[(3)] $A=2$ならば$\forall i\in \omega \big( p^{-1}_i[ A ]= 2^{\omega} \big)$.
+  \end{itemize}
+  同様に$\omega^{\omega}$において,
+  $k\in \omega$と$A\subseteq \omega$に対して
+  \begin{itemize}
+    \item[(4)] $A=\emptyset$ならば$\forall i\in \omega \big( p^{-1}_i[\emptyset]=\emptyset \big)$.
+    \item[(5)] $\forall i\in \omega \big( p^{-1}_i[ A ]= \bigcup_{k\in A}O(s_{i=k})) \big)$.
+    \item[(6)] $A=\omega$ならば$\forall i\in \omega \big( p^{-1}_i[ A ]= \omega^{\omega} \big)$. \qedhere
+  \end{itemize}
+\end{proposition}
+
+するとこのような集合たちが$\mathcal{G}$に属します.
+つまり$2^{\omega}$においては
+\begin{equation*}
+  \mathcal{B}\ =\ \{ \emptyset, 2^{\omega} \}\ \cup\  \{\ O(s_{i=k})\ |\ i\in \omega,k\in 2\ \}
+\end{equation*}
+となり,
+$\omega^{\omega}$においては
+\begin{equation*}
+  \mathcal{B}\ =\ \{ \emptyset, \omega^{\omega} \}\ \cup\  \{\ \bigcup_{k\in A}O(s_{i=k}))\ |\ i\in \omega,A\subseteq \omega\ \}
+\end{equation*}
+となります.
+これがこれらの位相空間を生成している集合になります. \\
+
+そして\ref{equation:Cantor空間・Baire空間の開基}より,
+これらの空間の開基は上記のような$\mathcal{G}$の要素の有限な共通部分全体となります.
+なので共通部分の話も含めた,
+basic open setの性質についてまとめておきます.
+
+\begin{proposition}[]
+  $2^{\omega}$において,
+  $i,i_0,\dots,i_n\in \omega,k,k_0,\dots,k_n\in 2$に対して
+  \begin{enumerate}
+    \item \label{subproposition:不一致な1点basic openの共通部分は空}
+      $k_1\neq k_2$ならば$O(s_{i=k_1})\cap O(s_{i=k_2})=\emptyset$である.
+      もっと一般的には$O(s_{i=k})\cap O(s_{i=1-k})=\emptyset$.
+    \item \label{subproposition:1点basic openの有限共通部分は何らかのbasic open}
+      $i_0,\dots,i_n\in \omega$がすべて異なるとすると,
+      $s_{i_m=k_m}$に対して$\bigcap_{0\leq m\leq n}O(s_{i_m=k_m})$は何らかのbasic open setとなる.
+    \item \label{subproposition:関数の拡大関係とbasic openの超集合関係は逆転する}
+      $s_1,s_2\in \mbox{}^{<\omega}2$に対して,
+      $s_2$が$s_1$の拡大ならば$O(s_2)\subseteq O(s_1)$,
+      そしてゆえに$O(s_1)\cap O(s_2) = O(s_2)$.
+    \item \label{subproposition:2つのbasic openの共通部分は空か何らかのbasic open}
+      $s_1,s_2\in \mbox{}^{<\omega}2$に対して,
+      $O(s_1)\cap O(s_2)$は$\emptyset$か,
+      何らかのbasic open setとなる.
+    \item \label{subproposition:basic openは有限個のbasic openの共通部分で表現可能}
+      どんな$s\in \mbox{}^{<\omega}2$に対しても,
+      有限個の$s_0,\dots,s_n\in \mbox{}^{<\omega}2$があって,
+      $O(s)=\bigcap_{0\leq m\leq n}O(s_i)$となる.
+    \item \label{subproposition:Cantor空間の要素はbasic openの共通部分で表現可能}
+      どんな$f\in 2^{\omega}$に対しても,
+      $\{ s_{\lambda} \}_{\lambda\in \Lambda} \subseteq \mbox{}^{<\omega}2$があって,
+      $\{ f \}=\bigcap_{\lambda\in \Lambda}O(s_{\lambda})$となる.
+  \end{enumerate}
+  同様に$\omega^{\omega}$において,
+  $i,i_0,\dots,i_n\in \omega,k_0,\dots,k_n\in \omega$に対して
+  \begin{enumerate}
+    \setcounter{enumi}{6}
+    \item $k_1\neq k_2$ならば$O(s_{i=k_1})\cap O(s_{i=k_2})=\emptyset$である.
+    \item
+      $i_0,\dots,i_n\in \omega$がすべて異なるとすると,
+      $s_{i_m=k_m}$に対して$\bigcap_{0\leq m\leq n}O(s_{i_m=k_m})$は何らかのbasic open setとなる.
+    \item
+      $s_1,s_2\in \mbox{}^{<\omega}\omega$に対して,
+      $s_2$が$s_1$の拡大ならば$O(s_2)\subseteq O(s_1)$,
+      そしてゆえに$O(s_1)\cap O(s_2) = O(s_2)$.
+    \item
+      $s_1,s_2\in \mbox{}^{<\omega}\omega$に対して,
+      $O(s_1)\cap O(s_2)$は$\emptyset$か,
+      何らかのbasic open setとなる.
+    \item
+      どんな$s\in \mbox{}^{<\omega}\omega$に対しても,
+      有限個の$s_0,\dots,s_n\in \mbox{}^{<\omega}\omega$があって,
+      $O(s)=\bigcap_{0\leq m\leq n}O(s_i)$となる.
+    \item
+      どんな$f\in \omega^{\omega}$に対しても,
+      $\{ s_{\lambda} \}_{\lambda\in \Lambda} \subseteq \mbox{}^{<\omega}\omega$があって,
+      $\{ f \}=\bigcap_{\lambda\in \Lambda}O(s_{\lambda})$となる. \qedhere
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  (7)から(12)は(1)から(6)と同様に示せるので割愛する.
+  \begin{enumerate}
+    \item
+      $k_1\neq k_2$な$k_1,k_2\in 2$に対し$O(s_{i=k_1})\cap O(s_{i=k_2})\neq \emptyset$と仮定し,
+      $f\in O(s_{i=k_1})\cap O(s_{i=k_2})$な$f\in 2^{\omega}$をとる.
+      $f\in O(s_{i=k_1})$より$f(i)=k_1$,
+      かつ$f\in O(s_{i=k_2})$より$f(i)=k_2$だが,
+      これは$f$が関数であることに矛盾する.
+      よって$O(s_{i=k_1})\cap O(s_{i=k_2})=\emptyset$.
+
+    \item
+      $s\colon \{ i_0,\dots,i_n \}\to 2$を$s(i_m)= s_{i_m=k_m}(i_m)=k_m$で定めると,
+      $s$は$i_0,\dots,i_n\in \omega$がすべて異なることから確かに関数になっている.
+      すると$\bigcap_{0\leq m\leq n}O(s_{i_m=k_m})=O(s)$である.
+
+      \begin{sub-block}{{\boldmath $\because$}\,}
+        それぞれの包含関係を示す.
+        \begin{itemize}
+          \item[] （$\bigcap_{0\leq m\leq n}O(s_{i_m=k_m}) \subseteq O(s)$） \\
+            任意に$f\in \bigcap_{0\leq m\leq n}O(s_{i_m=k_m})$をとる.
+            各$m$において$f\in O(s_{i_m=k_m})$より$f$は$s_{i_m=k_m}$の拡大,
+            つまり$\forall i\in \bigcup_{0\leq m\leq n}\dom(s_{i_m=k_m})\big(\ f(i)=s_{i_m=k_m}(i)\ \big)$.
+            そして$\bigcup_{0\leq m\leq n}\dom(s_{i_m=k_m})=\{ i_0,\dots,i_n \}=\dom(s)$より
+            $f\restric \{ i_0,\dots,i_n \}= s$,
+            つまり$f$は$s$の拡大である.
+            つまり$f\in O(s)$.
+          \item[] （$O(s) \subseteq \bigcap_{0\leq m\leq n}O(s_{i_m=k_m})$） \\
+            任意に$f\in O(s)$をとると$f$は$s$の拡大より
+            $0\leq m\leq n$な$m$に対して$f\restric \{ i_m \} = s\restric \{ i_m \} = s_{i_m=k_m}$だから,
+            $f\in O(s_{i_m=k_m})$.
+            これがどの$m$についても成立しているから$f\in \bigcap_{0\leq m\leq n}O(s_{i_m=k_m})$.
+        \end{itemize}
+      \end{sub-block}
+
+    \item
+      任意に$f\in O(s_2)$をとると,
+      $f\restric \dom(s_2)=s_2$,
+      そして$s_2$が$s_1$の拡大より$s_2\restric\dom(s_1)=s_1$だから,
+      $f\restric \dom(s_1)=s_2\restric \dom(s_1)=s_1$,
+      つまり$f\in O(s_1)$.
+
+    \item
+      $\forall i \in \dom(s_1)\cap \dom(s_2)\big(\ s_1(i)=s_2(i)\ \big)$かそうでないか,
+      つまり$\exists i\in \dom(s_1)\cap \dom(s_2)\big(\ s_1(i) \neq s_2(i)\ \big)$で場合分けする.
+
+      \begin{itemize}
+        \item $\forall i \in \dom(s_1)\cap \dom(s_2)\big(\ s_1(i)=s_2(i)\ \big)$なとき \\
+          $\map{s}{\dom(s_1)\cup \dom(s_2)}{2}$を
+          $s(i)=
+            \begin{cases}
+              s_1(i) & i\in \dom(s_1)\setminus \dom(s_2) \\
+              s_1(i)\text{（} =s_2(i) \text{）} & i\in \dom(s_1)\cap \dom(s_2) \\
+              s_2(i) & i\in \dom(s_2)\setminus \dom(s_1)
+            \end{cases}$
+          で定めると（この$s$の定義は$\dom(s_1)\cap \dom(s_2)=\emptyset$なときも有効です）,
+          $s$は確かに関数になっていて,
+          $O(s_1)\cap O(s_2)=O(s)$である.
+
+          \begin{sub-block}{{\boldmath $\because$}\,}
+
+          \end{sub-block}
+
+        \item $\exists i\in \dom(s_1)\cap \dom(s_2)\big(\ s_1(i) \neq s_2(i)\ \big)$なとき \\
+
+      \end{itemize}
+
+    \item
+      任意に$s\in \mbox{}^{<\omega}2$をとり,
+      $\dom(s) = \{ i_0,\dots,i_n \}$とおくと,
+      (2)も参考にして$O(s)=\bigcap_{0\leq m\leq n}O(s_{i_m=s(i_m)})$となる.
+      そんな$O(s_{i_0=s(i_0)}),\dots,O(s_{i_n=s(i_n)})$の存在から証明終わり. \\
+      他の例はいくつもある.
+      例えば$X_0,\dots,X_n\subseteq \dom(s)$を$\dom(s)$の分割として,
+      $s_i\colon X_i\to 2$を$s\restric X_i=s_i$で定めると,
+      $O(s) = \bigcap_{0\leq i\leq n}O(s_i)$である.
+      これは(2)と同様に示すことができるので省略する.
+      1つ上の解答はこれの分割の一例になっている. \\
+      2つ目の例えとして,
+      集合列$X_0\subsetneq \dots \subsetneq X_n$を$X_0\neq \emptyset$かつ$X_n=\dom(s)$なるものとしてとり,
+      先の例と同様に$s_i$を定めても$O(s) = \bigcap_{0\leq i\leq n}O(s_i)$である. \\
+      より一般的に$X_0,\dots,X_n$を$\bigcup_{0\leq i\leq n}X_i=\dom(s)$なるものとしてとり,
+      また同様に$s_i$を定めても$O(s) = \bigcap_{0\leq i\leq n}O(s_i)$である.
+    \item
+
+      \qedhere
+  \end{enumerate}
+\end{proof}
+\end{comment}
+
+
+
+\end{document}

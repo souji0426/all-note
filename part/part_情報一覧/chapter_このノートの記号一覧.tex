@@ -2,43 +2,46 @@
 
 \begin{document}
 
-\section{0部　不完全性定理勉強会ノート}
-\label{section:0部　不完全性定理勉強会ノート}
+\section{1部　不完全性定理勉強会ノート}
+\label{section:1部　不完全性定理勉強会ノート}
 
 \begin{table}[H]
 	\begin{center}
 		{ \renewcommand\arraystretch{1.5}
-			\begin{tabular}{|c|c|c||c|c|c|}
+			\begin{tabular}{|c|c||c|c||c|c||c|c|}
 				\hline
-				記号 & 説明 & 頁数 & 記号 & 説明 & 頁数  \\ \hline \hline
-			$A;t$ & \multicolumn{1}{|l|}{集合$A$の要素に$t$を加える演算} & \pageref{definition:セミコロン演算} & $\defeq$ & \multicolumn{1}{|l|}{オブジェクトを定義するための記号} & \pageref{notetion:定義するための記号}  \\ \hline
-			$\defarr$ & \multicolumn{1}{|l|}{述語を定義するための記号} & \pageref{notetion:定義するための記号} & $\emptyset$ & \multicolumn{1}{|l|}{空集合} & \pageref{definition:空集合}  \\ \hline
-			$\mathbb{N}$ & \multicolumn{1}{|l|}{自然数全体の集合} & \pageref{notation:自然数全体の集合} & $\mathbb{Z}$ & \multicolumn{1}{|l|}{整数全体の集合} & \pageref{notation:整数全体の集合}  \\ \hline
-			$\mathbb{R}$ & \multicolumn{1}{|l|}{実数全体の集合} & \pageref{notation:実数全体の集合} & $A\subseteq B$ & \multicolumn{1}{|l|}{集合$A$は$B$の部分集合である} & \pageref{definition:部分集合関係}  \\ \hline
-			$\mathcal{P}(X)$ & \multicolumn{1}{|l|}{集合$X$の）べき集合} & \pageref{definition:べき集合} & $A \cup B$ & \multicolumn{1}{|l|}{集合$A$と$B$の和集合} & \pageref{definition:和集合}  \\ \hline
-			$A \cap B$ & \multicolumn{1}{|l|}{集合$A$と$B$の共通部分} & \pageref{definition:共通部分} & $\bigcup\mathcal{A}$ & \multicolumn{1}{|l|}{集合族$\mathcal{A}$の和集合} & \pageref{definition:集合族の和集合}  \\ \hline
-			$\bigcap\mathcal{A}$ & \multicolumn{1}{|l|}{集合族$\mathcal{A}$の共通部分} & \pageref{definition:集合族の共通部分} & $\op{x}{y}$ & \multicolumn{1}{|l|}{$x$と$y$の順序対} & \pageref{definition:順序対}  \\ \hline
-			$X\times Y$ & \multicolumn{1}{|l|}{集合$X$と$Y$の直積集合} & \pageref{definition:直積集合} & $\dom(R)$ & \multicolumn{1}{|l|}{関係$R$の定義域} & \pageref{definition:関係}  \\ \hline
-			$\ran(R)$ & \multicolumn{1}{|l|}{関係$R$の値域} & \pageref{definition:関係} & $\fld(R)$ & \multicolumn{1}{|l|}{関係$R$の領域} & \pageref{definition:関係}  \\ \hline
-			$\map{f}{X}{Y}$ & \multicolumn{1}{|l|}{集合$X$から$Y$への写像・関数} & \pageref{definition:写像} & $\InjectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{集合$X$から$Y$への単射写像$f$} & \pageref{definition:単射}  \\ \hline
-			$\SurjectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{集合$X$から$Y$への全射写像$f$} & \pageref{definition:全射} & $\BijectionMap{f}{X}{Y}$ & \multicolumn{1}{|l|}{集合$X$から$Y$への全単射写像$f$} & \pageref{definition:全単射}  \\ \hline
-			$\id_X$ & \multicolumn{1}{|l|}{集合$X$上の恒等写像} & \pageref{definition:恒等写像} & $[x]$ & \multicolumn{1}{|l|}{$x$の同値類} & \pageref{definition:同値類}  \\ \hline
-			$A\backslash{R}$ & \multicolumn{1}{|l|}{集合$A$の関係$R$による商集合} & \pageref{definition:商集合} & $\sim$ & \multicolumn{1}{|l|}{集合の対等関係} & \pageref{definition:集合の対等関係}  \\ \hline
-			$\card ( A )$ & \multicolumn{1}{|l|}{集合$A$の基数・濃度} & \pageref{definition:基数・濃度} & $A \preceq B$ & \multicolumn{1}{|l|}{$A$は$B$でおさえられている} & \pageref{definition:集合がおさえられているという関係}  \\ \hline
-			$\leq$ & \multicolumn{1}{|l|}{基数の大小関係} & \pageref{definition:基数の大小関係} & $\aleph_0$ & \multicolumn{1}{|l|}{自然数全体の集合の濃度} & \pageref{notation:アレフ記法}  \\ \hline
-			$2^{\aleph_0}$ & \multicolumn{1}{|l|}{実数全体の集合の濃度} & \pageref{notation:アレフ記法} & $+$ & \multicolumn{1}{|l|}{基数の和} & \pageref{definition:基数の演算}  \\ \hline
-			$\cdot$ & \multicolumn{1}{|l|}{基数の積} & \pageref{definition:基数の演算} & $($ & \multicolumn{1}{|l|}{文論理の左括弧記号} & \pageref{definition:記号}  \\ \hline
-			$)$ & \multicolumn{1}{|l|}{文論理の右括弧記号} & \pageref{definition:記号} & $\lnot$ & \multicolumn{1}{|l|}{文論理の否定記号} & \pageref{definition:記号}  \\ \hline
-			$\land$ & \multicolumn{1}{|l|}{文論理の連言記号} & \pageref{definition:記号} & $\lor$ & \multicolumn{1}{|l|}{文論理の宣言記号} & \pageref{definition:記号}  \\ \hline
-			$\to$ & \multicolumn{1}{|l|}{文論理の条件記号} & \pageref{definition:記号} & $\leftrightarrow$ & \multicolumn{1}{|l|}{文論理の双条件記号} & \pageref{definition:記号}  \\ \hline
-			$A_n$ & \multicolumn{1}{|l|}{文論理の$n$番目の文記号} & \pageref{definition:記号} & $\SetOfSentenceSymbol$ & \multicolumn{1}{|l|}{文論理の文記号の集合} & \pageref{notation:文記号の集合}  \\ \hline
-			$\SetOfSymbol$ & \multicolumn{1}{|l|}{文論理の記号の集合} & \pageref{definition:表現} & $\SetOfExpression$ & \multicolumn{1}{|l|}{文論理の表現の集合} & \pageref{definition:表現}  \\ \hline
-			$\mathcal{E}_{\lnot}$ & \multicolumn{1}{|l|}{$\lnot$を付ける式構成操作} & \pageref{definition:式構成操作} & $\mathcal{E}_{\land}$ & \multicolumn{1}{|l|}{$\land$でつなげる式構成操作} & \pageref{definition:式構成操作}  \\ \hline
-			$\mathcal{E}_{\lor}$ & \multicolumn{1}{|l|}{$\lor$でつなげる式構成操作} & \pageref{definition:式構成操作} & $\mathcal{E}_{\to}$ & \multicolumn{1}{|l|}{$\to$でつなげる式構成操作} & \pageref{definition:式構成操作}  \\ \hline
-			$\mathcal{E}_{\leftrightarrow}$ & \multicolumn{1}{|l|}{$\leftrightarrow$でつなげる式構成操作} & \pageref{definition:式構成操作} & $\SetOfWff$ & \multicolumn{1}{|l|}{文論理の整式の集合} & \pageref{definition:構成列と整式}  \\ \hline
-			$T$ & \multicolumn{1}{|l|}{文論理における真理値の真} & \pageref{definition:真理値割り当て} & $F$ & \multicolumn{1}{|l|}{文論理における真理値の偽} & \pageref{definition:真理値割り当て}  \\ \hline
-			$\Sigma \models \tau$ & \multicolumn{1}{|l|}{$\Sigma$は$\tau$をトートロジー的に含意する} & \pageref{definition:トートロジー的に含意する} & $\models \tau$ & \multicolumn{1}{|l|}{$\Sigma$は$\tau$はトートロジーである} & \pageref{definition:トートロジー}  \\ \hline
-			$\TautoEquiv$ & \multicolumn{1}{|l|}{トートロジー的に同値} & \pageref{definition:トートロジー} &  &  &   \\ \hline
+				記号 & 頁数 & 記号 & 頁数 & 記号 & 頁数 & 記号 & 頁数  \\ \hline \hline
+			$A;t$ & \pageref{definition:セミコロン演算} & $\defeq$ & \pageref{notetion:定義するための記号} & $\defarr$ & \pageref{notetion:定義するための記号} & $\emptyset$ & \pageref{definition:空集合}  \\ \hline
+			$\mathbb{N}$ & \pageref{notation:自然数全体の集合} & $\mathbb{Z}$ & \pageref{notation:整数全体の集合} & $\mathbb{R}$ & \pageref{notation:実数全体の集合} & $A\subseteq B$ & \pageref{definition:部分集合関係}  \\ \hline
+			$\mathcal{P}(X)$ & \pageref{definition:べき集合} & $A \cup B$ & \pageref{definition:和集合} & $A \cap B$ & \pageref{definition:共通部分} & $\bigcup\mathcal{A}$ & \pageref{definition:集合族の和集合}  \\ \hline
+			$\bigcap\mathcal{A}$ & \pageref{definition:集合族の共通部分} & $\op{x}{y}$ & \pageref{definition:順序対} & $X\times Y$ & \pageref{definition:直積集合} & $\dom(R)$ & \pageref{definition:関係}  \\ \hline
+			$\ran(R)$ & \pageref{definition:関係} & $\fld(R)$ & \pageref{definition:関係} & $\map{f}{X}{Y}$ & \pageref{definition:写像} & $\InjectionMap{f}{X}{Y}$ & \pageref{definition:単射}  \\ \hline
+			$\SurjectionMap{f}{X}{Y}$ & \pageref{definition:全射} & $\BijectionMap{f}{X}{Y}$ & \pageref{definition:全単射} & $\id_X$ & \pageref{definition:恒等写像} & $[x]$ & \pageref{definition:同値類}  \\ \hline
+			$A\backslash{R}$ & \pageref{definition:商集合} & $\sim$ & \pageref{definition:集合の対等関係} & $\card ( A )$ & \pageref{definition:基数・濃度} & $A \preceq B$ & \pageref{definition:集合がおさえられているという関係}  \\ \hline
+			$\leq$ & \pageref{definition:基数の大小関係} & $\aleph_0$ & \pageref{notation:アレフ記法} & $2^{\aleph_0}$ & \pageref{notation:アレフ記法} & $+$ & \pageref{definition:基数の演算}  \\ \hline
+			$\cdot$ & \pageref{definition:基数の演算} & $($ & \pageref{definition:記号} & $)$ & \pageref{definition:記号} & $\lnot$ & \pageref{definition:記号}  \\ \hline
+			$\land$ & \pageref{definition:記号} & $\lor$ & \pageref{definition:記号} & $\to$ & \pageref{definition:記号} & $\leftrightarrow$ & \pageref{definition:記号}  \\ \hline
+			$A_n$ & \pageref{definition:記号} & $\SetOfSentenceSymbol$ & \pageref{notation:文記号の集合} & $\SetOfSymbol$ & \pageref{definition:表現} & $\SetOfExpression$ & \pageref{definition:表現}  \\ \hline
+			$\mathcal{E}_{\lnot}$ & \pageref{definition:式構成操作} & $\mathcal{E}_{\land}$ & \pageref{definition:式構成操作} & $\mathcal{E}_{\lor}$ & \pageref{definition:式構成操作} & $\mathcal{E}_{\to}$ & \pageref{definition:式構成操作}  \\ \hline
+			$\mathcal{E}_{\leftrightarrow}$ & \pageref{definition:式構成操作} & $\SetOfWff$ & \pageref{definition:構成列と整式} & $T$ & \pageref{definition:真理値割り当て} & $F$ & \pageref{definition:真理値割り当て}  \\ \hline
+			$\Sigma \models \tau$ & \pageref{definition:トートロジー的に含意する} & $\models \tau$ & \pageref{definition:トートロジー} & $\TautoEquiv$ & \pageref{definition:トートロジー} &  &   \\ \hline
+			\end{tabular}
+		}
+	\end{center}
+\end{table}
+
+\section{2部　基礎固めノート}
+\label{section:2部　基礎固めノート}
+
+\begin{table}[H]
+	\begin{center}
+		{ \renewcommand\arraystretch{1.5}
+			\begin{tabular}{|c|c||c|c||c|c||c|c|}
+				\hline
+				記号 & 頁数 & 記号 & 頁数 & 記号 & 頁数 & 記号 & 頁数  \\ \hline \hline
+			$\CantorSp$ & \pageref{definition:Cantor空間とBaire空間} & $\BaireSp$ & \pageref{definition:Cantor空間とBaire空間} & $\MapSet{<\omega}{A}$ & \pageref{definition:定義域がωの有限部分関数全体} & $O(s)$ & \pageref{definition:basic open set}  \\ \hline
+			$\MapSet{\vartriangleleft\omega}{2}$ & \pageref{definition:定義域が自然数で値域が2やωの関数全体の集合} & $\MapSet{\vartriangleleft\omega}{\omega}$ & \pageref{definition:定義域が自然数で値域が2やωの関数全体の集合} & $\trianglelefteq$ & \pageref{definition:有限列が始切片であるという関係} & $||$ & \pageref{definition:有限列同士のどちらかが始切片という関係}  \\ \hline
+			$\FinitlyDomeinFunc{i}{k}$ & \pageref{definition:有限定義域なωから自然数への関数} & $\FinitlyDomeinFunc{i_0,\dots,i_n}{k_0,\dots,k_n}$ & \pageref{definition:有限定義域なωから自然数への関数} &  &  &  &   \\ \hline
 			\end{tabular}
 		}
 	\end{center}

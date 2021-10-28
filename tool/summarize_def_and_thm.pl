@@ -213,7 +213,7 @@ sub output_items {
       my @label_array = split( " , ", $label );
       my $num_of_label_array = @label_array;
       if ( $num_of_label_array > 1 ) {
-        $label = @label_array[0];
+        $label = $label_array[0];
       }
       my $title = $environment_name .
                       "\ \\ref\{" . $label . "\}\\ \\ " .

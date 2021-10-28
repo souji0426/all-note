@@ -1,0 +1,145 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
+何らかの位相空間が与えられたとき,
+どんな集合がその空間の開集合になっているかは,
+1つの（もしかしたら一番大事な）関心事だと思います.
+\DefRef{definition:Cantor空間とBaire空間}で定義した2つの位相空間の開集合はどのようなものか説明します.
+
+まずは以下のような関数の集合を定義します.
+
+\begin{definition}[]
+  \label{definition:定義域がωの有限部分関数全体}
+  集合$A$に対して
+  \vspace{-0.3cm}
+  \begin{align*}
+    &\MapSet{<\omega}{A}\ \defeq\ \SetBar{s}{ \exists X\subseteq \omega\big(\  |X|<\omega\ \land\ \map{s}{X}{A} \ \big) } \\
+    &=\ \SetBar{ \map{s}{X}{A} }{  X\subseteq \omega \land\ |X|<\omega }. \qedhere
+  \end{align*}
+\end{definition}
+\RegisterInSymbolList{$\MapSet{<\omega}{A}$}{$\omega$から集合$A$への有限部分関数全体の集合}{definition:定義域がωの有限部分関数全体}
+%あとで書く
+\begin{comment}
+  公理的集合論の入門ノートで一般的な有限部分関数全体集合を定義したらここにリンクを貼る.
+\end{comment}
+
+$A=2$とした$\MapSet{<\omega}{2}$について考えると,
+$s\in \MapSet{<\omega}{2}$とはその定義から,
+定義域が$\omega$の有限部分集合で,
+値域が$2$であるような,
+何らかの関数のことです.
+$t\in \MapSet{<\omega}{\omega}$も同様に定義域が$\omega$の有限部分集合で,
+値域が$\omega$であるような,
+何らかの関数のことです.
+このような関数には以下のような名前が付いています.
+
+\begin{definition}[]
+  \label{definition:定義域がωの有限部分関数}
+  $s\in \MapSet{<\omega}{2}$と$t\in \MapSet{<\omega}{\omega}$に対して
+  \begin{itemize}
+    \item $s$は$\omega$から$2$への\textgtbf{有限部分関数}{finite partial function}という.
+    \item $t$は$\omega$から$\omega$への\textgtbf{有限部分関数}{finite partial function}という.
+  \end{itemize}
+  ゆえに$\MapSet{<\omega}{2}$は$\omega$から$2$への有限部分関数全体の集合に,
+  $\MapSet{<\omega}{\omega}$は$\omega$から$\omega$への有限部分関数全体の集合になります.
+\end{definition}
+\index{finite partial function}
+\index{ゆうげんぶぶんかんすう@（定義域が$\omega$である）有限部分関数}
+
+finite partial functionという名前は\cite{Set005}の173ページを参考にして,
+有限部分関数はそれを訳したものです.
+
+各$s\in \MapSet{<\omega}{2}$や$t\in \MapSet{<\omega}{\omega}$を用いることで,
+$\CantorSp$や$\BaireSp$の部分集合を定義します.
+
+\begin{definition}[]
+  \label{definition:basic open set}
+  $s\in \MapSet{<\omega}{2}$と$t\in \MapSet{<\omega}{\omega}$に対して
+  \vspace{-0.3cm}
+  \begin{align*}
+    O(s)\ &\defeq\ \SetBar{f\in \CantorSp}{ \forall n\in \dom{s}\big(\ s(n)=f(n)\ \big) } \\
+    &=\ \SetBar{f\in \CantorSp}{ s=f\restric \dom(s) } \\
+    &=\ \SetBar{f\in \CantorSp}{ \text{$f$は$s$の拡大} }.
+  \end{align*}
+  同様に$O(t)\ \defeq\ \SetBar{f\in \CantorSp}{ \forall n\in \dom{t}\big(\ t(n)=f(n)\ \big) }$. \\
+  $O(s)$を$s$を元にした$\CantorSp$の\textbf{basic set}とよぶ.
+  同様に$O(t)$を$t$を元にした$\BaireSp$の\textbf{basic set}とよぶ.
+  \footnote{
+    一般的には「$s$を元にした」は付けない.
+    ただ言葉の成り立ちからそのような前置きが必要ではと感じてこのように名前を付けました.
+  }
+\end{definition}
+\index{basic set}
+\RegisterInSymbolList{$O(s)$}{Cantor空間やBaire空間のbasic open set}{definition:basic open set}
+
+$O(s)$という記法は\cite{Game001}を参考にしています.
+この$O(s)$はテキストによっては$[s]$と表したりします（例えば\cite{Set008}など）.
+
+$O(s)$や$O(t)$は$s,t$を拡大した関数全体の集合であり,
+その定義から$O(s)\subseteq \CantorSp,\ O(t)\subseteq \BaireSp$です.
+
+このbasic setでもって$\CantorSp$や$\BaireSp$の開集合を表現します.
+
+\begin{proposition}[]
+  \label{proposition:Cantor空間とBaire空間の開基}
+  集合$\mathcal{B}$に対して
+  \begin{itemize}
+    \item
+      $\mathcal{B}=\SetBar{O(s)}{s\in \MapSet{<\omega}{2}}$のとき,
+      $\mathcal{B}\subseteq \CantorSp$はCantor空間の開基である.
+    \item
+    $\mathcal{B}=\SetBar{O(s)}{ s\in \MapSet{<\omega}{\omega} }$のとき,
+    $\mathcal{B}\subseteq \BaireSp$はBaire空間の開基である. \qedhere
+  \end{itemize}
+\end{proposition}
+
+この証明は○○にてやることにします（今はこの空間たちを使えるようになることだけを目的としてます）.
+%あとで書く
+\begin{comment}
+  Cantor空間やBaire空間で何が開基になるかを解説し終えたら,
+  ここの○○を埋める.
+\end{comment}
+
+つまり集合$O\subseteq \CantorSp$が$\CantorSp$の開集合ならば,
+ある$\mathcal{A}\subseteq \mathcal{B}$があって$O=\bigcup \mathcal{A}$となっている.
+よって$\mathcal{O}\subseteq \mathcal{P}(\CantorSp)$を$\CantorSp$の開集合系とすると,
+$\mathcal{O}=\SetBar{\bigcup\mathcal{A}}{\mathcal{A}\subseteq \mathcal{B}}$となります.
+Baire空間も同様です.
+
+開基の定義からbasic setはCantor空間やBaire空間の開集合です.
+%あとで書く
+\begin{comment}
+  basic setが開集合であることを示したら,
+  ここにリンクをはる.
+\end{comment}
+よって一般的にはbasic setは\textbf{basic open set}と呼ばれることが多いです.
+\index{basic open set}
+
+位相空間の定義から$\emptyset,\CantorSp$は$\CantorSp$の開集合です.
+$\emptyset\in \mathcal{O}$であるとは$\mathcal{A}\subseteq \mathcal{B}$を$\mathcal{A}=\emptyset$とすれば明らかです.
+
+$\CantorSp\in \mathcal{O}$であることを示すために,
+ある$n\in \omega$を用いて$\map{s_0,s_1}{ \{ n \} }{2}$を$s_i(n)=i$な,
+たった1つの対応規則のみの関数とします.
+関数を順序対の集合としてとらえるなら$s_i=\{ \op{n}{i} \}$です.
+すると$O(s_i)$は$n$の値が$i$になる$\omega$から$2$への関数全体の集合になり,
+$O(s_0)\cup O(s_1)$は$n$の値が$0$か$1$かの$\omega$から$2$への関数全体の集合,
+つまり$\omega$から$2$への関数全体の集合,
+すなわち$\CantorSp$になります.
+よって$\CantorSp\in \mathcal{O}$を示すためには$\mathcal{A}=\{ O(s_0), O(s_1) \}$とすればよいです.
+
+同様にして$\mathcal{O}\subseteq \BaireSp$をBaire空間の開集合系とすると,
+$\emptyset\in \mathcal{O}$も同様に明らかで,
+$\BaireSp\in \mathcal{O}$はある$n$を用いて
+\begin{equation*}
+  \mathcal{A}\ =\ \SetBar{ O(s_i) }{ i\in \omega\ \land\ s_i(n)=i }
+\end{equation*}
+とすれば,
+$\bigcup\mathcal{A}=\displaystyle\bigcup_{i\in \omega}O(s_i)=\BaireSp$となります.
+
+実は\PropRef{proposition:Cantor空間とBaire空間の開基}よりも要素が少なくなった別の開基が存在します.
+次節にてそれについてと,
+有限部分関数とそれを元にしたbasic setとの関係を紹介します.
+
+\end{document}

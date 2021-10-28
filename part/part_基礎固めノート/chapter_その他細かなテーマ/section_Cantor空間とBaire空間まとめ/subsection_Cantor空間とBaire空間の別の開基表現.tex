@@ -1,0 +1,252 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
+Cantor空間とBaire空間は\PropRef{proposition:Cantor空間とBaire空間の開基}にあるような開基で議論されることは少ない（ような気がします）.
+これからの議論に使うためのbasic setの集合を定義しておきます.
+
+\begin{definition}[]
+  \label{definition:Cantor空間・Baire空間の別の開基}
+  $\mathcal{B}_{\vartriangleleft}\subseteq \CantorSp,\BaireSp$を以下のように定める.
+  \begin{itemize}
+    \item $\mathcal{B}_{\vartriangleleft}\ =\ \SetBar{ O(s) }{ \exists n\in \omega(\ \map{s}{n}{2}\ ) }$.
+    \item $\mathcal{B}_{\vartriangleleft}\ =\ \SetBar{ O(s) }{ \exists n\in \omega(\ \map{s}{n}{\omega}\ ) }$. \qedhere
+  \end{itemize}
+\end{definition}
+
+同じ用語を2つの意味で使うことになりますが,
+2つの空間を同時に扱わなければ混乱はないと思うので,
+このまま使っていくことにします.
+
+ある$n\in \omega$について,
+$\map{s}{n}{2},\map{t}{n}{\omega}$は確かに$\omega$から$2$や$\omega$への有限部分関数,
+つまり$s\in \MapSet{<\omega}{2}, t\in \MapSet{<\omega}{\omega}$ですが,
+$n\in \omega$より定義域が単なる$\omega$の有限部分集合ではなく,
+何らかの（順序数の意味での）自然数$n=\{ 0,1,\dots,n-1 \}$となっています.
+つまり$\mathcal{B}_{\vartriangleleft}\subseteq \mathcal{B}$であり,
+元の定義の開基よりも明らかの要素が減っているため,
+これもまた開基になるのか一見明らかではないですが,
+確かに$\mathcal{B}_{\vartriangleleft}$もまた,
+Cantor空間やBaire空間の開基となります.
+
+\begin{proposition}[]
+  \label{proposition:Cnator空間・Baire空間の開基の別表現}
+  $\mathcal{B}_{\vartriangleleft}$はCantor空間の開基である. \\
+  また$\mathcal{B}_{\vartriangleleft}$はBaire空間の開基である.
+\end{proposition}
+
+\begin{proof}
+  まずはCantor空間について示します.
+  $\mathcal{B}_{\vartriangleleft}\subseteq \mathcal{B}$であるので,
+  任意の$\mathcal{B}$の要素を$\mathcal{B}_{\vartriangleleft}$の要素の和で表現できることを示せばよいので,
+  任意に$O(s)\in \mathcal{B}$をとります.
+  $s\in \MapSet{<\omega}{2}$の定義域$\dom(s)$を$\dom(s)=\{ a_0,a_1,\dots,a_{m-1} \}$とおくと,
+  $\dom(s)\subseteq a_m=\{ 0,1,\dots,a_{m-1} \}$です.
+  $s$に対して$T_s\subseteq \MapSet{<\omega}{2}$を
+  $T_s=\SetBar{ \map{t}{a_m}{2} }{  t\restric\dom(s)=s }$と定めます.
+  $T_s$とは$s$の拡大で,
+  $s$の定義域の中で$a_{m-1}$までの足りない自然数を全て補った関数全体の集合です.
+  あとは$O(s)=\bigcup_{t\in T_s}O(t)$を示せば証明終わりです.
+
+  \begin{sub-block}{}
+    集合の等号関係を示す.
+    \begin{itemize}
+      \item[]$O(s)\subseteq \bigcup_{t\in T_s}O(t)$の証明 \\
+        任意に$f\in O(s)$をとる.
+        $t=f\restric a_m$とおくと$\dom(s)\subseteq a_m$より$t\restric \dom(s)=s$より$t\in T_s$です.
+        よって$f\in O(t)$,
+        つまり$f\in \bigcup_{t\in T_s}O(t)$です.
+      \item[]$\bigcup_{t\in T_s}O(t)\subseteq O(s)$の証明 \\
+        任意に$f\in \bigcup_{t\in T_s}O(t)$をとると,
+        ある$t\in T_s$があって$f\in O(t)$,
+        つまり$f\restric \dom(t)=t$です.
+        $\dom(s)\subseteq \dom(t)$より$f\restric\dom(s)=t\restric\dom(s)=s$なので,
+        $f\in O(s)$です.
+    \end{itemize}
+  \end{sub-block}
+
+  ここまで特に各$s,t$などの値域が$2$であることに依存した証明をしていないので,
+  Baire空間についても同様に示すことができます.
+\end{proof}
+
+この証明によって\PropRef{proposition:Cantor空間とBaire空間の開基}の$\mathcal{B}$も$\mathcal{B}_{\vartriangleleft}$のどちらもCantor空間,
+Baire空間の開基なので,
+どちらを証明に用いても問題なく,
+そのときの議論や証明にあわせて使いやすい方を適宜選択します.
+
+便利の為以下のような定義をしておきます.
+記法は（多分）オリジナルです.
+
+\begin{definition}[]
+  \label{definition:定義域が自然数で値域が2やωの関数全体の集合}
+  $\MapSet{<\omega}{2}$や$\MapSet{<\omega}{\omega}$の部分集合として以下のようなものを定義する.
+  \begin{itemize}
+    \item $\MapSet{\vartriangleleft\omega}{2}\ \defeq\ \SetBar{ s\in \MapSet{<\omega}{2} }{ \exists n\in \omega(n=\dom(s)) }$.
+    \item $\MapSet{\vartriangleleft\omega}{\omega}\ \defeq\ \SetBar{ s\in \MapSet{<\omega}{\omega} }{ \exists n\in \omega(n=\dom(s)) }$. \qedhere
+  \end{itemize}
+\end{definition}
+\RegisterInSymbolList{$\MapSet{\vartriangleleft\omega}{2}$}{定義域が自然数・値域が$2$の関数全体の集合}{definition:定義域が自然数で値域が2やωの関数全体の集合}
+\RegisterInSymbolList{$\MapSet{\vartriangleleft\omega}{\omega}$}{定義域が自然数・値域が$\omega$の関数全体の集合}{definition:定義域が自然数で値域が2やωの関数全体の集合}
+
+どのような点に便利かというと上の議論での開基$\mathcal{B}_{\vartriangleleft}$を,
+簡単に$\{\  O(t)\ |\ t\in \MapSet{\vartriangleleft\omega}{2}\ \}$と書き表すことができます.
+またこれらの集合は有限列の集合ともとらえることができます. \\
+
+この節の最後の話題として,
+$\MapSet{\vartriangleleft\omega}{2},\MapSet{\vartriangleleft\omega}{\omega}$の性質をまとめおきます.
+
+$\MapSet{<\omega}{2}$などとの違いとして,
+どの$s,t\in \MapSet{\vartriangleleft\omega}{2}$に対しても,
+$\dom(s)\subseteq \dom(t)$か$\dom(t)\subseteq \dom(s)$のどちらかもしくは両方が成立します.
+$s,t\in \MapSet{<\omega}{2}$ならば$\dom(s)\cap\dom(t)=\emptyset$となって,
+上記のようにはならないことがありえます.
+
+続いて$\MapSet{<\omega}{2}$や$\CantorSp$の要素に関する用語を定義します.
+ここからは\cite{Game001}や\cite{Set005}を主に参考にしています.
+
+\begin{definition}[]
+  \label{definition:有限列が始切片であるという関係}
+  $s,t\in \MapSet{<\omega}{2}$と$f\in \CantorSp$に対して,
+  \begin{itemize}
+    \item[(1)]
+      $\dom(s)\subseteq \dom(t)$かつ$\forall n\in \dom(s)\big(\ s(n) = t(n)\ \big)$を満たすとき,
+      $s$を$t$の\textbfgt{initial segment}{始切片}と呼び,
+      $s\trianglelefteq t$で表す.
+    \item[(2)]
+      $\forall n\in \dom(s)\big(\ s(n) = f(n)\ \big)$と満たすときも,
+      $s$を$f$の\textbfgt{initial segment}{始切片}と呼び,
+      $s\trianglelefteq f$で表す.
+  \end{itemize}
+  $s,t\in \MapSet{<\omega}{\omega}$や$f\in \BaireSp$に対しても同様に定義し,
+  同じようにinitial segmentと呼び,
+  $\trianglelefteq$を使って表す.
+\end{definition}
+\index{しせっぺん@始切片}\index{initial segment}
+\RegisterInSymbolList{$\trianglelefteq$}{有限列が始切片であるという関係}{definition:有限列が始切片であるという関係}
+
+$s,t\in \MapSet{\vartriangleleft\omega}{2},\MapSet{\vartriangleleft\omega}{\omega}$だった場合,
+$s,t$を有限列ととらえるとinitial segmentという言葉遣いにも納得してもらえると思います.
+initial segmentとは整列集合のある条件を満たす部分集合のことを指したりもしますが,
+その場合とは区別が容易なので,
+ここでは特に別の呼び方を考えたりはしません.
+
+initial segmentを表す記号として\cite{Game001}では$\vartriangleleft$を用いていますが,
+そこの定義でも$s=t$の場合を含んでいたので,
+$\trianglelefteq$を使うことにしました.
+
+$s,t$が$\MapSet{\vartriangleleft\omega}{2}$や$\MapSet{\vartriangleleft\omega}{\omega}$の要素だけで議論しているときに,
+$s,t$を順序対の集合と見れば,
+$s\trianglelefteq t$とは単に$s\subseteq t$となります.
+
+そして$\trianglelefteq$という関係は推移的です.
+つまり$s,t,u\in \MapSet{<\omega}{2}$と$f\in \CantorSp$に対して,
+$s \trianglelefteq t$かつ$t \trianglelefteq u$ならば$s \trianglelefteq u$,
+そして$s \trianglelefteq t$かつ$t \trianglelefteq f$ならば$s \trianglelefteq f$です.
+
+$\trianglelefteq$を用いた定義を1つ用意します.
+これも\cite{Game001}にあったものです.
+
+\begin{definition}[]
+  \label{definition:有限列同士のどちらかが始切片という関係}
+  $s,t\in \MapSet{<\omega}{2}$に対して,
+  $s||t\ \defarr\ s\trianglelefteq t\lor t\trianglelefteq s$. \\
+  また$s,t\in \MapSet{<\omega}{\omega}$に対しても同様に定義する.
+\end{definition}
+\RegisterInSymbolList{$||$}{有限列同士のどちらかが始切片という関係}{definition:有限列同士のどちらかが始切片という関係}
+
+これは有限列同士のどちらかがどちらかの始切片であるという関係になります.
+もちろん$s||t$には$s\trianglelefteq t\land t\trianglelefteq s$,
+つまり$s=t$である場合も含まれています.
+
+\cite{Game001}では$s||t$を$s,t$がcompatible,
+$s||t$でないことを$s \perp t$で表しincompatibleと呼んでいます.
+私自身この言葉は強制法の議論のさいに見たことがあるもので,
+その定義は似ていますが少し異なります.
+その理由の考察としては,
+本来の$s,t\in \MapSet{<\omega}{\omega}$がcompatible（これは$s \compatible t$で表す）であるとは,
+$s,t$が共通拡大を持つことになっています.
+そして\cite{Game001}ではそもそも$\MapSet{\vartriangleleft\omega}{\omega}$の要素しか議論しないため,
+$s,t\in \MapSet{\vartriangleleft\omega}{\omega}$が共通拡大を持つとは
+そもそもどちらかがもう一方の拡大になっているときになります.
+よって$s||t$にcompatibleという言葉を充てるのは,
+それほど間違ってはいません.
+このノートでは強制法も扱うかもしれないので,
+ここでは$s||t$には呼び方を与えず,
+このまま使っていくことにします.
+
+これまでの用語とbasic setに関する簡単な命題を紹介します.
+\cite{Game001}に載っていたものです.
+%あとで書く
+\begin{comment}
+  （４）の別バージョンができたらリンクをはる.
+\end{comment}
+
+\begin{proposition}[]
+  $s,t\in \MapSet{\vartriangleleft\omega}{2}$に対して
+  \begin{itemize}
+    \item[(1)] $s \trianglelefteq t\ \Longleftrightarrow\ O(t)\subseteq O(s)$
+    \item[(2)] $s||t\ \Longleftrightarrow\ \big(\ O(t)\subseteq O(s)\lor O(s)\subseteq O(t)\ \big)$
+    \item[(3)] $\lnot s||t\ \Longleftrightarrow\ O(s)\cap O(t)=\emptyset$
+    \item[(4)]
+      $O(s)\cap O(t)$は何らかのbasic openとなるか,
+      または$\emptyset$のどちらかになる
+  \end{itemize}
+  また$s,t\in \MapSet{\vartriangleleft\omega}{\omega}$に対して同様に成立する.
+\end{proposition}
+
+\begin{proof}
+  $s,t\in \MapSet{\vartriangleleft\omega}{2}$についてのみ示す.
+  \begin{itemize}
+    \item[(1)] 両辺が同値であることを示す.
+      \begin{itemize}
+        \item[]
+          $(\Rightarrow)$\ 任意に$f\in O(t)$をとる.
+          $f\restric\dom(t)=t$と$\dom(s)\subseteq \dom(t)$より$f\restric\dom(s)=t\restric\dom(s)=s$だから,
+          $f\in O(s)$.
+        \item[]
+          $(\Leftarrow)$\ 先の議論より$s,t\in \MapSet{\vartriangleleft\omega}{2}$に対して
+          $\dom(t)\subsetneq \dom(s)$か$\dom(s)\subseteq \dom(t)$のいずれかが成立.
+          まず$\dom(t)\subsetneq \dom(s)$だったとすると,
+          $n=\min\big( \dom(s)\setminus \dom(t)\big)$とおき,
+          $t^{\prime}=t\cup \{\op{n}{1-s(n)}\}$とすると$t^{\prime}\in \MapSet{\vartriangleleft\omega}{2}$です.
+          そして$t^{prime}$の何らかの拡大を$f$とおくと,
+          $t\trianglelefteq t^{\prime}$と$t^{\prime}\trianglelefteq f$より$t\trianglelefteq f$,
+          つまり$f\in O(t)$と仮定より$f\in O(s)$だが,
+          $f(n)\neq s(n)$より$f\notin O(s)$となって矛盾. \\
+          \noindent
+          続けて$\dom(s)\subseteq \dom(t)$として$\exists n\dom(s)\big(\ s(n)\neq t(n)\ \big)$だったとし,
+          そんな$n$を1つ固定しておく.
+          任意に$f\in O(t)$をとると,
+          $f\restric \dom(t)=t$,
+          そして$n\in \dom(s)\subseteq \dom(t)$より$t(n)=f(n)\neq s(n)$,
+          よって$f$は$s$の拡大ではない,
+          つまり$f\notin O(s)$だが,
+          これは仮定に矛盾.
+      \end{itemize}
+    \item[(2)] これは$s||t$と(1)より明らか.
+    \item[(3)] 両辺が同値であることを示す.
+      \begin{itemize}
+        \item[]
+          $(\Rightarrow)$\ 先の議論より$\dom(s)\subseteq \dom(t)$か$\dom(t)\subseteq \dom(s)$のどちらかが成立するので,
+          $\dom(s)\subseteq \dom(t)$だとすると仮定と合わせて$n\dom(s)\big(\ s(n)\neq t(n)\ \big)$となるので,
+          そんな$n$を1つ固定します.
+          いま,
+          $f\in O(s)\cap O(t)$とすると$s\trianglelefteq f\land t\trianglelefteq f$と,
+          $n\in \dom(s)\subseteq \dom(t)$より,
+          $s(n)=f(n)\land t(n)=f(n)$から$s(n)=t(n)$となるが,
+          これは$n$の定義に矛盾.
+        \item[]
+          $(\Leftarrow)$\ $O(s)\cap O(t)=\emptyset$より$O(s)\subseteq O(t)$でも$O(t)\subseteq O(s)$でもない,
+          つまり$s \trianglelefteq t$でも$t \trianglelefteq s$でもないことになり,
+          つまり$\lnot s||t$.
+      \end{itemize}
+    \item[(4)]
+      $s||t$だったとすると(2)より$O(s)\subseteq O(t)\lor O(t)\subseteq O(s)$となり,
+      そして仮に$O(s)\subseteq O(t)$だとすると$O(s)\cap O(t)=O(s)$,
+      つまりbasic openになっている. \\
+      \noindent
+      $\lnot s||t$だとすると(3)より$O(s)\cap O(t)$は$\emptyset$となる. \qedhere
+  \end{itemize}
+\end{proof}
+
+\end{document}

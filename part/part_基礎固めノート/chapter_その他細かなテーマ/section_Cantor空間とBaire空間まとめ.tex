@@ -1,0 +1,80 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
+Cantor空間とBaire空間は公理的集合論の基本的な対象です.
+しかし丁寧な解説を私はあまり見たことがありませんでした.
+なので自分なりに位相空間論をベースにして,
+この2つの空間についての知識をまとめておきます.
+
+まずここで定義だけ簡単にまとめておきます.
+そのさい\SecRef{subsection:直積位相}での直積位相の知識を用います.
+
+$\{\ (X_{\lambda},\mathcal{O}_{\lambda})\ \}_{\lambda \in \Lambda}$を位相空間の族とします.
+$\forall \lambda,\lambda^{\prime} \in \Lambda(\  X_{\lambda}=X_{\lambda^{\prime}}\ \land\ \mathcal{O}_{\lambda}=\mathcal{O}_{\lambda^{\prime}}\ )$の場合,
+つまり因子空間が全て同じだった場合を考えます.
+このとき同じ位相空間の$\Lambda$個の直積と思えます.
+すると
+\begin{equation*}
+  \prod_{\lambda \in \Lambda}X_{\lambda}\ =\ \mbox{}^{\Lambda}X_{\lambda}\ =\ \{\ f\ |\ f\colon\Lambda\to X_{\lambda}\ \}
+\end{equation*}
+となります.
+つまり$\prod_{\lambda \in \Lambda}X_{\lambda}$は$\Lambda$から$X_{\lambda}$への関数全体と一致します.
+よってこの位相空間の点は,
+すべて同じ定義域・値域の関数になっています.
+
+$\{\  X_{\lambda}\ \}_{\lambda \in \Lambda}$が全ての要素が空でなく異なる要素が属す可能性がある一般的な場合には,
+$\prod_{\lambda \in \Lambda}X_{\lambda}\neq \emptyset$であることを主張するには
+選択公理が必要（直積定理,Lemma \ref{lemma:選択公理と直積定理は同値}）でしたが,
+この場合$\prod_{\lambda \in \Lambda}X_{\lambda}$は単なる関数の集合なので,
+それが空であることを主張するのに選択公理は必要ありません.
+
+また$X_{\lambda}$は$\lambda$ごとに区別する必要がないため,
+$\MapSet{\Lambda}{X_{\lambda}}$を単に$\MapSet{\Lambda}{X}$と書くことにします.
+
+$X$を離散位相空間とし,
+$\Lambda=\omega,\ X=2=\{ 0,1 \}$とした直積位相空間を$\CantorSp$と,
+$\Lambda=\omega,\ X=\omega$とした直積位相空間を$\BaireSp$と表すことにします.
+この2つの空間に以下のように名前が付いています.
+
+\begin{definition}[Cantor空間とBaire空間]
+  \label{definition:Cantor空間とBaire空間}
+  Cantor空間とは,
+  直積位相空間$\CantorSp$のことで,
+  ここで各$2=\{ 0,1 \}$には離散位相が入っているものとする. \\
+  同様にBaire空間とは,
+  直積位相空間$\BaireSp$のことで,
+  ここで各$\omega$には離散位相が入っているものとする.
+\end{definition}
+\index{Cantor Space}
+\index{かんとーるくうかん@Cantor空間}
+\index{Baire Space}
+\index{ベーるくうかん@Baire空間}
+\RegisterInSymbolList{$\CantorSp$}{Cantor空間}{definition:Cantor空間とBaire空間}
+\RegisterInSymbolList{$\BaireSp$}{Baire空間}{definition:Cantor空間とBaire空間}
+
+%あとで書く
+\begin{comment}
+  各節があるていど出来上がったらここにその案内とリンクをはる.
+\end{comment}
+
+\begin{comment}
+この2つの空間は似た点も多々あります.
+例えばどちらも連続体の濃度があり,
+それゆえに実数全体の集合$\mathbb{R}$と同じに見えるにも関わらず,
+ユークリッド空間としての$\mathbb{R}$とは同相にならないという性質を持ちます.
+\end{comment}
+
+\subsection{Cantor空間とBaire空間の開集合}
+\label{subsection:Cantor空間とBaire空間の開集合}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_その他細かなテーマ/section_Cantor空間とBaire空間まとめ/subsection_Cantor空間とBaire空間の開集合.tex}
+
+\subsection{Cantor空間とBaire空間の別の開基表現}
+\label{subsection:Cantor空間とBaire空間の別の開基表現}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_その他細かなテーマ/section_Cantor空間とBaire空間まとめ/subsection_Cantor空間とBaire空間の別の開基表現.tex}
+
+\subsection{Cantor空間とBaire空間の開基についてさらに詳しく}
+\label{subsection:Cantor空間とBaire空間の開基についてさらに詳しく}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_その他細かなテーマ/section_Cantor空間とBaire空間まとめ/subsection_Cantor空間とBaire空間の開基についてさらに詳しく.tex}
+
+\end{document}
