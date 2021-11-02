@@ -42,7 +42,7 @@ dvipdfmx note.dvi
 
 copy /Y "./note.pdf" "./soujiノート.pdf"
 
-copy /Y "./note.pdf" "C:\souji\soujiノート公開用リポジトリ\soujiノート公開用.pdf"
+rem copy /Y "./note.pdf" "C:\souji\soujiノート公開用リポジトリ\soujiノート公開用.pdf"
 
 del "./note.dvi"
 

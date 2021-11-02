@@ -1,26 +1,10 @@
 taskkill /f /im AcroRd32.exe
 
+del "./note.pdf"
+
 del "./note.dvi"
 
-del "./note.ilg"
-
-del "./note.aux"
-
-del "./note.bbl"
-
-del "./note.blg"
-
-del "./note.idx"
-
-del "./note.ind"
-
 del "./note.log"
-
-del "./note.out"
-
-del "./note.toc"
-
-del "./note.pdf"
 
 cd ./tool
 
@@ -62,7 +46,7 @@ rem copy /Y "./note.pdf" "C:\souji\soujiノート公開用リポジトリ\soujiノート公開用
 
 del "./note.dvi"
 
-rem del "./note.log"
+del "./note.log"
 
 del "./note.ilg"
 
@@ -71,5 +55,15 @@ del "./note.out"
 del "./note.toc"
 
 del "./note.pdf"
+
+del "./note.aux"
+
+del "./note.bbl"
+
+del "./note.idx"
+
+del "./note.ind"
+
+del "./note.blg"
 
 "./soujiノート.pdf"
