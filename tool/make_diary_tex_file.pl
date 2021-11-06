@@ -5,7 +5,8 @@ use Encode;
 use Data::Dumper;
 use Config::Tiny;
 #iniファイルを処理するのに使っている
-use DateTime;
+#use DateTime;
+use Time::Local;
 
 
 use lib "./";
@@ -51,16 +52,12 @@ sub make_title_and_label {
   my $dairy_tex_file_dir_path = decode( "utf8", $setting->{"make_diary_tex_file"}->{"dairy_tex_file_dir_path"} );
   my $yyyymmdd = substr( $file_path, length( $dairy_tex_file_dir_path . "/subsection_" ), 8 );
   my ( $yyyy, $mm, $dd ) = ( substr( $yyyymmdd, 0, 4 ), substr( $yyyymmdd, 3, 2 ), substr( $yyyymmdd, 7 , 2 ) );
-  my $dt = DateTime->new(
-    year => $yyyy,
-    month => $mm,
-    day => $dd,
-    hour => 0,
-    minute => 0,
-    second => 0,
-  );
-  my @list = ( "日", "月", "火", "水", "木", "金", "土" );
-  my $youbi = $list[$dt->day_of_week];
+
+  my $time = timelocal(0, 0, 0, $dd, $mm -1 , $yyyy + 1900 );
+  my ($sec,$min,$hour,$mday,$mon,$year,$wday,$dmy) = localtime($time);
+  my @wdays = ("日","月","火","水","木","金","土");
+  my $youbi =  $wdays[$wday-1];
+
   my $title_of_diary = "${yyyy}年${mm}月${dd}日（${youbi}）";
   my $label_of_diary = "diary:${yyyymmdd}";
   return ( $title_of_diary, $label_of_diary );
