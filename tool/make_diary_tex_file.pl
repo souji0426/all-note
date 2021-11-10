@@ -51,7 +51,7 @@ sub make_title_and_label {
   my ( $setting, $file_path ) = @_;
   my $dairy_tex_file_dir_path = decode( "utf8", $setting->{"make_diary_tex_file"}->{"dairy_tex_file_dir_path"} );
   my $yyyymmdd = substr( $file_path, length( $dairy_tex_file_dir_path . "/subsection_" ), 8 );
-  my ( $yyyy, $mm, $dd ) = ( substr( $yyyymmdd, 0, 4 ), substr( $yyyymmdd, 3, 2 ), substr( $yyyymmdd, 7 , 2 ) );
+  my ( $yyyy, $mm, $dd ) = ( substr( $yyyymmdd, 0, 4 ), substr( $yyyymmdd, 3, 2 ), substr( $yyyymmdd, 6 , 2 ) );
 
   my $time = timelocal(0, 0, 0, $dd, $mm -1 , $yyyy + 1900 );
   my ($sec,$min,$hour,$mday,$mon,$year,$wday,$dmy) = localtime($time);
