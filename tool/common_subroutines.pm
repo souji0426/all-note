@@ -28,7 +28,7 @@ sub catch_all_subfile_tex_file {
     open( my $sub_fh, "<", $file_path );
     while( my $line = <$sub_fh> ) {
       chomp $line;
-      if ( $line =~ /.subfile\{(.+)\}/ ) {
+      if ( $line !~ /^\%/ and $line =~ /.subfile\{(.+)\}/ ) {
         if ( !grep { $_ eq $1 } @all_sub_tex_file_path ) {
           push( @all_sub_tex_file_path, $1 );
         }
