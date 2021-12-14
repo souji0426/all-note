@@ -30,7 +30,7 @@ sub main {
 sub make_diary_month_dir {
   my ( $setting, $target_yyyymmdd ) = @_;
   my $diary_chapter_dir_path = decode( "utf8", $setting->{"tool_for_diary"}->{"diary_chapter_dir_path"} );
-  my ( $yyyy, $mm ) = ( substr( $target_yyyymmdd, 0, 4 ), substr( $target_yyyymmdd, 3, 2 ) );
+  my ( $yyyy, $mm ) = ( substr( $target_yyyymmdd, 0, 4 ), substr( $target_yyyymmdd, 4, 2 ) );
   my $dir_name = "section_${yyyy}年${mm}月分";
   my $dir_path = $diary_chapter_dir_path . "/" . $dir_name;
   if ( !-d $dir_path ) {

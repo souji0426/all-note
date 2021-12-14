@@ -92,7 +92,7 @@ sub get_all_diary_file_name {
 sub make_title_and_label {
   my ( $file_name ) = @_;
   my $yyyymmdd = substr( $file_name, length( "subsection_" ), 8 );
-  my ( $yyyy, $mm, $dd ) = ( substr( $yyyymmdd, 0, 4 ), substr( $yyyymmdd, 3, 2 ), substr( $yyyymmdd, 6 , 2 ) );
+  my ( $yyyy, $mm, $dd ) = ( substr( $yyyymmdd, 0, 4 ), substr( $yyyymmdd, 4, 2 ), substr( $yyyymmdd, 6 , 2 ) );
 
   my $time = timelocal(0, 0, 0, $dd, $mm -1 , $yyyy + 1900 );
   my ($sec,$min,$hour,$mday,$mon,$year,$wday,$dmy) = localtime($time);

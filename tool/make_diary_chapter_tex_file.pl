@@ -66,7 +66,7 @@ sub print_all_section_file_data {
 sub make_title_and_label {
   my ( $file_name ) = @_;
   my $yyyymm = substr( $file_name, length( "section_" ), 6 );
-  my ( $yyyy, $mm ) = ( substr( $yyyymm, 0, 4 ), substr( $yyyymm, 3, 2 ) );
+  my ( $yyyy, $mm ) = ( substr( $yyyymm, 0, 4 ), substr( $yyyymm, 4, 2 ) );
 
   my $title_of_diary = "${yyyy}年${mm}月分";
   my $label_of_diary = "diary:${yyyymm}";
