@@ -33,7 +33,7 @@ sub get_data_in_katari_list_csv {
   while( my $line = <$fh> ) {
     chomp $line;
     my ( $category, $num, $title, $open_flag ) = split( "\t", decode( "utf8", $line ) );
-    $data{$category, }{$num} = { "title" => $title, "open_flag" =>$open_flag };
+    $data{$category}{$num} = { "title" => $title, "open_flag" =>$open_flag };
   }
   close $fh;
 
