@@ -4,45 +4,52 @@
 
 ここではidealやfilterについてまとめておきます.
 またfilterに対してはultra filterについてもまとめておきます.
+\cite{Logic008}の基礎部分を参考にしています.
 
 \subsection{idealとfilterの定義と例}
 \label{subsection:idealとfilterの定義と例}
 
-idealとfilterの定義をして, 名前がついているものを紹介していきます.
+idealとfilterの定義をして,
+名前がついているものを紹介していきます.
+
 \begin{definition}[]
   \label{definition:idealとfilter}
-  集合$A$に対して$\mathcal{I}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{ideal}$\ \defarr\ $以下の3条件を満たすもののこと
+  集合$A$に対して$\mathcal{I}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{ideal}$\ \defarr\ $以下の3条件を満たすもののこと.
   \begin{enumerate}
-  \item $\mathcal{I}\neq \emptyset $
-  \item $\forall X,Y\in \mathcal{I}(\  X\cup Y\in \mathcal{I}\ )$
-  \item $\forall X,Y(\ X\subseteq Y \land Y\in \mathcal{I}\ \rightarrow \ X\in \mathcal{I}\ )$
+  \item $\mathcal{I}\neq \emptyset $.
+  \item $\forall X,Y\in \mathcal{I}(\  X\cup Y\in \mathcal{I}\ )$.
+  \item $\forall X,Y(\ X\subseteq Y \land Y\in \mathcal{I}\ \rightarrow \ X\in \mathcal{I}\ )$.
   \end{enumerate}
-  集合$A$に対して$\mathcal{F}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{filter}$\ \defarr\ $以下の3条件を満たすもののこと
+  集合$A$に対して$\mathcal{F}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{filter}$\ \defarr\ $以下の3条件を満たすもののこと.
   \begin{enumerate}
-    \item $\mathcal{F}\neq \emptyset$
-    \item $\forall X,Y\in \mathcal{F}(\  X\cap Y\in \mathcal{F}\ )$
-    \item $\forall X,Y(\ X\subseteq Y \land X\in \mathcal{F}\ \rightarrow \ Y\in \mathcal{F}\ )$
+    \item $\mathcal{F}\neq \emptyset$.
+    \item $\forall X,Y\in \mathcal{F}(\  X\cap Y\in \mathcal{F}\ )$.
+    \item $\forall X,Y(\ X\subseteq Y \land X\in \mathcal{F}\ \rightarrow \ Y\in \mathcal{F}\ )$. \qedhere
   \end{enumerate}
 \end{definition}
 \index{ideal}
 \index{filter}
 
 いくつかの例を紹介します.
-それがidealであること, filterであることの証明は割愛します.
+それがidealであること,
+filterであることの証明は省略します.
+
 \begin{example}[]
   \label{example:簡単なideal, filterの例}
-  集合$A$に対して
+  集合$A$に対して,
   \begin{itemize}
     \item[(1)] $\mathcal{P}(A)$は$A$上のidealかつfilter.
     \item[(2)] $\{ \emptyset \}$は$A$上のideal, $\{ A \}$は$A$上のfilter.
     \item[(3)]
       $x\in A$に対して, $\{ X\subseteq A | x\notin X  \}$は$A$上のideal,
       $\{ X\subseteq A | x\in X  \}$は$A$上のfilter.
-      このようなidealを\textbf{principal ideal}, \textbf{principal filter}と呼んだりする.
+      このようなidealを\textbf{principal ideal},
+      \textbf{principal filter}と呼んだりする.
     \item[(4)]
       $S\subseteq A$に対して, $\{ X\subseteq A | X\subseteq S  \}$は$A$上のideal,
       $\{ X\subseteq A | S\subseteq X  \}$は$A$上のfilter.
   \end{itemize}
+
   以降$A$は無限集合として
   \begin{itemize}
     \item[(5)]
@@ -50,48 +57,59 @@ idealとfilterの定義をして, 名前がついているものを紹介していきます.
       $A$の補有限集合全体$\{ X\subseteq A\ |\ |A\setminus X|<\omega\}$は$A$上のfilter.
       $|A\setminus X|<\omega$とは$A\setminus X\in [A]^{<\omega}$とも表現できる.
       またこのようなfilterを\textbf{Fr\'{e}chet filter}とも呼ぶ.
-      \index{filter!Fr\'{e}chet filter}
+
     \item[(6)]
-      上の例を拡張して, 基数$\kappa$に対して$[A]^{<\kappa}$は$A$上のideal.
+      上の例を拡張して,
+      基数$\kappa$に対して$[A]^{<\kappa}$は$A$上のideal. \qedhere
   \end{itemize}
 \end{example}
+\index{ideal!principal ideal}
+\index{filter!principal filter}
+\index{filter!Fr\'{e}chet filter}
 
-ideal, filterにはproperと呼ばれるものがあり, 大抵properであることは仮定されます.
+ideal, filterにはproperと呼ばれるものがあり,
+ 大抵properであることは仮定されます.
+
 \begin{definition}[]
   \label{definition:properなidealとfilter}
   集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して
   \begin{itemize}
     \item[・]
-      $\mathcal{I}$が\textbf{proper}$\ \defarr\ A\notin \mathcal{I}$
+      $\mathcal{I}$が\textbf{proper}$\ \defarr\ A\notin \mathcal{I}$.
     \item[・]
-      $\mathcal{F}$が\textbf{proper}$\ \defarr\ \emptyset \notin \mathcal{F}$
+      $\mathcal{F}$が\textbf{proper}$\ \defarr\ \emptyset \notin \mathcal{F}$. \qedhere
   \end{itemize}
 \end{definition}
 \index{ideal!proper ideal}
 \index{filter!proper filter}
 
-properであることを仮定するのは, properでないとするとidealもfilterも$P(A)$という自明なものになってしますからです.
+properであることを仮定するのは,
+properでないとするとidealもfilterも$P(A)$という自明なものになってしますからです.
 このノートでも以降properなものだけ扱います.
 
-またExample \ref{example:簡単なideal, filterの例}(3)に対応して, non-principalと呼ばれる性質があります.
+またExample \ref{example:簡単なideal, filterの例}(3)に対応して,
+non-principalと呼ばれる性質があります.
 
 \begin{definition}[]
   \label{definition:non-principalなidealとfilter}
-  集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して
+  集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して,
   \begin{itemize}
     \item[・]
-      $\mathcal{I}$が\textbf{non-principal}$\ \defarr\ \forall a\in A(\ \{ a \}\in \mathcal{I}\ )$
+      $\mathcal{I}$が\textbf{non-principal}$\ \defarr\ \forall a\in A(\ \{ a \}\in \mathcal{I}\ )$.
     \item[・]
       $\mathcal{F}$が\textbf{non-principal}
-      $\ \defarr\ \forall X\subseteq A(\  A\setminus X\in [A]^{<\omega} \rightarrow X\in\mathcal{F} \ )$
+      $\ \defarr\ \forall X\subseteq A(\  A\setminus X\in [A]^{<\omega} \rightarrow X\in\mathcal{F} \ )$. \qedhere
   \end{itemize}
 \end{definition}
 \index{ideal!non-principal ideal}
 \index{filter!non-principal filter}
 
 その定義からFr\'{e}chet filterはnon-principalです. \\
+
 idealとfilterは双対な概念です.
-どういうことかというと, あるideal\ $\mathcal{I}$があったとき, 補集合が$\mathcal{I}$に属するような集合全体は
+どういうことかというと,
+あるideal\ $\mathcal{I}$があったとき,
+補集合が$\mathcal{I}$に属するような集合全体は
 同じ集合上のfilterになります.
 そういったものを表現するための用語を定義します.
 
@@ -100,32 +118,40 @@ idealとfilterは双対な概念です.
   集合$A$上のideal\ $\mathcal{I}$に対して
   \begin{itemize}
     \item[・]
-      $X\subseteq A$が{\boldmath $\mathcal{I}-$}\textbf{measure zero}
-      $\ \defarr$\ $X\in \mathcal{I}$
+      $X\subseteq A$が{\boldmath $\mathcal{I}$}-\textbf{measure zero}
+      $\ \defarr$\ $X\in \mathcal{I}$.
     \item[・]
-      $X\subseteq A$が\textbf{positive}\ {\boldmath $\mathcal{I}-$}\textbf{measure}
-      $\ \defarr$\ $X\notin \mathcal{I}$
+      $X\subseteq A$が\textbf{positive}\ {\boldmath $\mathcal{I}$}-\textbf{measure}
+      $\ \defarr$\ $X\notin \mathcal{I}$.
     \item[・]
       $X\subseteq A$が{\boldmath $\mathcal{I}-$}\textbf{measure one}$
-      \ \defarr$\ $A\backslash X\in \mathcal{I}$
+      \ \defarr$\ $A\backslash X\in \mathcal{I}$.
   \end{itemize}
     さらに
   \begin{itemize}
     \item[・]
       {\boldmath $\mathcal{I}^{+}$}
-      $\ \defeq\ \{\  X\subseteq A\ |\  X\notin \mathcal{I} \ \}$：positive$\ \mathcal{I}-$measure全体
+      $\ \defeq\ \SetBar{ X\subseteq A }{  X\notin \mathcal{I} }$：positive$\ \mathcal{I}$-measure全体.
     \item[・]
       {\boldmath $\mathcal{I}^{*}$}
-      $\ \defeq\ \{\  X\subseteq A\ |\  A\setminus X\in \mathcal{I} \ \}$：$\mathcal{I}-$measure one全体
+      $\ \defeq\ \SetBar{ X\subseteq A }{ A\setminus X\in \mathcal{I} }$：$\mathcal{I}$-measure one全体.
   \end{itemize}
   これらの定義はfilterに対しても用いる.
 \end{definition}
-\index{ideal!measure}
+\index{ideal!i measure zero@$\mathcal{I}$-measure zero}
+\index{ideal!positivei measure@positive $\mathcal{I}$-measure}
+\index{ideal!i measure one@$\mathcal{I}$-measure one}
 \index{filter!measure}
+\RegisterInSymbolList{$\mathcal{I}^{+}$}{ideal $\mathcal{I}$のpositive $\mathcal{I}$-measure全体の集合}{definition:idealとmeasure}
+\RegisterInSymbolList{$\mathcal{I}^{*}$}{ideal $\mathcal{I}$の$\mathcal{I}$-measure one全体の集合}{definition:idealとmeasure}
+
+この定義や記法は\cite{Hat001}の4ページを参考にしました.
 
 $A$上のideal\ $\mathcal{I}$に対して$\mathcal{I}^{*}$は$A$上のfilterになります.
 このとき$\mathcal{I}^{*}$はideal\ $\mathcal{I}$の\textbf{dual filter}と呼びます.
-その逆で$A$上のfilter\ $\mathcal{F}$に対して$\mathcal{F}^{*}=\{\  X\subseteq A\ |\  A\setminus X\in \mathcal{F} \ \}$は$A$上のidealとなり, それを$\mathcal{F}$の\textbf{dual ideal}と呼びます.
+その逆で$A$上のfilter\ $\mathcal{F}$に対して,
+$\mathcal{F}^{*}=\SetBar{ X\subseteq A }{ A\setminus X\in \mathcal{F} }$は$A$上のidealとなり,
+それを$\mathcal{F}$の\textbf{dual ideal}と呼びます.
 \index{ideal!dual ideal}
 \index{filter!dual filter}
 
@@ -138,35 +164,48 @@ properなfilterはその定義から有限交叉性を持ちます.
 有限交叉性をもつ集合族からfilterを作る方法を提示します.
 
 \begin{proposition}[]
-  集合$A$に対して, $\mathcal{S}\subseteq\mathcal{P}(A)$は$\mathcal{S}\neq\emptyset$かつ$\mathcal{S}$は有限交叉性をもつとします.
-  $\mathcal{F}=\{\  X\subseteq A\ |\  \exists E\in[\mathcal{S}]^{<\omega}(\  \bigcap E\subseteq X \ ) \ \}$はfilterであり,
-  $\mathcal{S}$を含み, $\mathcal{S}$を含むfilterの中で極小なものになっている.
+  集合$A$に対して,
+  $\mathcal{S}\subseteq\mathcal{P}(A)$は$\mathcal{S}\neq\emptyset$かつ$\mathcal{S}$は有限交叉性をもつとします.
+  $\mathcal{F}=\SetBar{ X\subseteq A }{ \exists E\in[\mathcal{S}]^{<\omega}(\  \bigcap E\subseteq X \ ) }$はfilterであり,
+  $\mathcal{S}$を含み,
+  $\mathcal{S}$を含むfilterの中で極小なものになっている.
 \end{proposition}
 
 \begin{proof}
   先に$\mathcal{S}\subseteq \mathcal{F}$であることを示します.
   そのために任意に$X\in \mathcal{S}$をとります.
-  $E=\{ X \}\in [\mathcal{S}]^{<\omega}$とおけば, $X=\bigcap E$より, そんな$E$の存在から$X\in \mathcal{F}$です. \\
+  $E=\{ X \}\in [\mathcal{S}]^{<\omega}$とおけば,
+   $X=\bigcap E$より,
+   そんな$E$の存在から$X\in \mathcal{F}$です. \\
   続けて$\mathcal{F}$がfilterであることを示します.
-  $\mathcal{F}\neq \emptyset$であることは, $\emptyset \neq \mathcal{S}\subseteq \mathcal{F}$より分かります.
+  $\mathcal{F}\neq \emptyset$であることは,
+  $\emptyset \neq \mathcal{S}\subseteq \mathcal{F}$より分かります.
   続いて任意に$X,Y\in\mathcal{F}$をとります.
   $\mathcal{F}$の定義から$X,Y$に対して存在する$[\mathcal{S}]^{<\omega}$の要素をそれぞれ$E_X,E_Y$とおきます.
-  $E=E_X\cup E_Y$とおくと, $E\in [\mathcal{S}]^{<\omega}$で,
+  $E=E_X\cup E_Y$とおくと,
+  $E\in [\mathcal{S}]^{<\omega}$で,
   $E_X,E_Y\subseteq E$より$\bigcap E\subseteq \bigcap E_X\land \bigcap E\subseteq \bigcap E_Y$です.
   よって$\bigcap E\subseteq \left(\  (\bigcap E_X)\cap (\bigcap E_Y) \ \right)\subseteq X\cap Y$だから,
   そんな$E$の存在より$X\cap Y\in \mathcal{F}$です.
-  filterの最後の定義, 超集合関係で閉じることは$\mathcal{F}$の定義より明らかなので割愛します. \\
+  filterの最後の定義,
+  超集合関係で閉じることは$\mathcal{F}$の定義より明らかなので割愛します. \\
   最後に$\mathcal{F}$の極小性を確かめるために,
   $\mathcal{S}\subseteq \mathcal{F}^{\prime}$なるfilter\ $\mathcal{F}^{\prime}$を任意にとります.
-  さらに任意に$X\in \mathcal{F}$をとると, $\exists E\in [\mathcal{S}]^{<\omega}(\bigcap E\subseteq X)$な$E$を1つ固定します.
+  さらに任意に$X\in \mathcal{F}$をとると,
+  $\exists E\in [\mathcal{S}]^{<\omega}(\bigcap E\subseteq X)$な$E$を1つ固定します.
   $\mathcal{S}\subseteq \mathcal{F}^{\prime}$より$E\subseteq \mathcal{F}^{\prime}$です.
   $|E|<\omega$と$\mathcal{F}^{\prime}$がfilterであることから$\bigcap E\in \mathcal{F}^{\prime}$です.
-  もう一度$\mathcal{F}^{\prime}$がfilterであることと$\bigcap E\subseteq X$から, $X\in mathcal{F}^{\prime}$です.
-  つまり$\mathcal{F}\subseteq \mathcal{F}^{\prime}$, つまり$\mathcal{S}$を含むようなfilterの中で極小になっています.
+  もう一度$\mathcal{F}^{\prime}$がfilterであることと$\bigcap E\subseteq X$から,
+  $X\in mathcal{F}^{\prime}$です.
+  $\mathcal{F}\subseteq \mathcal{F}^{\prime}$,
+  つまり$\mathcal{S}$を含むようなfilterの中で極小になっています.
 \end{proof}
 
-このような作り方をしたfilterのことを, $\mathcal{S}$が生成するfilterという呼び方があります.
-有限交叉性を持たない$\mathcal{S}$から生成したfilterは, properにならず, つまり$\mathcal{P}(A)$という自明なfilterになってしまいます. \\
+このような作り方をしたfilterのことを,
+$\mathcal{S}$が生成するfilterという呼び方があります.
+有限交叉性を持たない$\mathcal{S}$から生成したfilterは,
+properにならず,
+つまり$\mathcal{P}(A)$という自明なfilterになってしまいます. \\
 
 ある集合上のfilter全体は部分集合関係で半順序集合になります.
 この順序での極大なfilterのことを\textbf{maximal filter}と呼びます.
@@ -191,7 +230,8 @@ properなfilterはその定義から有限交叉性を持ちます.
 \end{definition}
 \index{filter!urtra filter}
 
-properなfilterを考えている範囲では, maximalであることultraであることは同値になります.
+properなfilterを考えている範囲では,
+maximalであることultraであることは同値になります.
 故に書き手によっては極大であることをultraであることの定義として,
 上記の定義は性質の1つとして挙げているものもあったりします.
 その定理の証明の前にultra filterについて分かることをまとめておきます.
@@ -202,17 +242,17 @@ properなfilterを考えている範囲では, maximalであることultraであることは同値になり
   \begin{itemize}
     \item[・]
       $A$上のproper filter\ $\mathcal{F}$がultraでない\ $\Longleftrightarrow$
-      \ $\exists X\subseteq A(\  X\notin\mathcal{F}\land A\setminus X\notin\mathcal{F}  \ )$
+      \ $\exists X\subseteq A(\  X\notin\mathcal{F}\land A\setminus X\notin\mathcal{F}  \ )$.
     \item[・]
       $\mathcal{F}$が$A$上のproper ideal\ $\mathcal{I}$のdual filter（つまり$\mathcal{F}=\mathcal{I}^{*}$）ならば,
       $\mathcal{F}$がultraでない\ $\Longleftrightarrow$
-      \ $\exists X\subseteq A(\  X\notin\mathcal{I}\land A\setminus X\notin\mathcal{I}  \ )$
+      \ $\exists X\subseteq A(\  X\notin\mathcal{I}\land A\setminus X\notin\mathcal{I}  \ )$.
   \end{itemize}
   $A$上のultra filter\ $\mathcal{U}$と$X,Y\subseteq A$と$\{ X_i \} _{i\in[n]}\subseteq\mathcal{P}(A)$に対して
   \begin{itemize}
-    \item[・] $X,Y\notin\mathcal{U}\ \rightarrow\ X\cup Y\notin\mathcal{U}$
-    \item[・] $X\in \mathcal{U}\land Y\notin\mathcal{U}\ \rightarrow\ X\setminus Y\in \mathcal{U}$
-    \item[・] $\bigcup_{i\in[n]}X_i\in\mathcal{U}\ \rightarrow\ \exists i\in[n]( X_i\in\mathcal{U} )$
+    \item[・] $X,Y\notin\mathcal{U}\ \rightarrow\ X\cup Y\notin\mathcal{U}$.
+    \item[・] $X\in \mathcal{U}\land Y\notin\mathcal{U}\ \rightarrow\ X\setminus Y\in \mathcal{U}$.
+    \item[・] $\bigcup_{i\in[n]}X_i\in\mathcal{U}\ \rightarrow\ \exists i\in[n]( X_i\in\mathcal{U} )$. \qedhere
   \end{itemize}
 \end{proposition}
 
@@ -220,7 +260,8 @@ properなfilterを考えている範囲では, maximalであることultraであることは同値になり
   \begin{itemize}
     \item[(1)]
       排他的論理和$\veebar$を用いた論理式について考えます.
-      $P,Q$を命題を表す記号として$P\veebar Q$とは他の論理記号を用いて論理的同値な式に書き換えると,
+      $P,Q$を命題を表す記号として$P\veebar Q$とは,
+      他の論理記号を用いて論理的同値な式に書き換えると,
       $(P\land \lnot Q)\lor(\lnot P\land Q)$です.
       さらに論理的同値なものとして$(P\lor Q)\land (\lnot P\lor \lnot Q)$があるので,
       今回はこれを使います.
@@ -233,27 +274,36 @@ properなfilterを考えている範囲では, maximalであることultraであることは同値になり
         \exists X\subseteq A\big(\  (X\notin\mathcal{U}\land A\setminus X\notin\mathcal{U})\ \land\ (X\in\mathcal{U}\land A\setminus X\in\mathcal{U}) \ \big)
       \end{equation*}
       です.
-      $X\in\mathcal{U}\land A\setminus X\in\mathcal{U}$とすると, $\mathcal{U}$がfilterより$X\cap (A\setminus X)\in\mathcal{U}$ですが,
+      $X\in\mathcal{U}\land A\setminus X\in\mathcal{U}$とすると,
+      $\mathcal{U}$がfilterより$X\cap (A\setminus X)\in\mathcal{U}$ですが,
       これは$\emptyset\in \mathcal{U}$となって$\mathcal{U}$がproperであることに矛盾します.
       よって成立するのは$X\notin\mathcal{U}\land A\setminus X\notin\mathcal{U}$となります.
     \item[(2)]
-      (1)にそのまま当てはめると$\exists X\subseteq A(\  X\notin\mathcal{I}^{*}\land A\setminus X\notin\mathcal{I}^{*}  \ )$です.
-      $X\notin \mathcal{I}^{*}$とは, その定義から$A\setminus X\notin \mathcal{I}^{*}$,
+      (1)にそのまま当てはめると,
+      $\exists X\subseteq A(\  X\notin\mathcal{I}^{*}\land A\setminus X\notin\mathcal{I}^{*}  \ )$です.
+      $X\notin \mathcal{I}^{*}$とは,
+      その定義から$A\setminus X\notin \mathcal{I}^{*}$,
       $A\setminus X\notin\mathcal{I}^{*}$とは$X\notin \mathcal{I}^{*}$です.
     \item[(3)]
-      $X\cup Y\notin\mathcal{U}$を示すため, $A\setminus (X\cup Y)\in\mathcal{U}$を示します.
-      $A\setminus (X\cup Y)=(A\setminus X)\cap (A\setminus Y)$, そして仮定より$A\setminus X,A\setminus Y\in \mathcal{U}$なので,
-      $(A\setminus X)\cap (A\setminus Y)\in\mathcal{U}$, つまり$A\setminus (X\cup Y)\in\mathcal{U}$です.
+      $X\cup Y\notin\mathcal{U}$を示すため,
+      $A\setminus (X\cup Y)\in\mathcal{U}$を示します.
+      $A\setminus (X\cup Y)=(A\setminus X)\cap (A\setminus Y)$,
+      そして仮定より$A\setminus X,A\setminus Y\in \mathcal{U}$なので,
+      $(A\setminus X)\cap (A\setminus Y)\in\mathcal{U}$,
+      つまり$A\setminus (X\cup Y)\in\mathcal{U}$です.
     \item[(4)]
-      $X\setminus Y\notin\mathcal{U}$とすると, $\mathcal{U}$がultraより$A\setminus(X\setminus Y)\in\mathcal{U}$です.
+      $X\setminus Y\notin\mathcal{U}$とすると,
+      $\mathcal{U}$がultraより$A\setminus(X\setminus Y)\in\mathcal{U}$です.
       $A\setminus(X\setminus Y)=(A\setminus X)\cup Y$で,
-      仮定より$A\setminus X,Y\notin \mathcal{U}$と(3)より$(A\setminus X)\cup Y\notin\mathcal{U}$でなくてはなりませんが, これは矛盾です.
+      仮定からの$A\setminus X,Y\notin \mathcal{U}$と,
+      (3)より$(A\setminus X)\cup Y\notin\mathcal{U}$でなくてはなりませんが,
+      これは矛盾です.
     \item[(5)]
       $\forall i\in[n](X_i\notin \mathcal{U})$だったとします.
       $\mathcal{U}$がultraより$\forall i\in[n](A\setminus X_i\in \mathcal{U})$です.
       $\mathcal{U}$がfilterであることから$\bigcap_{i\in[n]}(A\setminus X_i)\in\mathcal{U}$です.
       すると$A\setminus \big(\  \bigcap_{i\in[n]}(A\setminus X_i)\ \big)=\bigcup_{i\in[n]}X_i\notin \mathcal{U}$ですが,
-      これは仮定に矛盾です.
+      これは仮定に矛盾です. \qedhere
   \end{itemize}
 \end{proof}
 
@@ -263,34 +313,48 @@ properなfilterを考えている範囲では, maximalであることultraであることは同値になり
   \label{proposition:filterにおいてmaximalとultraは同値}
   $A$上のfilter\ $\mathcal{F}$に対して, 以下は同値
   \begin{itemize}
-    \item[(1)] $\mathcal{F}$は$A$上のproper filterの中で極大（maximal）
-    \item[(2)] $\mathcal{F}$はultra
+    \item[(1)] $\mathcal{F}$は$A$上のproper filterの中で極大（maximal）.
+    \item[(2)] $\mathcal{F}$はultra. \qedhere
   \end{itemize}
 \end{proposition}
 
 \begin{proof}
+  \ \\
+  \vspace{-0.5cm}
   \begin{itemize}
-    \item[(1)$\rightarrow$(2)]
+    \item[] (1)$\rightarrow$(2) \\
       任意に$X\subseteq A$をとります.
       $\mathcal{F}\cup\{ X \}$が有限交叉性をもつかどうかで場合分けします.
       $\mathcal{F}\cup\{ X \}$が有限交叉性をもっていたとします.
       $\mathcal{F}\cup\{ X \}$から生成されるfilterを$\mathcal{F}^{\prime}$とおくと,
-      その定義から$\mathcal{F}\subseteq \mathcal{F}\cup\{ X \}$と$\mathcal{F}\cup\{ X \}\subseteq \mathcal{F}^{\prime}$より$\mathcal{F}\subseteq \mathcal{F}^{\prime}$ですが,
+      その定義から$\mathcal{F}\subseteq \mathcal{F}\cup\{ X \}$と,
+      $\mathcal{F}\cup\{ X \}\subseteq \mathcal{F}^{\prime}$より,
+      $\mathcal{F}\subseteq \mathcal{F}^{\prime}$ですが,
       $\mathcal{F}$はmaximalより$\mathcal{F}\subsetneq \mathcal{F}^{\prime}$となることはない,
       つまり$\mathcal{F}= \mathcal{F}^{\prime}$です.
-      すなわち$X$は最初から$\mathcal{F}$に属していた, つまり$X\in \mathcal{F}$です. \\
+      すなわち$X$は最初から$\mathcal{F}$に属していた,
+      つまり$X\in \mathcal{F}$です. \\
       $\mathcal{F}\cup\{ X \}$が有限交叉性をもっていなかったとします.
-      $\mathcal{F}$はfilterなので有限交叉性をもちますが, $X$を加えると有限交叉性をもたなくなったということなので,
+      $\mathcal{F}$はfilterなので有限交叉性をもちますが,
+      $X$を加えると有限交叉性をもたなくなったということなので,
       $\exists \{ Y_i \} _{i\in [n]}\subseteq \mathcal{F}\big(\  (\bigcap_{i\in[n]}Y_i)\cap X=\emptyset \ \big)$です.
-      $Y=\bigcap_{i\in[n]}Y_i$とおくと, $\mathcal{F}$がfilterであることより$Y\in mathcal{F}$.
-      $Y\cap X=\emptyset$より$Y\subseteq A\setminus X$で, $\mathcal{F}$がfilterであることから$A\setminus X\in \mathcal{F}$です.
-    \item[(2)$\rightarrow$(1)]
-      対偶「$\mathcal{F}$がmaximalでないならば, $\mathcal{F}$がultraでない」を示します.
-      $\mathcal{F}$がmaximalでないことから$\mathcal{F}\subsetneq\mathcal{F}^{\prime}$なるproper filter\ $\mathcal{F}^{\prime}$が存在します.
-      $X\in \mathcal{F}^{\prime}\setminus \mathcal{F}$を1つとると, $A\setminus X\notin \mathcal{F}$です.
-      なぜならば$A\setminus X\in \mathcal{F}$だとすると, $A\setminus X\in \mathcal{F}^{\prime}$となって,
-      $X\cap A\setminus X\in \mathcal{F}^{\prime}$ですが, これは$\emptyset\in \mathcal{F}^{\prime}$となって$\mathcal{F}^{\prime}$がproperであることに矛盾します.
-      よって$X,A\setminus X\notin \mathcal{F}$なる$X$の存在から$\mathcal{F}$はultraではありません.
+      $Y=\bigcap_{i\in[n]}Y_i$とおくと,
+      $\mathcal{F}$がfilterであることより$Y\in mathcal{F}$.
+      $Y\cap X=\emptyset$より$Y\subseteq A\setminus X$で,
+      $\mathcal{F}$がfilterであることから$A\setminus X\in \mathcal{F}$です.
+    \item[] (2)$\rightarrow$(1) \\
+      対偶「$\mathcal{F}$がmaximalでないならば,
+      $\mathcal{F}$がultraでない」を示します.
+      $\mathcal{F}$がmaximalでないことから,
+      $\mathcal{F}\subsetneq\mathcal{F}^{\prime}$なるproper filter\ $\mathcal{F}^{\prime}$が存在します.
+      $X\in \mathcal{F}^{\prime}\setminus \mathcal{F}$を1つとると,
+      $A\setminus X\notin \mathcal{F}$です.
+      なぜならば$A\setminus X\in \mathcal{F}$だとすると,
+      $A\setminus X\in \mathcal{F}^{\prime}$となって,
+      $X\cap A\setminus X\in \mathcal{F}^{\prime}$ですが,
+      これは$\emptyset\in \mathcal{F}^{\prime}$となって,
+      $\mathcal{F}^{\prime}$がproperであることに矛盾します.
+      よって$X,A\setminus X\notin \mathcal{F}$なる$X$の存在から$\mathcal{F}$はultraではありません. \qedhere
   \end{itemize}
 \end{proof}
 
@@ -310,17 +374,21 @@ maximalな, つまりultraなfilterの形は2つに定まります.
     $\forall x\in D(\{ x \}\notin\mathcal{F})$だったとすれば,
     filterが$\mathcal{F}$であることから$\forall x\in D(X\setminus\{ x \}\in\mathcal{F})$です.
     $\mathcal{F}$はfilterなので$\bigcap_{x\in D}(X\setminus\{ x \})\in\mathcal{F}$ですが,
-    $\bigcap_{x\in D}(X\setminus\{ x \})=X\setminus D$より, これは$D\in \mathcal{F}$に矛盾.
+    $\bigcap_{x\in D}(X\setminus\{ x \})=X\setminus D$より,
+    これは$D\in \mathcal{F}$に矛盾.
     一意性については$x,x^{\prime}\in D$に対して$\{ x \},\{ x^{\prime} \}\in\mathcal{F}$とすれば,
-    $\{ x \}\cap \{ x^{\prime} \}=\emptyset\in\mathcal{F}$となって$\mathcal{F}$がproperであることに矛盾です.
+    $\{ x \}\cap \{ x^{\prime} \}=\emptyset\in\mathcal{F}$となって,
+    $\mathcal{F}$がproperであることに矛盾です.
   \end{sub-block}
-  
-  そんな$x\in D$を固定すれば, $\mathcal{F}=\{ X\subseteq A | x\in X  \}$であること,
+
+  そんな$x\in D$を固定すれば, $\mathcal{F}=\SetBar{ X\subseteq A }{ x\in X }$であること,
   つまり$\mathcal{F}$がprincipalであることは明らかです. \\
   $\forall D\in [A]^{<\omega}(D\notin \mathcal{F})$だったとき,
   $\mathcal{F}$がultraより$\forall D\in [A]^{<\omega}(A\setminus D \mathcal{F})$です.
-  任意に取った$X\subseteq A$が補有限集合とするならば, $\exists D\in [A]^{<\omega}(X=A\setminus D)$です.
-  つまり$X\in \mathcal{F}$より, $\mathcal{F}$がどの補有限集合も要素に持つことから$\mathcal{F}$はnon-principalです.
+  任意に取った$X\subseteq A$が補有限集合とするならば,
+  $\exists D\in [A]^{<\omega}(X=A\setminus D)$です.
+  つまり$X\in \mathcal{F}$より,
+  $\mathcal{F}$がどの補有限集合も要素に持つことから$\mathcal{F}$はnon-principalです.
 \end{proof}
 
 ここまでの証明と同じようにして極大なidealについても同様のことを示すことができます.
@@ -329,8 +397,8 @@ maximalな, つまりultraなfilterの形は2つに定まります.
 \begin{corollary}[]
   $A$上のideal\ $\mathcal{I}$に対して, 以下は同値
   \begin{itemize}
-    \item[(1)] $\mathcal{I}$は$A$上のproper idealの中で極大（maximal）
-    \item[(2)] $\forall X\subseteq A(\ X\in\mathcal{I}\ \veebar\ A\setminus X\in\mathcal{I}\ )$
+    \item[(1)] $\mathcal{I}$は$A$上のproper idealの中で極大（maximal）.
+    \item[(2)] $\forall X\subseteq A(\ X\in\mathcal{I}\ \veebar\ A\setminus X\in\mathcal{I}\ )$. \qedhere
   \end{itemize}
 \end{corollary}
 
@@ -344,17 +412,21 @@ maximalな, つまりultraなfilterの形は2つに定まります.
 \begin{lemma}[\textbf{ultra filter}\textgt{の補題}]
   \label{lemma:ultra filterの補題}
   選択公理を仮定する.
-  集合$A$上の任意のfilter\ $\mathcal{F}$に対して, $\mathcal{F}$を含むような$A$上のultra filterが存在する.
+  集合$A$上の任意のfilter\ $\mathcal{F}$に対して,
+  $\mathcal{F}$を含むような$A$上のultra filterが存在する.
 \end{lemma}
 \index{filter!ultra filter lemma@ultra filterの補題}
 
 \begin{proof}
   任意に$A$上のfilter\ $\mathcal{F}$をとります.
-  $\mathfrak{F}=\{\ \mathcal{A}\subseteq\mathcal{P}(A)\ |\ \mathcal{A}\text{：filter}\land \mathcal{F}\subseteq \mathcal{A}\ \}$とおくと,
-  $(\mathfrak{F},\subseteq)$は半順序集合で, 帰納的です.
+  $\mathfrak{F}=\SetBar{ \mathcal{A}\subseteq\mathcal{P}(A) }{ \mathcal{A}\text{：filter}\land \mathcal{F}\subseteq \mathcal{A} }$とおくと,
+  $(\mathfrak{F},\subseteq)$は半順序集合で,
+  帰納的です.
   なぜならば任意に$(\mathfrak{F},\subseteq)$の全順序部分集合$\mathfrak{C}$をとると,
   $\bigcup\mathfrak{C}$が$\mathfrak{C}$の極大要素になっているからです.
-  Zornの補題から, $(\mathfrak{F},\subseteq)$には極大要素, つまりmaximal filterが存在しますが,
+  Zornの補題から,
+  $(\mathfrak{F},\subseteq)$には極大要素,
+  つまりmaximal filterが存在しますが,
   Proposition \ref{proposition:filterにおいてmaximalとultraは同値}より,
   それは$\mathcal{F}$を含む$A$上のultra filterです.
 \end{proof}

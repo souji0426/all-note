@@ -2128,37 +2128,39 @@
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Definition \ref{definition:idealとfilter}\ \ \ \ \pageref{definition:idealとfilter}ページ}
-  集合$A$に対して$\mathcal{I}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{ideal}$\ \defarr\ $以下の3条件を満たすもののこと
+  集合$A$に対して$\mathcal{I}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{ideal}$\ \defarr\ $以下の3条件を満たすもののこと.
   \begin{enumerate}
-  \item $\mathcal{I}\neq \emptyset $
-  \item $\forall X,Y\in \mathcal{I}(\  X\cup Y\in \mathcal{I}\ )$
-  \item $\forall X,Y(\ X\subseteq Y \land Y\in \mathcal{I}\ \rightarrow \ X\in \mathcal{I}\ )$
+  \item $\mathcal{I}\neq \emptyset $.
+  \item $\forall X,Y\in \mathcal{I}(\  X\cup Y\in \mathcal{I}\ )$.
+  \item $\forall X,Y(\ X\subseteq Y \land Y\in \mathcal{I}\ \rightarrow \ X\in \mathcal{I}\ )$.
   \end{enumerate}
-  集合$A$に対して$\mathcal{F}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{filter}$\ \defarr\ $以下の3条件を満たすもののこと
+  集合$A$に対して$\mathcal{F}\subseteq \mathcal{P}(A)$が集合$A$上の\textbf{filter}$\ \defarr\ $以下の3条件を満たすもののこと.
   \begin{enumerate}
-    \item $\mathcal{F}\neq \emptyset$
-    \item $\forall X,Y\in \mathcal{F}(\  X\cap Y\in \mathcal{F}\ )$
-    \item $\forall X,Y(\ X\subseteq Y \land X\in \mathcal{F}\ \rightarrow \ Y\in \mathcal{F}\ )$
+    \item $\mathcal{F}\neq \emptyset$.
+    \item $\forall X,Y\in \mathcal{F}(\  X\cap Y\in \mathcal{F}\ )$.
+    \item $\forall X,Y(\ X\subseteq Y \land X\in \mathcal{F}\ \rightarrow \ Y\in \mathcal{F}\ )$. \qedhere
   \end{enumerate}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）12		（ラベル）definition:idealとfilter
+		\item[]（行数）15		（ラベル）definition:idealとfilter
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Example \ref{example:簡単なideal, filterの例}\ \ \ \ \pageref{example:簡単なideal, filterの例}ページ}
-  集合$A$に対して
+  集合$A$に対して,
   \begin{itemize}
     \item[(1)] $\mathcal{P}(A)$は$A$上のidealかつfilter.
     \item[(2)] $\{ \emptyset \}$は$A$上のideal, $\{ A \}$は$A$上のfilter.
     \item[(3)]
       $x\in A$に対して, $\{ X\subseteq A | x\notin X  \}$は$A$上のideal,
       $\{ X\subseteq A | x\in X  \}$は$A$上のfilter.
-      このようなidealを\textbf{principal ideal}, \textbf{principal filter}と呼んだりする.
+      このようなidealを\textbf{principal ideal},
+      \textbf{principal filter}と呼んだりする.
     \item[(4)]
       $S\subseteq A$に対して, $\{ X\subseteq A | X\subseteq S  \}$は$A$上のideal,
       $\{ X\subseteq A | S\subseteq X  \}$は$A$上のfilter.
   \end{itemize}
+
   以降$A$は無限集合として
   \begin{itemize}
     \item[(5)]
@@ -2166,13 +2168,14 @@
       $A$の補有限集合全体$\{ X\subseteq A\ |\ |A\setminus X|<\omega\}$は$A$上のfilter.
       $|A\setminus X|<\omega$とは$A\setminus X\in [A]^{<\omega}$とも表現できる.
       またこのようなfilterを\textbf{Fr\'{e}chet filter}とも呼ぶ.
-      \index{filter!Fr\'{e}chet filter}
+
     \item[(6)]
-      上の例を拡張して, 基数$\kappa$に対して$[A]^{<\kappa}$は$A$上のideal.
+      上の例を拡張して,
+      基数$\kappa$に対して$[A]^{<\kappa}$は$A$上のideal. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）32		（ラベル）example:簡単なideal, filterの例
+		\item[]（行数）37		（ラベル）example:簡単なideal, filterの例
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2180,28 +2183,28 @@
   集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して
   \begin{itemize}
     \item[・]
-      $\mathcal{I}$が\textbf{proper}$\ \defarr\ A\notin \mathcal{I}$
+      $\mathcal{I}$が\textbf{proper}$\ \defarr\ A\notin \mathcal{I}$.
     \item[・]
-      $\mathcal{F}$が\textbf{proper}$\ \defarr\ \emptyset \notin \mathcal{F}$
+      $\mathcal{F}$が\textbf{proper}$\ \defarr\ \emptyset \notin \mathcal{F}$. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）60		（ラベル）definition:properなidealとfilter
+		\item[]（行数）73		（ラベル）definition:properなidealとfilter
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Definition \ref{definition:non-principalなidealとfilter}\ \ \ \ \pageref{definition:non-principalなidealとfilter}ページ}
-  集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して
+  集合$A$上のideal\ $\mathcal{I}$, filter\ $\mathcal{F}$に対して,
   \begin{itemize}
     \item[・]
-      $\mathcal{I}$が\textbf{non-principal}$\ \defarr\ \forall a\in A(\ \{ a \}\in \mathcal{I}\ )$
+      $\mathcal{I}$が\textbf{non-principal}$\ \defarr\ \forall a\in A(\ \{ a \}\in \mathcal{I}\ )$.
     \item[・]
       $\mathcal{F}$が\textbf{non-principal}
-      $\ \defarr\ \forall X\subseteq A(\  A\setminus X\in [A]^{<\omega} \rightarrow X\in\mathcal{F} \ )$
+      $\ \defarr\ \forall X\subseteq A(\  A\setminus X\in [A]^{<\omega} \rightarrow X\in\mathcal{F} \ )$. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）78		（ラベル）definition:non-principalなidealとfilter
+		\item[]（行数）93		（ラベル）definition:non-principalなidealとfilter
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2209,38 +2212,40 @@
   集合$A$上のideal\ $\mathcal{I}$に対して
   \begin{itemize}
     \item[・]
-      $X\subseteq A$が{\boldmath $\mathcal{I}-$}\textbf{measure zero}
-      $\ \defarr$\ $X\in \mathcal{I}$
+      $X\subseteq A$が{\boldmath $\mathcal{I}$}-\textbf{measure zero}
+      $\ \defarr$\ $X\in \mathcal{I}$.
     \item[・]
-      $X\subseteq A$が\textbf{positive}\ {\boldmath $\mathcal{I}-$}\textbf{measure}
-      $\ \defarr$\ $X\notin \mathcal{I}$
+      $X\subseteq A$が\textbf{positive}\ {\boldmath $\mathcal{I}$}-\textbf{measure}
+      $\ \defarr$\ $X\notin \mathcal{I}$.
     \item[・]
       $X\subseteq A$が{\boldmath $\mathcal{I}-$}\textbf{measure one}$
-      \ \defarr$\ $A\backslash X\in \mathcal{I}$
+      \ \defarr$\ $A\backslash X\in \mathcal{I}$.
   \end{itemize}
     さらに
   \begin{itemize}
     \item[・]
       {\boldmath $\mathcal{I}^{+}$}
-      $\ \defeq\ \{\  X\subseteq A\ |\  X\notin \mathcal{I} \ \}$：positive$\ \mathcal{I}-$measure全体
+      $\ \defeq\ \SetBar{ X\subseteq A }{  X\notin \mathcal{I} }$：positive$\ \mathcal{I}$-measure全体.
     \item[・]
       {\boldmath $\mathcal{I}^{*}$}
-      $\ \defeq\ \{\  X\subseteq A\ |\  A\setminus X\in \mathcal{I} \ \}$：$\mathcal{I}-$measure one全体
+      $\ \defeq\ \SetBar{ X\subseteq A }{ A\setminus X\in \mathcal{I} }$：$\mathcal{I}$-measure one全体.
   \end{itemize}
   これらの定義はfilterに対しても用いる.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）98		（ラベル）definition:idealとmeasure
+		\item[]（行数）116		（ラベル）definition:idealとmeasure
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Proposition }
-  集合$A$に対して, $\mathcal{S}\subseteq\mathcal{P}(A)$は$\mathcal{S}\neq\emptyset$かつ$\mathcal{S}$は有限交叉性をもつとします.
-  $\mathcal{F}=\{\  X\subseteq A\ |\  \exists E\in[\mathcal{S}]^{<\omega}(\  \bigcap E\subseteq X \ ) \ \}$はfilterであり,
-  $\mathcal{S}$を含み, $\mathcal{S}$を含むfilterの中で極小なものになっている.
+  集合$A$に対して,
+  $\mathcal{S}\subseteq\mathcal{P}(A)$は$\mathcal{S}\neq\emptyset$かつ$\mathcal{S}$は有限交叉性をもつとします.
+  $\mathcal{F}=\SetBar{ X\subseteq A }{ \exists E\in[\mathcal{S}]^{<\omega}(\  \bigcap E\subseteq X \ ) }$はfilterであり,
+  $\mathcal{S}$を含み,
+  $\mathcal{S}$を含むfilterの中で極小なものになっている.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）140		（ラベル）
+		\item[]（行数）166		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2255,7 +2260,7 @@
   と表現できます.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）182		（ラベル）
+		\item[]（行数）221		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2264,33 +2269,33 @@
   \begin{itemize}
     \item[・]
       $A$上のproper filter\ $\mathcal{F}$がultraでない\ $\Longleftrightarrow$
-      \ $\exists X\subseteq A(\  X\notin\mathcal{F}\land A\setminus X\notin\mathcal{F}  \ )$
+      \ $\exists X\subseteq A(\  X\notin\mathcal{F}\land A\setminus X\notin\mathcal{F}  \ )$.
     \item[・]
       $\mathcal{F}$が$A$上のproper ideal\ $\mathcal{I}$のdual filter（つまり$\mathcal{F}=\mathcal{I}^{*}$）ならば,
       $\mathcal{F}$がultraでない\ $\Longleftrightarrow$
-      \ $\exists X\subseteq A(\  X\notin\mathcal{I}\land A\setminus X\notin\mathcal{I}  \ )$
+      \ $\exists X\subseteq A(\  X\notin\mathcal{I}\land A\setminus X\notin\mathcal{I}  \ )$.
   \end{itemize}
   $A$上のultra filter\ $\mathcal{U}$と$X,Y\subseteq A$と$\{ X_i \} _{i\in[n]}\subseteq\mathcal{P}(A)$に対して
   \begin{itemize}
-    \item[・] $X,Y\notin\mathcal{U}\ \rightarrow\ X\cup Y\notin\mathcal{U}$
-    \item[・] $X\in \mathcal{U}\land Y\notin\mathcal{U}\ \rightarrow\ X\setminus Y\in \mathcal{U}$
-    \item[・] $\bigcup_{i\in[n]}X_i\in\mathcal{U}\ \rightarrow\ \exists i\in[n]( X_i\in\mathcal{U} )$
+    \item[・] $X,Y\notin\mathcal{U}\ \rightarrow\ X\cup Y\notin\mathcal{U}$.
+    \item[・] $X\in \mathcal{U}\land Y\notin\mathcal{U}\ \rightarrow\ X\setminus Y\in \mathcal{U}$.
+    \item[・] $\bigcup_{i\in[n]}X_i\in\mathcal{U}\ \rightarrow\ \exists i\in[n]( X_i\in\mathcal{U} )$. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）199		（ラベル）proposition:ultra filterの性質まとめ
+		\item[]（行数）239		（ラベル）proposition:ultra filterの性質まとめ
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Proposition \ref{proposition:filterにおいてmaximalとultraは同値}\ \ \ \ \pageref{proposition:filterにおいてmaximalとultraは同値}ページ}
   $A$上のfilter\ $\mathcal{F}$に対して, 以下は同値
   \begin{itemize}
-    \item[(1)] $\mathcal{F}$は$A$上のproper filterの中で極大（maximal）
-    \item[(2)] $\mathcal{F}$はultra
+    \item[(1)] $\mathcal{F}$は$A$上のproper filterの中で極大（maximal）.
+    \item[(2)] $\mathcal{F}$はultra. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）262		（ラベル）proposition:filterにおいてmaximalとultraは同値
+		\item[]（行数）312		（ラベル）proposition:filterにおいてmaximalとultraは同値
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2298,19 +2303,19 @@
   集合$A$上のmaximal filterはprincipalかnon-principalのいずれか一方になる.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）299		（ラベル）
+		\item[]（行数）363		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Corollary }
   $A$上のideal\ $\mathcal{I}$に対して, 以下は同値
   \begin{itemize}
-    \item[(1)] $\mathcal{I}$は$A$上のproper idealの中で極大（maximal）
-    \item[(2)] $\forall X\subseteq A(\ X\in\mathcal{I}\ \veebar\ A\setminus X\in\mathcal{I}\ )$
+    \item[(1)] $\mathcal{I}$は$A$上のproper idealの中で極大（maximal）.
+    \item[(2)] $\forall X\subseteq A(\ X\in\mathcal{I}\ \veebar\ A\setminus X\in\mathcal{I}\ )$. \qedhere
   \end{itemize}
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）329		（ラベル）
+		\item[]（行数）397		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2318,16 +2323,17 @@
   集合$A$上のmaximal idealはprincipalかnon-principalのいずれか一方になる.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）337		（ラベル）
+		\item[]（行数）405		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Lemma \ref{lemma:ultra filterの補題}\ \ \textbf{ultra filter}\textgt{の補題}\ \ \pageref{lemma:ultra filterの補題}ページ}
   選択公理を仮定する.
-  集合$A$上の任意のfilter\ $\mathcal{F}$に対して, $\mathcal{F}$を含むような$A$上のultra filterが存在する.
+  集合$A$上の任意のfilter\ $\mathcal{F}$に対して,
+  $\mathcal{F}$を含むような$A$上のultra filterが存在する.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）344		（ラベル）lemma:ultra filterの補題
+		\item[]（行数）412		（ラベル）lemma:ultra filterの補題
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2336,7 +2342,7 @@
   $\mathcal{S}$を含むような$A$上のultra filterが存在する.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）362		（ラベル）
+		\item[]（行数）434		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -2347,7 +2353,7 @@
   あるfilterがP-filterかつultraだったとき, そんなfilterを\textbf{P-point}と呼ぶ.
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_その他細かなテーマ/section_IdealとFilter入門事項まとめ.tex}
-		\item[]（行数）378		（ラベル）
+		\item[]（行数）450		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}

@@ -42,6 +42,8 @@ dvipdfmx note.dvi
 
 copy /Y "./note.pdf" "./soujiノート.pdf"
 
+copy /Y "./soujiノート.pdf" "C:/Googleドライブ共有用フォルダ/PDFフォルダ/soujiノート.pdf"
+
 rem copy /Y "./note.pdf" "C:\souji\soujiノート公開用リポジトリ\soujiノート公開用.pdf"
 
 del "./note.dvi"
@@ -66,4 +68,6 @@ del "./note.ind"
 
 del "./note.blg"
 
-"./soujiノート.pdf"
+cd C:\souji\mini-notes
+
+call 一括実行.bat
