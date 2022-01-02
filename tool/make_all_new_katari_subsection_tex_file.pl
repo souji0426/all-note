@@ -109,7 +109,7 @@ sub make_new_dir_and_subsection_tex_file {
 
 sub make_new_tex_file {
   my ( $path ) = @_;
-  open( my $fh, ">", $path );
+  open( my $fh, ">", $path  );
   print $fh encode( "cp932", "\\documentclass\[C:/souji/all-note/note\]\{subfiles\}\n\n" );
   print $fh encode( "cp932", "\\begin\{document\}\n\n" );
   print $fh encode( "cp932", "\\end\{document\}" );
