@@ -8,7 +8,7 @@ del "./note.log"
 
 cd ./tool
 
-perl -w delete_unnecessary_file.pl
+perl -w delete_all_unnecessary_file.pl
 
 perl -w make_atode_list.pl
 
