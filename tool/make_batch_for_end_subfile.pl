@@ -19,8 +19,11 @@ sub main {
 
   #basic_subroutines
   my $all_file_list_in_all_note_dir = get_file_path_in_dir_and_all_sub_dir( $all_note_dir . "/part" );
+  #print Dumper $all_file_list_in_all_note_dir;
   my $end_file_list = get_all_end_subfile( $all_file_list_in_all_note_dir );
+
   my $target_file_list = delete_not_target_file_in_list( $end_file_list );
+
   make_batch( $target_file_list );
 }
 
@@ -46,7 +49,11 @@ sub is_end_subfile {
   my $file_name = pop @file_data;
   $file_name =~ s/\.tex//g;
   if ( -d "${target_dir_path}/${file_name}" ) {
-    $is_end_subfile = 0;
+    my $file_list_in_dir = get_file_path_in_dir_and_all_sub_dir( "${target_dir_path}/${file_name}" );
+    my $num_of_file = @$file_list_in_dir;
+    if ( $num_of_file > 0 ) {
+      $is_end_subfile = 0;
+    }
   }
   return $is_end_subfile;
 }

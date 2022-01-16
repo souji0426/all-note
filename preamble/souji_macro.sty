@@ -1,7 +1,9 @@
 %ソースコードやPDFでの見映えを整えるためのマクロ--------------------------------------------
+
 %%太字命令の簡略化
 \newcommand{\textgtbf}[2]{\textgt{#1}（\textbf{#2}）}
 \newcommand{\textbfgt}[2]{\textbf{#1}（\textgt{#2}）}
+
 %%各種参照
 \newcommand{\PartRef}[1]{第\ref{#1}部（\pageref{#1}ページ）}
 \newcommand{\ChapRef}[1]{第\ref{#1}章（\pageref{#1}ページ）}
@@ -12,6 +14,12 @@
 \newcommand{\ThRef}[1]{Theorem \ref{#1}（\pageref{#1}ページ）}
 \newcommand{\FactRef}[1]{Fact \ref{#1}（\pageref{#1}ページ）}
 \newcommand{\PropRef}[1]{Proposition \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\PuzzleRef}[1]{Puzzle \ref{#1}（\pageref{#1}ページ）}
+\newcommand{\TableRef}[1]{表 \ref{#1}}
+
+%%再掲環境
+\newenvironment{re-puzzle}[1]{\begin{itembox}[l]{\textbf{Puzzle}\ \ref{#1}の再掲}}{\end{itembox}}
+
 %%証明中の部分証明環境
 \definecolor{BIP-back}{gray}{0.9}
 \newenvironment{sub-block}[1]

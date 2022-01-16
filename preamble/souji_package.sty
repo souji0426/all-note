@@ -13,8 +13,15 @@
 %図表を指定した位置に出力するのに必要
 \renewcommand{\tablename}{Table}
 %表下に表示される「表：（番号）」が「table:（番号）」になる
+\usepackage{colortbl}
+%表の背景に色を塗れるようになる
+%↓はそのために定義した色
+\definecolor{pink}{cmyk}{0.093, 0.551, 0.289, 0}
 
 \usepackage[dvipdfmx]{graphicx}
+
+%画像を回り込み文章を書くために必要
+\usepackage{wrapfig}
 
 \usepackage{ascmac}
 %囲み付き文章を出力するために必要

@@ -1,0 +1,170 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+これまで2人の囚人を$a,b$と名付けてきましたが,
+ここからはあえて$a_0,a_1$とすることにします.
+別にそのまま$a,b$でも問題ないのですが,
+この変更の意図は,
+その添え字によって偶数か奇数かで区別できるからです（あとでも詳しく述べます）.
+そしてここからは色を黒・白ではなく,
+数の$0,1$に置き換えます.
+ここまでの名前の置き換えによって,
+先ほどの帽子の被せ方の\TableRef{table:2-2puzzle-coloring}は以下のように変わります.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c|c|}
+    \hline
+          & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ \hline\hline
+    $a_0$ & $0$     & $0$     & $1$     & $1$     \\ \hline
+    $a_1$ & $0$     & $1$     & $0$     & $1$  \\\hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+帽子の色が数に置き換わったことで,
+囚人の発言した色という情報も数に置き換わります.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c||c|c||c|c||c|c|}
+      \hline
+      \multirow{2}{*}{} & \multicolumn{2}{c||}{$f_1$} & \multicolumn{2}{c||}{$f_2$} & \multicolumn{2}{c||}{$f_3$} & \multicolumn{2}{c|}{$f_4$} \\ \cline{2-9}
+                        & 帽子色          & 発言色         & 帽子色          & 発言色         & 帽子色          & 発言色         & 帽子色          & 発言色         \\ \hline\hline
+      $a_0$               & $0$            & $0$           & $0$            & $1$           & $1$            & $0$           & $1$            & $1$           \\ \hline
+      $a_1$               & $0$            & $1$           & $1$            & $1$           & $0$            & $0$           & $1$            & $0$           \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+そこから,
+各囚人ごとにその見えていた色（数）と発言した色（数）の合計という情報を先ほどの表に追加します.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
+                  & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
+$a_0$             & $0$     & $0$     & $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & $2$    \\ \hline
+$a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0$     & $0$     & $1$    & $1$     & $0$     & $1$    \\ \hline
+\end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+例えば,
+なぜ$f_2$の$a_0$部分の「合計」項目に$2$という数が入っているかというと,
+$a_0$が見えた$a_1$の被っている色（数）である$1$と,
+$a_0$の発言した色（数）である$1$の和が$2$だからです.
+同様の理由ですが,
+同じ$f_2$の$a_1$部分の「合計」項目に$1$が書かれているのは,
+$a_1$が見えた$a_0$の被っている色（数）である$0$と,
+$a_1$の発言した色（数）である$1$の和が$1$だからです.
+他の部分にも同じように計算して書き込んであります.
+その計算過程を分かりやすいように色を付けたのが以下の表になります.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
+                  & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
+$a_0$             & \cellcolor{pink} $0$     &  $0$     & $0$    & \cellcolor{pink} $0$     & $1$     & $2$    & \cellcolor{pink} $1$     & $0$     & $0$    & \cellcolor{pink} $1$     & $1$     & $2$    \\ \hline
+$a_1$             & $0$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $0$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    \\ \hline
+\end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+つまり$f_1$の$a_0$部分の「合計」項目は色が付いていませんが,
+それは$f_1$内の色が付いていない数字を足したものになっています.
+逆に色が付いてある「合計」項目は,
+同じく色が付いている数字を足したものになっています.
+
+さらに各帽子の被せ方ごとに,
+その帽子の色（数）の合計という情報も最下段に追加したものが以下の表です.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
+                  & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
+$a_0$             & $0$     & $0$     & $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & $2$    \\ \hline
+$a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0$     & $0$     & $1$    & $1$     & $0$     & $1$    \\ \hline\hline
+帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
+
+\noindent
+これについても,
+その計算過程が分かりやすくなるように色をつけたものが以下のようになります.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
+                  & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
+$a_0$             & \cellcolor{pink} $0$     & $0$     & $0$    & \cellcolor{pink} $0$     & $1$     & $2$    & \cellcolor{pink} $1$     & $0$     & $0$    & \cellcolor{pink} $1$     & $1$     & $2$    \\ \hline
+$a_1$             & \cellcolor{pink} $0$     & $1$     & $1$    & \cellcolor{pink} $1$     & $1$     & $1$    & \cellcolor{pink} $0$     & $0$     & $1$    & \cellcolor{pink} $1$     & $0$     & $1$    \\ \hline\hline
+帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
+
+\noindent
+つまり$f_3$の「帽子色の合計」部分に1が書いてあるのは,
+その上にある色の付いた数字を足したからになっています.
+ここでは帽子色の合計に書かれている数字は,
+その合計は$0,1,2$のいずれかになっていることを確認してください.
+
+そして各帽子の被せ方における正解者を見ると,
+その正解者の先ほど追加した「合計」項目と,
+「帽子色の合計」項目が一致しています.
+それが分かりやすくなるように,
+その被せ方においての正解者の「合計」項目と,
+「帽子色の合計」項目に色を付けた表が以下のようになります.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
+\hline
+\multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
+                  & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
+$a_0$             & $0$     & $0$     & \cellcolor{pink} $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & \cellcolor{pink} $2$    \\ \hline
+$a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & \cellcolor{pink} $1$    & $0$     & $0$     & \cellcolor{pink} $1$    & $1$     & $0$     & $1$    \\ \hline\hline
+帽子色の合計            & \multicolumn{3}{c||}{ \cellcolor{pink} $0$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c|}{ \cellcolor{pink} $2$}   \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
+
+\noindent
+これはどういうことかというと,
+まず事実として数値に置き換えた帽子色の合計は必ず偶数（2で割り切れる数）か奇数（2で割って1余る数）のいずれかになります.
+そしてそれぞれ
+\begin{itemize}
+  \item 囚人$a_0$は自分と相手の帽子色の合計が偶数になると思って発言している
+  \item 囚人$a_1$は自分と相手の帽子色の合計が奇数になると思って発言している
+\end{itemize}
+
+\noindent
+ということになります.
+
+先ほど囚人の名前を$a,b$から$a_0,a_1$に変えたのは,
+それぞれの添え字$0,1$が,
+２で割って$0$余る数・2で割って$1$余る数,
+つまり偶数・奇数を表しています.
+よって囚人たちは作戦会議では,
+各色への$0,1$の数の割り当てと,
+それぞれが偶数か奇数かの担当を決めておけばよい,
+ということになります.
+もっというと$a_0$は帽子色の合計が2で割って余り0になる場合を担当し,
+$a_1$は帽子色の合計が2で割って余り1になる場合を担当しています.
+
+\end{document}
