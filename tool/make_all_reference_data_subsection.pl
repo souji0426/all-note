@@ -4,11 +4,11 @@ use utf8;
 use Encode;
 use Data::Dumper;
 use Config::Tiny;
-#iniƒtƒ@ƒCƒ‹‚ğˆ—‚·‚é‚Ì‚Ég‚Á‚Ä‚¢‚é
+#iniãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã®ã«ä½¿ã£ã¦ã„ã‚‹
 
 use lib "./";
 use common_subroutines_for_resarch_reference;
-#‹¤’ÊŠÖ”‚ÌŒÄ‚Ño‚µ
+#å…±é€šé–¢æ•°ã®å‘¼ã³å‡ºã—
 
 main();
 
