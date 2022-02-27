@@ -1,255 +1,32 @@
+\documentclass[C:/math/mynote/note]{subfiles}
+
+\begin{document}
+
 ここでは（素朴）集合論の範囲内の知識や用語を整理します.
 基本的には\cite{Basic001}や\cite{Basic009}を参考にしています.
 
+\subsection{集合の基礎}
+\label{subsection:集合の基礎}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_集合の基礎.tex}
+
+\subsection{関係}
+\label{subsection:関係}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_関係.tex}
+
 \subsection{写像・関数}
 \label{subsection:写像・関数}
-\begin{definition}[]
-  集合$X,Y$に対して,
-  「$f$が$X$から$Y$への\textgt{写像}（\textbf{mapping}または\textbf{map}）」であるとは,
-  以下の2つの条件を満たすことをいう.
-  \begin{itemize}
-    \item[(f1)] $f\ \subseteq X\times Y$.
-    \item[(f2)] $\forall x\in X\ \exists !y\in Y\big(\ \op{x}{y}\in f\ \big)$.
-  \end{itemize}
-  「$f$が$X$から$Y$への写像」であることを$f:X\to Y$で表す. \\
-  $f:X\to Y$のとき
-  \begin{itemize}
-    \item[・] $X$を写像$f$の\textgt{定義域}（\textbf{domain}）,
-    または\textgt{始域}（こちらも\textbf{domain}）と呼び,
-    $\dom(f)$で表す.
-    \item[・] $Y$を写像$f$の\textgt{値域}（\textbf{range}）,
-    または\textgt{終域}（\textbf{codomain}）と呼び,
-    $\ran(f)$で表す. \qedhere
-  \end{itemize}
-\end{definition}
-\index{function}
-\index{function!domain}
-\index{function!range}
-\index{かんすう@写像・関数}
-\index{かんすう@写像・関数!ていぎいき@定義域}
-\index{かんすう@写像・関数!ちいき@値域}
-
-文献によっては（どの文献かは忘れた）,
-$f:X\to Y$で値域である$Y$が$\mathbb{N}$や$\mathbb{R}$といった数の集合であるときに\textgt{関数}（\textbf{function}）と呼んで,
-写像と関数を使い分けたりするが,
-このノートでは特に使い分けせず,
-どちらも混ぜて使います（でも関数が多いと思う）. \\
-
-上の順序対での写像の定義に,
-普段よく使う記法を適用します.
-
-\begin{notation}[]
-  $f:X\to Y$であるとき,
-  「$\op{x}{y}\in f$」を「$f(x)=y$」で表し「$f$は$x$を$y$へ写す」や「$x$の$f$による値は$y$」と言ったりする.
-  $f(x)$を「$x$の$f$による値」と呼ぶ. \\
-  この記法を用いれば写像の定義(f2)は以下のように書き換えられる.
-  \begin{equation*}
-    \forall x\in X\ \exists !y\big(\ f(x)=y\ \big)
-  \end{equation*}
-  つまり定義域の任意の要素は一意的な値域の要素に対応していると言える.
-\end{notation}
-
-ここでは写像を（順序対の）集合として定義したため,
-集合に関する記法を使って議論することができます.
-それを踏まえて,
-様々な用語を定めておきます.
-
-\begin{definition}[]
-  \label{definition:関数の関連用語}
-  2つの関数$f, g$に対して,
-  この2つを単なる順序対の集合とみて,
-  $f\subseteq g$が成立しているとき$f$を$g$の\textgt{部分関数},
-  $g$を$f$の\textgt{拡大}と呼ぶ. \\
-  さらに集合として$f$と$g$が等しいとき,
-  つまり$f\subseteq g$かつ$g\subseteq f$なとき
-  （写像として）$f$と$g$は\textgt{等しい}といい,
-  集合と同じで$f=g$で表す. \\
-  定義域や値域にまで踏み込んだ定義が続きます.
-  \begin{itemize}
-    \item[(1)]
-      関数$f:X\rightarrow Y$と$A\subseteq X$に対し$f\restric A\ =\ (A\times Y)\cap f$とおく.
-      つまり$f\restric A$は$f$の対応規則はそのままに定義域を$A$へ狭めた$A$から$Y$への関数のことです.
-      $f\restric A$は関数$f$の$A$への\textgt{制限}と呼びます. \\
-      つまり$f\restric A$は$f$の部分関数,
-      $f$は$f\restric A$の拡大といえます.
-    \item[(2)]
-      $\dom(f)=\dom(g)$な2つの関数$f, g$があったとき,
-      $f\bigtriangleup g\ \defeq\ \{ x\in \dom(f) \ |\  f(x)\neq g(x) \}$.
-    \item[(3)]
-      $\mbox{}^X Y$は$\dom(f)=X$, $\ran(f)\subseteq Y$なる関数全体の集合を表します.
-      つまり$\mbox{}^X Y\ \defeq\ \{ f \ |\  f:X\to Y \}$. \qedhere
-  \end{itemize}
-\end{definition}
-\index{かんすう@写像・関数!ぶぶんかんすう@部分関数}
-\index{かんすう@写像・関数!かくだい@（関数の）拡大}
-\index{かんすう@写像・関数!ひとしい@（2つの関数が）等しい}
-\index{かんすう@写像・関数!せいげん@（関数の）制限}
-
-写像が集合として表現できれば,
-2つの写像に集合演算を適用することができます.
-しかしその演算結果もまた写像になるかどうかはわかりません.
-例えば$f(x)\neq g(x)$な$x\in \dom(f)\cap \dom(g)$が存在したときです.
-$f, g$の定義域が互いに素なとき,
-つまり$\dom(f)\cap \dom(g)\neq\emptyset$なとき,
-$f\cup g$は$\dom(f)\cup \dom(g)$から$\ran(f)\cup \ran(g)$への関数になります.
-つまり対応規則が
-\begin{eqnarray*}
-  (f\cup g)(x)=
-  \left\{
-  \begin{array}{ll}
-    f(x) & x\in \dom(f) \\
-    g(x) & x\in \dom(g) \\
-  \end{array}
-  \right.
-\end{eqnarray*}
-な関数です.
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_写像・関数.tex}
 
 \subsection{集合族}
 \label{subsection:集合族}
-
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_集合族.tex}
 
 \subsection{色々な用語}
 \label{subsection:色々な用語}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_色々な用語.tex}
 
-様々な分野で現れる用語をまとめておきます.
+\subsection{選択公理と直積の一般化}
+\label{subsection:選択公理と直積の一般化}
+\subfile{C:/souji/all-note/part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_選択公理と直積の一般化.tex}
 
-\begin{definition}[]
-  \label{definition:分割}
-  集合$X$と$X$の部分集合の族$\{ Y_{\lambda}\} _{\lambda\in\Lambda}$に対し,
-  $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$が$X$の\textgt{分割}（\textbf{partition}）であるとは
-  以下の3つの条件を満たすことをいう.
-  \begin{itemize}
-    \item[・] $\emptyset\notin \{ Y_{\lambda}\} _{\lambda\in\Lambda}$.
-    \item[・] $\forall \lambda,\lambda^{\prime}\in\Lambda(\lambda\neq\lambda^{\prime}\rightarrow Y_{\lambda}\cap Y_{\lambda^{\prime}}=\emptyset)$.
-    \item[・] $X=\bigcup_{\lambda\in\Lambda}Y_{\lambda}$. \qedhere
-  \end{itemize}
-\end{definition}
-
-\begin{definition}[]
-  \label{definition:有限交叉性}
-  集合族$\{ X_{\lambda}\} _{\lambda\in\Lambda}$が\textgt{有限交叉性}（\textbf{finite intersection property}）をもつ
-  $\ \defarr\ \forall L\in [\Lambda]^{<\omega}\big(\ \bigcap_{i\in L}X_i\neq\emptyset\ \big)$.
-\end{definition}
-
-compact位相空間について述べる時のための定義を用意します.
-\begin{definition}[]
-  \label{definition:被覆}
-  集合$X$, $A\subseteq X$,
-  $\{ Y_{\lambda}\} _{\lambda\in\Lambda}\subseteq \mathcal{P}(X)$に対して
-  \begin{itemize}
-    \item[・]
-      $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$が$A$の\textgt{被覆}（\textbf{covering}）
-      $\ \defarr\ A\subseteq \bigcup_{\lambda\in\Lambda}Y_{\lambda}$.
-    \item[・]
-      $A$の被覆$\{ Y_{\lambda}\} _{\lambda\in\Lambda}$と$\Lambda^{\prime}\subseteq\Lambda$に対して,
-      $\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$もまた$A$の被覆のとき$\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$を$
-      \{ Y_{\lambda}\} _{\lambda\in\Lambda}$の\textgt{部分被覆}という.
-      とくに$|\Lambda^{\prime}|<\omega$のとき,
-      $\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$は
-      $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$の\textgt{有限部分被覆}とよぶ. \qedhere
-  \end{itemize}
-\end{definition}
-
-\subsection{直積の一般化}
-\label{subsection:直積の一般化}
-
-有限個の集合の直積を一般化する.
-\begin{definition}[]
-  \label{definition:一般直積集合}
-  $\Lambda$を添え字集合とした集合族$\{ X_{\lambda} \} _{\lambda \in \Lambda}$の
-  直積$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$を以下のように定義する.
-  \begin{equation*}
-    \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\ \defeq
-    \ \{\ f:\lambda\to\bigcup_{\lambda \in \Lambda}X_{\lambda}\ |
-    \ \forall \lambda \in \Lambda\big(\ f(\lambda)\in X_{\lambda}\ \big)\ \}. \qedhere
-  \end{equation*}
-\end{definition}
-
-$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$の要素は\textgt{選択関数}と呼びます.
-$\forall \lambda \in \Lambda(\ X_{\lambda}\neq \emptyset\ )$であれば
-$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$も空にならないように思えますが,
-それについては選択公理で保証しなくてはいけません.
-また$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$が空でないという主張は選択公理と同値になります.
-
-\begin{lemma}[]
-  \label{lemma:選択公理と直積定理は同値}
-  集合族$\mathcal{A}=\{ A_{\lambda} \} _{\lambda \in \Lambda}$はどの要素も空でないとする.
-  つまり$\forall \lambda \in \Lambda(A_{\lambda}\neq \emptyset)$.
-  このとき以下は同値.
-  \begin{itemize}
-    \item[(1)] （選択公理）$\mathcal{A}$に選択関数が存在する.
-    \item[(2)] （直積定理）直積集合$\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}$が空でない. \qedhere
-  \end{itemize}
-\end{lemma}
-
-\begin{proof}
-  \begin{itemize}
-    \item[]\hspace{-0.5cm}$(1)\ \Rightarrow\ (2)$ \\
-      $\mathcal{A}$上の選択関数を
-      $f_{AC}:\mathcal{A}\rightarrow \displaystyle\bigcup_{\lambda \in \Lambda}A_{\lambda}$とおく.
-      つまり$\forall \lambda \in \Lambda(f_{AC}(A_{\lambda})\in A_{\lambda})$が成立しています.
-      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}=
-      \{\ f:\mathcal{A}\rightarrow \displaystyle\bigcup_{\lambda \in \Lambda}A_{\lambda}\
-      |\ \forall \lambda \in \Lambda(\ f(A_{\lambda})\in A_{\lambda}\ )\}$という定義から
-      $f_{AC} \in \displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}$より
-      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$.
-    \item[]\hspace{-0.5cm}$(2)\ \Rightarrow\ (1)$ \\
-      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$より
-      ある$f\in \displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$が存在するが,
-      これは$\mathcal{A}$上の選択関数です. \qedhere
-  \end{itemize}
-\end{proof}
-
-よって以降は選択公理は常に仮定します.
-ですが,
-その公理を明記した場合には明記するようにします. \\
-
-\begin{definition}[]
-  $\Lambda$を添え字集合とした集合族$\{ X_{\lambda} \} _{\lambda \in \Lambda}$と
-  その直積$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$があったとき,
-  $\lambda \in \Lambda$に対して,
-  $p_{\lambda}:\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\to X_{\lambda}$を
-  $p_{\lambda}(f)=f(\lambda)$で定義して,
-  $p_{\lambda}$を$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$の$\lambda$成分への射影と呼ぶ.
-\end{definition}
-
-簡単に分かることを示しておきます.
-
-\begin{lemma}[]
-  $\forall \lambda \in \Lambda(\  X_{\lambda}\neq \emptyset\ )$ならば,
-  どの射影$p_{\lambda}$は全射.
-\end{lemma}
-
-\begin{proof}
-  選択公理によって$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\neq \emptyset$です.
-  よって1つ$f\in \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$をとり固定します.
-  全射であることを示すため,
-  任意に$x_{\lambda}\in X_{\lambda}$をとります.
-  関数$g:\lambda\to\bigcup_{\lambda \in \Lambda}X_{\lambda}$を
-  \begin{equation*}
-    g\ =\ \{\langle \lambda,x_{\lambda}\rangle\}\ \cup\ f\upharpoonright (\Lambda\setminus\{ \lambda\})
-  \end{equation*}
-  で定義すると,
-  $g\in \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$で,
-  $p_{\lambda}(g)=x_{\lambda}$です.
-  そんな$g$の存在から$p_{\lambda}$は全射です.
-\end{proof}
-
-\subsection{順序関係}
-\label{subsection:順序関係}
-あとでまとめるけど今は必要なものだけ.
-
-\begin{definition}[\textgt{帰納的半順序集合と}\textbf{Zorn}\textgt{の補題}]
-  半順序集合$(X,\leq)$（つまり反射律,
-  推移律,
-  反対称律を満たす）に対して
-  \begin{itemize}
-    \item[・]
-      $(X,\leq)$が\textgt{帰納的}$\ \defarr\ $
-      全ての全順序部分集合（上記3つに加えて三分律が成立）が上界をもつ
-    \item[・]
-      $a\in X$が$(X,\leq)$において\textgt{極大}
-      $\ \defarr\ \lnot \exists x\in X(\ a\leq x\ \land a\neq x\ )$
-  \end{itemize}
-  \textbf{Zorn}\textgt{の補題}とは「帰納的半順序集合は少なくとも1つの極大元をもつ」という主張のこと.
-\end{definition}
+\end{document}

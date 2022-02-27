@@ -95,6 +95,10 @@ sub make_dir_path {
 
 sub print_operation {
   my ( $fh, $target_dir_path, $file_name ) = @_;
+  print $fh "cd C:/souji/all-note/tool\n\n";
+  print $fh "perl -w convert_comma_and_period.pl\n\n";
+  print $fh "pause\n\n";
+  print $fh "cd ${target_dir_path}\n\n";
   print $fh "platex ${file_name}\n\n";
   print $fh "dvipdfmx ${file_name}\n\n";
   my @delete_target_extension = ( "aux", "dvi", "idx", "log", "out" );

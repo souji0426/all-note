@@ -1,0 +1,106 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+\begin{definition}[]
+  集合$X,Y$に対して,
+  「$f$が$X$から$Y$への\textgt{写像}（\textbf{mapping}または\textbf{map}）」であるとは,
+  以下の2つの条件を満たすことをいう.
+  \begin{itemize}
+    \item[(f1)] $f\ \subseteq X\times Y$.
+    \item[(f2)] $\forall x\in X\ \exists !y\in Y\big(\ \op{x}{y}\in f\ \big)$.
+  \end{itemize}
+  「$f$が$X$から$Y$への写像」であることを$f:X\to Y$で表す. \\
+  $f:X\to Y$のとき
+  \begin{itemize}
+    \item[・] $X$を写像$f$の\textgt{定義域}（\textbf{domain}）,
+    または\textgt{始域}（こちらも\textbf{domain}）と呼び,
+    $\dom(f)$で表す.
+    \item[・] $Y$を写像$f$の\textgt{値域}（\textbf{range}）,
+    または\textgt{終域}（\textbf{codomain}）と呼び,
+    $\ran(f)$で表す. \qedhere
+  \end{itemize}
+\end{definition}
+\index{function}
+\index{function!domain}
+\index{function!range}
+\index{かんすう@写像・関数}
+\index{かんすう@写像・関数!ていぎいき@定義域}
+\index{かんすう@写像・関数!ちいき@値域}
+
+文献によっては（どの文献かは忘れた）,
+$f:X\to Y$で値域である$Y$が$\mathbb{N}$や$\mathbb{R}$といった数の集合であるときに\textgt{関数}（\textbf{function}）と呼んで,
+写像と関数を使い分けたりするが,
+このノートでは特に使い分けせず,
+どちらも混ぜて使います（でも関数が多いと思う）. \\
+
+上の順序対での写像の定義に,
+普段よく使う記法を適用します.
+
+\begin{notation}[]
+  $f:X\to Y$であるとき,
+  「$\op{x}{y}\in f$」を「$f(x)=y$」で表し「$f$は$x$を$y$へ写す」や「$x$の$f$による値は$y$」と言ったりする.
+  $f(x)$を「$x$の$f$による値」と呼ぶ. \\
+  この記法を用いれば写像の定義(f2)は以下のように書き換えられる.
+  \begin{equation*}
+    \forall x\in X\ \exists !y\big(\ f(x)=y\ \big)
+  \end{equation*}
+  つまり定義域の任意の要素は一意的な値域の要素に対応していると言える.
+\end{notation}
+
+ここでは写像を（順序対の）集合として定義したため,
+集合に関する記法を使って議論することができます.
+それを踏まえて,
+様々な用語を定めておきます.
+
+\begin{definition}[]
+  \label{definition:関数の関連用語}
+  2つの関数$f, g$に対して,
+  この2つを単なる順序対の集合とみて,
+  $f\subseteq g$が成立しているとき$f$を$g$の\textgt{部分関数},
+  $g$を$f$の\textgt{拡大}と呼ぶ. \\
+  さらに集合として$f$と$g$が等しいとき,
+  つまり$f\subseteq g$かつ$g\subseteq f$なとき
+  （写像として）$f$と$g$は\textgt{等しい}といい,
+  集合と同じで$f=g$で表す. \\
+  定義域や値域にまで踏み込んだ定義が続きます.
+  \begin{itemize}
+    \item[(1)]
+      関数$f:X\rightarrow Y$と$A\subseteq X$に対し$f\restric A\ =\ (A\times Y)\cap f$とおく.
+      つまり$f\restric A$は$f$の対応規則はそのままに定義域を$A$へ狭めた$A$から$Y$への関数のことです.
+      $f\restric A$は関数$f$の$A$への\textgt{制限}と呼びます. \\
+      つまり$f\restric A$は$f$の部分関数,
+      $f$は$f\restric A$の拡大といえます.
+    \item[(2)]
+      $\dom(f)=\dom(g)$な2つの関数$f, g$があったとき,
+      $f\bigtriangleup g\ \defeq\ \{ x\in \dom(f) \ |\  f(x)\neq g(x) \}$.
+    \item[(3)]
+      $\mbox{}^X Y$は$\dom(f)=X$, $\ran(f)\subseteq Y$なる関数全体の集合を表します.
+      つまり$\mbox{}^X Y\ \defeq\ \{ f \ |\  f:X\to Y \}$. \qedhere
+  \end{itemize}
+\end{definition}
+\index{かんすう@写像・関数!ぶぶんかんすう@部分関数}
+\index{かんすう@写像・関数!かくだい@（関数の）拡大}
+\index{かんすう@写像・関数!ひとしい@（2つの関数が）等しい}
+\index{かんすう@写像・関数!せいげん@（関数の）制限}
+
+写像が集合として表現できれば,
+2つの写像に集合演算を適用することができます.
+しかしその演算結果もまた写像になるかどうかはわかりません.
+例えば$f(x)\neq g(x)$な$x\in \dom(f)\cap \dom(g)$が存在したときです.
+$f, g$の定義域が互いに素なとき,
+つまり$\dom(f)\cap \dom(g)\neq\emptyset$なとき,
+$f\cup g$は$\dom(f)\cup \dom(g)$から$\ran(f)\cup \ran(g)$への関数になります.
+つまり対応規則が
+\begin{eqnarray*}
+  (f\cup g)(x)=
+  \left\{
+  \begin{array}{ll}
+    f(x) & x\in \dom(f) \\
+    g(x) & x\in \dom(g) \\
+  \end{array}
+  \right.
+\end{eqnarray*}
+な関数です.
+
+\end{document}

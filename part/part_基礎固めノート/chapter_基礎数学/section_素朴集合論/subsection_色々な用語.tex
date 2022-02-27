@@ -1,0 +1,44 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+様々な分野で現れる用語をまとめておきます.
+
+\begin{definition}[]
+  \label{definition:分割}
+  集合$X$と$X$の部分集合の族$\{ Y_{\lambda}\} _{\lambda\in\Lambda}$に対し,
+  $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$が$X$の\textgt{分割}（\textbf{partition}）であるとは
+  以下の3つの条件を満たすことをいう.
+  \begin{itemize}
+    \item[・] $\emptyset\notin \{ Y_{\lambda}\} _{\lambda\in\Lambda}$.
+    \item[・] $\forall \lambda,\lambda^{\prime}\in\Lambda(\lambda\neq\lambda^{\prime}\rightarrow Y_{\lambda}\cap Y_{\lambda^{\prime}}=\emptyset)$.
+    \item[・] $X=\bigcup_{\lambda\in\Lambda}Y_{\lambda}$. \qedhere
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[]
+  \label{definition:有限交叉性}
+  集合族$\{ X_{\lambda}\} _{\lambda\in\Lambda}$が\textgt{有限交叉性}（\textbf{finite intersection property}）をもつ
+  $\ \defarr\ \forall L\in [\Lambda]^{<\omega}\big(\ \bigcap_{i\in L}X_i\neq\emptyset\ \big)$.
+\end{definition}
+
+compact位相空間について述べる時のための定義を用意します.
+\begin{definition}[]
+  \label{definition:被覆}
+  集合$X$, $A\subseteq X$,
+  $\{ Y_{\lambda}\} _{\lambda\in\Lambda}\subseteq \mathcal{P}(X)$に対して
+  \begin{itemize}
+    \item[・]
+      $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$が$A$の\textgt{被覆}（\textbf{covering}）
+      $\ \defarr\ A\subseteq \bigcup_{\lambda\in\Lambda}Y_{\lambda}$.
+    \item[・]
+      $A$の被覆$\{ Y_{\lambda}\} _{\lambda\in\Lambda}$と$\Lambda^{\prime}\subseteq\Lambda$に対して,
+      $\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$もまた$A$の被覆のとき$\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$を$
+      \{ Y_{\lambda}\} _{\lambda\in\Lambda}$の\textgt{部分被覆}という.
+      とくに$|\Lambda^{\prime}|<\omega$のとき,
+      $\{ Y_{\lambda}\} _{\lambda\in\Lambda^{\prime}}$は
+      $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$の\textgt{有限部分被覆}とよぶ. \qedhere
+  \end{itemize}
+\end{definition}
+
+\end{document}

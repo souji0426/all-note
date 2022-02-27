@@ -2,4 +2,551 @@
 
 \begin{document}
 
+では帽子パズルを数学的対象にするため,
+帽子パズルに登場する用語たちを,
+数学概念を使って定義していきます.
+
+しかしいきなり全てのパズルを対象にしてしまうと分かりにくくなりそうなので,
+一番シンプルなHardin-Taylorの帽子パズルを形式化して,
+Hardin-Taylorの帽子パズルになかった要素を続けて形式化していくことにします.
+
+まず,
+\SecRef{subsection:帽子パズルの構成要素}でも紹介したとおり,
+帽子パズルの要素とは以下のものでした.
+
+$$
+\begin{cases}
+  \hspace{0.3cm}\text{囚人たちが協力する} \\
+  \hspace{0.3cm}\text{囚人たちが協力しない}
+\end{cases}
+\times\hspace{0.7cm}
+\begin{cases}
+  \hspace{0.3cm}\text{囚人数} \\
+  \hspace{0.3cm}\text{色の数} \\
+  \hspace{0.3cm}\text{帽子の見分け方} \\
+  \hspace{0.3cm}\text{帽子に付く色の個数} \\
+  \hspace{0.3cm}\text{帽子の見え方} \\
+  \hspace{0.3cm}\text{帽子についての情報} \\
+  \hspace{0.3cm}\text{発言方法} \\
+  \hspace{0.3cm}\text{色以外の発言} \\
+  \hspace{0.3cm}\text{発言回数} \\
+  \hspace{0.3cm}\text{勝利条件}
+\end{cases}
+$$
+\vspace{0.5cm}
+
+そして再掲しますが,
+Hardin-Taylorの帽子パズルとは以下のようなものでした.
+
+\begin{re-puzzle}{puzzle:hat-Hardin-Taylor}
+  看守があるゲームをするために2人の囚人を同じ部屋に入れ,
+  帽子を1人に1つずつ被せます.
+  その帽子は黒白どちらかの色で塗られています.
+  囚人2人はそれぞれ自分が被っている帽子の色は分かりませんが,
+  もう1人の囚人の帽子の色は見えています.
+  また部屋に入ってからは互いに一切のコミュニケーションが取れません.
+  この状態で帽子の色のどちらかのみを,
+  つまり「黒」か「白」のみを2人同時に発言させ,
+  その発言とその発言者が被っている帽子の色が一致していれば正解となり,
+  そんな正解者が1人でもいれば囚人側の勝利として2人とも釈放されます.
+  もし2人とも不正解ならば囚人側の敗北として2人とも処刑されます.
+  当たり前ですが看守がどのように帽子を被せるかは,
+  囚人たちは入室するまで知りません.
+  このゲームのルールや勝利条件については,
+  部屋に入る前に囚人たちに伝えられ,
+  ゲーム開始までに2人で戦略を相談することが可能です.
+  このとき入室後にどのように帽子を被せられても,
+  常に囚人側が勝利する戦略は存在するでしょうか？
+\end{re-puzzle}
+
+このパズルがシンプルだと私が思う理由は,
+帽子に付く色の個数は帽子1つにつき1つであり,
+帽子についての情報はなく,
+色以外の発言は不可能で,
+発言回数も全員1回のみという点です.
+つまり特別な定義が他のパズルに比べて一番少ない点にあります.
+
+またこのパズルは囚人たちが協力するタイプですが,
+囚人たちが協力しないタイプのパズルを研究するさい,
+協力するタイプとは研究目的も変わることがあり,
+それによってその形式化も大きく異なります.
+協力しないタイプのパズルを研究するうえで,
+どのように形式化するのかについては\SecRef{subsubsection:非協力的な帽子パズルの形式化}で書いてみることにします.
+
+\subsubsection{Hardin-Taylorの帽子パズルの形式化}
+\label{subsubsection:Hardin-Taylorの帽子パズルの形式化}
+
+ではHardin-Taylorの帽子パズルのようなパズルを形式化していきます.
+ここでは『The mathematics of Coordinated Inference』\cite{Hat001}の2ページの形式化をベースにして
+個人的な考えから少し手を加えていきます.
+
+まず囚人たち,
+帽子に付ける色たちの範囲を定めるために集合を使います.
+%あとで書く
+\begin{comment}
+  集合を定義したらリンクをはる
+\end{comment}
+
+\begin{definition}[囚人と色の集合]
+  \label{definition:帽子パズルの囚人と色の集合}
+  集合{\boldmath $A$}$,${\boldmath $K$}と書いたとき,
+  $A$を\textgt{囚人集合}といい,
+  $A$の要素を\textgtbf{囚人}{prisoner}または\textbf{agent}とよぶ.
+  $K$を\textgt{色集合}といい,
+  $K$の要素を\textgtbf{色}{color}とよぶ.
+\end{definition}
+\index{prisoner}\index{しゅうじん@囚人}
+\index{color}\index{いろ@色}
+\RegisterInSymbolList{$A$}{囚人集合}{definition:帽子パズルの囚人と色の集合}
+\RegisterInSymbolList{$K$}{色集合}{definition:帽子パズルの囚人と色の集合}
+
+agentという呼び方は\cite{Hat001}にあったものです.
+囚人の集合ならば$A$ではなく$P$とすべきだと思いますが,
+\cite{Hat001}の意図としては$P$はのちにpredictorという重要な概念に使用するために,
+$P$という記号が先に予約されたのではと思います.
+同様に色の集合ならば$K$ではなく$C$とすべきでしょうが,
+これも同じテキストではのちにcoloringの集合という概念のために使用するからだと思います.
+しかし,
+例えば素直に囚人集合に$P$,
+色集合に$C$を使っている文献もあります.
+例えば\cite{Hat021}などです.
+
+補足すると色集合とは,
+囚人に被せる帽子に付く色の候補の集合というべきかもしれません.
+
+Puzzle \ref{puzzle:hat-Hardin-Taylor}の場合は,
+囚人が二人なので,
+囚人2人を$a,b$で表現すると$A=\{ a,b \}$となります.
+帽子には白黒の色がつくので,
+$K=\{ \text{白}, \text{黒} \}$となります.
+
+ゲームに参加する囚人の人数,
+使用する帽子の色の数は,
+それぞれ$A$と$K$の濃度で表現できます.
+ゲームに参加する囚人が1人のものは考える意義があまりありません.
+なぜならとくに追加要素などがなければ,
+その囚人は運でしか勝敗が決まらないからです.
+同様にどれだけたくさん囚人がゲームに参加しても,
+帽子につく色が1つだけなら（その色を答えるだけでいいので）ゲームが成立しません.
+なので,
+とくに断らなくともいつでも$A,K$は一元集合でないとしておきます.
+%あとで書く
+\begin{comment}
+  一元集合を定義したらリンクをはる
+\end{comment}
+同じことですが,
+いつでも$A,K$の濃度は2以上だとしておきます. \\
+
+ゲームにおいて部屋に入ったあとに,
+全囚人に色付きの帽子を1つずつ被せますが,
+この操作は$A$の各要素に対して$K$の中から1つずつ選ぶ操作に等しいです.
+これは$A$から$K$への写像を1つ与えることと同じことです.
+すなわち,
+各帽子の被せ方1つ1つは,
+それぞれ何らかの写像$f:A\rightarrow K$で表現できます.
+それに対して呼び名を与えることにします.
+\begin{definition}[coloring]
+  \label{definition:coloring}
+  $A,K$に対して写像$\map{f}{A}{K}$を\textbf{coloring}とよぶ.
+  あるゲームにおいて,
+  囚人たちが被せられる可能性のある帽子の被せ方,
+  つまりcoloringの集合を$C$で表す.
+\end{definition}
+\index{coloring}
+\RegisterInSymbolList{$C$}{coloringの集合}{definition:coloring}
+
+再度Puzzle \ref{puzzle:hat-Hardin-Taylor}を例に出します.
+囚人の集合を$A=\{ a,b\}$と,
+色の集合は白と黒の集合なので$K=\{ \text{W},\text{B}\}$とおきます.
+このパズルでは全ての帽子の被せ方があり得るので,
+$A$から$K$への写像全ての集合が$C$になります.
+集合$X,Y$に対して$X$から$Y$への写像全ての集合$\SetBar{f}{\map{f}{X}{Y}}$を$\MapSet{X}{Y}$で表すことがあります.
+なのでPuzzle \ref{puzzle:hat-Hardin-Taylor}の場合は,
+$C=\MapSet{A}{K}$です.
+一般的にどんな帽子パズルでも$C\subseteq \MapSet{A}{K}$となりますが,
+HardinとTaylorの帽子パズルではいつでも$C=\MapSet{A}{K}$です.
+Puzzle \ref{puzzle:hat-Hardin-Taylor}におけるcoloringは4種類あります.
+その4種類のcoloringを$f_1,f_2,f_3,f_4$とおき,
+それぞれのcoloringの対応規則を以下の表に定めます.
+
+\begin{table}[H]
+  \begin{center}
+    \begin{tabular}{c||c|c|c|c}
+          & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ \hline \hline
+      $a$ & B     & B     & W     & W     \\
+      $b$ & B     & W     & B     & W     \\
+    \end{tabular}
+    \label{table:2-2-Hardin-Taylor帽子パズルのcoloring表}
+    \caption{Puzzle \ref{puzzle:hat-Hardin-Taylor}におけるcoloringの一覧}
+  \end{center}
+\end{table}
+
+\noindent
+たとえば$f_1$は$a,b$二人とも黒色を被せたものになります. \\
+
+各囚人がどのように他の囚人が見えているかを表現するためには,
+有向グラフという概念が便利です.
+%あとで書く
+\begin{comment}
+  有向グラフについてまとめたらリンクをはる
+\end{comment}
+
+\begin{definition}[視野グラフ]
+  \label{definition:視野グラフ}
+  囚人集合$A$に対して,
+  $A$上の有向グラフ{\boldmath $V$}がループを持たないとき,
+  $V$を（$A$上の）\textgtbf{視野グラフ}{visibility graph}とよぶ. \\
+  $a,b\in A$と$A$上のなんらかの視野グラフに対して,
+  \begin{itemize}
+    \item
+      $V$において$a$から$b$への辺が存在するとき,
+      $a$は$b$の\textgt{帽子が見えている},
+      もしくは単に$a$は$b$が\textgt{見えている}といい,
+      $a{\boldmath \CanSee{V}} b$と表す.
+    \item
+      $V$において$a$が見えている囚人全体の集合を${\boldmath V(a)}$で表す.
+      つまり$V(a)=\{b\in A : a \overrightarrow{V} b \}$であり,
+      この$V(a)$を囚人$a$の\textgt{視野}と呼ぶ. \qedhere
+  \end{itemize}
+\end{definition}
+\index{visibility graph}
+\index{しやぐらふ@視野グラフ}
+\index{しやぐらふ@視野グラフ!しや@視野}
+\RegisterInSymbolList{$V$}{視野グラフ}{definition:視野グラフ}
+\RegisterInSymbolList{$\CanSee{V}$}{$V$上見えているという関係}{definition:視野グラフ}
+\RegisterInSymbolList{$V(a)$}{$a$の視野}{definition:視野グラフ}
+
+\cite{Hat001}では,
+$a\CanSee{V} b$ではなく単に$a \rightarrow b$や$aVb$などと書いていたりしますが,
+このノートでは,
+どの視野グラフで,
+どちらが見えているのかが分かりやすいと思ったので,
+私が考えた$a \overrightarrow{V} b$で統一します. \\
+
+あるパズルにおいて囚人たちがどのように他の囚人を見えているかを定めるとは,
+その囚人集合上の視野グラフを1つ与えることに対応します.
+$V$を$A$上の二項関係と捉えれば,
+ループを持たないとは二項関係$V$が非反射的,
+つまり以下を満たすと表現できます.
+\begin{equation*}
+  \forall a\in A(\ \op{a}{a} \notin V\ ).
+\end{equation*}
+
+なぜ視野グラフがいつでもループが存在しないと仮定するかというと,
+もし$a\CanSee a$な囚人$a\in A$がいたとすると,
+そんな囚人は自分自身の帽子が見えています.
+そんな囚人は必ず自身の色を言い当てることができるので,
+正解数という観点では考える意味のない存在になってしまいます.
+よってどのようなパズルでももつ「全ての囚人は自分自身の帽子が見えない」という設定を表現するために,
+どんな視野グラフもループをもたないとします. \\
+
+視野グラフを導入する最大の利点として考えられるのは,
+帽子の見え方をグラフ理論の言葉で表現できるからだと思います.
+例えばPuzzle \ref{puzzle:hat-Hardin-Taylor}の帽子の見え方は「自分以外の帽子が全て見えている」と表現できます（2人しかいないので自分以外全員といってもたった1人なので少し強めの主張に見えてしまいますが）.
+見えているというのは視野グラフにおいて有向辺があるということでしたから,
+グラフ理論の言葉で言い換えると「その視野グラフにおける全ての頂点は他の頂点へ有向辺がある」となります.
+そしてあるグラフが「全ての頂点は他の頂点へ有向辺がある」を満たすとき,
+そんなグラフはグラフ理論では\textgt{完全}グラフであると呼ばれます.
+すなわち,
+Puzzle \ref{puzzle:hat-Hardin-Taylor}は「視野グラフが完全グラフであるような帽子パズルである」と表現できます.
+
+別の見方としてPuzzle \ref{puzzle:hat-Hardin-Taylor}には,
+$a\to b\to a$という始点と終点が同じになっているpathが存在します.
+このようなpathのことを\textbf{cycle}といい,
+1つのcycleからなるグラフのことを\textgt{閉路}グラフと呼ぶそうです（\cite{Wiki035}を参考にしました）.
+なのでPuzzle \ref{puzzle:hat-Hardin-Taylor}は「視野グラフが閉路グラフであるような帽子パズルである」とも表現できます.
+もちろん頂点数（囚人数）が2のときに完全グラフと閉路グラフが同じ意味になるので,
+Puzzle \ref{puzzle:hat-Hardin-Taylor}ではたまたまこのようになりました.
+
+このほかにも例えばグラフ理論には\textgt{独立集合}という言葉があります.
+これはある有向グラフにおいて,
+自分からの有向辺がない頂点の集合（ないし部分グラフ）のことを指します.
+つまりある帽子パズルの視野グラフにおける独立集合とは,
+そのゲームにおいてどの囚人の帽子も見えていない囚人たちの集合を意味します.
+上の定義を借りると,
+ある視野グラフ$V$における独立集合$X$とは$X=\SetBar{a\in A}{V(a)=\emptyset}$と表現できます.
+Puzzle \ref{puzzle:hat-Hardin-Taylor}では独立集合は存在しません.
+たとえば,
+このパズルで囚人$a$を$b$の帽子が見えなくする（つまり何も見えなくなる）と,
+そんな視野グラフにおいて集合$\{ a \}$は独立集合です.
+
+その定義からいつでも$V(a)\subsetneq A\setminus \{ a \}$なので,
+どの囚人の視野$V(a)$も$A$の真部分集合になります. \\
+
+Table \ref{table:2-2-Hardin-Taylor帽子パズルのcoloring表}において,
+$f_1$と$f_3$は関数として異なりますが,
+囚人$a$から見て黒が見えていることに変わりにはなく,
+囚人$a$は黒が見えたとしても,
+自分たちの帽子の様子がどちらのcoloringになっているかは判定できません.
+こういった状況を１つ上の視野の定義を借りて定義します.
+
+\begin{definition}[coloringの「見分けがつかない」関係]
+  \label{definition:見分けがつかない関係}
+  囚人集合$A$と$a\in A$,
+  $A$上の視野グラフ$V$に対して,
+  $C$上の二項関係{\boldmath $\equiv_a$}を
+  \begin{align*}
+    f\equiv_a g \ &\defarr\ \forall b\in V(a)\big(\ f(b)=g(b)\ \big) \\
+                \ &\Longleftrightarrow\  f\restric V(a) = g\restric V(a)
+  \end{align*}
+  と定義する.
+  2つのcoloring $f,g\in C$に対して,
+  $f \equiv_a g$であるとき,
+  $f,g$は$a$にとって\textgt{見分けがつかない}という.
+\end{definition}
+\index{みわけがつかない@（coloringが）見分けがつかない}
+\RegisterInSymbolList{$\equiv_a$}{$a$にとって見分けがつかない関係}{definition:見分けがつかない関係}
+
+$\restric$は関数の定義域の部分集合への制限を表す記号です.
+
+Table \ref{table:2-2-Hardin-Taylor帽子パズルのcoloring表}を参考にすると,
+Puzzle \ref{puzzle:hat-Hardin-Taylor}では,
+$f_1 \equiv_a f_3,\ f_2 \equiv_a f_4$であり,
+$f_1 \equiv_b f_2,\ f_3 \equiv_b f_4$です.
+この定義はこのあとのそれぞれの囚人の戦略を定義するときに役立ちます. \\
+
+Example \ref{example:2人2色視野完全同時発言型}（\pageref{example:2人2色視野完全同時発言型}ページ））のように,
+全ての囚人が同時に発言する様式のことを\textgt{同時発言型}と呼びます.
+Example \ref{example:5人2色前方完全順次発言型}（\pageref{example:5人2色前方完全順次発言型}ページ）のように,
+囚人の集合$A$がなんらかの順序関係によって整列順序付けされているとき,
+その順序で最小な囚人から発言していく様式のことを\textgt{順次発言型}と呼びます.
+例えに出しませんでしたが, ある決まった1人が先に発言しその次に残りの囚人が同時に発言するような様式を
+\textgt{1人先行型}と呼んでいます.
+同時でない発言様式では各囚人は発言前に聞いた他の囚人の発言も自身の発言の参考にすることができます.
+発言様式は囚人数・色数・視野グラフといったこれまでの定義と絡めて形式化するのは難しいですが,
+戦略を定義するさいには意識することになります. \\
+
+ここまでの用語を用いれば
+Example \ref{example:2人2色視野完全同時発言型}（\pageref{example:2人2色視野完全同時発言型}ページ）は
+\textgt{2人2色視野完全同時発言型パズル},
+Example \ref{example:5人2色前方完全順次発言型}（\pageref{example:5人2色前方完全順次発言型}ページ）は
+\textgt{5人2色前方完全順次発言型パズル}と（ちょっと長いですが）一言で言いあわらすことができます.
+このように呼称しているのは私だけですが, 個人的にはパズルの結果を体系的に分類するために便利だと考えています. \\
+
+部屋に囚人が入れられ帽子を被せられているような状況だとします.
+ここから各囚人は見えている帽子の様子, つまりcoloringから自身の色を推測して発言するわけですが,
+その作業は$C$から$K$への関数で表現できます.
+$A,\ K,\ C,\ V$を固定します.
+$a\in A$の\textgt{戦略}（(\textbf{guessing})\textbf{strategy}）$G_a$とは
+関数$G_a:C\rightarrow K$のことで
+\begin{equation*}
+  \forall f,g\in C\big(\ f\equiv_a g\ \rightarrow\ G_a(f)=G_a(g)\ \big)
+\end{equation*}
+を満足するとします.
+囚人$a\in A$にとって見分けがつかない2つのcoloringに対して,
+エスパーでもない限り別々の色を発言することは出来ないので
+満たすべき条件はそれを表現しています.
+この戦略の定義は同時発言型パズルの囚人や, 順番がついていて1番最初に発言する囚人にしか当てはまりません.
+発言前に1人の発言, つまり色をヒントに使えるような囚人の戦略$G$は$G:C\times K\rightarrow K$で
+\begin{equation*}
+  \forall f,g\in C\ \forall k_1,k_2\in K\big(\ ( f\equiv_a g\land k_1 = k_2)\ \rightarrow\ G_a(\langle f,k_1\rangle)=G_a(\langle g,k_2\rangle)\ \big)
+\end{equation*}
+を満たすものと定義できます.
+同様にして発言前に$n$人の発言を聞ける囚人の戦略も定義することができます.
+一般化されても聞いたヒントが同じで見え方が同じようなcoloringに対して,
+同じ色を発言しなければいけないことは変わりません.
+囚人$a$が戦略$G_a$で$f\in C$の下で\textgt{正解}しているとは$G_a(f)=f(a)$で,
+\textgt{不正解}であるとは$G_a(f)\neq f(a)$で表現できます.
+$f$とは$A$から$K$への関数でしたから$f(a)$とは$f$において$a$が被っている帽子の色を表しています. \\
+
+$A,\ K,\ C,\ V$と各囚人$a\in A$それぞれに戦略$G_a$が固定されているとします.
+\textbf{predictor}（あえて和訳するならば\textgt{発言予測}とかだろうか）とは
+写像$P:C\rightarrow C$で$\forall a \in A\big(\ P(f)(a)=G_a(f)\ \big)$を満たすものとします.
+なぜこれを予測と呼ぶのかですが,
+各囚人$a,b,c,\cdots$の戦略$G_a,G_b,G_c,\cdots$が定まっていれば
+$f\in C$が一つ与えられたとき各発言$G_a(f),\ G_b(f),\ G_c(f),\ \cdots$が定まります.
+すると$\{\langle a,G_a(f) \rangle\ |\  a\in A \}$は１つのcoloringでもありますし,
+囚人たちの発言の様相という見方もできます.
+なのでperdictorとは
+「各囚人が△△な戦略で来て, この状況（coloring）ならば, こういう発言をするはず」という予測を
+形式化したものなります.
+このことから定義にある$\forall a \in A\big(\ P(f)(a)=G_a(f)\ \big)$とは
+\begin{equation*}
+  \forall f\in C\big(\ P(f)\ =\ \{\langle a,G_a(f) \rangle\ |\  a\in A \}\ \big)
+\end{equation*}
+とも言えます. \\
+predictorを$C$から$C$への写像という見方ではなく,
+単に戦略の集合と捉えて$P=\{G_a\ |\ a\in A \}$や$P=\{\langle a,G_a \rangle\ |\  a\in A \}$と
+扱うこともあります.
+帽子パズルとは「△△なパズルに対して◇◇なpredictorは存在するか？」と問われていると考えられます.
+この時点では説明するのは難しいですが,
+なにゆえ個々の戦略と, 戦略の集合に対して別の用語を与えているかというと,
+Example \ref{example:5人2色前方完全順次発言型}（\pageref{example:5人2色前方完全順次発言型}ページ）の
+解答となるpredictorは
+最初に発言する囚人以外の全員が（きちんと形式化すれば）同じ戦略をとっているので
+個々の戦略の区別が特になく, 個々の戦略$G_a$に注目せずpredictorで議論した方が証明が見やすくなります.
+しかしExample \ref{example:2人2色視野完全同時発言型}（\pageref{example:2人2色視野完全同時発言型}ページ）の
+解答になるpredictorのように
+それぞれの囚人が異なる戦略を取るならば, それぞれの戦略$G_a$に注目する必要があります
+（しかしこの戦略も上手く形式化すれば同じように記述できたりします）.
+predictorと戦略$G_a,G_b,G_c,\cdots$は互いに依存しています.
+つまり「個々の戦略が定まっているならば発言も予測出来るだろうし,
+発言が予測できるならば個々の戦略が特定出来る」ということです.
+よってこれから証明などにおいて「\textgt{任意に\textbf{predictor}をとる}」とは
+「各囚人の戦略を固定する」の言い換えとも思えます.
+視野グラフと同様に特徴的なpredictorには名前が付いています.
+例えばexample 1.1.1で求められたようなどのように帽子を被せても必ず1人以上が正解するようなpredictorを
+\textbf{minimal predictor}と呼びます.
+predictor\ $P$がminimalであることは
+\begin{equation*}
+  \forall f\in C\exists a\in A\big(\ P(f)(a)=f(a)\ \big)
+\end{equation*}
+や
+\begin{equation*}
+  \forall f\in C\big(\ |\{a\in A\ |\ P(f)(a)=f(a) \}|\ \geq\ 1\ \big)
+\end{equation*}
+などとより具体的に書けます.
+次にexample 1.1.2で求められたどのように帽子を被せても不正解者が1人以下になるようなpredictorを
+\textbf{up to one errror predictor}と呼んでいます.
+その定義は同様に
+\begin{equation*}
+  \forall f\in C\big(\ |\{\ a\in A\ |\ P(f)(a)\neq f(a)\ \}|\ \leq\ 1\ \big)
+\end{equation*}
+と具体的に記述できます. \\
+
+パズルに対する共通な定義はこれで終わりです.
+これで十分な理由は
+\ref{section:囚人と帽子のパズルとは}節（\pageref{section:囚人と帽子のパズルとは}ページ）において,
+各パズルの特徴, つまり違いは以下の5つであると述べたからです.
+\begin{itemize}
+  \item[・]囚人数
+  \item[・]色数
+  \item[・]各囚人の帽子の見え方
+  \item[・]発言方法
+  \item[・]どのように帽子を被せた場合でも要求される正解者数, もしくは不正解者数
+\end{itemize}
+ここまでの用語を用いれば
+Example \ref{example:2人2色視野完全同時発言型}（\pageref{example:2人2色視野完全同時発言型}ページ）の結果は
+「2人2色視野完全同時発言型パズルにminimal predictorが存在する」,
+Example \ref{example:5人2色前方完全順次発言型}（\pageref{example:5人2色前方完全順次発言型}ページ）の結果は
+「5人2色前方完全順次発言型パズルにup to one errror predictorが存在する」と言い換えられます.
+このようにパズルに関する数学的定理の基本的な形は
+「△△なパズルに対して◇◇なpredictorは存在する（しない）」となります. \\
+
+ここまで抽象的な定義だけだったので, 最後にexample 1.1.1を題材に形式化してみます. \\
+
+囚人の集合を$A=\{ a,b\}$と,
+色の集合は赤と白の集合なので$K=\{ \text{R},\text{W}\}$とおきます. \\
+
+4種類のcoloringを$f_1,f_2,f_3,f_4,:A\rightarrow K$とおき, 各coloringの対応規則を
+
+\begin{table}[H]
+\caption{}
+%%\label{table:coloring}
+  \begin{center}
+    \begin{tabular}{|c||c|c|c|c|} \hline
+          & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ \hline \hline
+      $a$ & R     & R     & W     & W     \\
+      $b$ & R     & W     & R     & W     \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+とします.つまり$f_1$は二人とも赤色が被せられています.
+coloringの集合$C$は$\{ f_1,f_2,f_3,f_4,\}$となります. \\
+
+視野グラフ$V$は$V=\{\langle a,b \rangle , \langle b,a \rangle \}$となっていて,
+それぞれの視野は$V(a)=\{ b\} , V(b)=\{ a\}$です.
+すると$f_1$と$f_3$は$a$から見て両方Rなので見分けが付きません.
+つまり$f_1\equiv_{a}f_3$です.
+同様に$f_2\equiv_{a}f_4$, $f_1\equiv_{b}f_2$, $f_3\equiv_{b}f_4$です. \\
+
+$a$,$b$がとれる戦略は4つずつあります.
+$a$の4つの戦略を$G_{a}^{1} \ ,\  G_{a}^{2} \ ,\  G_{a}^{3} \ ,\  G_{a}^{4}$と,
+$b$の4つの戦略を$G_{b}^{1} \ ,\  G_{b}^{2} \ ,\  G_{b}^{3} \ ,\  G_{b}^{4}$とおきます.
+戦略を単なる関数として表現してしまうと, その戦略の意味が分かりづらいので表にして意味を付け加えました.
+
+\begin{table}[H]
+\caption{}
+\label{table:strategy-of-a}
+  \begin{center}
+    \begin{tabular}{|c||c|c||l|} \hline
+      　              & $f_1,f_3$ & $f_2,f_4$ & 戦略の意味           \\ \hline \hline
+         $G_{a}^{1}$  & R         & R         & いつでも赤を宣言      \\
+         $G_{a}^{2}$  & R         & W         & 見えた色と同じ色を宣言 \\
+         $G_{a}^{3}$  & W         & R         & 見えた色と違う色を宣言 \\
+         $G_{a}^{4}$  & W         & W         & いつでも白を宣言       \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{}
+\label{table:strategy-of-b}
+  \begin{center}
+    \begin{tabular}{|c||c|c||l|} \hline
+      　              & $f_1,f_2$ & $f_3,f_4$ & 戦略の意味           \\ \hline \hline
+         $G_{b}^{1}$  & R         & R         & いつでも赤を宣言      \\
+         $G_{b}^{2}$  & R         & W         & 見えた色と同じ色を宣言 \\
+         $G_{b}^{3}$  & W         & R         & 見えた色と違う色を宣言 \\
+         $G_{b}^{4}$  & W         & W         & いつでも白を宣言       \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+$f_1\equiv_{a}f_3$なのでどの$G_a$も$f_1,f_3$に対しては同じ色を返します.
+なので表でも他の戦略も同様にまとめて書いています.
+$G_{a}^{1}$と$f_1,f_3$の位置にRが書いてあるのは,
+$f_1,f_3$に対して戦略$G_{a}^{1}$で$a$はRと発言することを表しています. \\
+先のcoloringの表と見比べれば,
+coloring\ $f_1$の下で戦略$G_{a}^{1}$で$G_{a}^{1}(f_1)=\text{R}=f_1(a)$より$a$は正解しています.
+しかし$G_{a}^{1}(f_3)=\text{R} \neq \text{W}=f_3(a)$より,
+$f_3$の下で$G_{a}^{1}$では$a$は不正解です. \\
+
+このとき戦略の組み合わせは$4\times 4=16$パターンあるのでpredictorも$16$個あります.
+
+\begin{table}[H]
+\caption{}
+\label{table:predictor}
+  \begin{center}
+    \begin{tabular}{|c||c|c|c|c|} \hline
+                     & $G_{a}^{1}$ & $G_{a}^{2}$ & $G_{a}^{3}$ & $G_{a}^{4}$  \\ \hline \hline
+        $G_{b}^{1}$  & $P_{1}$     & $P_{2}$     & $P_{3}$     & $P_{4}$      \\
+        $G_{b}^{2}$  & $P_{5}$     & $P_{6}$     & $P_{7}$     & $P_{8}$      \\
+        $G_{b}^{3}$  & $P_{9}$     & $P_{10}$    & $P_{11}$    & $P_{12}$     \\
+        $G_{b}^{4}$  & $P_{13}$    & $P_{14}$    & $P_{15}$    & $P_{16}$     \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+表の見方ですが$G_{a}^{1}$と$G_{b}^{1}$の位置にある$P_1$は
+囚人$a$が戦略$G_{a}^{1}$を, 囚人$b$が$G_{b}^{1}$をとるようなpredicotr\ $\{ G_{a}^{1}, G_{b}^{1} \}$であることを表しています. \\
+
+最後に各predictorがそれぞれのcoloringに対してどのような発言をするか,
+すなわち$C$から$C$への関数と考えたときにどのようなcoloringを返すかを表にします.
+
+\begin{table}[H]
+\caption{}
+\label{table:result}
+  \begin{center}
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+            & $P_{1}$ & $P_{2}$ & $P_{3}$ & $P_{4}$ & $P_{5}$ & $P_{6}$ & $P_{7}$ & $P_{8}$ & $P_{9}$ & $P_{10}$ & $P_{11}$ & $P_{12}$ & $P_{13}$ & $P_{14}$ & $P_{15}$ & $P_{16}$  \\ \hline \hline
+      $f_1$ & $f_1$   & $f_1$   & $f_3$   & $f_3$   & $f_1$   & $f_1$   & $f_3$   & $f_3$   & $f_2$   & $f_2$    & $f_4$    & $f_4$    & $f_2$    & $f_2$    & $f_4$    & $f_4$     \\
+      $f_2$ & $f_1$   & $f_3$   & $f_1$   & $f_3$   & $f_1$   & $f_3$   & $f_1$   & $f_3$   & $f_2$   & $f_4$    & $f_2$    & $f_4$    & $f_2$    & $f_4$    & $f_2$    & $f_4$     \\
+      $f_3$ & $f_1$   & $f_1$   & $f_3$   & $f_3$   & $f_2$   & $f_2$   & $f_4$   & $f_4$   & $f_1$   & $f_1$    & $f_3$    & $f_3$    & $f_2$    & $f_2$    & $f_4$    & $f_4$     \\
+      $f_4$ & $f_1$   & $f_3$   & $f_1$   & $f_3$   & $f_2$   & $f_4$   & $f_2$   & $f_4$   & $f_1$   & $f_3$    & $f_1$    & $f_3$    & $f_2$    & $f_4$    & $f_2$    & $f_4$     \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\noindent
+$f_1$のときpredictorの値が$f_1,f_2,f_3$のいずれかであれば一人でも正解者がいることになります.
+$f_2$のときは$f_1,f_2,f_4$, $f_3$のときは$f_1,f_3,f_4$, $f_4$のときは$f_2,f_3,f_4$です.
+するといかなるcoloringでも一人以上正解者がいる,
+つまりminimalなpredictorは$P_7,\ P_{10}$だけです.
+表\ref{table:predictor}より$P_7$は$G_a^3,\ G_b^2$,
+$P_{10}$は$G_a^2,\ G_b^3$という戦略を組み合わせたpredictorでした.
+各戦略の意味を表\ref{table:strategy-of-a}, \ref{table:strategy-of-b}を参考にすれば,
+パズルの答えである「一人は見えた色と同じ色を, もう一人は見えた色と違う色を発言する」と一致します.
+
+\subsubsection{Hardin-Taylorの帽子パズルにない要素の形式化}
+\label{subsubsection:Hardin-Taylorの帽子パズルにない要素の形式化}
+
+\subsubsection{非協力的な帽子パズルの形式化}
+\label{subsubsection:非協力的な帽子パズルの形式化}
+
+
 \end{document}

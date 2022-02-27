@@ -5,16 +5,45 @@
 \section{0部　研究ノート}
 \label{section:0部　研究ノート}
 
-\begin{itembox}[l]{Puzzle \ref{puzzle:hat-Gardner-simultaneous}\ \ \ \ \pageref{puzzle:hat-Gardner-simultaneous}ページ}
-  看守があるゲームをするために3人の囚人を同じ部屋に入れたあと,
-  以下のルールを説明します.
-  そのルールとは,
+\begin{itembox}[l]{Puzzle }
+  看守があるゲームをするために2人の囚人を同じ部屋に入れ,
+  帽子を1人に1つずつ被せます.
+  その帽子は黒白どちらかの色で塗られています.
+  囚人2人はそれぞれ自分が被っている帽子の色は分かりませんが,
+  もう1人の囚人の帽子の色は見えています.
+  また部屋に入ってからは互いに一切のコミュニケーションが取れません.
+  この状態で帽子の色のどちらかのみを,
+  つまり「黒」か「白」のみを2人同時に発言させ,
+  その発言とその発言者が被っている帽子の色が一致していれば正解となり,
+  そんな正解者が1人でもいれば囚人たちの勝利として2人とも釈放されます.
+  もし2人とも不正解ならば囚人たちの敗北として2人とも処刑されます.
+  このゲームのルールや勝利条件については,
+  部屋に入る前に囚人たちに伝えられ,
+  ゲーム開始までに2人で作戦を相談することが可能です.
+  このとき入室後にどのように帽子を被せられても,
+  囚人たちが勝利する作戦は存在するでしょうか？
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルとは？.tex}
+		\item[]（行数）10		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:個人戦3人2色視野完全同時発言全員同色帽子パズル}\ \ \ \ \pageref{puzzle:個人戦3人2色視野完全同時発言全員同色帽子パズル}ページ}
+  看守は3人の囚人に対して,
+  これから行うあるゲームのルールについて説明しました.
+  その内容は,
   \begin{enumerate}
+    \item 囚人たちはこれからある部屋へ移動する.
+    \item 入室後囚人たちは一切のコミュニケーションがとれない.
+    \item その部屋には白黒に塗られた帽子がそれぞれ3つずつ置かれている.
     \item
-      これから全員に黒白どちらかの色の帽子を被せ,
-      自分の帽子の色は分からないが自分以外の全ての帽子は見える.
+      囚人1人に1つずつ,
+      当人にはどの帽子か分からないようにしながらその帽子を被せる.
+      また囚人たちはどの帽子を被せなかったのかも知ることはできない.
     \item
-      帽子を被せたあと一度他の全ての帽子を見てもらい黒色が1つでも見えたら手を挙げる.
+      どの囚人もそれぞれ自分が被っている帽子の色は分からないが,
+      ほかの2人の囚人の帽子の色は見えている.
+    \item 帽子を被せたあと他の全ての帽子を見てもらい黒色が1つでも見えたら手を挙げる.
     \item
       そのあと自分の色が何であるかを考えさせたあとに,
       全員同時に黒白どちらかの色か「分からない」のいずれかを発言させ,
@@ -22,35 +51,45 @@
     \item
       もし1人でも「分からない」と発言すれば,
       もう一度考えさせたあとに,
-      同じように３択の中から発言させる.
+      同じように3択の中から発言させる.
       これを繰り返していき,
       その中で自分の帽子の色を言い当てることができれば,
       その囚人は釈放され,
       間違った色を発言すれば処刑される.
   \end{enumerate}
   というものです.
+  当たり前ですが看守が入室後どのように帽子を被せるかは,
+  囚人たちには秘密です.
   また囚人は正直なので自分の色が分かっているのに「分からない」とは発言しないものとします. \\
-  ルール説明後看守は全ての囚人に黒色の帽子を被せました.
-  すると全員手を挙げました.
-  そして発言させると全員「分からない」と答えました.
-  しかしもう一度発言させると全員「黒」と発言し釈放されました.
+  ルール説明後,
+  看守は囚人たちをその部屋へ移動させ,
+  囚人全員に黒色の帽子を被せました.
+  そしてルールに従って全員手を挙げました.
+  そのあと全員が「分からない」と発言しました.
+  しかしもう一度発言させると全員「黒」と発言し正解だったので釈放されました.
   なぜどの囚人も自分の色が分かったのでしょうか？
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_バリエーション/subsection_帽子パズルの構成要素.tex}
-		\item[]（行数）37		（ラベル）puzzle:hat-Gardner-simultaneous
+		\item[]（行数）51		（ラベル）puzzle:個人戦3人2色視野完全同時発言全員同色帽子パズル
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Puzzle \ref{puzzle:hat-Gardner-order}\ \ \ \ \pageref{puzzle:hat-Gardner-order}ページ}
-  看守があるゲームをするために3人の囚人$a,b,c$を同じ部屋に入れたあと,
-  以下のルールを説明します.
-  そのルールとは,
+\begin{itembox}[l]{Puzzle \ref{puzzle:個人戦3人2色視野完全順次発言全員同色帽子パズル}\ \ \ \ \pageref{puzzle:個人戦3人2色視野完全順次発言全員同色帽子パズル}ページ}
+  看守は3人の囚人（以下彼らを$a,b,c$とおく）に対して,
+  これから行うあるゲームのルールについて説明しました.
+  その内容は,
   \begin{enumerate}
+    \item 囚人たちはこれからある部屋へ移動する.
+    \item 入室後囚人たちは一切のコミュニケーションがとれない.
+    \item その部屋には白黒に塗られた帽子がそれぞれ3つずつ置かれている.
     \item
-      これから全員に黒白どちらかの色の帽子を被せ,
-      自分の帽子の色は分からないが自分以外の全ての帽子は見える.
+      囚人1人に1つずつ,
+      当人にはどの帽子か分からないようにしながらその帽子を被せる.
+      また囚人たちはどの帽子を被せなかったのかも知ることはできない.
     \item
-      帽子を被せたあと一度他の全ての帽子を見てもらい黒色が1つでも見えたら手を挙げる.
+      どの囚人もそれぞれ自分が被っている帽子の色は分からないが,
+      ほかの2人の囚人の帽子の色は見えている.
+    \item 帽子を被せたあと他の全ての帽子を見てもらい黒色が1つでも見えたら手を挙げる.
     \item
       そのあと自分の色が何であるかを考えさせたあとに,
       {\color{red} $a,b,c$の順に}黒白どちらかの色か「分からない」のいずれかを発言させ,
@@ -58,58 +97,73 @@
     \item
       もし1人でも「分からない」と発言すれば,
       もう一度考えさせたあとに,
-      同じように{\color{red} 再度$a,b,c$の順に}３択の中から発言させる.
+      同じように{\color{red} 再度$a,b,c$の順に}3択の中から発言させる.
       これを繰り返していき,
       その中で自分の帽子の色を言い当てることができれば,
       その囚人は釈放され,
       間違った色を発言すれば処刑される.
   \end{enumerate}
   というものです.
-  また囚人は自分の色が分かっているのに「分からない」とは発言しないものとします. \\
-  ルール説明後看守は全ての囚人に黒色の帽子を被せました.
-  すると全員手を挙げました.
+  当たり前ですが看守が入室後どのように帽子を被せるかは,
+  囚人たちには秘密です.
+  また囚人は正直なので自分の色が分かっているのに「分からない」とは発言しないものとします. \\
+  ルール説明後,
+  看守は囚人たちをその部屋へ移動させ,
+  囚人全員に黒色の帽子を被せました.
+  そしてルールに従って全員手を挙げました.
   最初の発言では3人は「分からない」と答えましたが,
   2度目の発言が回ってきた囚人$a$は「黒」と発言して正解し釈放されました.
   なぜ囚人$a$は自分の色が分かったのでしょうか？
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_バリエーション/subsection_帽子パズルの構成要素.tex}
-		\item[]（行数）114		（ラベル）puzzle:hat-Gardner-order
+		\item[]（行数）159		（ラベル）puzzle:個人戦3人2色視野完全順次発言全員同色帽子パズル
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Puzzle \ref{puzzle:hat-Dirac}\ \ \ \ \pageref{puzzle:hat-Dirac}ページ}
-  看守があるゲームをするために3人の囚人$a,b,c$を同じ部屋に入れたあと,
-  以下のルールを説明します.
-  そのルールとは,
+\begin{itembox}[l]{Puzzle \ref{puzzle:個人戦3人2色視野完全順次発言色配分不均衡帽子パズル}\ \ \ \ \pageref{puzzle:個人戦3人2色視野完全順次発言色配分不均衡帽子パズル}ページ}
+  看守は3人の囚人（以下彼らを$a,b,c$とおく）に対して,
+  これから行うあるゲームのルールについて説明しました.
+  その内容は,
   \begin{enumerate}
+    \item 囚人たちはこれからある部屋へ移動する.
+    \item 入室後囚人たちは一切のコミュニケーションがとれない.
     \item
-      {\color{red} これから5つある帽子のうち1つずつを囚人全員に被せていくが,
-      5つのうち2つは白,
-      3つは黒色になっている.
-      どの囚人もどの帽子を使わなかったのか},
-      自分がどの帽子を被っているのか知ることはできないが,
-      自分以外の囚人がどの帽子を被っているかは見える.
+      {\color{red} その部屋には5つの帽子があり,
+      うち2つは白色に,
+      残り3つは黒色に塗られている}.
     \item
-      そのあと自分の色が何であるかを考えさせたあとに,
-      $a,b,c$の順に黒白どちらかの色か「分からない」のいずれかを発言させ,
+      囚人1人に1つずつ,
+      当人にはどの帽子か分からないようにしながらその帽子を被せる.
+      また囚人たちはどの帽子を被せなかったのかも知ることはできない.
+    \item
+      どの囚人もそれぞれ自分が被っている帽子の色は分からないが,
+      ほかの2人の囚人の帽子の色は見えている.
+    \item
+      囚人たちにそれぞれ自分の色が何であるかを考えさせたあとに,
+      {\color{red} $a,b,c$の順に}黒白どちらかの色か「分からない」のいずれかを発言させ,
       そのさい自分以外の発言は聞こえる.
     \item
       もし1人でも「分からない」と発言すれば,
       もう一度考えさせたあとに,
-      同じように再度$a,b,c$の順に３択の中から発言させる.
+      同じように{\color{red} 再度$a,b,c$の順に}3択の中から発言させる.
       これを繰り返していき,
       その中で自分の帽子の色を言い当てることができれば,
       その囚人は釈放され,
       間違った色を発言すれば処刑される.
   \end{enumerate}
   というものです.
-  また囚人は自分の色が分かっているのに「分からない」とは発言しないものとします. \\
-  $a,b$は順番に「分からない」と答えましたが,
+  当たり前ですが看守が入室後どのように帽子を被せるかは,
+  囚人たちには秘密です.
+  また囚人は正直なので自分の色が分かっているのに「分からない」とは発言しないものとします. \\
+  ルール説明後,
+  看守は囚人たちをその部屋へ移動させ,
+  ルール通りに帽子を被せました.
+  そのあと$a,b$は考えたのち順番に「分からない」と答えましたが,
   それを聞いた$c$は「黒」と発言して正解し釈放されました.
   なぜ囚人$c$は自分の色が分かったのでしょうか？
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_バリエーション/subsection_帽子パズルの構成要素.tex}
-		\item[]（行数）156		（ラベル）puzzle:hat-Dirac
+		\item[]（行数）214		（ラベル）puzzle:個人戦3人2色視野完全順次発言色配分不均衡帽子パズル
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -123,6 +177,314 @@
 	\begin{itemize}
 		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_バリエーション/subsection_囚人数・色の数と帽子をどう見分けるか？.tex}
 		\item[]（行数）21		（ラベル）definition:有限・無限帽子パズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:hat-Lenstra-2-2}\ \ \ \ \pageref{puzzle:hat-Lenstra-2-2}ページ}
+  看守があるゲームをするために2人の囚人を同じ部屋に入れ,
+  帽子を1人に1つずつ被せます.
+  その帽子は黒白どちらかの色で塗られています.
+  囚人2人はそれぞれ自分が被っている帽子の色は分かりませんが,
+  もう1人の囚人の帽子の色は見えています.
+  また部屋に入ってからは互いに一切のコミュニケーションが取れません.
+  この状態で帽子の色のどちらかのみを,
+  つまり「黒」か「白」のみを2人同時に発言させ,
+  その発言とその発言者が被っている帽子の色が一致していれば正解となり,
+  そんな正解者が{\color{red} 2人もしくは0人のとき}囚人側の勝利として2人とも釈放されます.
+  もし{\color{red} 正解者・不正解者1人ずついるようならば}囚人側の敗北として2人とも処刑されます.
+  当たり前ですが看守がどのように帽子を被せるかは,
+  囚人たちは入室するまで知りません.
+  このゲームのルールや勝利条件については,
+  部屋に入る前に囚人たちに伝えられ,
+  ゲーム開始までに2人で戦略を相談することが可能です.
+  このとき入室後にどのように帽子を被せられても,
+  常に囚人側が勝利する戦略は存在するでしょうか？
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_バリエーション/subsection_勝利条件.tex}
+		\item[]（行数）24		（ラベル）puzzle:hat-Lenstra-2-2
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:泥んこの子供たちパズルの一般系}\ \ \cite{Puzzle009}3章「泥んこの子供たち」冒頭のパズル\ \ \pageref{puzzle:泥んこの子供たちパズルの一般系}ページ}
+  外で遊んでいた子供の一団が,
+  父親に呼ばれて家に戻ってきた.
+  父親の周りに集まると,
+  思ってたとおり,
+  子供たちの中の何人かは,
+  遊んでいる間に汚れていて,
+  とくに顔に泥がついている.
+  子供たちは,
+  それぞれ他の子供の顔に泥がついているかどうかは見えるが,
+  自分自身の顔に泥がついているかどうかは見えない.
+  このことは全員が分かっているし,
+  子供たちが完璧な論理的思考をすることは一目瞭然である.
+  ここで,
+  父親はこう言う.
+  「君らのうち,
+  少なくとも一人は泥で汚れている」そして,
+  こう続ける.
+  「自分が泥で汚れている分かった者は,
+  前に進み出なさい」これで誰も前に進み出なければ,
+  父親は,
+  この指示を繰り返す.
+  何回かこれを繰り返した時点で,
+  泥で汚れた子供全員が前に進み出る.
+  全員で$k$人の子供のうち,
+  $m$人が泥で汚れているとき,
+  何回目でこうなるか,
+  そして,
+  その理由は.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）26		（ラベル）puzzle:泥んこの子供たちパズルの一般系
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:2人ヒント無しの泥んこの子供たちパズル}\ \ \cite{Puzzle009}のPuzzle 8（28ページ）\ \ \pageref{puzzle:2人ヒント無しの泥んこの子供たちパズル}ページ}
+  外で遊んでいたアリスとボブが家に戻ってくる.
+  二人の父親は,
+  ボブの顔が汚れているのを見て,
+  二人が泥遊びをしていたことに気づく.
+  二人は,
+  それぞれ相手の顔が泥で汚れているのを見ることはできるが,
+  自分自身の顔が汚れているかは見ることができない.
+  もちろん,
+  鏡を覗き込めば自分の顔を見ることができる.
+  ここで,
+  父親は「二人のうち一人の顔は泥で汚れている」と言う.
+  ボブはすぐに顔を洗いに向かった.
+  しかし,
+  ボブは鏡を見たわけではない.
+  ボブはどのようにして自分が泥で汚れていると分かったのか.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）60		（ラベル）puzzle:2人ヒント無しの泥んこの子供たちパズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:2人ヒント有りの泥んこの子供たちパズル}\ \ \cite{Puzzle009}のPuzzle 9（29ページ）\ \ \pageref{puzzle:2人ヒント有りの泥んこの子供たちパズル}ページ}
+  その翌日,
+  アリスとボブはまた外で遊んでいたが,
+  今度は二人とも泥んこになった.
+  家に帰ったとき,
+  父親は,
+  またしても,
+  「二人のうち少なくとも一人は泥んこだ」と言う.
+  そして,
+  父親はボブにこう尋ねる.
+  「自分は泥んこかどうか分かるかな」ボブは「いや,
+  分からない」と答える.
+  そこで,
+  父親はアリスにこう尋ねる.
+  「自分は泥んこか分かるかな」するとアリスは「ええ.
+  分かるわ.
+  私は泥んこね」どうして,
+  自分が泥んこだとアリスは分かったのに,
+  ボブには分からなかったということが起こりうるのだろうか.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）81		（ラベル）puzzle:2人ヒント有りの泥んこの子供たちパズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:Buker版泥んこの子供たちのパズル}\ \ \ \ \pageref{puzzle:Buker版泥んこの子供たちのパズル}ページ}
+  ある王が3人の臣下に目隠しをし,
+  それぞれの額を触った.
+  臣下たちは,
+  触った指がランプブラック
+  で覆われているかもしれないし,
+  そうでないかもしれないことを知っていた.
+  目隠しをはずすと,
+  「黒い点が一つでも見えたら口笛を吹くように」との指示が出された.
+  そして,
+  自分の額にランプブラックがついているかどうかがわかったら,
+  すぐに口笛をやめるようにと指示された.
+  3人全ての額に黒点がついたため,
+  そのうちの1人はやがて口笛を吹くことを止めた.
+  なぜ彼は自分の額に黒点があるとわかったのだろうか.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）268		（ラベル）puzzle:Buker版泥んこの子供たちのパズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:Bennett版泥んこの子供たちのパズル}\ \ \ \ \pageref{puzzle:Bennett版泥んこの子供たちのパズル}ページ}
+  精神反応速度
+  の異なる$n>2$の乗客を乗せた車がトンネルを通過し,
+  そのため各乗客は無意識に自分の額にすすが付くことがある.
+  どの乗客も以下の条件を満たします.
+  \begin{itemize}
+    \item[(1).] 他の乗客の額が汚れていると笑い出して止まらなくなってしまうこと.
+    \item[(2).] 他の乗客の額はすべて見えること.
+    \item[(3).] 正しく推論すること.
+    \item[(4).] 推論して自分の額に汚れがあると判断したときだけ自分の額を拭くこと.
+    \item[(5).] これまでの条件を他の乗客も満たすことを知っていること.
+  \end{itemize}
+  最終的にはどの乗客も自身の顔を拭くことを示せ.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）323		（ラベル）puzzle:Bennett版泥んこの子供たちのパズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:光とその影に登場した帽子パズル}\ \ \ \ \pageref{puzzle:光とその影に登場した帽子パズル}ページ}
+  ここに三人の人が居る.
+  課長と係長と巡査部長としてもよい.
+  トランプが5枚,
+  そのうち三枚は黒で,
+  二枚は赤,
+  私が三人の人の背中に一枚ずつ貼りつける.
+  三枚入り用.
+  二枚はかくしてしまう.
+  そこで,
+  まず課長さんに,
+  係長と巡査部長の背中をみてくれ給え,
+  そして自分の背中のトランプの色が判るかとたずねる.
+  いいですかな.
+  課長は,
+  かくした二枚を知っていればすぐ答えられるが,
+  そうでないなら答えられない.
+  じっくり考えて,
+  よく考えたが判りませんと答えた.
+  そこで今度は係長に,
+  つまり神田さん,
+  あんたに,
+  他の二人の背中をみて,
+  自分の背中のトランプの色が判りますか,
+  と聞いた.
+  すると係長は,
+  課長と巡査部長の背中をじっくりみて考えたが,
+  結局,
+  判りませんと答えた.
+  よしかね.
+  さて今度は巡査部長に,
+  他の二人のせなっかをみて下さい.
+  キミの背中には既に二人の人に見られているが,
+  あんたは他の二人の背中の色をみて,
+  自分の背中のトランプの色が判りますか,
+  と聞いた.
+  するてえと,
+  巡査部長はやがて眼をつむって,
+  課長さんと係長さんがよく考えて,
+  完全な推理の上で判らぬと仰言ったのがまちがいなければ,
+  私にはよく判る.
+  私の背中の色は$X$色ですと答えた.
+  よしかな.
+  何色でありましたか,
+  そしてどうして判りましたかってんですよ.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）390		（ラベル）puzzle:光とその影に登場した帽子パズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:3人の哲学者の問題}\ \ \ \ \pageref{puzzle:3人の哲学者の問題}ページ}
+  ギリシャの3人の哲学者は,
+  論争に疲れ,
+  夏の暑さに耐えかねて,
+  アカデミーの木の下で少し昼寝をしていた.
+  ところが,
+  ある悪戯者が彼らの顔に黒いペンキを塗ってしまった.
+  やがて彼らは一斉に目を覚まし,
+  それぞれ相手を笑い始めた.
+  突然,
+  一人が自分の顔にペンキが塗られていることに気づき,
+  笑うのをやめました.
+  彼はなぜ笑うのをやめたのでしょうか.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）1160		（ラベル）puzzle:3人の哲学者の問題
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Puzzle \ref{puzzle:Kraitchik囚人円盤パズル}\ \ \ \ \pageref{puzzle:Kraitchik囚人円盤パズル}ページ}
+  革命に失敗した3人が国境を越えて脱出し,
+  ある小さな町の留置場に収容された.
+  保安官は囚人たちに同情し,
+  彼らを自由にする方法を探した.
+  ある日,
+  保安官は白い円盤を3枚,
+  黒い円盤を2枚持って刑務所に入り,
+  囚人たちに言った.
+  「お前たちの背中に,
+  この円盤を一枚ずつ貼ろう.
+  お前たちは仲間の円盤を見ることができるが,
+  自分の円盤は誰も見ることができない.
+  白い円盤を貼られた者が,
+  自分の円盤が白であることを正しく当てることができれば,
+  彼は自由を得ることができる.
+  そうでなければ,
+  その者は無期限に拘留される。」こう言って,
+  彼はそれぞれの背中に白い円盤を貼り付け,
+  彼らを監視係の部下に預けた.
+  3人の囚人$A, B, C$は,
+  それぞれ自分の円盤が白いかどうかをどのように推論すれば言い当てることができるだろうか？
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの歴史/subsection_パズルとしての帽子パズルの歴史.tex}
+		\item[]（行数）1180		（ラベル）puzzle:Kraitchik囚人円盤パズル
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Definition \ref{definition:帽子パズルの囚人と色の集合}\ \ 囚人と色の集合\ \ \pageref{definition:帽子パズルの囚人と色の集合}ページ}
+  集合{\boldmath $A$}$,${\boldmath $K$}と書いたとき,
+  $A$を\textgt{囚人集合}といい,
+  $A$の要素を\textgtbf{囚人}{prisoner}または\textbf{agent}とよぶ.
+  $K$を\textgt{色集合}といい,
+  $K$の要素を\textgtbf{色}{color}とよぶ.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの形式化.tex}
+		\item[]（行数）90		（ラベル）definition:帽子パズルの囚人と色の集合
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Definition \ref{definition:coloring}\ \ coloring\ \ \pageref{definition:coloring}ページ}
+  $A,K$に対して写像$\map{f}{A}{K}$を\textbf{coloring}とよぶ.
+  あるゲームにおいて,
+  囚人たちが被せられる可能性のある帽子の被せ方,
+  つまりcoloringの集合を$C$で表す.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの形式化.tex}
+		\item[]（行数）148		（ラベル）definition:coloring
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Definition \ref{definition:視野グラフ}\ \ 視野グラフ\ \ \pageref{definition:視野グラフ}ページ}
+  囚人集合$A$に対して,
+  $A$上の有向グラフ{\boldmath $V$}がループを持たないとき,
+  $V$を（$A$上の）\textgtbf{視野グラフ}{visibility graph}とよぶ. \\
+  $a,b\in A$と$A$上のなんらかの視野グラフに対して,
+  \begin{itemize}
+    \item
+      $V$において$a$から$b$への辺が存在するとき,
+      $a$は$b$の\textgt{帽子が見えている},
+      もしくは単に$a$は$b$が\textgt{見えている}といい,
+      $a{\boldmath \CanSee{V}} b$と表す.
+    \item
+      $V$において$a$が見えている囚人全体の集合を${\boldmath V(a)}$で表す.
+      つまり$V(a)=\{b\in A : a \overrightarrow{V} b \}$であり,
+      この$V(a)$を囚人$a$の\textgt{視野}と呼ぶ. \qedhere
+  \end{itemize}
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの形式化.tex}
+		\item[]（行数）194		（ラベル）definition:視野グラフ
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
+\begin{itembox}[l]{Definition \ref{definition:見分けがつかない関係}\ \ coloringの「見分けがつかない」関係\ \ \pageref{definition:見分けがつかない関係}ページ}
+  囚人集合$A$と$a\in A$,
+  $A$上の視野グラフ$V$に対して,
+  $C$上の二項関係{\boldmath $\equiv_a$}を
+  \begin{align*}
+    f\equiv_a g \ &\defarr\ \forall b\in V(a)\big(\ f(b)=g(b)\ \big) \\
+                \ &\Longleftrightarrow\  f\restric V(a) = g\restric V(a)
+  \end{align*}
+  と定義する.
+  2つのcoloring $f,g\in C$に対して,
+  $f \equiv_a g$であるとき,
+  $f,g$は$a$にとって\textgt{見分けがつかない}という.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_研究ノート/chapter_帽子パズル概要/section_帽子パズルの形式化.tex}
+		\item[]（行数）283		（ラベル）definition:見分けがつかない関係
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1526,6 +1888,25 @@
 \section{3部　基礎固めノート}
 \label{section:3部　基礎固めノート}
 
+\begin{itembox}[l]{Definition \textgt{帰納的半順序集合と}\textbf{Zorn}\textgt{の補題}}
+  半順序集合$(X,\leq)$（つまり反射律,
+  推移律,
+  反対称律を満たす）に対して
+  \begin{itemize}
+    \item[・]
+      $(X,\leq)$が\textgt{帰納的}$\ \defarr\ $
+      全ての全順序部分集合（上記3つに加えて三分律が成立）が上界をもつ
+    \item[・]
+      $a\in X$が$(X,\leq)$において\textgt{極大}
+      $\ \defarr\ \lnot \exists x\in X(\ a\leq x\ \land a\neq x\ )$
+  \end{itemize}
+  \textbf{Zorn}\textgt{の補題}とは「帰納的半順序集合は少なくとも1つの極大元をもつ」という主張のこと.
+	\begin{itemize}
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_関係.tex}
+		\item[]（行数）7		（ラベル）
+	\end{itemize}
+\end{itembox}
+\ \\\vspace{-0.5cm}
 \begin{itembox}[l]{Definition }
   集合$X,Y$に対して,
   「$f$が$X$から$Y$への\textgt{写像}（\textbf{mapping}または\textbf{map}）」であるとは,
@@ -1545,8 +1926,8 @@
     $\ran(f)$で表す. \qedhere
   \end{itemize}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）6		（ラベル）
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_写像・関数.tex}
+		\item[]（行数）5		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1560,8 +1941,8 @@
   \end{equation*}
   つまり定義域の任意の要素は一意的な値域の要素に対応していると言える.
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）41		（ラベル）
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_写像・関数.tex}
+		\item[]（行数）40		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1590,8 +1971,8 @@
       つまり$\mbox{}^X Y\ \defeq\ \{ f \ |\  f:X\to Y \}$. \qedhere
   \end{itemize}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）57		（ラベル）definition:関数の関連用語
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_写像・関数.tex}
+		\item[]（行数）56		（ラベル）definition:関数の関連用語
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1605,8 +1986,8 @@
     \item[・] $X=\bigcup_{\lambda\in\Lambda}Y_{\lambda}$. \qedhere
   \end{itemize}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）116		（ラベル）definition:分割
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_色々な用語.tex}
+		\item[]（行数）7		（ラベル）definition:分割
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1614,8 +1995,8 @@
   集合族$\{ X_{\lambda}\} _{\lambda\in\Lambda}$が\textgt{有限交叉性}（\textbf{finite intersection property}）をもつ
   $\ \defarr\ \forall L\in [\Lambda]^{<\omega}\big(\ \bigcap_{i\in L}X_i\neq\emptyset\ \big)$.
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）128		（ラベル）definition:有限交叉性
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_色々な用語.tex}
+		\item[]（行数）19		（ラベル）definition:有限交叉性
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1635,8 +2016,8 @@
       $\{ Y_{\lambda}\} _{\lambda\in\Lambda}$の\textgt{有限部分被覆}とよぶ. \qedhere
   \end{itemize}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）135		（ラベル）definition:被覆
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_色々な用語.tex}
+		\item[]（行数）26		（ラベル）definition:被覆
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1649,8 +2030,8 @@
     \ \forall \lambda \in \Lambda\big(\ f(\lambda)\in X_{\lambda}\ \big)\ \}. \qedhere
   \end{equation*}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）157		（ラベル）definition:一般直積集合
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_選択公理と直積の一般化.tex}
+		\item[]（行数）6		（ラベル）definition:一般直積集合
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1663,8 +2044,8 @@
     \item[(2)] （直積定理）直積集合$\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}$が空でない. \qedhere
   \end{itemize}
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）174		（ラベル）lemma:選択公理と直積定理は同値
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_選択公理と直積の一般化.tex}
+		\item[]（行数）23		（ラベル）lemma:選択公理と直積定理は同値
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1676,8 +2057,8 @@
   $p_{\lambda}(f)=f(\lambda)$で定義して,
   $p_{\lambda}$を$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$の$\lambda$成分への射影と呼ぶ.
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）207		（ラベル）
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_選択公理と直積の一般化.tex}
+		\item[]（行数）56		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}
@@ -1685,27 +2066,8 @@
   $\forall \lambda \in \Lambda(\  X_{\lambda}\neq \emptyset\ )$ならば,
   どの射影$p_{\lambda}$は全射.
 	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）218		（ラベル）
-	\end{itemize}
-\end{itembox}
-\ \\\vspace{-0.5cm}
-\begin{itembox}[l]{Definition \textgt{帰納的半順序集合と}\textbf{Zorn}\textgt{の補題}}
-  半順序集合$(X,\leq)$（つまり反射律,
-  推移律,
-  反対称律を満たす）に対して
-  \begin{itemize}
-    \item[・]
-      $(X,\leq)$が\textgt{帰納的}$\ \defarr\ $
-      全ての全順序部分集合（上記3つに加えて三分律が成立）が上界をもつ
-    \item[・]
-      $a\in X$が$(X,\leq)$において\textgt{極大}
-      $\ \defarr\ \lnot \exists x\in X(\ a\leq x\ \land a\neq x\ )$
-  \end{itemize}
-  \textbf{Zorn}\textgt{の補題}とは「帰納的半順序集合は少なくとも1つの極大元をもつ」という主張のこと.
-	\begin{itemize}
-		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論.tex}
-		\item[]（行数）242		（ラベル）
+		\item[]（ファイルパス）\path{part/part_基礎固めノート/chapter_基礎数学/section_素朴集合論/subsection_選択公理と直積の一般化.tex}
+		\item[]（行数）67		（ラベル）
 	\end{itemize}
 \end{itembox}
 \ \\\vspace{-0.5cm}

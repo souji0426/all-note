@@ -29,15 +29,14 @@
 
 先ほどの\TableRef{table:2-2puzzle-coloring}に,
 各囚人の思惑を書いたものが以下のようになります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c||c|c||c|c||c|c|}
-\hline
+    \begin{tabular}{c||c|c||c|c||c|c||c|c}
 \multirow{2}{*}{}                                       & \multicolumn{2}{c||}{$f_1$}     & \multicolumn{2}{c||}{$f_2$}     & \multicolumn{2}{c||}{$f_3$}     & \multicolumn{2}{c|}{$f_4$}     \\ \cline{2-9}
                                                         & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           \\ \hline\hline
 \begin{tabular}[c]{@{}c@{}}$a$\\ {\color{red} 2人は同じ色}\end{tabular} & 黒              & 黒             & 黒              & 白             & 白              & 黒             & 白              & 白             \\ \hline
-\begin{tabular}[c]{@{}c@{}}$b$\\ {\color{blue} 2人は違う色}\end{tabular} & 黒              & 白             & 白              & 白             & 黒              & 黒             & 白              & 黒             \\ \hline
+\begin{tabular}[c]{@{}c@{}}$b$\\ {\color{blue} 2人は違う色}\end{tabular} & 黒              & 白             & 白              & 白             & 黒              & 黒             & 白              & 黒             \\
 \end{tabular}
   \end{center}
 \end{table}
@@ -45,16 +44,15 @@
 続けて先ほどの\TableRef{table:2-2puzzle-coloring}に,
 発言した色の情報を一旦抜いて,
 2人の囚人の帽子の様子がどうなっているかの情報を最下段に追加した表が以下のようになります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c||c|c||c|c||c|c|}
-\hline
+    \begin{tabular}{c||c|c||c|c||c|c||c|c}
 \multirow{2}{*}{}                                       & \multicolumn{2}{c||}{$f_1$}     & \multicolumn{2}{c||}{$f_2$}     & \multicolumn{2}{c||}{$f_3$}     & \multicolumn{2}{c|}{$f_4$}     \\ \cline{2-9}
                                                         & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           \\ \hline\hline
 $a$ & 黒              &              & 黒              &              & 白              &              & 白              &              \\ \hline
 $b$ & 黒              &              & 白              &              & 黒              &              & 白              &              \\ \hline\hline
-色の状態                                                 & \multicolumn{2}{c||}{{\color{red} 2人は同じ色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c|}{{\color{red} 2人は同じ色}} \\ \hline
+色の状態                                                 & \multicolumn{2}{c||}{{\color{red} 2人は同じ色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c|}{{\color{red} 2人は同じ色}} \\
 \end{tabular}
   \end{center}
 \end{table}
@@ -62,16 +60,15 @@ $b$ & 黒              &              & 白              &              & 黒      
 \noindent
 この2つの表を合体させ,
 さらにその被せ方ごとに正解した囚人の行に色を付けたものが以下のようになります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
     \begin{tabular}{|c||c|c||c|c||c|c||c|c|}
-\hline
 \multirow{2}{*}{}                                       & \multicolumn{2}{c||}{$f_1$}     & \multicolumn{2}{c||}{$f_2$}     & \multicolumn{2}{c||}{$f_3$}     & \multicolumn{2}{c|}{$f_4$}     \\ \cline{2-9}
                                                         & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           & 帽子色            & 発言色           \\ \hline\hline
 \begin{tabular}[c]{@{}c@{}}$a$\\ {\color{red} 2人は同じ色}\end{tabular} & \cellcolor{pink} 黒              & \cellcolor{pink} 黒             & 黒              & 白             & 白              & 黒             & \cellcolor{pink} 白              & \cellcolor{pink} 白             \\ \hline
 \begin{tabular}[c]{@{}c@{}}$b$\\ {\color{blue} 2人は違う色}\end{tabular} & 黒              & 白             & \cellcolor{pink} 白              & \cellcolor{pink} 白             & \cellcolor{pink} 黒              & \cellcolor{pink} 黒             & 白              & 黒             \\ \hline\hline
-色の状態                                                 & \multicolumn{2}{c||}{{\color{red} 2人は同じ色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c|}{{\color{red} 2人は同じ色}} \\ \hline
+色の状態                                                 & \multicolumn{2}{c||}{{\color{red} 2人は同じ色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c||}{{\color{blue} 2人は違う色}} & \multicolumn{2}{c|}{{\color{red} 2人は同じ色}} \\
 \end{tabular}
   \end{center}
 \end{table}

@@ -42,6 +42,9 @@ sub get_subfile_in_one_file {
   open( my $fh, "<", $file_path );
   while( my $line = <$fh> ) {
     chomp $line;
+    if ( $line =~ /^%/ or $line =~ /^\\subfile\{.+_\}$/ ) {
+      next;
+    }
     if ( $line =~ /\\subfile\{(.+)\}/ ) {
       push( @$list, $1 );
     }

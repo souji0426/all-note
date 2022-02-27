@@ -11,14 +11,13 @@
 数の$0,1$に置き換えます.
 ここまでの名前の置き換えによって,
 先ほどの帽子の被せ方の\TableRef{table:2-2puzzle-coloring}は以下のように変わります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c|c|}
-    \hline
+    \begin{tabular}{c||c|c|c|c}
           & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ \hline\hline
     $a_0$ & $0$     & $0$     & $1$     & $1$     \\ \hline
-    $a_1$ & $0$     & $1$     & $0$     & $1$  \\\hline
+    $a_1$ & $0$     & $1$     & $0$     & $1$  \\
     \end{tabular}
   \end{center}
 \end{table}
@@ -26,15 +25,14 @@
 \noindent
 帽子の色が数に置き換わったことで,
 囚人の発言した色という情報も数に置き換わります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c||c|c||c|c||c|c|}
-      \hline
+    \begin{tabular}{c||c|c||c|c||c|c||c|c}
       \multirow{2}{*}{} & \multicolumn{2}{c||}{$f_1$} & \multicolumn{2}{c||}{$f_2$} & \multicolumn{2}{c||}{$f_3$} & \multicolumn{2}{c|}{$f_4$} \\ \cline{2-9}
                         & 帽子色          & 発言色         & 帽子色          & 発言色         & 帽子色          & 発言色         & 帽子色          & 発言色         \\ \hline\hline
       $a_0$               & $0$            & $0$           & $0$            & $1$           & $1$            & $0$           & $1$            & $1$           \\ \hline
-      $a_1$               & $0$            & $1$           & $1$            & $1$           & $0$            & $0$           & $1$            & $0$           \\ \hline
+      $a_1$               & $0$            & $1$           & $1$            & $1$           & $0$            & $0$           & $1$            & $0$           \\
     \end{tabular}
   \end{center}
 \end{table}
@@ -42,15 +40,14 @@
 \noindent
 そこから,
 各囚人ごとにその見えていた色（数）と発言した色（数）の合計という情報を先ほどの表に追加します.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
-\hline
+    \begin{tabular}{c||c|c|c||c|c|c||c|c|c||c|c|c}
 \multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
                   & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
 $a_0$             & $0$     & $0$     & $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & $2$    \\ \hline
-$a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0$     & $0$     & $1$    & $1$     & $0$     & $1$    \\ \hline
+$a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0$     & $0$     & $1$    & $1$     & $0$     & $1$    \\
 \end{tabular}
   \end{center}
 \end{table}
@@ -66,15 +63,14 @@ $a_1$が見えた$a_0$の被っている色（数）である$0$と,
 $a_1$の発言した色（数）である$1$の和が$1$だからです.
 他の部分にも同じように計算して書き込んであります.
 その計算過程を分かりやすいように色を付けたのが以下の表になります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
-\hline
+    \begin{tabular}{c||c|c|c||c|c|c||c|c|c||c|c|c}
 \multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
                   & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
 $a_0$             & \cellcolor{pink} $0$     &  $0$     & $0$    & \cellcolor{pink} $0$     & $1$     & $2$    & \cellcolor{pink} $1$     & $0$     & $0$    & \cellcolor{pink} $1$     & $1$     & $2$    \\ \hline
-$a_1$             & $0$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $0$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    \\ \hline
+$a_1$             & $0$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$    & $0$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    & $1$     & \cellcolor{pink} $0$     & \cellcolor{pink} $1$    \\
 \end{tabular}
   \end{center}
 \end{table}
@@ -87,16 +83,15 @@ $a_1$             & $0$     & \cellcolor{pink} $1$     & \cellcolor{pink} $1$   
 
 さらに各帽子の被せ方ごとに,
 その帽子の色（数）の合計という情報も最下段に追加したものが以下の表です.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
-\hline
+    \begin{tabular}{c||c|c|c||c|c|c||c|c|c||c|c|c}
 \multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
                   & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
 $a_0$             & $0$     & $0$     & $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & $2$    \\ \hline
 $a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0$     & $0$     & $1$    & $1$     & $0$     & $1$    \\ \hline\hline
-帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\ \hline
+帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\
     \end{tabular}
     \end{center}
 \end{table}
@@ -104,16 +99,15 @@ $a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & $1$    & $0
 \noindent
 これについても,
 その計算過程が分かりやすくなるように色をつけたものが以下のようになります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
-\hline
+    \begin{tabular}{c||c|c|c||c|c|c||c|c|c||c|c|c}
 \multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
                   & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
 $a_0$             & \cellcolor{pink} $0$     & $0$     & $0$    & \cellcolor{pink} $0$     & $1$     & $2$    & \cellcolor{pink} $1$     & $0$     & $0$    & \cellcolor{pink} $1$     & $1$     & $2$    \\ \hline
 $a_1$             & \cellcolor{pink} $0$     & $1$     & $1$    & \cellcolor{pink} $1$     & $1$     & $1$    & \cellcolor{pink} $0$     & $0$     & $1$    & \cellcolor{pink} $1$     & $0$     & $1$    \\ \hline\hline
-帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\ \hline
+帽子色の合計            & \multicolumn{3}{c||}{$0$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c||}{$1$}   & \multicolumn{3}{c|}{$2$}   \\
     \end{tabular}
     \end{center}
 \end{table}
@@ -130,17 +124,16 @@ $a_1$             & \cellcolor{pink} $0$     & $1$     & $1$    & \cellcolor{pin
 それが分かりやすくなるように,
 その被せ方においての正解者の「合計」項目と,
 「帽子色の合計」項目に色を付けた表が以下のようになります.
-
+\vspace{-0.1cm}
 \begin{table}[H]
   \begin{center}
-    \begin{tabular}{|c||c|c|c||c|c|c||c|c|c||c|c|c|}
-\hline
+    \begin{tabular}{c||c|c|c||c|c|c||c|c|c||c|c|c}
 \multirow{2}{*}{} & \multicolumn{3}{c||}{$f_1$} & \multicolumn{3}{c||}{$f_2$} & \multicolumn{3}{c||}{$f_3$} & \multicolumn{3}{c|}{$f_4$} \\ \cline{2-13}
                   & 帽子色     & 発言色     & 合計     & 帽       & 発       & 合      & 帽       & 発       & 合      & 帽       & 発       & 合      \\ \hline\hline
 $a_0$             & $0$     & $0$     & \cellcolor{pink} $0$    & $0$     & $1$     & $2$    & $1$     & $0$     & $0$    & $1$     & $1$     & \cellcolor{pink} $2$    \\ \hline
 $a_1$             & $0$     & $1$     & $1$    & $1$     & $1$     & \cellcolor{pink} $1$    & $0$     & $0$     & \cellcolor{pink} $1$    & $1$     & $0$     & $1$    \\ \hline\hline
-帽子色の合計            & \multicolumn{3}{c||}{ \cellcolor{pink} $0$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c|}{ \cellcolor{pink} $2$}   \\ \hline
-    \end{tabular}
+帽子色の合計            & \multicolumn{3}{c||}{ \cellcolor{pink} $0$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c||}{ \cellcolor{pink} $1$}   & \multicolumn{3}{c|}{ \cellcolor{pink} $2$}   \\
+      \end{tabular}
     \end{center}
 \end{table}
 

@@ -1,0 +1,87 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+有限個の集合の直積を一般化する.
+\begin{definition}[]
+  \label{definition:一般直積集合}
+  $\Lambda$を添え字集合とした集合族$\{ X_{\lambda} \} _{\lambda \in \Lambda}$の
+  直積$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$を以下のように定義する.
+  \begin{equation*}
+    \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\ \defeq
+    \ \{\ f:\lambda\to\bigcup_{\lambda \in \Lambda}X_{\lambda}\ |
+    \ \forall \lambda \in \Lambda\big(\ f(\lambda)\in X_{\lambda}\ \big)\ \}. \qedhere
+  \end{equation*}
+\end{definition}
+
+$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$の要素は\textgt{選択関数}と呼びます.
+$\forall \lambda \in \Lambda(\ X_{\lambda}\neq \emptyset\ )$であれば
+$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$も空にならないように思えますが,
+それについては選択公理で保証しなくてはいけません.
+また$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$が空でないという主張は選択公理と同値になります.
+
+\begin{lemma}[]
+  \label{lemma:選択公理と直積定理は同値}
+  集合族$\mathcal{A}=\{ A_{\lambda} \} _{\lambda \in \Lambda}$はどの要素も空でないとする.
+  つまり$\forall \lambda \in \Lambda(A_{\lambda}\neq \emptyset)$.
+  このとき以下は同値.
+  \begin{itemize}
+    \item[(1)] （選択公理）$\mathcal{A}$に選択関数が存在する.
+    \item[(2)] （直積定理）直積集合$\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}$が空でない. \qedhere
+  \end{itemize}
+\end{lemma}
+
+\begin{proof}
+  \begin{itemize}
+    \item[]\hspace{-0.5cm}$(1)\ \Rightarrow\ (2)$ \\
+      $\mathcal{A}$上の選択関数を
+      $f_{AC}:\mathcal{A}\rightarrow \displaystyle\bigcup_{\lambda \in \Lambda}A_{\lambda}$とおく.
+      つまり$\forall \lambda \in \Lambda(f_{AC}(A_{\lambda})\in A_{\lambda})$が成立しています.
+      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}=
+      \{\ f:\mathcal{A}\rightarrow \displaystyle\bigcup_{\lambda \in \Lambda}A_{\lambda}\
+      |\ \forall \lambda \in \Lambda(\ f(A_{\lambda})\in A_{\lambda}\ )\}$という定義から
+      $f_{AC} \in \displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}$より
+      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$.
+    \item[]\hspace{-0.5cm}$(2)\ \Rightarrow\ (1)$ \\
+      $\displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$より
+      ある$f\in \displaystyle\prod_{\lambda \in \Lambda}A_{\lambda}\neq \emptyset$が存在するが,
+      これは$\mathcal{A}$上の選択関数です. \qedhere
+  \end{itemize}
+\end{proof}
+
+よって以降は選択公理は常に仮定します.
+ですが,
+その公理を明記した場合には明記するようにします. \\
+
+\begin{definition}[]
+  $\Lambda$を添え字集合とした集合族$\{ X_{\lambda} \} _{\lambda \in \Lambda}$と
+  その直積$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$があったとき,
+  $\lambda \in \Lambda$に対して,
+  $p_{\lambda}:\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\to X_{\lambda}$を
+  $p_{\lambda}(f)=f(\lambda)$で定義して,
+  $p_{\lambda}$を$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$の$\lambda$成分への射影と呼ぶ.
+\end{definition}
+
+簡単に分かることを示しておきます.
+
+\begin{lemma}[]
+  $\forall \lambda \in \Lambda(\  X_{\lambda}\neq \emptyset\ )$ならば,
+  どの射影$p_{\lambda}$は全射.
+\end{lemma}
+
+\begin{proof}
+  選択公理によって$\displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}\neq \emptyset$です.
+  よって1つ$f\in \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$をとり固定します.
+  全射であることを示すため,
+  任意に$x_{\lambda}\in X_{\lambda}$をとります.
+  関数$g:\lambda\to\bigcup_{\lambda \in \Lambda}X_{\lambda}$を
+  \begin{equation*}
+    g\ =\ \{\langle \lambda,x_{\lambda}\rangle\}\ \cup\ f\upharpoonright (\Lambda\setminus\{ \lambda\})
+  \end{equation*}
+  で定義すると,
+  $g\in \displaystyle\prod_{\lambda \in \Lambda}X_{\lambda}$で,
+  $p_{\lambda}(g)=x_{\lambda}$です.
+  そんな$g$の存在から$p_{\lambda}$は全射です.
+\end{proof}
+
+\end{document}
