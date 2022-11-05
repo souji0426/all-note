@@ -6,23 +6,23 @@ del "./note.dvi"
 
 del "./note.log"
 
-cd ./tool
+rem cd ./tool
 
-perl -w delete_all_unnecessary_file.pl
+rem perl -w delete_all_unnecessary_file.pl
 
-perl -w make_atode_list.pl
+rem perl -w make_atode_list.pl
 
-perl -w make_kongo_list.pl
+rem perl -w make_kongo_list.pl
 
-perl -w summarize_def_and_thm.pl
+rem perl -w summarize_def_and_thm.pl
 
-perl -w make_symbol_list.pl
+rem perl -w make_symbol_list.pl
 
-perl -w convert_comma_and_period.pl
+rem perl -w convert_comma_and_period.pl
 
-pause
+rem pause
 
-cd ../
+rem cd ../
 
 platex note.tex
 
