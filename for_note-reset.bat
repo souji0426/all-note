@@ -24,17 +24,7 @@ del "./note.pdf"
 
 cd ./tool
 
-perl -w make_atode_list.pl
-
-perl -w make_kongo_list.pl
-
-perl -w summarize_def_and_thm.pl
-
 perl -w make_symbol_list.pl
-
-perl -w convert_comma_and_period.pl
-
-pause
 
 cd ../
 

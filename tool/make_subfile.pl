@@ -33,6 +33,7 @@ foreach my $path ( @subfile_path_list ) {
     open( my $fh, ">:encoding( cp932 )", $target_tex_file_path );
     print $fh  "\\documentclass\[C:/souji/all-note/note\]\{subfiles\}\n\n";
     print $fh "\\begin\{document\}\n\n";
+    print_def_templete( $fh );
     print $fh "\\end\{document\}\n\n";
     close $fh;
   }
@@ -43,6 +44,22 @@ sub get_dir {
   my @data = split( "/", $file_path );
   pop @data;
   return join( "/", @data );
+}
+
+sub print_def_templete {
+  my ( $fh ) = @_;
+  my $text = <<"EOS";
+\\begin\{definition\}\[定義\]
+  \\labe\l{definition\:定義\}
+\\end\{definition\}
+%\\index\{function\}
+%\\index\{function!domain\}
+%\\index\{かんすう\@写像・関数\}
+%\\index\{かんすう\@写像・関数!ちいき\@値域\}
+
+
+EOS
+  print $fh $text;
 }
 
 1;

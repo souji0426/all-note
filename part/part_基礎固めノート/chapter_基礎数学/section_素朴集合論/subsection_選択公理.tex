@@ -1,0 +1,37 @@
+\documentclass[C:/souji/all-note/note]{subfiles}
+
+\begin{document}
+
+選択公理は現代数学において非常に重要な公理です.
+この節ではそんな選択公理についてまとめます.
+選択公理は様々な表現や同値な主張があって,
+どれを選択公理と呼ぶかは文献などによって異なります.
+
+まずは私なりによくあると思う表現方法にて選択公理の主張を述べます.
+そのために1つ定義します.
+
+\begin{definition}[選択関数]
+  \label{definition:集合族の選択関数}
+  集合族$\mathcal{F}$に対して$\map{f}{\mathcal{F}}{\bigcup \mathcal{F}}$が集合族$\mathcal{F}$の\textgtbf{選択関数}{choice function}
+  \footnote{
+    choice functionのWikipedia（\cite{Wiki036}）によると,
+    choice functionの他にselecterやselectionといった呼び名もあるそうな.
+    selecterはなんとなくカッコいい気がする.
+  }であるとは,
+  \begin{equation*}
+    \forall F\in \mathcal{F}(\ F\neq \emptyset\ \rightarrow\ f(F)\in F\ )
+  \end{equation*}
+  をみたすことをいう.
+\end{definition}
+\index{choice function}
+\index{せんたくかんすう@（集合族の）選択関数}
+
+選択関数という呼び名は一般的な直積集合の要素に対しても使用します。
+後述する直積定理を示せば、
+そんな要素を選択関数と呼ぶことにも納得すると思います。
+しかしその証明においてどちらの選択関数について議論しているのか分かりにくいかとも思ったので、
+ここで定義するさいに「集合族の」という言葉を追加しました。
+もちろんややこしさがなければ単に選択関数と読んで差し支えないと思います。
+
+
+\end{document}

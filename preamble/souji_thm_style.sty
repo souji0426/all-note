@@ -39,6 +39,7 @@
 \newtheorem{my-notation}[my-theorem]{Notation}
 \newtheorem{my-exercise}[my-theorem]{Exercise}
 \newtheorem{my-puzzle}[my-theorem]{Puzzle}
+\newtheorem{my-future-research-topics}[my-theorem]{Future research topics}
 
 %ここから全ての定理環境を上書きする。
 %気に入らなければ上のmy-を無くせばOK（ただしresultは除く）
@@ -110,6 +111,14 @@
   \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
   {\popQED\end{my-puzzle}
 }
+
+\newenvironment{future research topics}[1][]{
+  \begin{my-future-research-topics}[#1]%
+  \renewcommand{\qedsymbol}{\thmsymbol}\pushQED{\qed}}%
+  {\popQED\end{my-future-research-topics}
+}
+
+
 
 %ここから証明環境の構築
 \renewcommand{\proofname}{Proof}

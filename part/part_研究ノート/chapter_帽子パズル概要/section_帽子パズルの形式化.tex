@@ -82,10 +82,9 @@ Hardin-Taylorの帽子パズルとは以下のようなものでした.
 
 まず囚人たち,
 帽子に付ける色たちの範囲を定めるために集合を使います.
-%あとで書く
-\begin{comment}
+\ToDoLater{
   集合を定義したらリンクをはる
-\end{comment}
+}
 
 \begin{definition}[囚人と色の集合]
   \label{definition:帽子パズルの囚人と色の集合}
@@ -97,8 +96,8 @@ Hardin-Taylorの帽子パズルとは以下のようなものでした.
 \end{definition}
 \index{prisoner}\index{しゅうじん@囚人}
 \index{color}\index{いろ@色}
-\RegisterInSymbolList{$A$}{囚人集合}{definition:帽子パズルの囚人と色の集合}
-\RegisterInSymbolList{$K$}{色集合}{definition:帽子パズルの囚人と色の集合}
+\RegisterInSymbolList{$A$}{definition:帽子パズルの囚人と色の集合}
+\RegisterInSymbolList{$K$}{definition:帽子パズルの囚人と色の集合}
 
 agentという呼び方は\cite{Hat001}にあったものです.
 囚人の集合ならば$A$ではなく$P$とすべきだと思いますが,
@@ -130,10 +129,9 @@ $K=\{ \text{白}, \text{黒} \}$となります.
 帽子につく色が1つだけなら（その色を答えるだけでいいので）ゲームが成立しません.
 なので,
 とくに断らなくともいつでも$A,K$は一元集合でないとしておきます.
-%あとで書く
-\begin{comment}
+\ToDoLater{
   一元集合を定義したらリンクをはる
-\end{comment}
+}
 同じことですが,
 いつでも$A,K$の濃度は2以上だとしておきます. \\
 
@@ -153,7 +151,7 @@ $K=\{ \text{白}, \text{黒} \}$となります.
   つまりcoloringの集合を$C$で表す.
 \end{definition}
 \index{coloring}
-\RegisterInSymbolList{$C$}{coloringの集合}{definition:coloring}
+\RegisterInSymbolList{$C$}{definition:coloring}
 
 再度Puzzle \ref{puzzle:hat-Hardin-Taylor}を例に出します.
 囚人の集合を$A=\{ a,b\}$と,
@@ -186,10 +184,9 @@ Puzzle \ref{puzzle:hat-Hardin-Taylor}におけるcoloringは4種類あります.
 
 各囚人がどのように他の囚人が見えているかを表現するためには,
 有向グラフという概念が便利です.
-%あとで書く
-\begin{comment}
+\ToDoLater{
   有向グラフについてまとめたらリンクをはる
-\end{comment}
+}
 
 \begin{definition}[視野グラフ]
   \label{definition:視野グラフ}
@@ -212,9 +209,9 @@ Puzzle \ref{puzzle:hat-Hardin-Taylor}におけるcoloringは4種類あります.
 \index{visibility graph}
 \index{しやぐらふ@視野グラフ}
 \index{しやぐらふ@視野グラフ!しや@視野}
-\RegisterInSymbolList{$V$}{視野グラフ}{definition:視野グラフ}
-\RegisterInSymbolList{$\CanSee{V}$}{$V$上見えているという関係}{definition:視野グラフ}
-\RegisterInSymbolList{$V(a)$}{$a$の視野}{definition:視野グラフ}
+\RegisterInSymbolList{$V$}{definition:視野グラフ}
+\RegisterInSymbolList{$\CanSee{V}$}{definition:視野グラフ}
+\RegisterInSymbolList{$V(a)$}{definition:視野グラフ}
 
 \cite{Hat001}では,
 $a\CanSee{V} b$ではなく単に$a \rightarrow b$や$aVb$などと書いていたりしますが,
@@ -295,7 +292,7 @@ $f_1$と$f_3$は関数として異なりますが,
   $f,g$は$a$にとって\textgt{見分けがつかない}という.
 \end{definition}
 \index{みわけがつかない@（coloringが）見分けがつかない}
-\RegisterInSymbolList{$\equiv_a$}{$a$にとって見分けがつかない関係}{definition:見分けがつかない関係}
+\RegisterInSymbolList{$\equiv_a$}{definition:見分けがつかない関係}
 
 $\restric$は関数の定義域の部分集合への制限を表す記号です.
 

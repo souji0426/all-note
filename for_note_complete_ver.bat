@@ -8,19 +8,9 @@ del "./note.log"
 
 rem cd ./tool
 
-rem perl -w delete_all_unnecessary_file.pl
+perl -w delete_all_unnecessary_file.pl
 
-rem perl -w make_atode_list.pl
-
-rem perl -w make_kongo_list.pl
-
-rem perl -w summarize_def_and_thm.pl
-
-rem perl -w make_symbol_list.pl
-
-rem perl -w convert_comma_and_period.pl
-
-rem pause
+perl -w make_symbol_list.pl
 
 rem cd ../
 

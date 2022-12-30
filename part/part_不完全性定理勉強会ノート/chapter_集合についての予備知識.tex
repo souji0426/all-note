@@ -35,7 +35,7 @@
 これについては数学をする中で,
 数学的な議論に慣れていく仮定で形成されていく能力かもしれませんが,
 それを意識的に学ぶことについて書かれたテキスト,
-例えば\cite{Basic012}もあります.
+例えば『数学は言葉 』\cite{Basic012}もあります.
 このテキストでは論理式のことを数文,
 日常言語で書かれた主張のことを和文とよび,
 各々への翻訳のことをそれぞれ数文和訳,
@@ -234,7 +234,7 @@ $x$しか変数が登場しない短い数学的主張であることが多いと思います.
     どこまでメジャーなんだろうか.
   }
 \end{definition}
-\RegisterInSymbolList{$A;t$}{集合$A$の要素に$t$を加える演算}{definition:セミコロン演算}
+\RegisterInSymbolList{$A;t$}{definition:セミコロン演算}
 
 \begin{notation}[定義するための記号]
   \label{notetion:定義するための記号}
@@ -257,8 +257,8 @@ $x$しか変数が登場しない短い数学的主張であることが多いと思います.
       かつ$t\in B$であれば$t\in A$である（Definition \ref{definition:集合}） \qedhere
   \end{itemize}
 \end{notation}
-\RegisterInSymbolList{$\defeq$}{オブジェクトを定義するための記号}{notetion:定義するための記号}
-\RegisterInSymbolList{$\defarr$}{述語を定義するための記号}{notetion:定義するための記号}
+\RegisterInSymbolList{$\defeq$}{notetion:定義するための記号}
+\RegisterInSymbolList{$\defarr$}{notetion:定義するための記号}
 
 \begin{proposition}[]
   モノ$t$と集合$A$に対して,
@@ -291,7 +291,7 @@ $x$しか変数が登場しない短い数学的主張であることが多いと思います.
   空集合でない集合を\textbf{non empty}な（\textgt{空でない}）集合と呼ぶ.
 \end{definition}
 \index{くうしゅうごう@空集合}\index{empty set}
-\RegisterInSymbolList{$\emptyset$}{空集合}{definition:空集合}
+\RegisterInSymbolList{$\emptyset$}{definition:空集合}
 
 \begin{notation}[E:p2,\ K:p3]
   \label{notation:自然数全体の集合}
@@ -312,9 +312,9 @@ $x$しか変数が登場しない短い数学的主張であることが多いと思います.
     実数全体集合は今後も必要なので導入しておいた.
   }
 \end{notation}
-\RegisterInSymbolList{$\mathbb{N}$}{自然数全体の集合}{notation:自然数全体の集合}
-\RegisterInSymbolList{$\mathbb{Z}$}{整数全体の集合}{notation:整数全体の集合}
-\RegisterInSymbolList{$\mathbb{R}$}{実数全体の集合}{notation:実数全体の集合}
+\RegisterInSymbolList{$\mathbb{N}$}{notation:自然数全体の集合}
+\RegisterInSymbolList{$\mathbb{Z}$}{notation:整数全体の集合}
+\RegisterInSymbolList{$\mathbb{R}$}{notation:実数全体の集合}
 
 \begin{definition}[外延的記法(E:p2,\ K:p3)]
   モノ$x,x_1,\dots,x_n$に対して,
@@ -338,11 +338,10 @@ $x$しか変数が登場しない短い数学的主張であることが多いと思います.
 \begin{proof}
   証明略.
 \end{proof}
-%あとで書く
-\begin{comment}
+\ToDoLater{
   集合は要素の表記の順番が異なっても同じ集合になる.
   素朴集合論の基礎勉強の時に示してみる.
-\end{comment}
+}
 
 \begin{definition}[内包的記法(E:p2,\ K:p3)]
   $\SetBar{x}{ \text{\_}x\text{\_} }$と書いて$\text{\_}x\text{\_}$をみたす全てのモノの集合を表す.
@@ -369,7 +368,7 @@ $\SetBar{ \op{m}{n} }{ m,n\in\mathbb{N}\land m<n }$
 ここにおいて「柔軟」という言い方も曖昧だと思います.
 定義にある書き方になぞるならこの集合は
 $\SetBar{x}{ \exists m,n\in\mathbb{N}(\ x=\op{m}{n}\land m<n }$と書くべきでしょうか.
-ちなみに\cite{Basic001}では内包的記法における$|$の左に変数一文字ではなく,
+ちなみに『論理と集合から始める数学の基礎』\cite{Basic001}では内包的記法における$|$の左に変数一文字ではなく,
 いくつかの変数を用いた表現が使われている記法を,
 内包的記法と区別して置換型記法と呼んでいたりします.
 たしかにこの2つの記法は同じではないので,
@@ -404,7 +403,7 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
   （論理式で書けば$\forall x(x\in A\to x\in B)$となる）
 \end{definition}
 \index{ぶぶんしゅうごう@部分集合}\index{subset}
-\RegisterInSymbolList{$A\subseteq B$}{集合$A$は$B$の部分集合である}{definition:部分集合関係}
+\RegisterInSymbolList{$A\subseteq B$}{definition:部分集合関係}
 
 \begin{proposition}[(E:p2,\ K:p3)]
   $\emptyset$はどんな集合に対しても部分集合となる.
@@ -413,11 +412,10 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
 \begin{proof}
   証明略.
 \end{proof}
-%あとで書く
-\begin{comment}
+\ToDoLater{
   空集合はどんな集合でも部分集合になる.
   素朴集合論の基礎勉強の時に示してみる.
-\end{comment}
+}
 
 ここで改めて二重矢印記号の使い方について説明します.
 私なりの運用方法は以下のようになっています.
@@ -460,7 +458,7 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
   }
 \end{definition}
 \index{べきしゅうごう@べき集合}\index{power set}
-\RegisterInSymbolList{$\mathcal{P}(X)$}{集合$X$の）べき集合}{definition:べき集合}
+\RegisterInSymbolList{$\mathcal{P}(X)$}{definition:べき集合}
 
 \begin{example}[E:p3,\ K:p4]
   $\mathcal{P}(\emptyset)\ =\ \{\emptyset\}$ \\
@@ -483,10 +481,10 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
     テキストでは集合でも集合族でも単なる$A$で表現していた.
     個人的には集合族には記号の衝突が起こらない（つまり理論を展開するさいに必須な記号と被らない）かぎり,
     集合族には筆記体（カリグラフィーとどう違うのか分からないけれども………）を使うのが好み.
-    ただ要素が集合であろうが（集合に見えない）モノであろうが、
-    もし全てが集合である$ZF$集合論のような世界では、
-    集合と集合族に区別がないという意味でこの記法を採用しているならば、
-    集合論研究者としては好感のもてる一貫性です。
+    ただ要素が集合であろうが（集合に見えない）モノであろうが,
+    もし全てが集合である$ZF$集合論のような世界では,
+    集合と集合族に区別がないという意味でこの記法を採用しているならば,
+    集合論研究者としては好感のもてる一貫性です.
   }
   さらに各自然数$n$に対して集合$A_n$が定まっているとする.
   \begin{itemize}
@@ -501,13 +499,14 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
     \item[3.]
       $A\cap B=\emptyset$であるとき,
       $A$と$B$は\textbfgt{disjoint}{交わらない}という.
-      $\mathcal{A}$のどの2個の要素も交わらないとき,
-      $\mathcal{A}$は\textbfgt{pairwise disjoint}{互いに交わらない}という.
+      $\emptyset\notin \mathcal{A}$な集合族$\mathcal{A}$のどの異なる2個の要素も交わらないとき,
+      $\mathcal{A}$は\textbfgt{pairwise disjoint}{互いに素}という.
     \item[4.]
       $\bigcup\mathcal{A}\defeq
       \SetBar{x}{\text{$x$は$A$のいずれかの要素に属する}}$（$=\SetBar{x}{ \exists A( x\in A \land A\in \mathcal{A}) }$）とし,
       これを$\mathcal{A}$の\textbfgt{union}{和集合}という.
     \item[5.]
+      $\mathcal{A}\neq \emptyset$なとき,
       $\bigcap\mathcal{A}\defeq \SetBar{x}{ \text{$x$は$A$のすべての要素に属する} }$（$=\SetBar{x}{ \forall A( x\in A \\rightarrow A\in \mathcal{A}) }$）とし,
       これを$\mathcal{A}$の\textbfgt{intersection}{共通部分}という.
     \item[6.]
@@ -521,14 +520,14 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
   \end{itemize}
 \end{definition}
 \index{わしゅうごう@和集合}\index{union}
-\RegisterInSymbolList{$A \cup B$}{集合$A$と$B$の和集合}{definition:和集合}
+\RegisterInSymbolList{$A \cup B$}{definition:和集合}
 \index{きょうつうぶぶん@共通部分}\index{intersection}
-\RegisterInSymbolList{$A \cap B$}{集合$A$と$B$の共通部分}{definition:共通部分}
+\RegisterInSymbolList{$A \cap B$}{definition:共通部分}
 \index{まじわらない@（2つの集合が）交わらない}\index{disjoint}
 \index{わしゅうごう@（集合族の）和集合}\index{union}
-\RegisterInSymbolList{$\bigcup\mathcal{A}$}{集合族$\mathcal{A}$の和集合}{definition:集合族の和集合}
+\RegisterInSymbolList{$\bigcup\mathcal{A}$}{definition:集合族の和集合}
 \index{きょうつうぶぶん@（集合族の）共通部分}\index{intersection}
-\RegisterInSymbolList{$\bigcap\mathcal{A}$}{集合族$\mathcal{A}$の共通部分}{definition:集合族の共通部分}
+\RegisterInSymbolList{$\bigcap\mathcal{A}$}{definition:集合族の共通部分}
 
 ここで集合族の共通部分に関して,
 テキストでは空でないことを要求していなかった.
@@ -586,7 +585,7 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
   \end{itemize}
 \end{definition}
 \index{じゅんじょつい@順序対}\index{ordered pair}
-\RegisterInSymbolList{$\op{x}{y}$}{$x$と$y$の順序対}{definition:順序対}
+\RegisterInSymbolList{$\op{x}{y}$}{definition:順序対}
 
 \begin{definition}[有限列(E:p4,\ K:p5)]
   \label{definition:有限列}
@@ -613,6 +612,10 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
 \index{くかん@（有限列の）区間}\index{segment of finite sequence}
 \index{しせっぺん@（有限列の）始切片}\index{initial segment of finite sequence}
 \index{しんのしせっぺん@（有限列の）真の始切片}\index{proper segment of finite sequence}
+
+有限列には空列という長さ$0$の列という概念もありますが,
+ここでは有限列といったとき,
+そのような列は考慮しないこととします.
 
 \begin{proposition}[E:p4,\ K:p6]
   モノ$x_1,\dots,x_n,y_1,\dots,y_n$に対して$\ntuple{x_1}{x_n}=\ntuple{y_1}{y_n}$ならば,
@@ -701,7 +704,7 @@ $\{ 0,\dots ,n \}$や$\{ 0, \dots ,n-1\}$などですが,
 私は先の証明のように「$P(0)$」や「$P(k)$」については「\textbf{Basis}」,
 もう1つの部分の証明に関しては「\textbf{Induction step}」と名付けています.
 BasisではなくBase stepという（より統一感のある）呼び名もありますが,
-私が好きな\cite{Logic003}に合わせています.
+私が好きな『論理学をつくる』\cite{Logic003}に合わせています.
 以降の数学的帰納法を用いる証明も先の証明同様この表現方法で証明を記述していきます.
 
 
@@ -800,7 +803,7 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよいです.
   \end{itemize}
 \end{definition}
 \index{ちょくせきしゅうごう@直積集合}\index{Cartesian product}
-\RegisterInSymbolList{$X\times Y$}{集合$X$と$Y$の直積集合}{definition:直積集合}
+\RegisterInSymbolList{$X\times Y$}{definition:直積集合}
 
 \begin{definition}[関係(E:p4~5,\ K:p6~7)]
   \label{definition:関係}
@@ -839,9 +842,9 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよいです.
 \index{ちいき@（関係の）値域}\index{range}
 \index{りょういき@（関係の）領域}\index{field}
 \index{せいげん@（関係の）制限}\index{restriction}
-\RegisterInSymbolList{$\dom(R)$}{関係$R$の定義域}{definition:関係}
-\RegisterInSymbolList{$\ran(R)$}{関係$R$の値域}{definition:関係}
-\RegisterInSymbolList{$\fld(R)$}{関係$R$の領域}{definition:関係}
+\RegisterInSymbolList{$\dom(R)$}{definition:関係}
+\RegisterInSymbolList{$\ran(R)$}{definition:関係}
+\RegisterInSymbolList{$\fld(R)$}{definition:関係}
 
 \begin{example}[E:p4~5,\ K:p6~7]
   集合$R_1,R_2\subseteq \mathbb{N}^2$に対し
@@ -885,7 +888,7 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよいです.
         疑問に思う人もいるかもしれません.
         もしそうすると定義域に対応要素のない要素が存在することを許してしまいます.
         それを許したうえで$\dom(F)=A$なる写像に\textgt{全域写像}と名付ける流儀もあります.
-        たとえば\cite{Basic001}では$\dom(F)\subseteq A$かつ$\ran(F)\subseteq B$なるものを「$A$から$B$への部分写像」,
+        たとえば『論理と集合から始める数学の基礎』\cite{Basic001}では$\dom(F)\subseteq A$かつ$\ran(F)\subseteq B$なるものを「$A$から$B$への部分写像」,
         $F$による$x$の値が存在しないとき「$F(x)$は未定義」といい,
         部分写像が$\dom(F)=A$を満たした場合にそれを全域写像もしくは単に写像と呼んでいます.
       }
@@ -928,9 +931,9 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよいです.
       $\InjectionMap{F}{A}{B}$で表す.
       \footnote{
         これも上に同様.
-        先の脚注で単射には「1対1」なるイメージがないためこの言葉を使わないと言いつつ、
-        単射であることに略記にはそれを意味するような「$1-1$」を使ってしまっている点で、
-        私の記法もそこまで一貫性があるわけではないとゼミ発表中に思いました。
+        先の脚注で単射には「1対1」なるイメージがないためこの言葉を使わないと言いつつ,
+        単射であることに略記にはそれを意味するような「$1-1$」を使ってしまっている点で,
+        私の記法もそこまで一貫性があるわけではないとゼミ発表中に思いました.
       }
       \ \\
       全射かつ単射な写像を\textbfgt{bijection}{全単射}といい,
@@ -965,11 +968,11 @@ $S_1(1)=\op{0,1}{0},\ S_1(2)=1$とすればよいです.
 \index{ぜんしゃ@全射（写像）}\index{surjection}
 \index{ぜんたんしゃ@全単射（写像）}\index{bijection}
 \index{こうとうしゃぞう@恒等写像}\index{identity map}
-\RegisterInSymbolList{$\map{f}{X}{Y}$}{集合$X$から$Y$への写像・関数}{definition:写像}
-\RegisterInSymbolList{$\InjectionMap{f}{X}{Y}$}{集合$X$から$Y$への単射写像$f$}{definition:単射}
-\RegisterInSymbolList{$\SurjectionMap{f}{X}{Y}$}{集合$X$から$Y$への全射写像$f$}{definition:全射}
-\RegisterInSymbolList{$\BijectionMap{f}{X}{Y}$}{集合$X$から$Y$への全単射写像$f$}{definition:全単射}
-\RegisterInSymbolList{$\id_X$}{集合$X$上の恒等写像}{definition:恒等写像}
+\RegisterInSymbolList{$\map{f}{X}{Y}$}{definition:写像}
+\RegisterInSymbolList{$\InjectionMap{f}{X}{Y}$}{definition:単射}
+\RegisterInSymbolList{$\SurjectionMap{f}{X}{Y}$}{definition:全射}
+\RegisterInSymbolList{$\BijectionMap{f}{X}{Y}$}{definition:全単射}
+\RegisterInSymbolList{$\id_X$}{definition:恒等写像}
 
 \begin{definition}[演算(E:p5,\ K:p8)]
   \label{definition:演算}
@@ -1089,30 +1092,69 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていません.
 \index{どうちかんけい@同値関係}\index{equivalence relation}
 \index{じゅんじょかんけい@順序関係}\index{ordering relation}
 
-ここで上の定義は「$A$上の」という言葉が付いたりそうでなかったりと一貫性がありません。
-これについてゼミ中に出た意見をまとめると、
-対称的、推移的という2つの概念は、
-関係$R$がどんな集合から作ったものか、
-つまり$\fld(R)$がどのようなものか意識せずとも議論できる性質になっています。
-一方で反射的や三分律をみたすといった概念はどの集合で議論するかでその定義を満たすかどうかが変わります。
-仮に$x,y\notin \fld(R)$かつ$x\neq y$なモノ$x,y$とそれを要素としても持つ集合$A$があったとき、
-この集合上では常に反射的にも三分律をみたしません。
-なのでどの集合上で議論しているかがこの性質たちを満足するかどうかに関係してきます。
-例えば何らかの集合上に定められた二項関係についてしか議論することがないならば、
-この「$A$上の」のような文言は全て除外する、
-もしくは全てに書くことで一貫性を与えることができます。
-おそらく著者はここでは関係を単なる順序対の集合という素朴な定義にしたため、
-このような定義になったのではと思われます。
-確かに定義に不要な単語を使用しないという点では、
-ここでの定義も一貫性があるといえます。
+ここで上の定義は「$A$上の」という言葉が付いたりそうでなかったりと一貫性がありません.
+これについてゼミ中に出た意見をまとめると,
+対称的,
+推移的という2つの概念は,
+関係$R$がどんな集合から作ったものか,
+つまり$\fld(R)$がどのようなものか意識せずとも議論できる性質になっています.
+一方で反射的や三分律をみたすといった概念はどの集合で議論するかでその定義を満たすかどうかが変わります.
+仮に$x,y\notin \fld(R)$かつ$x\neq y$なモノ$x,y$とそれを要素としても持つ集合$A$があったとき,
+この集合上では常に反射的にも三分律をみたしません.
+なのでどの集合上で議論しているかがこの性質たちを満足するかどうかに関係してきます.
+例えば何らかの集合上に定められた二項関係についてしか議論することがないならば,
+この「$A$上の」のような文言は全て除外する,
+もしくは全てに書くことで一貫性を与えることができます.
+おそらく著者はここでは関係を単なる順序対の集合という素朴な定義にしたため,
+このような定義になったのではと思われます.
+確かに定義に不要な単語を使用しないという点では,
+ここでの定義も一貫性があるといえます.
 
-かねてよりの疑問として、
-この特別な関係についての用語は「○○的」と「○○律をみたす」が混在することが不思議に思っています。
-例えばここでは「三分律をみたす」のみが仲間外れなのでこれを「三分的」という用語に変えることも可能なはずです。
-和訳がこうなっているわけではなく、
-原著からこうなっています。
-つまり海外でもこの言葉たちの統一感のなさは当たり前である可能性があります。
-もし自分が何かテキストを書く機会があれば「○○的」か「○○律をみたす」のどちらかに（その時の好みに合わせて）統一してみたいと思っています。
+かねてよりの疑問として,
+この特別な関係についての用語は「○○的」と「○○律をみたす」が混在することが不思議に思っています.
+例えばここでは「三分律をみたす」のみが仲間外れなのでこれを「三分的」という用語に変えることも可能なはずです.
+和訳がこうなっているわけではなく,
+原著からこうなっています.
+つまり海外でもこの言葉たちの統一感のなさは当たり前である可能性があります.
+もし自分が何かテキストを書く機会があれば「○○的」か「○○律をみたす」のどちらかに（その時の好みに合わせて）統一してみたいと思っています.
+
+ちなみに今現在持っている本を参考にすると,
+議論の進め方によっては「三分律をみたす」に相当する定義が不要なため「○○律」に統一できている場合もありそうです.
+例えば,
+『集合と位相 (数学シリーズ)』\cite{Basic007}や『大学数学ベーシックトレーニング』\cite{Basic013}や『集合・位相・測度』\cite{Basic014}がそうです.
+
+または議論の流れ上,
+同値関係について扱うものの各定義に名前をつけない流儀・議論の進め方もありました.
+例えば『数学の基礎 集合・数・位相 (基礎数学14)』\cite{Basic010}や『集合・位相入門』\cite{Basic015}や『現代集合論の探検』\cite{Set023}などです.
+
+もちろんこのテキストと同じように三分律だけは「みたす」という言葉遣いになっているものもあります.
+例えば『The Foundations of Mathematics』\cite{Set006}（その和訳『キューネン数学基礎論講義』\cite{Set07}）などです.
+
+また変わったものとして『論理と集合から始める数学の基礎』\cite{Basic001}では同値類の議論の前に,
+演習問題として各定義が紹介されますが,
+その中で各定義に上のように「○○律」と統一的に命名していますが,
+三分律だけはあえて名前をつけていないパターンでした.
+ちなみにここでは他では見たことがない「非反射的反対称律」という名前が登場しています.
+
+色々とあるのは分かりましたが,
+まだ「○○的」で統一されているものは見つけられていません.
+その他の流儀も含めて発見すればここに追記することにします.
+
+またもう1つ細かい話として三分律の定義の揺れという問題もあるようです.
+ここでは三分律をみたすとは,
+任意の$x,y\in A$に対して$\op{x}{y}\in R,\ x=y,\ \op{y}{x}\in R$の「いずれか1つをみたす」という定義ですが,
+文献によっては「いずれか1つをみたす」ではなく「いずれか1つ以上をみたす」というものもあるようです.
+「いずれか1つをみたす」は論理式としては表現するのはめんどくさいですが,
+「いずれか1つ以上をみたす」ならば「$\forall x,y(\ \op{x}{y}\in R\ \lor\  x=y \ \lor\ \op{y}{x}\in R\ )$」と書き表せます.
+勉強会中に出た意見として「いずれか1つをみたす」は例えば
+\begin{equation*}
+  \forall x,y\big(\ (\ \op{x}{y}\in R\leftrightarrow x=y \leftrightarrow \op{y}{x}\in R\ )\ \land\ \ \ \lnot(\ \op{x}{y}\in R\land x=Y\land  \op{y}{x}\in R\ )\ \big)
+\end{equation*}
+と表せます.
+ここで$\leftrightarrow$は双条件記号です. \\
+ここで「いずれか1つをみたす」という三分律を強三分律,
+「いずれか1つ以上をみたす」という三分律を弱三分律を呼ぶことにしてみます.
+もちろんこの命名理由は強三分律から弱三分律を導出できることが明らかだからです.
 
 \begin{definition}[同値類(E:p6,\ K:p9)]
   \label{definition:同値類}
@@ -1127,21 +1169,26 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていません.
   }
 \end{definition}
 \index{どうちるい@同値類}\index{equivalence class}
-\RegisterInSymbolList{$[x]$}{$x$の同値類}{definition:同値類}
-\RegisterInSymbolList{$A\backslash{R}$}{集合$A$の関係$R$による商集合}{definition:商集合}
+\RegisterInSymbolList{$[x]$}{definition:同値類}
+\RegisterInSymbolList{$A\backslash{R}$}{definition:商集合}
 
 \begin{proposition}[E:p6,\ K:p9]
   集合$A$上の同値関係$R$に対して,
-  $A$の各要素の同値類全体は$A$の分割となる.
+  $A$の各要素の同値類全体,
+  つまり$R$による$A$の商集合は$A$の分割となる.
 \end{proposition}
 
 \begin{proof}
   $\mathcal{A}\subseteq \mathcal{P}(A)$が$A$の分割であるとは,
-  $\mathcal{A}$が互いに素でかつ$\bigcup \mathcal{A}=A$をみたすこととし,
+  $\mathcal{A}$が$\emptyset\notin \mathcal{A}$かつ互いに素で,
+  さらに$\bigcup \mathcal{A}=A$をみたすこととし,
   これを$\SetBar{ [x] }{ x\in A } \subseteq \mathcal{P}(A)$,
   つまり先に定義した$A\backslash{R}$に対してこれを示す.
   \begin{itemize}
-    \item[]\hspace{-0.5cm}$\mathcal{A}$が互いに素であること \\
+    \item[]\hspace{-0.5cm}$\emptyset\notin A\backslash{R}$であること \\
+      同値類の定義から$\forall x( x\in [x] )$,
+      つまりどの同値類も空でないので$A\backslash{R}$のどの要素も空でない.
+    \item[]\hspace{-0.5cm}$A\backslash{R}$が互いに素であること \\
       任意に$X\neq Y$な$X,Y\in A\backslash{R}$をとると,
       それぞれに対し$x,y\in A$が存在して$X=[x],\ Y=[y]$となっている. \\
       $[x]\cap [y]=\emptyset$であることを示すため,
@@ -1164,13 +1211,13 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていません.
       \end{sub-block}
 
       よって$\op{x}{y}\in R$から$[x]=[y]$であるが,
-      これは仮定の$[x]\neq [y]$に矛盾.
+      これは仮定の$[x]\neq [y]$,
+      つまり$X\neq Y$に矛盾.
 
     \item[]\hspace{-0.5cm}$\bigcup A\backslash{R}=A$であること \\
       $\bigcup A\backslash{R}\subseteq A$であることは明らか.
       $A\subseteq \bigcup A\backslash{R}$を示すため任意に$x\in A$をとる.
       $R$が$A$上反射的であることから$x\in [x]$,
-      つまり$[x]\neq \emptyset$で,
       そして$[x]\subseteq A\backslash{R}$より$x\in \bigcup A\backslash{R}$. \qedhere
   \end{itemize}
 \end{proof}
@@ -1188,14 +1235,13 @@ $\mathbb{N}$や$\mathbb{Z}$については閉じていません.
 ここに「個々の自然数そのものを集合を使って定義する方法もあります」とあって,
 テキストにある通り,
 それに触れている○○節を見ると,
-$ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
-%あとで書く
-\begin{comment}
+$ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものでした.
+\ToDoLater{
   実際に集合での自然数の構成をするようなページにたどり着いたときに,
   再度確認して○○部分を埋めておくこと.
   またもしZFCからの数学展開ノートができていれば,
   そのリンクもはる.
-\end{comment}
+}
 
 \begin{definition}[E:p6,\ K:p9]
   \label{definition:有限集合}
@@ -1228,13 +1274,13 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
         他のノートとの整合性をとるためにも高々可算と可算は区別しておこうと思います.
         ちなみに高々可算の「高々」は数学特有の言葉として説明しているものもあります.
         もし「高々有限」をこれと同じように定義すると,
-        $\exists n\in \mathbb{N}\exists f( \ \InjectionMap{f}{A}{ \{ 0,1,\dots, n-1 \} } \ )$となるでしょう.
+        $\exists n\in \mathbb{N}\exists f( \ \InjectionMap{f}{A}{ \{ 0,1,\dots, n-1 \} } \ )$となります.
         なので個別に「高々○○」を定義することも可能でしょうし,
         「高々○○」は○○であることを強調する,
         特有の言葉遣いとして説明する方法もありそうです.
         日常言語的には「せいぜい」とか「しょせん」とかそういう使い方です.
         「高々」を説明しているものとしては,
-        例えば\cite{Wiki001}や\cite{Basic002}の37ページなどです. \\
+        例えば『Wikipedia『高々 (数学)』』\cite{Wiki001}や『数学ビギナーズマニュアル 第2版』\cite{Basic002}の37ページなどです. \\
         勉強会中にでた指摘として,
         英語圏ではここでいう高々可算をcountable,
         可算の方をdenumerableなどと呼ぶ人もいたり,
@@ -1268,6 +1314,7 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
 \begin{proof}
   高々可算な無限集合$A$に対して,
   その定義から存在する単射写像$\map{f}{A}{ \mathbb{N} }$を1つ固定する.
+  もし$f$が全射ならばそれで証明終わりなので,
   $f$は全射でない,
   つまり$\ran(f)\neq \mathbb{N}$とする.
   $n_i\in \mathbb{N}$を$\ran(f)$の中での$i$番目に小さい数,
@@ -1281,11 +1328,13 @@ $ZF$公理系からの数学展開でよくやるNeumann流の順序数の定義の仕方を使うものだった.
   $g$はその作り方から全単射であり,
   $\map{f^{\prime}}{A}{\mathbb{N}}$を$f^{\prime}(a)=g^{-1}(a)$で定めると,
   これもその作り方から$A$から$\mathbb{N}$への全単射である.
-  \footnote{
-    テキストの口語的な説明の方が分かりやすいとは思ったけれど,
-    あえて厳密に書くとこんな感じなのかなと.
-  }
 \end{proof}
+
+
+テキストの口語的な説明の方が分かりやすいとは思ったけれど,
+あえて厳密に書くとこんな感じなのかなと.
+ようは$A$の要素を並び替えたいわけですが,
+そのときの並べ方として$f$による値域の中で小さいもの順に並べている感じです.
 
 \begin{theorem}[E:p6 THEOREM 0B,\ K:p10 定理0B]
   \label{theorem:可算集合の要素の有限列全体も可算}
@@ -1415,40 +1464,37 @@ $A$がどんな集合でも生まれることはありません.
 そうなると長さが異なるが集合として一致する順序対の例があるように,
 定義域が異なる（つまり含まれる順序対の数が一致しない）が,
 集合としては一致することはあるのだろうか？
-今後の課題としてまとめておきます.
+今後の課題としておきます.
 
-\begin{kongo}
-  \label{kongo:対応規則は異なるが集合として一致する写像は存在するか？}
+\begin{future research topics}
+  \label{future research topics:対応規則は異なるが集合として一致する写像は存在するか？}
   対応規則（の数や内容）が異なる（写像としては異なるように見える）が,
   要素になっている順序対も全て集合に書き直したとき,
   集合として一致するような写像の組み合わせは存在するか？
-\end{kongo}
+\end{future research topics}
 
 ここから\textbfgt{tree}{木}についての話題が始まりますが,
 今後どれほど大事なのか分からないので,
 一旦飛ばすことにします. \\
-%あとで書く
-\begin{comment}
+\ToDoLater{
   最後らへんまで読んで木の使い方が分かったらどのような使い方だったか書く.
-\end{comment}
+}
 
 続いて選択公理の話題が入ります.
 テキストでは「問題となる定理を可算な言語の場合に制限することで,
 選択公理の使用はたいてい回避できます」とあります.
-%あとで書く
-\begin{comment}
-  この選択公理の回避の例が出てきたら,
-  ここにリンクを貼る.
-\end{comment}
+\ToDoLater{
+この選択公理の回避の例が出てきたら,
+ここにリンクを貼る.
+}
 
 \begin{definition}[E:p7 ,\ K:p12]
   集合族$\mathcal{C}$が\textbfgt{chain}{鎖}であるとは,
   任意の$X,Y\in \mathcal{C}$に対して$X\subseteq Y$か$Y\subseteq X$のいずれかが成立することをいう.
 \end{definition}
-%あとで書く
-\begin{comment}
+\ToDoLater{
   ZFC復習やったらここに鎖の定義の参照を書く.
-\end{comment}
+}
 
 \begin{lemma}[E:p7 ZORN'S LEMMA,\ K:p12 ツォルンの補題]
   \label{lemma:ツォルンの補題}
@@ -1460,11 +1506,10 @@ $A$がどんな集合でも生まれることはありません.
   $\mathcal{A}$には超集合関係にて極大な要素$A$が存在する,
   つまり$A$はどの$X\in \mathcal{A}$に対しても$A\subsetneq X$となることはない.
 \end{lemma}
-%あとで書く
-\begin{comment}
+\ToDoLater{
   ツォルンの補題.
   ZFC復習やったらここに証明へのリンクをはる.
-\end{comment}
+}
 
 \subsection*{基数}
 \label{subsection:基数}

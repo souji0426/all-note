@@ -10,9 +10,9 @@ my $file_path = $ARGV[0];
 
 my @invalid_line_array;
 
-my @path_data = split( /\\/, $file_path );
+my @path_data = split( "/", $file_path );
 pop @path_data;
-my $copy_file_path = join( "\\", @path_data ) . "\\copy.tex";
+my $copy_file_path = join( "/", @path_data ) . "/copy.tex";
 open( my $copy_fh, ">:encoding( cp932 )", $copy_file_path );
 open( my $input_fh, "<:encoding( cp932 )", $file_path );
 my $line_counter = 1;

@@ -1,4 +1,4 @@
-\documentclass[C:/math/note-logic-intro/note]{subfiles}
+\documentclass[C:/souji/all-note/note]{subfiles}
 
 \begin{document}
 
@@ -58,8 +58,8 @@
   \index{ぶんろんり@文論理!しんりちわりあて@真理値割り当て}\index{sentential logic!truth assignment}
   \index{しんりちわりあて@真理値割り当て}\index{truth assignment}
 \end{definition}
-\RegisterInSymbolList{$T$}{文論理における真理値の真}{definition:真理値割り当て}
-\RegisterInSymbolList{$F$}{文論理における真理値の偽}{definition:真理値割り当て}
+\RegisterInSymbolList{$T$}{definition:真理値割り当て}
+\RegisterInSymbolList{$F$}{definition:真理値割り当て}
 
 テキストにあるなし関わらず気になったことを注意しておくと,
 \begin{enumerate}
@@ -195,12 +195,10 @@
   集合$\mathcal{A}\subseteq \SetOfSentenceSymbol$へのどんな真理値割り当て$v$についても,
   \DefRef{definition:真理値割り当て}の条件4-0.から4-5.までに合致する写像$\bar{v}\colon\bar{\mathcal{A}}\to \{ T,F \}$がただひとつ存在する.
 \end{theorem}
-
-%あとで書く
-\begin{comment}
+\ToDoLater{
   この定理12Aの完全な証明が分かれば,
   ここに引用すること.
-\end{comment}
+}
 
 次の記法は今後便利に思えたので導入する.
 
@@ -252,9 +250,9 @@ $\SetOfSentenceSymbol(\Sigma)=\{ A_1,A_2,A_3,A_9\}$となる.
   \index{ぶんろんり@文論理!とーとろじーてきにどうち@トートロジー的に同値}\index{sentential logic!tautologically equivalent}
   \index{とーとろじーてきにどうち@トートロジー的に同値}\index{tautologically equivalent}
 \end{definition}
-\RegisterInSymbolList{$\Sigma \models \tau$}{$\Sigma$は$\tau$をトートロジー的に含意する}{definition:トートロジー的に含意する}
-\RegisterInSymbolList{$\models \tau$}{$\Sigma$は$\tau$はトートロジーである}{definition:トートロジー}
-\RegisterInSymbolList{$\TautoEquiv$}{トートロジー的に同値}{definition:トートロジー}
+\RegisterInSymbolList{$\Sigma \models \tau$}{definition:トートロジー的に含意する}
+\RegisterInSymbolList{$\models \tau$}{definition:トートロジー}
+\RegisterInSymbolList{$\TautoEquiv$}{definition:トートロジー}
 
 \begin{example}[E:p23,\ K:p35~36]
   \label{example:トートロジー}

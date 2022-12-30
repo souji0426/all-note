@@ -22,92 +22,113 @@ sub print_debug_to_txt {
 #設定ファイル関連
 sub get_setting {
   my $setting_ini_path = "C:/souji/all-note/tool/setting.ini";
-  return Config::Tiny->read( $setting_ini_path );
+  return Config::Tiny->read( encode( "cp932", $setting_ini_path ), "utf8" );
 }
 #ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-#ファイル・ディレクトリデータ取得
-sub get_dir_and_file_data {
-  my ( $target_dir_path ) = @_;
-  my $path_data = {};
-
-  my $path_list;
+#ファイル・ディレクトリ一覧を取得
+sub get_all_path {
+  my ( $path ) = @_;
+  $path = encode( "cp932", $path );
+  my @path_list;
   find sub {
       my $file = $_;
       my $path = $File::Find::name;
       if ( $file ne "." and $file ne ".." ) {
-        push( @$path_list, $path );
+        push( @path_list, $path );
       }
-  }, $target_dir_path;
+  }, $path;
+  return \@path_list;
+}
 
-  foreach my $path ( @$path_list ) {
-    if ( -d $path ) {
-      if ( !exists $path_data->{"dir"} ) {
-        $path_data->{"dir"} = {};
-      }
-      $path_data->{"dir"}->{get_dir_in_name( $path )} = {};
-      $path_data->{"dir"}->{get_dir_in_name( $path )}->{"dir"} = get_dir_in_path( $path );
-      $path_data->{"dir"}->{get_dir_in_name( $path )}->{"full_path"} = $path;
-    } elsif ( -f $path ) {
-      if ( !exists $path_data->{"file"} ) {
-        $path_data->{"file"} = {};
-      }
-      $path_data->{"file"}->{get_dir_in_name( $path )} = {};
-      $path_data->{"file"}->{get_dir_in_name( $path )}->{"dir"} = get_dir_in_path( $path );
-      $path_data->{"file"}->{get_dir_in_name( $path )}->{"full_path"} = $path;
+sub get_all_file_path {
+  my ( $path ) = @_;
+  my @all_file_path_list;
+  my $all_path_list = get_all_path( $path );
+  foreach my $target_path ( @$all_path_list ) {
+    if ( -f $target_path ) {
+      push( @all_file_path_list, $target_path );
     }
   }
-  return $path_data;
+  return \@all_file_path_list;
 }
-#ーーーーーーーーーーーーーーーーーーー
-sub get_dir_in_path {
+
+sub get_all_tex_file_path {
   my ( $path ) = @_;
-  my @data = split( "/", $path );
-  pop @data;
-  return join( "/", @data );
-}
-
-sub get_dir_in_name {
-  my ( $path ) = @_;
-  my @data = split( "/", $path );
-  return pop @data;
-}
-#ーーーーーーーーーーーーーーーーーーー
-#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-
-#ファイル・ディレクトリ操作関連ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-
-#指定したディレクトリとその直下にあるディレクトリ全てに含まれるファイルのパスを返すサブルーチン。
-sub get_file_path_in_dir_and_all_sub_dir {
-  my ( $target_path ) = @_;
-  my @file_paths;
-  my @dir_paths = glob( $target_path . "/*" );
-  foreach my $path ( @dir_paths ) {
-    if ( -d $path ) {
-      push ( @dir_paths, glob( $path . "/*" ) );
-    } elsif ( -f $path ) {
-      push ( @file_paths, $path );
+  my @all_tex_file_path_list;
+  my $all_path_list = get_all_path( $path );
+  foreach my $target_path ( @$all_path_list ) {
+    if ( -f $target_path and $target_path =~ /.tex$/ ) {
+      push( @all_tex_file_path_list, $target_path );
     }
   }
-  return \@file_paths;
+  return \@all_tex_file_path_list;
 }
 
-#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+sub get_ordered_subfile_list {
+  my ( $file_list, $tex_file_path ) = @_;
 
-#日付操作関連ーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+  my $fh;
+  if (  open( $fh, "<:encoding( cp932 )", $tex_file_path ) ) {
 
-#今日の日付をyyyymmdd形式で取得して返す。
-sub get_today_yyyymmdd {
-  my $today = localtime;
+  } elsif ( open( $fh, "<:encoding( cp932 )", encode( "cp932", $tex_file_path ) ) ) {
 
-  my $year = $today->year;
-  my $month_str = sprintf( "%02d", $today->mon );
-  my $day_str = sprintf( "%02d", $today->mday );
+  }
 
-  return join( "", ( $year, $month_str, $day_str ) );
+  while( my $line = <$fh> ) {
+    #open( my $test_fh, ">>", "./text.txt" );
+    #print $test_fh encode( "cp932", $line );
+    #close $test_fh;
+    chomp $line;
+    if ( $line =~ /.subfile\{(.+)\}$/ ) {
+      my $target_path = $1;
+      my $setting = get_setting();
+      my $all_note_tex_file_path = $setting->{"path"}->{"all_note_tex_file"};
+      if ( $tex_file_path eq $all_note_tex_file_path ) {
+
+        push( @$file_list,  $target_path );
+        get_ordered_subfile_list( $file_list, $target_path );
+
+      } else {
+        my $setting = get_setting();
+        my $part_dir_path = $setting->{"path"}->{"part_dir"};
+        my $all_tex_file_path_list = &common::get_all_tex_file_path( $part_dir_path );
+        foreach my $tex_file_path_in_list ( @$all_tex_file_path_list ) {
+          $tex_file_path_in_list = decode( "cp932", $tex_file_path_in_list );
+          if ($tex_file_path_in_list =~ /${target_path}$/ ) {
+            push( @$file_list, $tex_file_path_in_list );
+            get_ordered_subfile_list( $file_list, $tex_file_path_in_list );
+          }
+        }
+
+      }
+    }
+  }
+  close $fh;
 }
 
-#ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+sub get_part_data {
+  my ( $file_path ) = @_;
+  my $data = {};
+  my $part_counter = 0;
+  open( my $fh, "<:encoding( cp932 )", encode( "cp932", $file_path ) );
+  while( my $line = <$fh> ) {
+    chomp $line;
+    if ( $line =~ /.subfile\{(.+)\}$/ ) {
+      my $target_path = $1;
+      $data->{sprintf( "%02d", $part_counter )}->{"path"} = $target_path;
+      my @path_data = split( "/", $target_path );
+      my $file_name = pop @path_data;
+      if ( $file_name =~ /(.+)\.tex$/ ) {
+        my @data = split( "_", $1 );
+        my $part_name = pop @data;
+        $data->{sprintf( "%02d", $part_counter )}->{"name"} = $part_name;
+        $part_counter++;
+      }
+    }
+  }
+  close $fh;
+  return $data;
+}
 
 
 1;

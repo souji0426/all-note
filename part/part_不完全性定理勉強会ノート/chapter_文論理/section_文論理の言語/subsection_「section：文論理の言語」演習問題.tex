@@ -1,4 +1,4 @@
-\documentclass[C:/math/note-logic-intro/note]{subfiles}
+\documentclass[C:/souji/all-note/note]{subfiles}
 
 \begin{document}
 
@@ -47,40 +47,7 @@
  }
 \end{answer}
 
-次のExerciseを証明するために2つのPropositionを証明しておく.
-
-\begin{comment}
- 2番目の演習問題を示そうとして最初用意していた命題.
- でも使わなかったので.
- \begin{proposition}\label{prop:括弧以外だけの長さ2以上表現は整式でない}
-   左右の括弧記号以外を用いた,
-   その長さが2以上の表現は整式でない.
- \end{proposition}
-
- \begin{proof}
-   $\alpha$を左右の括弧記号以外を用いた長さ2以上の表現とする.
-   その長さが2以上であることから$\alpha$は文記号一文字だけの表現ではない. \\
-   $\alpha$の長さが2だとすると,
-   $\alpha$が文記号一文字だけの表現でないことから,
-   $\alpha$が整式となるにはなんらかの式構成操作の結果であるが,
-   式構成操作の結果はいずれも長さが3以上となるため,
-   $\alpha$は整式ではない. \\
-   $\alpha$の長さが3以上だとすると,
-   長さが2のときと同様$\alpha$が整式になるには,はなんらかの式構成操作の結果でなくてはいけないが,
-   そうなると$\alpha$の一番左端の記号は左括弧記号でなくてはいけないが,
-   $\alpha$は左括弧記号を含まないため$\alpha$は整式ではない.
- \end{proof}
-
- \begin{proposition}\label{prop:長さ2以上で左端が左括弧でない・右端が右括弧でない表現は整式でない}
-   長さが2以上で,
-   左端の記号が左括弧記号でない,
-   または右端の記号が右括弧記号でない表現は整式でない.
- \end{proposition}
-
- \begin{proof}
-   \PropRef{prop:括弧以外だけの長さ2以上表現は整式でない}と同様のやり方で証明できるので省略.
- \end{proof}
-\end{comment}
+次のExerciseを証明するためのPropositionを証明しておく.
 
 \begin{proposition}
   \label{proposition:式構成操作を行った整式は長さが4以上}
@@ -95,42 +62,11 @@
  $\alpha = \mathcal{E}_{\lnot}(\beta_1)$となっていたとすると,
  $\beta_1$の長さは1以上であるから,
  $\alpha$の長さは$(, ), \lnot$の3つ分長さが増えて4以上となる. \\
- $\alpha = \mathcal{E}_{\land}(\beta_1m \beta_2)$となっていたとすると,
+ $\alpha = \mathcal{E}_{\land}(\beta_1, \beta_2)$となっていたとすると,
  $\beta_1, \beta_2$のいずれの長さも1以上であるから,
  $\alpha$の長さは$(, ), \lnot$の3つ分と$\beta_1, \beta_2$を合わせて5以上となる.
  つまりこの場合でも長さは4以上となり,
  他の2項結合記号による式構成操作でも同様である.
-\end{proof}
-
-\begin{proposition}
-  \label{proposition:整式でない表現の式構成操作の結果も整式でない}
- 整式でない表現に式構成操作を行っても整式にはならない. \\
- もっというと$\alpha$を整式でない表現とすると$\mathcal{E}_{\lnot}(\alpha)$は整式でない. \\
- 2つの表現$\alpha,\beta$のどちらか1つは整式でないとすると,
- $\mathcal{E}_{\square}(\alpha, \beta)$（$\square$は2項結合記号のどれか）のいずれも整式でない.
-\end{proposition}
-
-\begin{proof}
- $\alpha$を整式でない表現とする.
- すると整式でないということは$\alpha$を末項とするようないかなる表現の有限列も構成列とはならない. \\
- $\mathcal{E}_{\lnot}(\alpha)$が整式となるとすると,
- 構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$が存在して$\varepsilon_n=\mathcal{E}_{\lnot}(\alpha)$となっている.
- 構成列の定義\DefRef{definition:構成列と整式}から$\exists j<n\big( \varepsilon_n=\mathcal{E}_{\lnot}( \varepsilon_j ) \big)$となっているから,
- そのような$j$を固定すると,
- $\varepsilon_j = \alpha$である.
- すると$\ntuple{\varepsilon_1}{\varepsilon_j}$は$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
- \PropRef{proposition:構成列の始切片は構成列}から$\ntuple{\varepsilon_1}{\varepsilon_j}$も構成列である.
- $\ntuple{\varepsilon_1}{\varepsilon_j}$という構成列の存在から$\alpha$が整式となるが,
- これは矛盾. \\
- 2つの表現$\alpha,\beta$のどちらか1つは整式でないとする.
- $\mathcal{E}_{\land}(\alpha, \beta)$が整式となるとすると,
- 同様に構成列の定義から$\exists j,k<n\big( \varepsilon_n=\mathcal{E}_{\land}( \varepsilon_j, \varepsilon_k ) \big)$となっているから,
- そのような$j,k$を固定すると,$\varepsilon_j = \alpha,\  \varepsilon_k = \beta$である.
- もし$\alpha$が整式でないとすると,
- $\ntuple{\varepsilon_1}{\varepsilon_j}$は$\ntuple{\varepsilon_1}{\varepsilon_n}$の真の始切片であり,
- 先ほどと同様の理由で矛盾する.
- $\beta$が整式でなかった場合も同様に,
- またそれ以外の2項結合記号に関する式構成操作に関しても同様に示せるので省略する.
 \end{proof}
 
 \begin{exercise}[E:p19 2.,\ K:p29 2.]
@@ -149,31 +85,54 @@
      \PropRef{proposition:式構成操作を行った整式は長さが4以上}よりいずれの式構成操作の結果も長さが4以上になり,
      長さが2である$\alpha$は整式ではない. \\
      $\alpha$の長さが3である場合も同様なので省略する.
+
    \item どんな長さが6の表現も整式でないこと \\
      $\alpha$を長さが6である表現とする.
-     $\alpha$はその長さから文記号1文字だけの表現ではないため,
-     何らかの式構成操作の結果である. \\
-     なんらかの表現$\beta$があって$\alpha = \mathcal{E}_{\lnot}(\beta)$となっていたとする.
-     すると$\alpha$は$(\lnot \beta)$という形の表現であり,
-     $\beta$の長さは3である.
-     しかし長さが3の整式は存在しないため,
-     $\beta$も整式でない.
-     そして\PropRef{proposition:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない. \\
-     続いてなんらかの表現$\beta_1, \beta_2$があって,
-     $\alpha = \mathcal{E}_{\land}( \beta_1, \beta_2 )$となっていたとする.
-     すると$\alpha$は$( \beta_1 \land \beta_2 )$という形の表現であり,
-     $\beta_1, \beta_2$の長さはどちらかは1,
-     どちらかは2という配分になっている.
-     かりに$\beta_1$の長さを2とすると,
-     長さが2の整式は存在しないため$\beta_1$は整式でない.
-     そして\PropRef{proposition:整式でない表現の式構成操作の結果も整式でない}より$\alpha$も整式とならない.
-     他の2項結合記号に関しても同様なので省略する.
+     よって構成列$\ntuple{\varepsilon_1}{\varepsilon_n}$が存在して$\alpha=\varepsilon_n$となっている.
+     構成列の定義から$\varepsilon_n$は以下のいずれかをみたす.
+     \begin{itemize}
+       \item[($1$)] $\varepsilon_n\in \SetOfSymbol$.
+       \item[($2$)] $\exists j<n(\ \varepsilon_n = \mathcal{E}_{\lnot}( \varepsilon_j )\ )$.
+       \item[($3$)] $\exists j,k<n(\ \varepsilon_n = \mathcal{E}_{\square}( \varepsilon_j,\varepsilon_k )\ )$.
+     \end{itemize}
+     $\varepsilon_n$の長さが$6$であることから$\varepsilon_n\notin \SetOfSymbol$,
+     つまり($1$)ではない. \\
+     そして($2$)でもない.
+     \begin{sub-block}{{\boldmath $\because$}\,}
+       もし($2$)だったとしてそんな$\varepsilon_j$を固定する.
+       \PropRef{proposition:構成列の始切片は構成列}より$\ntuple{\varepsilon_1}{\varepsilon_j}$も構成列であり,
+       ゆえに$\varepsilon_j$は以下のいずれかを満たす
+       \begin{itemize}
+         \item[($2-1$)] $\varepsilon_j\in \SetOfSymbol$.
+         \item[($2-2$)] $\exists j^{\prime}<n(\ \varepsilon_j = \mathcal{E}_{\lnot}( \varepsilon_{j^{\prime}} )\ )$.
+         \item[($2-3$)] $\exists j^{\prime},k^{\prime}<n(\ \varepsilon_j = \mathcal{E}_{\square}( \varepsilon_{j^{\prime}},\varepsilon_{k^{\prime}} )\ )$.
+       \end{itemize}
+       $\varepsilon_j$は$\varepsilon_n$よりも$(,),\lnot$の3つ分長さが短い,
+       つまり長さが$3$なので,
+       先ほどと同じ理由で($2-1$)ということはない. \\
+       もし($2-2$)だったとしてそんな$\varepsilon_{j^{\prime}}$が存在したとすると,
+       先ほどと同じ理由で$\varepsilon_{j^{\prime}}$は$\varepsilon_j$よりもさらに長さが$3$短くなるが,
+       そうなると$\varepsilon_{j^{\prime}}$は長さが$0$になり,
+       整式とはならず矛盾. \\
+       もし($2-3$)だったとしてそんな$\varepsilon_{j^{\prime}},\varepsilon_{k^{\prime}}$が存在したとすると,
+       上と同じ理由でどちらも長さが$0$となった同じ理由で矛盾.
+     \end{sub-block}
+
+     そして($3$)でもない.
+     \begin{sub-block}{{\boldmath $\because$}\,}
+       もし($3$)だったとして,
+       そんな$\varepsilon_j,\varepsilon_k$が存在したとする.
+       するとどちらかの長さが$2$になるが,
+       \PropRef{proposition:式構成操作を行った整式は長さが4以上}よりそんな整式は存在しないため矛盾.
+     \end{sub-block}
+
    \item 長さが$1,4,5$の整式が存在すること \\
      $A,A^{\prime}$を文記号のいずれかとする.
      表現$\alpha_1, \alpha_4, \alpha_5$を,
      $\alpha_1 = A,\ \alpha_4 = (\lnot A),\ \alpha_5 = ( A\land A^{\prime} )$とおくと,
      それぞれ長さが$1,4,5$で,
      いずれも構成列を構築できることから整式である.
+
    \item 長さが$7,8,9$の整式が存在すること \\
      1つ上で示したことより長さが$1,4,5$の整式が存在するので,
      それらの中から1つとり$\alpha_1, \alpha_4, \alpha_5$とおく（添え字はその長さを表している）.
@@ -181,9 +140,10 @@
      $\alpha_7 = ( \lnot \alpha_4 ),\ \alpha_8 = ( \lnot \alpha_5 ),\ \alpha_9 = ( \alpha_1 \land \alpha_5 )$とおくと,
      それぞれ長さが$7,8,9$で,
      いずれも構成列を構築できることから整式である.
+
    \item $10$以上の任意の長さの整式が存在すること \\
      任意に$10$以上の自然数$n$をとる.
-     $n$に対してある自然数$m$があって,
+     $n$に対してある自然数$m\geq 1$があって,
      $n=7+3m$また$n=8+3m$または$n=9+3m$のいずれかである.
      $n=7+3m$な$n$に対しては,
      表現$\alpha$を$\alpha=\mathcal{E}^m_{\lnot}(\alpha_7)$とおく.
@@ -193,6 +153,36 @@
      構成列を構築できることから整式である. \\
      $n=8+3m$または$n=9+3m$であっても長さが$8,9$の整式を用いることで同様に示せるので省略する. \qedhere
  \end{itemize}
+\end{proof}
+
+上の証明で長さが$2,3,6$の整式が存在しないことは帰納法の原理を用いて示すこともできそうなので
+やってみることにします.
+
+\begin{proof}
+  $\mathcal{A}\subseteq \SetOfWff$を
+  \begin{equation*}
+    \mathcal{A}\ =\ \SetBar{\alpha}{\alpha\text{の長さは}2,3,6\text{でない}}
+  \end{equation*}
+  と定め,
+  $\mathcal{A}=\SetOfWff$であることを帰納法の原理を用いて示す. \\
+  $\SetOfSentenceSymbol \subseteq \mathcal{A}$は明らかなので,
+  $\mathcal{A}$が式構成操作で閉じていることを示す.
+  任意に$\alpha,\beta\in \mathcal{A}$をとる.
+  $\gamma = \mathcal{E}_{\lnot}( \alpha )$とおくと,
+  $\gamma$の長さは$\alpha$よりも$3$長い.
+  すると$\gamma$の長さは$4$以上,
+  つまり$2,3$ではなく,
+  そして$\alpha$の長さが$3$でなくことから,
+  $\gamma$の長さは$6$でもない,
+  よって$\gamma\in \mathcal{A}$,
+  つまり$\mathcal{E}_{\lnot}( \alpha ) \in \mathcal{A}$である.
+  続いて$\gamma = \mathcal{E}_{\lnot}( \alpha,\beta )$とおくと,
+  先ほど同じ理由で$\gamma$の長さは$2,3$ではない.
+  そして$\gamma$の長さが$6$ならば$\alpha,\beta$のどちらかの長さが$2$となるが,
+  これはどちらも$\mathcal{A}$に属することに矛盾する.
+  よって$\gamma$の長さは$2,3,6$のいずれでもなく,
+  ゆえに$\mathcal{E}_{\lnot}( \alpha,\beta )\in \mathcal{A}$である.
+  残りの式構成操作についても同様に示せるので省略する.
 \end{proof}
 
 \begin{exercise}[E:p19 3.,\ K:p29 3.]
@@ -233,6 +223,7 @@
      $\gamma$は$\alpha,\beta$の2つに含まれるもの以外には文記号が増えていないので,
      $s_{\gamma}=s_{\alpha}+s_{\beta}$である.
      すると
+     \vspace{-0.5cm}
      \begin{align*}
        s_{\gamma}\ &=\  s_{\alpha}+s_{\beta} \\
        &=\ (c_{\alpha}+1)\ +\ (c_{\beta}+1) \\
@@ -256,17 +247,19 @@
  $\ntuple{\varepsilon_1}{\varepsilon_n}$を$\varepsilon_n=\varphi$な構成列とし,
  $\varphi$は記号$A_4$を含んでいないとする.
  $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$を$\ntuple{\varepsilon_1}{\varepsilon_n}$から$A_4$を含む表現をすべて取り去った表現の有限列とする.
- 仮定より$\varepsilon^{\prime}_m=\varphi$である.
+ $\varphi$は$A_4$を含んでいないので上記の取り去る作業のあとも構成列に残っており,
+ 列ので位置も末項のまま,
+ つまり$\varepsilon^{\prime}_m=\varphi$である.
  ここで$m=n$ならば「$\forall i( \varepsilon_i = \varepsilon^{\prime}_i )$」となって,
  もともと$\ntuple{\varepsilon_1}{\varepsilon_n}$のどの表現にも$A_4$が含まれていなかったことになり,
- 証明することがなくなってしまうので,
- $m<n$としておく. \\
+ やはり以前として構成列のままである, \\
+ よって次は$m<n$としておく.
  \DefRef{definition:構成列と整式}より$\ntuple{\varepsilon_1}{\varepsilon_n}$は「$\forall i\leq n(\ (1)\lor(2)\lor(3)\ )$」をみたしている.
  いま,
  $\ntuple{\varepsilon^{\prime}_1}{\varepsilon^{\prime}_m}$が構成列でなかったとする.
  つまり「$\exists i^{\prime}\leq m(\ \lnot(1^{\prime})\land \lnot(2^{\prime})\land \lnot(3^{\prime})\ )$」として,
  そんな$i^{\prime}$を1つ固定する.
- ここで
+ ここでそれぞれの主張は
  \begin{itemize}
    \item[$\lnot(1^{\prime})$] $\varepsilon^{\prime}_{i^{\prime}}\notin \SetOfSentenceSymbol$.
    \item[$\lnot(2^{\prime})$] $\forall j<i^{\prime}\big(\ \varepsilon^{\prime}_{i^{\prime}}\neq \mathcal{E}_{\lnot}( \varepsilon^{\prime}_j )\ \big)$.
@@ -304,7 +297,7 @@
 \end{exercise}
 
 \begin{proof}
- (a)(b)に関してテキストのヒントを使って同時に示す. \\
+ (a),(b)に関してテキストのヒントを使って同時に示す. \\
  $\mathcal{A}\subseteq \SetOfWff$を否定記号$\lnot$を含まない整式の集合とする.
  整式に含まれる左括弧記号の個数
  \footnote{
@@ -336,7 +329,7 @@
  それぞれに含まれる文記号の個数は$k_{\alpha}+1,k_{\beta}+1$個である.
  すると$\varphi$の長さは,
  その形から$\alpha$と$\beta$の長さに加えて,
- $(.\lnot,)$の3つの記号があることから,
+ $(.\land,)$の3つの記号があることから,
  $k\in \mathbb{N}$を$k=k_{\alpha}+k_{\beta}+1$とおけば,
  \begin{align*}
    (4k_{\alpha}+1)\ +\ (4k_{\beta}+1)\ +\ 3\ &=\ 4(\ k_{\alpha}+k_{\beta}+1\ )\ +\ 1 \\
@@ -358,6 +351,70 @@
    (\varphi\text{に含まれる文記号の個数}) / (\varphi\text{を構成する記号の個数})\ =\ (k+1) / (4k+1)\ > 1/4
  \end{equation*}
  となって$1/4$を超えているため(b)も成立している.
+\end{proof}
+
+私は勉強会にて上記の証明を発表しましたが,
+参加者の方からのコメントで帰納法の原理でも示すやり方を提案されたので,
+そちらも証明を書いてみます.
+
+\begin{proof}
+  $\alpha\in \SetOfWff$と$k\in \mathbb{N}$に対して,
+  2つの主張$(\text{a})_{\alpha,k},(\text{b})_{\alpha,k}$を以下のように定める.
+  \begin{itemize}
+    \item[] $(\text{a})_{\alpha,k}$は「$\alpha$の長さは$4k+1$である」の略記とする.
+    \item[] $(\text{b})_{\alpha,k}$は「$\alpha$を構成する記号のうち,
+      文記号の個数は$k+1$個である」の略記とする.
+  \end{itemize}
+  そして$\mathcal{A}\subseteq \SetOfWff$を
+  \begin{equation*}
+    \mathcal{A}\ =\ \SetBar{\alpha}{\alpha:\lnot\text{を含まない}\ \rightarrow\ \exists k\in \mathbb{N}\big( \ (\text{a})_{\alpha,k}\land (\text{b})_{\alpha,k}\ \big)}
+  \end{equation*}
+  と定める.
+  $\mathcal{A}=\SetOfWff$であることを示せば,
+  先の証明と同じ理由から証明完了となる.
+  そして$\mathcal{A}=\SetOfWff$であることを帰納法の原理を用いて示す.
+  \begin{itemize}
+    \item $\mathcal{A}$にはすべての文記号が属すること \\
+      任意に文記号$A$をとる.
+      整式$\alpha$を$A$1文字の整式とする.
+      $\alpha$は明らかに$\lnot$を含んでいない.
+      すると$k=0$とすれば$(\text{a})_{\alpha,k},(\text{b})_{\alpha,k}$のどちらも真であり,
+      そんな$k$の存在から$\alpha\in \mathcal{A}$,
+      つまり$A\in \mathcal{A}$.
+    \item $\mathcal{A}$がすべての式構成操作について閉じていること \\
+      任意に$\alpha,\beta\in \mathcal{A}$をとる.
+      $\gamma=\mathcal{E}_{\lnot}(\alpha)$とおくと,
+      $\gamma$は$\lnot$記号を含むため
+      \begin{equation*}
+        \gamma:\lnot\text{を含まない}\ \rightarrow\ \exists k\in \mathbb{N}\big( \ (\text{a})_{\gamma,k}\land (\text{b})_{\gamma,k}\ \big)
+      \end{equation*}
+      は真であり,
+      よって$\gamma\in \mathcal{A}$,
+      つまり$\mathcal{E}_{\lnot}(\alpha)\in \mathcal{A}$. \\
+      続いて$\gamma=\mathcal{E}_{\land}(\alpha, \beta)$とおく.
+      もし$\alpha,\beta$のどちらかに$\lnot$が含まれていれば,
+      $\gamma$にも含まれているので上と同じ理由で$\mathcal{E}_{\land}(\alpha, \beta)\in \mathcal{A}$.
+      $\alpha,\beta$のどちらもに$\lnot$が含まれていないとすると$\gamma$にも含まれていない.
+      そして$\alpha\in \mathcal{A}$より$\exists k\in \mathbb{N}\big( \ (\text{a})_{\alpha,k}\land (\text{b})_{\alpha,k}\ \big)$が成り立っているので,
+      そんな$k$を改めて$k_{\alpha}$として固定する.
+      同様に$k_{\beta}$も固定する.
+      そして$k_{\gamma}=k_{\alpha}+k_{\beta}+1$とおく.
+      すると$\gamma$の長さは$\alpha,\beta$の長さの合計に加えて$(,\land,)$の3つ分長くなっている,
+      つまり
+      \begin{align*}
+        (4 k_{\alpha}+1)\ +\ (4 k_{\beta}+1)\ +\ 3\  &=\  4( k_{\alpha}+k_{\beta}+1)\ +\ 1 \\
+        &=\ 4 k_{\gamma}+1
+      \end{align*}
+      つまり$(\text{a})_{\gamma,k_{\gamma}}$が成立.
+      そして$\gamma$を構成する記号のうち文記号の個数は$\alpha,\beta$のそれの合計なので,
+      \begin{equation*}
+        ( k_{\alpha}+1 )\ +\ ( k_{\beta}+1)\ =\ k_{\gamma}+1
+      \end{equation*}
+      よって$(\text{b})_{\gamma,k_{\gamma}}$が成立.
+      上記の2つの主張が成り立つような$k_{\gamma}$の存在から$\gamma\in \mathcal{A}$,
+      つまり$\mathcal{E}_{\land}(\alpha, \beta)\in \mathcal{A}$. \\
+      他の式構成操作に関しても同様に示せるので省略する. \qedhere
+  \end{itemize}
 \end{proof}
 
 \end{document}

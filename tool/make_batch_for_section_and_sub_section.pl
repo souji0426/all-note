@@ -7,15 +7,15 @@ use Data::Dumper;
 use File::Find;
 
 require "C:/souji/all-note/tool/common.pl";
-my $tool_dir_path = "C:\\souji\\all-note\\tool";
 
 my $setting = &common::get_setting();
 my $part_dir_path = $setting->{"path"}->{"part_dir"};
+my $tool_dir_path = $setting->{"path"}->{"tool_dir"};
 
 main();
 
 sub main {
-  my $path_list = get_tex_file_list( $part_dir_path );
+  my $path_list = &common::get_all_tex_file_path( $part_dir_path );
   foreach my  $file_path ( @$path_list ) {
     $file_path = decode( "cp932", $file_path );
     my $path_without_suffix = get_without_suffix_name( $file_path );
@@ -42,27 +42,13 @@ sub main {
     open( $fh, ">:encoding( cp932 )", encode( "cp932", $batch_file_path ) );
     print $fh "cd ${tool_dir_path}\n\n";
     print $fh "perl -w make_subfile.pl ${path_without_suffix}.tex\n\n";
+    print $fh "perl -w make_batch_for_section_and_sub_section.pl\n\n";
     print $fh "pause\n\n";
     close $fh;
   }
 }
 
 #----------------------------------------------------------------------------------------------
-
-sub get_tex_file_list {
-  my ( $path ) = @_;
-  my $path_list;
-  find sub {
-      my $file = $_;
-      my $path = $File::Find::name;
-      if ( $file ne "." and $file ne ".." and !-d $path and -f $path ) {
-        if ( $path =~ /.tex$/ ) {
-          push( @$path_list, $path );
-        }
-      }
-  }, $path;
-  return $path_list;
-}
 
 sub get_without_suffix_name {
   my ( $file_name ) = @_;
