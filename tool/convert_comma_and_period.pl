@@ -51,6 +51,7 @@ if ( $num_of_invalid_line > 0 ) {
     my $line = $invalid_line_array[$i];
     print encode( "cp932", "\t\t${i}件目：${line}\n" );
   }
+  system( "pause" );
 } elsif ( $num_of_invalid_line == 0 ) {
   print encode( "cp932", "\n\t不当な句読点はナシ！\n\n" );
   unlink $file_path;

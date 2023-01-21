@@ -60,6 +60,8 @@ del "./note.ind"
 
 del "./note.blg"
 
+call Œã‚Å‘‚­ƒŠƒXƒgì¬.bat
+
 cd C:\souji\mini-notes
 
 call ˆêŠ‡Às.bat
